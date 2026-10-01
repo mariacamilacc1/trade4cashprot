@@ -1,0 +1,2627 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#064b38">
+<title>Trade4Cash | Tu dinero, tu acuerdo</title>
+<style>
+:root{
+  --green:#086b4f;
+  --green2:#0a7956;
+  --mint:#75e6a5;
+  --mint-soft:#e8f8ef;
+  --deep:#063d2d;
+  --ink:#18352b;
+  --muted:#698075;
+  --line:#dbece3;
+  --paper:#f4faf6;
+  --white:#fff;
+  --shadow:0 16px 44px #073c2d18;
+  --shadow-lg:0 24px 60px #04251b32;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:15px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid #75e6a5;
+  outline-offset:2px;
+}
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:25;
+  height:71px;
+  background:#064b38;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 max(5vw,24px);
+  box-shadow:0 3px 12px #062a2016;
+}
+.brand{
+  font-size:27px;
+  line-height:1;
+  font-weight:850;
+  letter-spacing:-1.3px;
+  color:#fff;
+  white-space:nowrap;
+  cursor:pointer;
+}
+.brand span{color:#78e8a8}
+.nav{display:flex;align-items:center;gap:6px}
+.nav button{
+  background:transparent;
+  color:#f2fff7;
+  border:0;
+  border-radius:12px;
+  padding:10px 13px;
+  font-size:14px;
+  font-weight:700;
+  white-space:nowrap;
+  transition:.15s ease;
+}
+.nav button:hover,.nav button.active{background:#ffffff1a}
+.menu-btn{display:none;background:transparent;border:0;color:#fff;font-size:24px}
+.container{max-width:1124px;width:calc(100% - 48px);margin:0 auto}
+.page{padding:30px 0 60px;flex:1}
+
+.trm-card{
+  margin:18px 0 27px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:17px 22px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:0 4px 15px #073c2d07;
+}
+.trm-copy{min-width:0}
+.trm-kicker{font-size:12px;font-weight:800;color:var(--green);letter-spacing:.04em;text-transform:uppercase}
+.trm-caption{margin:3px 0 0;color:var(--muted);font-size:13px;line-height:1.45}
+.trm-value{font-size:clamp(24px,4vw,32px);font-weight:850;color:var(--deep);letter-spacing:-.7px;white-space:nowrap}
+.trm-date{font-size:12px;color:var(--muted);text-align:right;max-width:240px}
+.trm-date a{color:var(--green);font-weight:700;text-decoration:none}
+.trm-date a:hover{text-decoration:underline}
+
+.hero{
+  background:linear-gradient(115deg,#08533c 0%,#086747 58%,#118f65 100%);
+  color:#fff;
+  border-radius:28px;
+  min-height:380px;
+  padding:55px 6%;
+  box-shadow:var(--shadow);
+  display:flex;
+  align-items:center;
+}
+.hero-copy{max-width:770px}
+.hero h1{margin:0 0 13px;font-size:clamp(38px,5.4vw,54px);line-height:1.05;letter-spacing:-1.5px}
+.hero h1 span{color:var(--mint)}
+.hero .lead{font-size:17px;margin:0 0 16px;color:#d5f4e3}
+.hero p{max-width:840px;font-size:16px;line-height:1.65;color:#e2f6eb;margin:0 0 24px}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+
+.btn{
+  border:1px solid transparent;
+  border-radius:12px;
+  padding:12px 20px;
+  font-weight:750;
+  transition:.16s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  text-decoration:none;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--mint);color:#073d2c}
+.btn.primary:hover{background:#8cf0b4}
+.btn.ghost{background:#ffffff15;color:#fff;border-color:#ffffff2c}
+.btn.ghost:hover{background:#ffffff24}
+.btn.green{background:var(--green);color:#fff}
+.btn.green:hover{background:#07563f}
+.btn.light{background:#f1faf5;color:var(--green);border-color:#cfe6d8}
+.btn.light:hover{background:#e2f4ea}
+.btn.small{padding:8px 12px;font-size:13px;border-radius:10px}
+.btn.block{width:100%}
+.btn.outline{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn.outline:hover{background:#f2faf5;border-color:var(--mint)}
+
+.section-title{margin:32px 0 16px}
+.section-title h2{margin:0;color:var(--deep);font-size:26px;letter-spacing:-.5px}
+.section-title p{margin:3px 0 0;color:var(--muted)}
+
+.intro-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.intro-card,.panel,.offer-card,.post-card,.plan-card,.info-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:0 4px 15px #073c2d07;
+}
+.intro-card{padding:22px;min-height:170px;display:flex;flex-direction:column}
+.intro-card h3{margin:0 0 6px;color:var(--ink);font-size:19px}
+.intro-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.intro-card button{margin-top:auto;align-self:flex-start;padding:12px 0 0;background:none;border:0;color:var(--green);font-weight:750}
+.intro-card button:hover{text-decoration:underline}
+
+.page-head{margin-bottom:20px}
+.page-head h1{margin:0;color:var(--deep);font-size:30px;letter-spacing:-.5px}
+.page-head p{margin:3px 0 0;color:var(--muted)}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.chip{
+  border:1px solid #cfe2d7;
+  background:#fff;
+  color:#345b4a;
+  border-radius:100px;
+  padding:8px 14px;
+  font-weight:700;
+  font-size:13px;
+  transition:.15s;
+}
+.chip:hover{border-color:#76d9a0}
+.chip.selected{background:var(--green);border-color:var(--green);color:#fff}
+
+.filterbar{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:12px;
+  padding:13px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:17px;
+  margin:16px 0 15px;
+}
+.field,.select,.textarea{
+  width:100%;
+  background:#fff;
+  border:1px solid #d9e6df;
+  border-radius:11px;
+  padding:11px 12px;
+  color:var(--ink);
+  min-height:42px;
+}
+.field::placeholder,.textarea::placeholder{color:#9aaea3}
+.offer-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.offer-card{padding:17px;min-width:0;position:relative;transition:.17s}
+.offer-card:hover{border-color:#98dcb5;transform:translateY(-2px);box-shadow:var(--shadow)}
+.offer-card.flagged{border-color:#eed18e;background:#fffdfa}
+.person{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+.avatar{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  border:2px solid #bcebd0;
+  object-fit:cover;
+  background:linear-gradient(145deg,#d5f2df,#effaf3);
+  display:grid;
+  place-items:center;
+  color:var(--green);
+  font-weight:800;
+  flex:none;
+}
+.person h3{font-size:17px;line-height:1.2;margin:0 0 4px}
+.rating{color:#edae35;font-size:13px}
+.rating span{color:#7f9388}
+.warning{background:#fff4dc;border:1px solid #f2d79e;color:#805c16;padding:9px 11px;border-radius:10px;font-size:12px;margin:0 0 12px}
+.offer-facts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.fact{background:#f0f8f3;border-radius:11px;padding:8px 10px;min-width:0;font-size:12px;line-height:1.35}
+.fact b{display:block;font-size:13px;color:#18352b;overflow-wrap:anywhere}
+.rate{color:var(--green);font-size:21px;font-weight:850;letter-spacing:-.4px;margin:12px 0}
+.offer-card .btn{width:100%}
+.result-count{font-size:13px;color:var(--muted);margin:12px 0}
+.empty{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--muted);background:#fff;border-radius:16px}
+
+.panel{padding:22px;margin:20px 0}
+.panel-title{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px}
+.panel-title h2{margin:0;font-size:22px;color:var(--deep)}
+.count{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--mint-soft);color:var(--green);font-weight:800}
+.post-list{display:grid;gap:14px}
+.post-card{padding:18px;border-left:5px solid var(--green);background:linear-gradient(105deg,#fbfefc,#fff)}
+.post-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:12px}
+.post-head h3{margin:0;font-size:17px}
+.subtle{font-size:12px;color:var(--muted)}
+.status{border-radius:99px;background:#def7e8;color:#087044;padding:4px 10px;font-size:11px;font-weight:800;height:max-content}
+.status.off{background:#edf0ee;color:#6b7b72}
+.post-facts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.post-facts .fact{background:#fff;border:1px solid #e5eee8}
+.post-place{margin:12px 0;color:#476557;font-size:13px}
+.post-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.form-field label,.form-field>span{display:block;color:#355848;font-weight:700;font-size:13px;margin:0 0 6px}
+.form-note{font-size:12px;color:var(--muted)}
+.form-warning{background:#fff7e8;color:#6f5216;border:1px solid #f1dfb8;border-radius:12px;padding:13px;font-size:13px;line-height:1.5;margin:16px 0}
+.form-check{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#335243;margin:12px 0;line-height:1.45}
+.form-check input{margin-top:3px;accent-color:var(--green);width:16px;height:16px}
+
+.chat-card{max-width:850px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.chat-top{padding:16px 20px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.chat-top h2{margin:0;font-size:17px}
+.chat-body{min-height:360px;max-height:55vh;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:11px;background:#f9fcfa}
+.bubble{max-width:78%;background:#fff;border:1px solid var(--line);border-radius:14px 14px 14px 4px;padding:12px 14px;font-size:14px;line-height:1.45}
+.bubble.mine{align-self:flex-end;background:#dcf7e7;border-color:#c7ecd5;border-radius:14px 14px 4px 14px}
+.chat-compose{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.chat-compose input{flex:1}
+.chat-tools{padding:0 14px 13px;display:flex;gap:8px;flex-wrap:wrap}
+
+.about-hero{background:linear-gradient(115deg,#08533c,#108c63);border-radius:22px;color:#fff;padding:36px 6%;margin-bottom:20px}
+.about-hero h1{margin:0 0 6px;font-size:32px}
+.about-hero p{margin:0;color:#e2f6eb}
+.about-copy{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.info-card{padding:22px}
+.info-card h2,.info-card h3{color:var(--deep);margin:0 0 8px}
+.info-card p{color:#5b7567;margin:0 0 10px;line-height:1.65}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.plan-card{padding:25px}
+.plan-card h2{color:var(--deep);margin:0}
+.price{font-size:29px;font-weight:850;color:var(--green);margin:12px 0}
+.plan-card ul{padding-left:20px;color:#526f60;line-height:2}
+
+.account-layout{display:grid;grid-template-columns:250px 1fr;gap:18px}
+.account-menu{padding:13px;height:max-content}
+.account-menu button{
+  width:100%;
+  text-align:left;
+  border:0;
+  background:transparent;
+  padding:12px 14px;
+  border-radius:10px;
+  color:#426454;
+  font-weight:700;
+  transition:.15s;
+}
+.account-menu button.selected,.account-menu button:hover{background:#eaf8ef;color:var(--green)}
+.profile{display:flex;gap:16px;align-items:center;margin-bottom:18px}
+.profile .avatar{width:68px;height:68px;font-size:22px}
+.profile h2{margin:0}
+.data-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.data-item{padding:12px;border:1px solid var(--line);border-radius:11px;background:#fbfdfb}
+.data-item span{display:block;font-size:12px;color:var(--muted)}
+.data-item strong{display:block;margin-top:2px}
+
+.academy-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.academy-card{padding:20px}
+.academy-card h3{margin:0 0 5px;color:var(--deep)}
+.academy-card p{color:var(--muted);margin:0 0 10px}
+.academy-card ul{padding-left:20px;color:#4b6959;line-height:1.7;margin:0}
+
+.sim-step{display:flex;gap:12px;align-items:center;margin:10px 0 20px}
+.stepdot{width:34px;height:34px;display:grid;place-items:center;background:var(--mint-soft);color:var(--green);border-radius:50%;font-weight:800}
+.progress{height:6px;background:#e6f0e9;border-radius:20px;overflow:hidden;margin-bottom:20px}
+.progress span{display:block;height:100%;background:#24a66a;transition:width .2s}
+.result-box{background:#f2faf5;border:1px solid var(--line);border-radius:15px;padding:17px}
+.result-line{display:flex;justify-content:space-between;gap:15px;padding:9px 0;border-bottom:1px solid #dfede5}
+.result-line:last-child{border:0}
+.result-line strong{color:var(--green)}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  z-index:50;
+  background:#031b14ba;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  backdrop-filter:blur(5px);
+}
+.modal{
+  background:#fff;
+  border-radius:20px;
+  width:min(560px,100%);
+  max-height:min(90vh,850px);
+  overflow:auto;
+  box-shadow:var(--shadow-lg);
+  display:flex;
+  flex-direction:column;
+}
+.modal.wide{width:min(860px,100%)}
+.modal-head{
+  background:#064b38;
+  color:#fff;
+  padding:16px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  position:sticky;
+  top:0;
+  z-index:2;
+}
+.modal-head h2{font-size:19px;margin:0}
+.modal-head p{font-size:12px;color:#cde9d7;margin:2px 0 0}
+.xbtn{border:0;background:transparent;color:inherit;font-size:24px;line-height:1;padding:4px 8px;cursor:pointer;border-radius:8px}
+.xbtn:hover{background:#ffffff20}
+.modal-body{padding:22px;overflow:auto}
+.form-stack{display:grid;gap:13px}
+.smallprint{font-size:12px;color:#627d6d;line-height:1.5}
+.linkbtn{background:none;border:0;color:var(--green);font-weight:700;padding:0;text-decoration:underline;cursor:pointer}
+
+/* FLOATING ZETA BUTTON */
+.zeta-fab{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:35;
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#0a8661,#05513d);
+  border:2.5px solid #96edb7;
+  box-shadow:0 8px 25px #0b55335e;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.zeta-fab:hover{transform:scale(1.06);box-shadow:0 12px 30px #0b553375}
+.zeta-fab .zeta-image{width:48px;height:58px;object-fit:contain;filter:drop-shadow(0 3px 4px #073c2d33)}
+.zeta-badge{
+  position:absolute;
+  top:-2px;
+  right:-2px;
+  width:16px;
+  height:16px;
+  background:#75e6a5;
+  border:2px solid #064b38;
+  border-radius:50%;
+}
+
+/* ZETA MODERN CHAT PANEL */
+.zeta-panel{
+  position:fixed;
+  right:16px;
+  bottom:92px;
+  width:min(440px,calc(100vw - 32px));
+  height:min(620px,calc(100vh - 120px));
+  z-index:36;
+  border:1px solid #9ce5b9;
+  border-radius:22px;
+  background:#fff;
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  animation:pop .18s cubic-bezier(.16,1,.3,1);
+}
+.zeta-head{
+  background:linear-gradient(115deg,#064332 0%,#086749 100%);
+  color:#fff;
+  padding:13px 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+  box-shadow:0 2px 8px #04241b18;
+}
+.zeta-head-left{display:flex;align-items:center;gap:10px}
+.zeta-head-avatar{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#e8f8ef;
+  display:grid;
+  place-items:center;
+  border:1.5px solid #96edb7;
+}
+.zeta-head-avatar img{width:28px;height:36px;object-fit:contain}
+.zeta-head strong{display:block;font-size:15px;line-height:1.2}
+.zeta-head-status{font-size:11px;color:#c9f0db;display:flex;align-items:center;gap:5px}
+.status-dot{width:7px;height:7px;border-radius:50%;background:#75e6a5;display:inline-block}
+.status-dot.offline{background:#f1c40f}
+.zeta-head-actions{display:flex;align-items:center;gap:4px}
+.zeta-icon-btn{
+  background:transparent;
+  border:0;
+  color:#f0fff7;
+  font-size:16px;
+  width:32px;
+  height:32px;
+  border-radius:8px;
+  display:grid;
+  place-items:center;
+  padding:0;
+}
+.zeta-icon-btn:hover{background:#ffffff22}
+
+.zeta-chat-body{
+  flex:1;
+  overflow-y:auto;
+  padding:16px;
+  background:#f6fbf8;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.zeta-msg-row{display:flex;gap:8px;max-width:88%}
+.zeta-msg-row.bot{align-self:flex-start}
+.zeta-msg-row.user{align-self:flex-end;flex-direction:row-reverse}
+.zeta-bot-avatar{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:#e5f7ed;
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  border:1px solid #a4dfbd;
+}
+.zeta-bot-avatar img{width:20px;height:24px;object-fit:contain}
+.zeta-msg-bubble{
+  padding:12px 14px;
+  border-radius:16px 16px 16px 4px;
+  font-size:13.5px;
+  line-height:1.5;
+  background:#fff;
+  border:1px solid var(--line);
+  color:#1c352c;
+  box-shadow:0 2px 7px #073c2d08;
+  word-break:break-word;
+}
+.zeta-msg-row.user .zeta-msg-bubble{
+  background:#dcf7e7;
+  border-color:#bce9cf;
+  border-radius:16px 16px 4px 16px;
+  color:#063d2d;
+}
+.zeta-msg-bubble p{margin:0 0 6px}
+.zeta-msg-bubble p:last-child{margin:0}
+.zeta-msg-bubble ul,.zeta-msg-bubble ol{margin:4px 0;padding-left:18px}
+.zeta-msg-bubble li{margin-bottom:3px}
+.zeta-msg-bubble strong{color:#074f38}
+.zeta-msg-meta{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:11px;color:#7e9a8d}
+.zeta-voice-btn{
+  background:none;
+  border:0;
+  color:var(--green);
+  font-size:12px;
+  padding:2px 4px;
+  border-radius:4px;
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+  cursor:pointer;
+}
+.zeta-voice-btn:hover{background:#e8f7ee}
+
+.zeta-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  padding:4px 0;
+}
+.zeta-chip-btn{
+  background:#fff;
+  border:1px solid #cfe7da;
+  border-radius:20px;
+  padding:6px 11px;
+  font-size:11.5px;
+  color:#295945;
+  font-weight:600;
+  cursor:pointer;
+  transition:.15s;
+  text-align:left;
+}
+.zeta-chip-btn:hover{background:#eaf8ef;border-color:var(--mint);color:var(--green)}
+
+.zeta-typing{display:flex;align-items:center;gap:4px;padding:8px 12px;background:#fff;border-radius:14px;border:1px solid var(--line);width:max-content}
+.zeta-typing span{width:6px;height:6px;background:#086b4f;border-radius:50%;animation:typing 1.4s infinite ease-in-out both}
+.zeta-typing span:nth-child(1){animation-delay:-0.32s}
+.zeta-typing span:nth-child(2){animation-delay:-0.16s}
+@keyframes typing{0%,80%,100%{transform:scale(0);opacity:.4}40%{transform:scale(1);opacity:1}}
+
+.zeta-footer{
+  padding:10px 12px;
+  background:#fff;
+  border-top:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  flex-shrink:0;
+}
+.zeta-input-row{display:flex;gap:6px;align-items:center}
+.zeta-input-row input{flex:1;min-height:40px;border-radius:10px;padding:8px 12px;font-size:13.5px}
+.zeta-send-btn{
+  background:var(--green);
+  color:#fff;
+  border:0;
+  border-radius:10px;
+  width:42px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  font-size:17px;
+  flex-shrink:0;
+  transition:.15s;
+}
+.zeta-send-btn:hover{background:#06573f}
+.zeta-send-btn:disabled{background:#b7cec3;cursor:not-allowed}
+.zeta-status-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:11px;
+  color:#738e81;
+  padding:0 4px;
+}
+.zeta-status-bar button{background:none;border:0;color:var(--green);font-size:11px;font-weight:700;padding:0;cursor:pointer}
+.zeta-status-bar button:hover{text-decoration:underline}
+
+/* GLOBAL SITE FOOTER */
+.site-footer{
+  margin-top:auto;
+  background:#053a2b;
+  color:#d4e9df;
+  padding:42px 0 26px;
+  border-top:4px solid #75e6a5;
+  font-size:13px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1.3fr;
+  gap:28px;
+  margin-bottom:30px;
+}
+.footer-col h4{color:#fff;font-size:15px;margin:0 0 12px;font-weight:800}
+.footer-col p{margin:0 0 10px;line-height:1.6;color:#b6d7c8}
+.footer-col ul{list-style:none;padding:0;margin:0}
+.footer-col li{margin-bottom:8px}
+.footer-col a,.footer-col button{
+  color:#d4e9df;
+  text-decoration:none;
+  background:none;
+  border:0;
+  padding:0;
+  font-size:13px;
+  cursor:pointer;
+  transition:.14s;
+}
+.footer-col a:hover,.footer-col button:hover{color:#78e8a8;text-decoration:underline}
+.footer-bottom{
+  border-top:1px solid #ffffff1a;
+  padding-top:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  font-size:12px;
+  color:#8eb3a2;
+}
+
+/* POLICY ACCORDION / VIEWER */
+.policy-box{background:#f8fcf9;border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}
+.policy-meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:12px 0 16px}
+.policy-meta-card{background:#fff;border:1px solid #d9e8df;border-radius:10px;padding:10px 12px;font-size:12px}
+.policy-meta-card strong{display:block;color:var(--deep);font-size:13px;margin-top:2px}
+.policy-article{background:#fff;border:1px solid #dcece2;border-radius:12px;margin-bottom:10px;overflow:hidden}
+.policy-article-header{
+  padding:12px 16px;
+  font-weight:800;
+  font-size:14px;
+  color:var(--deep);
+  background:#f4faf6;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.policy-article-header:hover{background:#eaf6ef}
+.policy-article-body{padding:14px 16px;font-size:13px;line-height:1.65;color:#2f4e40;border-top:1px solid #e7f2ec}
+
+/* WELCOME SCREEN */
+#welcome.welcomeScreen{
+  position:fixed;
+  inset:0;
+  z-index:45;
+  display:grid;
+  place-items:start center;
+  padding:clamp(60px,14vh,115px) 20px 30px;
+  background:linear-gradient(118deg,#075b42 0%,#087c56 58%,#13a96f 100%);
+  color:#fff;
+  text-align:center;
+  overflow:auto;
+}
+#welcome .welcomeCard{
+  width:min(460px,100%);
+  background:transparent;
+  border:0;
+  color:#fff;
+}
+#welcome .brand{font-size:36px;margin-bottom:20px}
+#welcome .zeta-welcome-img{width:80px;height:104px;margin:0 auto 14px;display:block;filter:drop-shadow(0 4px 8px #042e2055)}
+#welcome h1{font-size:38px;line-height:1.06;margin:12px 0}
+#welcome h1 span{color:var(--mint)}
+#welcome p{color:#dff6e9;font-size:15px;margin-bottom:24px}
+#welcome .btn{width:100%;min-height:50px;margin-bottom:10px}
+#welcome .btn:not(.primary){background:#f4f5f4;color:#111;border-color:#ecefec}
+
+.coach{
+  position:fixed;
+  z-index:60;
+  width:min(420px,calc(100vw - 28px));
+  background:#fff;
+  border:1px solid #a9dfbc;
+  border-radius:20px;
+  padding:19px 21px 18px;
+  box-shadow:0 16px 48px #063d2b30;
+  animation:pop .16s ease-out;
+}
+.coach:before{
+  content:"";
+  position:absolute;
+  top:-6px;
+  left:28px;
+  width:10px;
+  height:10px;
+  background:#fff;
+  border-left:1px solid #a9dfbc;
+  border-top:1px solid #a9dfbc;
+  transform:rotate(45deg);
+}
+.coach[data-above="true"]:before{top:auto;bottom:-6px;transform:rotate(225deg)}
+.coach-head{display:flex;align-items:center;gap:11px;margin-bottom:11px}
+.coach-avatar{width:42px;height:42px;border-radius:50%;background:#eaf8ef;display:grid;place-items:center;overflow:hidden;flex:none}
+.coach-avatar img{width:30px;height:42px;object-fit:contain}
+.coach-title{color:var(--deep);font-weight:800;font-size:17px;line-height:1.3}
+.coach p{margin:7px 0 0;color:#526e60;font-size:14px;line-height:1.55}
+.coach-body{margin:7px 0 0;color:#526e60;font-size:14px;line-height:1.55}
+.coach-body p{margin:0 0 6px}
+.coach-body ul{margin:6px 0;padding-left:18px}
+.coach-body li{margin-bottom:5px}
+.coach-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px}
+.coach-skip{border:0;background:transparent;color:#6b8275;font-size:12px;padding:8px}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  transform:translateX(-50%);
+  z-index:90;
+  background:#063d2d;
+  color:#fff;
+  padding:12px 20px;
+  border-radius:13px;
+  box-shadow:var(--shadow-lg);
+  font-size:13.5px;
+  max-width:calc(100vw - 32px);
+  text-align:center;
+  border:1px solid #75e6a555;
+  animation:pop .15s ease-out;
+}
+.hide{display:none!important}
+.muted{color:var(--muted)}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:980px){
+  .offer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .topbar{height:64px;padding:0 16px}
+  .brand{font-size:23px}
+  .menu-btn{display:block}
+  .nav{
+    display:none;
+    position:absolute;
+    top:64px;
+    left:0;
+    right:0;
+    background:#064b38;
+    padding:10px 14px 16px;
+    box-shadow:0 12px 20px #04241b30;
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .nav.open{display:flex}
+  .nav button{text-align:left;padding:12px 14px}
+  .container{width:calc(100% - 28px)}
+  .page{padding-top:18px}
+  .hero{padding:34px 20px;border-radius:20px}
+  .hero h1{font-size:34px}
+  .trm-card{flex-direction:column;align-items:flex-start;gap:6px;padding:16px}
+  .trm-date{text-align:left;max-width:none}
+  .intro-grid,.academy-grid,.plans,.about-copy,.value-grid{grid-template-columns:1fr}
+  .filterbar{grid-template-columns:1fr}
+  .offer-grid{grid-template-columns:1fr}
+  .form-grid,.data-list{grid-template-columns:1fr}
+  .account-layout{grid-template-columns:1fr}
+  .zeta-panel{
+    right:10px;
+    bottom:82px;
+    width:calc(100vw - 20px);
+    height:calc(100vh - 100px);
+  }
+  .footer-grid{grid-template-columns:1fr}
+  .coach{left:14px!important;right:14px!important;bottom:88px!important;top:auto!important;width:auto}
+  .coach:before{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand" role="button" tabindex="0" data-page="home">Trade4<span>Cash</span></div>
+  <button class="menu-btn" aria-label="Abrir menú" id="menuBtn">☰</button>
+  <nav class="nav" id="nav">
+    <button data-page="home">Inicio</button>
+    <button data-page="buy" id="navBuy">Comprar</button>
+    <button data-page="sell" id="navSell">Vender</button>
+    <button data-page="about">Quiénes somos</button>
+    <button data-page="premium">Premium</button>
+    <button data-page="account">Mi cuenta</button>
+    <button data-modal="privacy" style="color:#78e8a8">Privacidad</button>
+  </nav>
+</header>
+
+<main class="container page" id="app"></main>
+
+<!-- FOOTER INSTITUCIONAL CON POLÍTICA DE DATOS -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom:12px">Trade4<span>Cash</span></div>
+        <p>Plataforma para el intercambio directo de divisas entre particulares. Conectamos personas, facilitamos la negociación libre de tasas y promovemos la seguridad ciudadana y la educación financiera.</p>
+        <p style="font-size:12px;color:#8fbaa7">Trade4Cash S.A.S. · Domicilio principal: Bogotá D.C., Colombia.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <ul>
+          <li><button data-page="home">Inicio</button></li>
+          <li><button data-page="buy">Comprar divisas</button></li>
+          <li><button data-page="sell">Publicar oferta</button></li>
+          <li><button data-modal="simulator">Simulador de oferta</button></li>
+          <li><button data-modal="academy">Trade4Cash Academy</button></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal y Privacidad</h4>
+        <ul>
+          <li><button data-modal="privacy" style="font-weight:700;color:#78e8a8">Tratamiento de Datos Personales</button></li>
+          <li><button data-modal="privacy">Habeas Data (Ley 1581 de 2012)</button></li>
+          <li><button data-page="about">Quiénes somos y valores</button></li>
+          <li><button data-page="account">Preferencias de cuenta</button></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Canales de Atención</h4>
+        <p>Para consultas, reclamos o ejercicio de derechos de datos personales:</p>
+        <p>📧 <strong>camilacardenasc1@gmail.com</strong><br>
+        📞 <strong>+57 318 464 1985</strong><br>
+        🏢 Área de Soporte Legal y Operaciones<br>
+        📍 Plataforma 100% virtual · Bogotá D.C.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Trade4Cash S.A.S. Todos los derechos reservados. Prototipo académico de demostración.</div>
+      <div>🛡️ Trade4Cash no recibe, custodia ni transfiere dinero. Intercambio exclusivo para mayores de 18 años.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- BOTÓN FLOTANTE DE ZETA -->
+<button class="zeta-fab" id="zetaFab" aria-label="Abrir asistente Zeta con IA Gemini" title="Habla con Zeta (IA Gemini)">
+  <img class="zeta-image" src="zeta-robot.png" alt="Zeta">
+  <span class="zeta-badge" id="zetaBadge" title="IA Activa"></span>
+</button>
+
+<div id="layers"></div>
+
+<script>
+// --- DATOS GLOBALES Y ESTADO ---
+const currencies = ["Dólar USA","Euro","Peso Mexicano","Pesos Colombianos","Otras divisas","Yen Japonés","Dólar Canadá","Real Brasileño","Franco Suizo","Dólar Australiano","Dólar Neozelandés"];
+
+const seedOffers = [
+  {name:"Laura Gómez",rating:"4.3",age:"hace 3 min",currency:"Dólar USA",amount:"800",want:"$3.200.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$3.980 COP",flag:true},
+  {name:"Carlos López",rating:"4.4",age:"hace 17 min",currency:"Dólar USA",amount:"1.300",want:"$5.200.000 COP",zone:"Norte",distance:3.6,place:"Starbucks Norte",rate:"$3.983 COP"},
+  {name:"Valentina Pérez",rating:"4.5",age:"hace 42 min",currency:"Dólar USA",amount:"1.000",want:"$4.000.000 COP",zone:"Norte",distance:7.8,place:"Starbucks Norte",rate:"$3.986 COP"},
+  {name:"Andrés Castro",rating:"4.4",age:"hace 3 min",currency:"Euro",amount:"1.200",want:"$5.760.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$4.787 COP"},
+  {name:"Camila Rojas",rating:"4.5",age:"hace 17 min",currency:"Euro",amount:"900",want:"$4.320.000 COP",zone:"Norte",distance:3.6,place:"Starbucks Norte",rate:"$4.790 COP"},
+  {name:"Mateo Mendoza",rating:"4.6",age:"hace 42 min",currency:"Euro",amount:"1.400",want:"$6.720.000 COP",zone:"Norte",distance:7.8,place:"Starbucks Norte",rate:"$4.793 COP"},
+  {name:"Mariana Gómez",rating:"4.5",age:"hace 3 min",currency:"Peso Mexicano",amount:"10.600",want:"$2.438.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$224 COP"},
+  {name:"Sebastián López",rating:"4.6",age:"hace 17 min",currency:"Peso Mexicano",amount:"10.300",want:"$2.369.000 COP",zone:"Norte",distance:3.6,place:"Starbucks Norte",rate:"$227 COP"},
+  {name:"Gabriela Pérez",rating:"4.7",age:"hace 42 min",currency:"Peso Mexicano",amount:"10.000",want:"$2.300.000 COP",zone:"Norte",distance:7.8,place:"Starbucks Norte",rate:"$230 COP"},
+  {name:"Nicolás Castro",rating:"4.6",age:"hace 3 min",currency:"Pesos Colombianos",amount:"$2.000.100 COP",want:"$2.000.100 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$2 COP"},
+  {name:"Ana Moreno",rating:"4.4",age:"hace 3 min",currency:"Dólar USA",amount:"1.500",want:"$6.000.000 COP",zone:"Centro",distance:1.2,place:"Starbucks Centro",rate:"$3.993 COP"},
+  {name:"Martín Díaz",rating:"4.5",age:"hace 17 min",currency:"Dólar USA",amount:"1.200",want:"$4.800.000 COP",zone:"Centro",distance:3.6,place:"Starbucks Centro",rate:"$3.996 COP"},
+  {name:"Diego Rodríguez",rating:"4.5",age:"hace 3 min",currency:"Euro",amount:"1.100",want:"$5.280.000 COP",zone:"Centro",distance:1.2,place:"Starbucks Centro",rate:"$4.800 COP"},
+  {name:"Victoria Hernández",rating:"4.6",age:"hace 17 min",currency:"Euro",amount:"1.600",want:"$7.680.000 COP",zone:"Centro",distance:3.6,place:"Starbucks Centro",rate:"$4.803 COP"},
+  {name:"Lucía Gómez",rating:"4.7",age:"hace 3 min",currency:"Yen Japonés",amount:"100.400",want:"$2.710.800 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$35 COP"},
+  {name:"Juan Castro",rating:"4.8",age:"hace 3 min",currency:"Dólar Canadá",amount:"1.700",want:"$5.015.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$2.965 COP"},
+  {name:"Daniela Gómez",rating:"4.9",age:"hace 3 min",currency:"Real Brasileño",amount:"2.700",want:"$2.079.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$751 COP"}
+];
+
+const state = {
+  page:"home",
+  currency:"TODAS",
+  zone:"Todas las ubicaciones",
+  distance:"Cualquier distancia",
+  search:"",
+  posts:[
+    {currency:"Dólar USA",amount:"500",rate:"$4.020 COP",contacts:"2 personas contactadas",place:"Starbucks Chapinero",status:"Activa"},
+    {currency:"Euro",amount:"700",rate:"$4.780 COP",contacts:"5 personas contactadas",place:"Centro Comercial Andino",status:"Activa"},
+    {currency:"Pesos Colombianos",amount:"2.000.000",rate:"$4.000 COP",contacts:"8 personas contactadas",place:"Unicentro",status:"Finalizada"}
+  ],
+  simStep:1,
+  sim:{currency:"Dólar USA",amount:0,rate:0},
+  chat:null,
+  messages:[],
+  accountTab:"Mi información",
+  zetaOpen:false,
+  modal:null,
+  selectedPost:-1,
+  // ZETA AI STATE
+  geminiKey: localStorage.getItem("trade4cash_gemini_api_key") || "",
+  geminiModel: localStorage.getItem("trade4cash_gemini_model") || "gemini-2.5-flash",
+  zetaMessages: [
+    {role:"model",text:"¡Hola! Soy **Zeta**, tu asistente con IA en **Trade4Cash**. ¿En qué puedo orientarte hoy sobre publicaciones, tasas, puntos de encuentro seguros o la política de tratamiento de datos?"}
+  ],
+  zetaLoading:false,
+  zetaSettingsOpen:false
+};
+
+const app = document.getElementById("app"), layers = document.getElementById("layers");
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = n => Number(n||0).toLocaleString("es-CO");
+function initials(n){return n.split(" ").map(x=>x[0]).slice(0,2).join("")}
+function robot(){return '<img class="zeta-image" src="zeta-robot.png" alt="Zeta, asistente de Trade4Cash">'}
+function headerActive(){document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===state.page))}
+
+// FORMATO MARKDOWN SIMPLE PARA RESPUESTAS DE ZETA
+function formatMarkdown(text){
+  let safe = esc(text);
+  safe = safe.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+  safe = safe.replace(/\*(.*?)\*/g,'<em>$1</em>');
+  safe = safe.replace(/`([^`]+)`/g,'<code>$1</code>');
+  let lines = safe.split("\n");
+  let html = "", inList = false;
+  for(let line of lines){
+    let trimmed = line.trim();
+    if(trimmed.startsWith("• ") || trimmed.startsWith("- ") || trimmed.startsWith("* ")){
+      if(!inList){ html += "<ul>"; inList = true; }
+      html += "<li>" + trimmed.substring(2) + "</li>";
+    } else if(/^\d+\.\s/.test(trimmed)){
+      if(!inList){ html += "<ol>"; inList = true; }
+      html += "<li>" + trimmed.replace(/^\d+\.\s/,'') + "</li>";
+    } else {
+      if(inList){ html += inList==="ul"?"</ul>":"</ol>"; inList = false; }
+      if(trimmed) html += "<p>" + trimmed + "</p>";
+    }
+  }
+  if(inList) html += "</ul>";
+  return html || "<p>" + safe + "</p>";
+}
+
+// --- VISTAS PRINCIPALES ---
+function home(){
+  return `
+  <section class="hero" data-coach="home">
+    <div class="hero-copy">
+      <h1>Tu dinero,<br><span>tu acuerdo.</span></h1>
+      <div class="lead">Intercambia divisas directamente con otras personas.</div>
+      <p>Trade4Cash conecta personas que quieren comprar y vender divisas de manera directa, permitiendo negociar tasas y acordar puntos de encuentro seguros en Bogotá.</p>
+      <div class="actions">
+        <button class="btn primary" data-page="buy">Quiero comprar</button>
+        <button class="btn ghost" data-page="sell">Quiero vender</button>
+        <button class="btn ghost" id="homeAskZeta">🤖 Preguntar a Zeta IA</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="trm-card" aria-label="Tasa Representativa del Mercado">
+    <div class="trm-copy">
+      <div class="trm-kicker">💱 TRM · Dólar de referencia</div>
+      <div class="trm-caption">Tasa Representativa del Mercado oficial vigente por cada dólar</div>
+    </div>
+    <div class="trm-value" id="trmValue" aria-live="polite">Consultando…</div>
+    <div class="trm-date">
+      <span id="trmDate">Buscando el dato vigente</span><br>
+      <a href="https://www.datos.gov.co/Econom-a-y-Finanzas/TRM/ceyp-9c7c" target="_blank" rel="noopener">Fuente: Superintendencia Financiera</a>
+    </div>
+  </section>
+
+  <div class="section-title">
+    <h2>Antes de empezar</h2>
+    <p>Aprende lo esencial para operar seguro y con confianza en Trade4Cash.</p>
+  </div>
+  <section class="intro-grid">
+    <article class="intro-card">
+      <h3>🎓 Trade4Cash Academy</h3>
+      <p>Aprende a detectar billetes falsos, calcular tasas y elegir lugares públicos vigilados.</p>
+      <button data-modal="academy">Iniciar Academy →</button>
+    </article>
+    <article class="intro-card">
+      <h3>🧮 Simulador interactivo</h3>
+      <p>Practica cómo crear una oferta y calcular el valor estimado antes de publicar.</p>
+      <button data-modal="simulator">Realizar simulador →</button>
+    </article>
+    <article class="intro-card">
+      <h3>📜 Tratamiento de Datos</h3>
+      <p>Conoce la Política de Protección de Datos Personales de Trade4Cash S.A.S. (Ley 1581/2012).</p>
+      <button data-modal="privacy">Ver política oficial →</button>
+    </article>
+  </section>
+  <div class="tiny-foot" style="text-align:center;margin-top:25px;color:var(--muted);font-size:12px">Simulador académico · Datos ficticios · Entorno de demostración interactiva</div>`;
+}
+
+function buy(){
+  const visible = seedOffers.filter(o =>
+    (state.currency==="TODAS" || state.currency==="Otras divisas"
+      ? !state.currency || state.currency==="TODAS" || o.currency==="Yen Japonés" || o.currency==="Dólar Canadá" || o.currency==="Real Brasileño"
+      : o.currency===state.currency) &&
+    (state.zone==="Todas las ubicaciones" || o.zone===state.zone) &&
+    (state.distance==="Cualquier distancia" || o.distance<=Number(state.distance.split(" ")[1])) &&
+    (!state.search || (o.name+" "+o.currency+" "+o.zone+" "+o.place).toLowerCase().includes(state.search.toLowerCase()))
+  );
+
+  const chips = [["TODAS","TODAS"],["Dólar USA","Dólar USA"],["Euro","Euro"],["Peso Mexicano","Peso Mexicano"],["Pesos Colombianos","Pesos Colombianos"],["Otras divisas","Otras divisas"]];
+
+  return `
+  <button class="back" data-page="home" style="border:0;background:transparent;color:var(--green);font-weight:800;padding:6px 0;margin:0 0 16px;cursor:pointer">← Volver a inicio</button>
+  <div class="page-head">
+    <h1>Encuentra personas</h1>
+    <p>Selecciona una divisa y descubre ofertas cercanas con punto de encuentro propuesto.</p>
+  </div>
+  <div class="filters">
+    ${chips.map(c => `<button class="chip ${state.currency===c[0]?'selected':''}" data-currency="${esc(c[0])}">${esc(c[1])}</button>`).join("")}
+  </div>
+  <div class="filterbar">
+    <input class="field" id="offerSearch" placeholder="Buscar nombre o ubicación..." value="${esc(state.search)}" aria-label="Buscar nombre o ubicación" data-coach="filters">
+    <select class="select" id="zoneFilter" aria-label="Ubicación" data-coach="filters">
+      ${["Todas las ubicaciones","Norte","Centro","Sur","Chapinero","Usaquén","Teusaquillo"].map(x => `<option ${state.zone===x?'selected':''}>${x}</option>`).join("")}
+    </select>
+    <select class="select" id="distanceFilter" aria-label="Distancia máxima" data-coach="filters">
+      ${["Cualquier distancia","Hasta 2 km","Hasta 5 km","Hasta 10 km"].map(x => `<option ${state.distance===x?'selected':''}>${x}</option>`).join("")}
+    </select>
+  </div>
+  <div class="result-count">Mostrando ${visible.length} ofertas disponibles</div>
+  <section class="offer-grid">
+    ${visible.length ? visible.map((o,i) => `
+      <article class="offer-card ${o.flag?'flagged':''}" data-offer="${seedOffers.indexOf(o)}">
+        <div class="person">
+          <div class="avatar">${initials(o.name)}</div>
+          <div>
+            <h3>${esc(o.name)}</h3>
+            <div class="rating">★★★★ <span>${esc(o.rating)} · ${esc(o.age)}</span></div>
+          </div>
+        </div>
+        ${o.flag?'<div class="warning">⚠️ Este usuario presenta señales que requieren precaución.</div>':''}
+        <div class="offer-facts">
+          <div class="fact">💵 Tiene<b>${esc(o.amount)} ${esc(o.currency)}</b></div>
+          <div class="fact">🎯 Busca<b>${esc(o.want)}</b></div>
+          <div class="fact">📍 ${esc(o.zone)}<b>${o.distance} km</b></div>
+          <div class="fact">☕ Punto<b>${esc(o.place)}</b></div>
+        </div>
+        <div class="rate">Tasa: ${esc(o.rate)}</div>
+        <button class="btn primary block" data-contact="${seedOffers.indexOf(o)}">Contactar</button>
+      </article>
+    `).join("") : '<div class="empty">No encontramos publicaciones con esos filtros. Prueba ampliando la distancia o cambiando de divisa.</div>'}
+  </section>`;
+}
+
+function sell(){
+  return `
+  <div class="page-head">
+    <h1>Vender divisas</h1>
+    <p>Crea tu publicación indicando la cantidad, la tasa que deseas recibir y el punto público de encuentro.</p>
+  </div>
+  <section class="panel">
+    <div class="panel-title">
+      <div><h2>Tus publicaciones</h2><span class="subtle">Administra tus ofertas activas y pausadas.</span></div>
+      <span class="count">${state.posts.length}</span>
+    </div>
+    <div class="post-list">
+      ${state.posts.map((p,i) => `
+        <article class="post-card">
+          <div class="post-head">
+            <div>
+              <h3>Venta de ${esc(p.currency)}</h3>
+              <div class="subtle">Publicación #${i+1}</div>
+            </div>
+            <span class="status ${p.status==="Activa"?"":"off"}">${esc(p.status)}</span>
+          </div>
+          <div class="post-facts">
+            <div class="fact"><span class="subtle">Cantidad</span><b>${esc(p.amount)} ${esc(p.currency)}</b></div>
+            <div class="fact"><span class="subtle">Tasa</span><b>${esc(p.rate)}</b></div>
+            <div class="fact"><span class="subtle">Contactos</span><b>${esc(p.contacts)}</b></div>
+          </div>
+          <div class="post-place">Punto propuesto: ${esc(p.place)}</div>
+          <div class="post-actions">
+            <button class="btn green small" data-interested="${i}">Ver interesados</button>
+            <button class="btn light small" data-manage="${i}">Administrar</button>
+          </div>
+        </article>
+      `).join("")}
+    </div>
+  </section>
+
+  <section class="panel" id="createListing">
+    <div class="panel-title">
+      <div><h2>Crear nueva publicación</h2><span class="subtle">Indica qué divisa tienes disponible.</span></div>
+    </div>
+    <form id="sellForm">
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="sellCurrency">Divisa a ofrecer</label>
+          <select class="select" id="sellCurrency" data-coach-field="currency">
+            ${currencies.filter(x=>x!=="Otras divisas").map(x=>`<option>${x}</option>`).join("")}
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="sellAmount">Cantidad disponible</label>
+          <input class="field" id="sellAmount" type="number" min="1" placeholder="Ej. 500" data-coach-field="amount" required>
+        </div>
+        <div class="form-field">
+          <label for="sellRate">Tasa que deseas recibir (COP por unidad)</label>
+          <input class="field" id="sellRate" type="number" min="1" placeholder="Ej. 4020" data-coach-field="rate" required>
+        </div>
+        <div class="form-field">
+          <label for="sellPlace">Punto público de encuentro sugerido</label>
+          <input class="field" id="sellPlace" placeholder="Ej. Starbucks CC Andino" data-coach-field="meeting" required>
+        </div>
+        <div class="form-field">
+          <label for="sellRadius">Radio de visibilidad</label>
+          <select class="select" id="sellRadius" data-coach-field="radius">
+            <option>2 km</option><option>5 km</option><option>10 km</option><option>20 km</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-warning">
+        ⚠️ <strong>Aviso legal:</strong> Trade4Cash no recibe, transfiere ni custodia dinero en ningún momento. Las partes son responsables de comprobar la legitimidad de las divisas y reunirse en espacios públicos y seguros.
+      </div>
+      <button class="btn green" type="submit">Confirmar y publicar</button>
+    </form>
+  </section>`;
+}
+
+function about(){
+  return `
+  <section class="about-hero">
+    <h1>Quiénes somos</h1>
+    <p>Una alternativa transparente, directa y segura para el intercambio de divisas entre particulares en Colombia.</p>
+  </section>
+  <div class="about-copy">
+    <article class="info-card">
+      <h2>Nuestra historia</h2>
+      <p>Trade4Cash nace de una idea clara: quienes necesitan comprar o vender divisas muchas veces no encuentran flexibilidad ni tasas justas en los canales convencionales.</p>
+      <p>Creamos una comunidad digital en la que compradores y vendedores pueden encontrarse, acordar sus propias tasas y fijar puntos de encuentro seguros, respaldados por reputación, educación y tecnología de asistencia con Inteligencia Artificial.</p>
+    </article>
+    <div>
+      <article class="info-card">
+        <h3>Misión</h3>
+        <p>Construir un espacio digital confiable, transparente y accesible que empodere a las personas para realizar intercambios justos entre pares, bajo estrictos estándares de seguridad y protección de datos personales.</p>
+      </article>
+      <article class="info-card" style="margin-top:15px">
+        <h3>Visión</h3>
+        <p>Convertirnos en la plataforma comunitaria de referencia en Latinoamérica para el acuerdo P2P de divisas, reconocida por su pedagogía, transparencia y excelencia en servicio al usuario.</p>
+      </article>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <h2>Valores Corporativos</h2>
+    <p>Principios fundamentales que guían a Trade4Cash S.A.S.</p>
+  </div>
+  <section class="value-grid">
+    <article class="info-card"><h3>Transparencia</h3><p>Condiciones claras en cada publicación: tasa, cantidad, punto de encuentro y reputación real del usuario.</p></article>
+    <article class="info-card"><h3>Seguridad</h3><p>Encuentros exclusivos en puntos públicos vigilados y estricto protocolo de verificación de billetes y usuarios.</p></article>
+    <article class="info-card"><h3>Privacidad</h3><p>Cumplimiento total del régimen de protección de datos (Ley 1581 de 2012) y confidencialidad de la información.</p></article>
+    <article class="info-card"><h3>Educación</h3><p>Módulos de capacitación (Academy) para detectar billetes falsos y comprender tasas de cambio de referencia.</p></article>
+    <article class="info-card"><h3>Innovación</h3><p>Asistente virtual Zeta potenciado por Gemini IA para resolver inquietudes en tiempo real con lenguaje natural.</p></article>
+    <article class="info-card"><h3>Comunidad</h3><p>Sistema recíproco de calificaciones para construir confianza y expulsar malos comportamientos.</p></article>
+  </section>
+
+  <section class="panel">
+    <h2>Contacto y Soporte</h2>
+    <p class="muted">¿Tienes alguna consulta o necesitas soporte con el tratamiento de tus datos personales?</p>
+    <div class="value-grid">
+      <article class="info-card">
+        <h3>📧 Correo de soporte</h3>
+        <p><strong>camilacardenasc1@gmail.com</strong></p>
+        <span class="subtle">Área de Soporte Legal y Operaciones</span>
+      </article>
+      <article class="info-card">
+        <h3>📞 Teléfono de contacto</h3>
+        <p><strong>+57 318 464 1985</strong></p>
+        <span class="subtle">Bogotá D.C. – Colombia</span>
+      </article>
+      <article class="info-card">
+        <h3>🤖 Asistente Zeta IA</h3>
+        <p>Chatea con Zeta haciendo clic en el botón flotante inferior para respuestas instantáneas alimentadas por Gemini.</p>
+      </article>
+    </div>
+  </section>`;
+}
+
+function premium(){
+  return `
+  <div class="page-head centered" style="text-align:center">
+    <h1>Trade4Cash Premium</h1>
+    <p>Herramientas y visibilidad preferencial para usuarios frecuentes.</p>
+  </div>
+  <section class="plans">
+    <article class="plan-card">
+      <h2>Plan Premium</h2>
+      <div class="price">$11.56 <span class="subtle">/ mes</span></div>
+      <ul>
+        <li>Límite ampliado de publicaciones mensuales</li>
+        <li>Filtros avanzados por reputación y distancia</li>
+        <li>Mayor visibilidad en el listado de ofertas</li>
+        <li>Insignia distintiva de Usuario Verificado Plus</li>
+      </ul>
+      <button class="btn green block" data-premium="Premium">Elegir Plan Premium</button>
+    </article>
+    <article class="plan-card">
+      <h2>Plan Premium Plus</h2>
+      <div class="price">$19.99 <span class="subtle">/ mes</span></div>
+      <ul>
+        <li>Publicaciones ilimitadas</li>
+        <li>Prioridad máxima en el motor de búsqueda</li>
+        <li>Filtro inteligente de emparejamiento con alertas</li>
+        <li>Radio de visibilidad extendido en Bogotá</li>
+        <li>Insignia destacada Gold y soporte prioritario</li>
+      </ul>
+      <button class="btn green block" data-premium="Premium Plus">Elegir Premium Plus</button>
+    </article>
+  </section>
+  <p class="tiny-foot" style="text-align:center;margin-top:20px;color:var(--muted)">Entorno de simulación académica. No se procesan transacciones financieras reales.</p>`;
+}
+
+function account(){
+  const tabs = ["Mi información","Mis publicaciones","Historial","Privacidad y permisos","Ayuda","Configuración Gemini"];
+  let content = "";
+
+  if(state.accountTab === "Mi información"){
+    content = `
+    <div class="profile">
+      <div class="avatar">LM</div>
+      <div>
+        <h2>Laura Méndez</h2>
+        <span class="status">Usuario verificado</span>
+        <div class="rating">★★★★★ 4.9 · 28 acuerdos completados</div>
+      </div>
+    </div>
+    <div class="data-list">
+      <div class="data-item"><span>Nombre completo</span><strong>Laura Méndez</strong></div>
+      <div class="data-item"><span>Ubicación</span><strong>Bogotá, Colombia</strong></div>
+      <div class="data-item"><span>Teléfono registrado</span><strong>+57 318 464 1985</strong></div>
+      <div class="data-item"><span>Correo electrónico</span><strong>camilacardenasc1@gmail.com</strong></div>
+      <div class="data-item"><span>Fecha de nacimiento</span><strong>15/06/1998 (Mayor de 18 años)</strong></div>
+      <div class="data-item"><span>Verificación de identidad</span><strong>Documento y Biometría KYC Validados</strong></div>
+    </div>
+    <div class="post-actions" style="margin-top:20px">
+      <button class="btn light small" data-toast="Perfil simulado de demostración.">Editar perfil</button>
+      <button class="btn light small" data-modal="privacy">Ver política de datos aplicable</button>
+    </div>`;
+  } else if(state.accountTab === "Mis publicaciones"){
+    content = `
+    <h2>Mis publicaciones</h2>
+    <p class="muted">Tus ofertas activas y pausadas se administran desde la sección Vender.</p>
+    <button class="btn green" data-page="sell">Ir al gestor de publicaciones</button>`;
+  } else if(state.accountTab === "Historial"){
+    content = `
+    <h2>Historial de intercambios</h2>
+    <p class="muted">Registro de acuerdos coordinados a través de la plataforma.</p>
+    <div class="info-card" style="margin-top:12px">
+      <strong>Intercambio acordado · 500 USD por COP</strong>
+      <p class="subtle" style="margin:4px 0">Con Carlos López · Starbucks Norte · Tasa $3.980 COP</p>
+      <span class="status">Finalizado con éxito</span>
+    </div>`;
+  } else if(state.accountTab === "Privacidad y permisos"){
+    content = `
+    <h2>Protección y Tratamiento de Datos Personales</h2>
+    <p class="muted">Trade4Cash S.A.S. cumple estrictamente con el régimen constitucional de Hábeas Data y la Ley 1581 de 2012.</p>
+    
+    <div class="policy-box">
+      <h3 style="margin-top:0;color:var(--deep)">Resumen de cumplimiento Habeas Data</h3>
+      <div class="policy-meta-grid">
+        <div class="policy-meta-card">
+          <span class="subtle">Responsable</span>
+          <strong>Trade4Cash S.A.S.</strong>
+        </div>
+        <div class="policy-meta-card">
+          <span class="subtle">Oficial de Datos</span>
+          <strong>Soporte Legal y Operaciones</strong>
+        </div>
+        <div class="policy-meta-card">
+          <span class="subtle">Canal oficial PQR</span>
+          <strong>camilacardenasc1@gmail.com</strong>
+        </div>
+        <div class="policy-meta-card">
+          <span class="subtle">Plazo Consultas</span>
+          <strong>10 días hábiles (+5 prórroga)</strong>
+        </div>
+        <div class="policy-meta-card">
+          <span class="subtle">Plazo Reclamos</span>
+          <strong>15 días hábiles (+8 prórroga)</strong>
+        </div>
+        <div class="policy-meta-card">
+          <span class="subtle">Edad mínima</span>
+          <strong>Estrictamente +18 años</strong>
+        </div>
+      </div>
+      <p style="font-size:13px;line-height:1.6;color:#395a4a;margin:0 0 14px">
+        Tienes derecho a conocer, actualizar, rectificar y suprimir tus datos personales, así como a revocar la autorización otorgada y consultar tus registros de forma gratuita.
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn green small" data-modal="privacy">Leer Política Completa (27 Numerales) ↗</button>
+        <button class="btn light small" id="btnHabeasDataReq">Radicar Petición / Consulta de Datos</button>
+      </div>
+    </div>`;
+  } else if(state.accountTab === "Configuración Gemini"){
+    content = `
+    <h2>Configuración de Inteligencia Artificial (Gemini)</h2>
+    <p class="muted">Configura tu clave de Google Gemini para potenciar al asistente Zeta con respuestas inteligentes en tiempo real.</p>
+    
+    <div class="policy-box">
+      <form id="accountGeminiForm">
+        <label class="form-field">
+          <span>Clave API de Google Gemini (API Key)</span>
+          <input class="field" type="password" id="accGeminiKey" placeholder="AIzaSy..." value="${esc(state.geminiKey)}">
+          <span class="subtle" style="display:block;margin-top:4px">Tu clave se guarda únicamente en el navegador (localStorage) y nunca viaja a servidores intermedios.</span>
+        </label>
+        
+        <label class="form-field" style="margin-top:14px">
+          <span>Modelo de Gemini</span>
+          <select class="select" id="accGeminiModel">
+            <option value="gemini-2.5-flash" ${state.geminiModel==='gemini-2.5-flash'?'selected':''}>gemini-2.5-flash (Recomendado: Rápido y de última generación)</option>
+            <option value="gemini-2.0-flash" ${state.geminiModel==='gemini-2.0-flash'?'selected':''}>gemini-2.0-flash (Flash 2.0 estándar)</option>
+            <option value="gemini-1.5-flash" ${state.geminiModel==='gemini-1.5-flash'?'selected':''}>gemini-1.5-flash (Alta compatibilidad)</option>
+          </select>
+        </label>
+        
+        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn green small" type="submit">Guardar configuración</button>
+          <button class="btn light small" type="button" id="btnTestGeminiKey">Probar conexión con Gemini</button>
+          <button class="btn light small" type="button" id="btnClearGeminiKey" style="color:#b32d2d">Eliminar clave</button>
+          <a class="btn light small" href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">Obtener clave gratis en Google AI Studio ↗</a>
+        </div>
+      </form>
+    </div>`;
+  } else {
+    content = `
+    <h2>Centro de Ayuda</h2>
+    <p class="muted">¿Tienes dudas sobre cómo publicar, cómo buscar o cómo protegerte al hacer un intercambio?</p>
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button class="btn green" id="askZeta">Abrir Asistente Zeta con IA</button>
+      <button class="btn light" data-modal="academy">Ir a Trade4Cash Academy</button>
+    </div>`;
+  }
+
+  return `
+  <div class="page-head">
+    <h1>Mi cuenta</h1>
+    <p>Administración del perfil, seguridad, política de datos y configuración del asistente.</p>
+  </div>
+  <div class="account-layout">
+    <aside class="panel account-menu">
+      ${tabs.map(t => `
+        <button class="${state.accountTab===t?'selected':''}" data-account-tab="${esc(t)}">
+          ${t==="Mi información"?"👤 ":t==="Mis publicaciones"?"📄 ":t==="Historial"?"🕘 ":t==="Privacidad y permisos"?"🔐 ":t==="Configuración Gemini"?"✨ ":"❓ "}${esc(t)}
+        </button>
+      `).join("")}
+      <button data-toast="Sesión activa en el prototipo">↪ Cerrar sesión</button>
+    </aside>
+    <section class="panel">
+      ${content}
+    </section>
+  </div>`;
+}
+
+function chat(){
+  let c = state.chat || seedOffers[0];
+  return `
+  <button class="back" data-page="buy" style="border:0;background:transparent;color:var(--green);font-weight:800;padding:6px 0;margin:0 0 16px;cursor:pointer">← Volver al listado</button>
+  <section class="chat-card">
+    <div class="chat-top">
+      <div class="avatar">${initials(c.name)}</div>
+      <div>
+        <h2>${esc(c.name)}</h2>
+        <div class="subtle">${esc(c.zone)} · ${c.distance} km · ${esc(c.currency)}</div>
+      </div>
+      <button class="btn light small" style="margin-left:auto" data-view-offer>Ver publicación</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="bubble">Hola, soy ${esc(c.name)}. Tengo ${esc(c.amount)} ${esc(c.currency)} disponibles y busco aproximadamente ${esc(c.want)}. Mi tasa propuesta es ${esc(c.rate)}. ¿Qué punto público te queda bien para acordar?</div>
+      ${state.messages.map(m => `<div class="bubble ${m.mine?'mine':''}">${esc(m.text)}</div>`).join("")}
+    </div>
+    <form class="chat-compose" id="chatForm">
+      <input class="field" id="chatInput" placeholder="Escribe un mensaje para acordar detalles..." autocomplete="off">
+      <button class="btn green" type="submit">Enviar</button>
+    </form>
+    <div class="chat-tools">
+      <button class="btn light small" data-toast="La calificación se habilita una vez finalizado el acuerdo presencial.">⭐ Calificar</button>
+      <button class="btn light small" data-toast="Reporte preventivo registrado para revisión de seguridad.">⚠️ Reportar usuario</button>
+      <button class="btn light small" data-modal="academy">🎓 Consejos de seguridad</button>
+    </div>
+  </section>`;
+}
+
+// --- CONSULTA EN VIVO DE LA TRM (SUPERFINANCIERA) ---
+const TRM_ENDPOINT = "https://www.datos.gov.co/resource/ceyp-9c7c.json?$select=valor,vigenciadesde,vigenciahasta&$order=vigenciadesde%20DESC&$limit=1";
+let trmFetchedAt = 0, trmPromise = null;
+
+function setTRM(record, stale=false){
+  let value = document.getElementById("trmValue"), date = document.getElementById("trmDate");
+  if(!value || !date) return;
+  let amount = Number(record?.valor);
+  if(!Number.isFinite(amount)){
+    value.textContent = "No disponible";
+    date.textContent = "No se encontró un dato válido.";
+    return;
+  }
+  value.textContent = "$" + amount.toLocaleString("es-CO",{minimumFractionDigits:2,maximumFractionDigits:2}) + " COP";
+  let formatDate = v => {
+    let bits = String(v||"").slice(0,10).split("-");
+    return bits.length===3 ? bits[2]+"/"+bits[1]+"/"+bits[0] : "";
+  };
+  let from = formatDate(record.vigenciadesde), to = formatDate(record.vigenciahasta);
+  date.textContent = (stale ? "Dato en caché · " : "Vigente ") + (from ? (from + (to && to!==from ? " al " + to : "")) : "");
+}
+
+function loadTRM(){
+  if(trmPromise || Date.now() - trmFetchedAt < 15*60*1000) return;
+  let value = document.getElementById("trmValue"), date = document.getElementById("trmDate");
+  if(!value || !date) return;
+  trmPromise = fetch(TRM_ENDPOINT, {headers:{Accept:"application/json"},cache:"no-store"})
+    .then(r => { if(!r.ok) throw Error("TRM error"); return r.json(); })
+    .then(rows => {
+      if(!Array.isArray(rows) || !rows[0]) throw Error("TRM empty");
+      let record = rows[0];
+      setTRM(record);
+      try { localStorage.setItem("t4c-trm-cache", JSON.stringify(record)); } catch{}
+    })
+    .catch(() => {
+      let cached;
+      try { cached = JSON.parse(localStorage.getItem("t4c-trm-cache")||"null"); } catch{}
+      if(cached) setTRM(cached, true);
+      else { value.textContent = "No disponible"; date.textContent = "Consulta datos.gov.co"; }
+    })
+    .finally(() => { trmFetchedAt = Date.now(); trmPromise = null; });
+}
+
+// --- RENDERIZADO GLOBAL ---
+function render(){
+  let view = state.page==="home"?home():state.page==="buy"?buy():state.page==="sell"?sell():state.page==="about"?about():state.page==="premium"?premium():state.page==="account"?account():state.page==="chat"?chat():home();
+  app.innerHTML = view;
+  headerActive();
+  if(state.page==="home") loadTRM();
+  if(state.modal==="simulator") drawSimulator();
+  if(state.modal==="academy") drawAcademy();
+  if(state.modal==="privacy") drawPrivacyModal();
+  if(state.modal==="login" || state.modal==="signup") drawAuth();
+  updateZetaFabBadge();
+}
+
+function updateZetaFabBadge(){
+  let badge = document.getElementById("zetaBadge");
+  if(badge){
+    if(state.geminiKey){
+      badge.style.background = "#75e6a5";
+      badge.title = "Zeta conectado con Gemini IA";
+    } else {
+      badge.style.background = "#ffd166";
+      badge.title = "Zeta en modo asistente local (agrega tu API key de Gemini para IA avanzada)";
+    }
+  }
+}
+
+function modal(title, body, wide){
+  layers.innerHTML = `
+  <div class="overlay" data-overlay>
+    <section class="modal ${wide?'wide':''}" role="dialog" aria-modal="true">
+      <header class="modal-head">
+        <div><h2>${title}</h2></div>
+        <button class="xbtn" data-close-modal aria-label="Cerrar modal">×</button>
+      </header>
+      <div class="modal-body">${body}</div>
+    </section>
+  </div>`;
+}
+
+// --- MODAL DE POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES (27 NUMERALES) ---
+function drawPrivacyModal(){
+  const fullPolicyHTML = `
+  <div class="policy-box">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <div>
+        <h3 style="margin:0;color:var(--deep)">Política de Protección y Tratamiento de Datos Personales</h3>
+        <span class="subtle">Trade4Cash S.A.S. · Domicilio principal: Bogotá D.C. – Colombia</span>
+      </div>
+      <button class="btn light small" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+    </div>
+    
+    <div class="policy-meta-grid" style="margin-top:14px">
+      <div class="policy-meta-card">
+        <span class="subtle">Régimen Legal</span>
+        <strong>Ley 1581 de 2012 y Dec. 1074/2015</strong>
+      </div>
+      <div class="policy-meta-card">
+        <span class="subtle">Teléfono de atención</span>
+        <strong>3184641985</strong>
+      </div>
+      <div class="policy-meta-card">
+        <span class="subtle">Correo oficial de atención</span>
+        <strong>camilacardenasc1@gmail.com</strong>
+      </div>
+      <div class="policy-meta-card">
+        <span class="subtle">Restricción de edad</span>
+        <strong>Prohibido para menores (&lt;18)</strong>
+      </div>
+      <div class="policy-meta-card">
+        <span class="subtle">Término Consultas</span>
+        <strong>10 días hábiles (+5 prórroga)</strong>
+      </div>
+      <div class="policy-meta-card">
+        <span class="subtle">Término Reclamos</span>
+        <strong>15 días hábiles (+8 prórroga)</strong>
+      </div>
+    </div>
+    <p style="font-size:13px;line-height:1.6;margin:0;color:#2f5142">
+      La presente Política establece los lineamientos, reglas y compromisos que adopta <strong>Trade4Cash S.A.S.</strong>, como responsable de la plataforma de intercambio de divisas entre particulares, para garantizar el tratamiento adecuado de los datos personales de sus usuarios, de conformidad con la Ley 1581 de 2012, el Decreto 1377 de 2013 (compilado en el Decreto Único Reglamentario 1074 de 2015), la Ley 1266 de 2008, la Ley 2300 de 2023 y demás normas concordantes.
+    </p>
+  </div>
+
+  <div style="margin:16px 0 10px;display:flex;justify-content:space-between;align-items:center">
+    <strong style="color:var(--deep)">Contenido oficial del documento (27 Numerales):</strong>
+    <span class="subtle">Haz clic en cada sección para desplegar u ocultar</span>
+  </div>
+
+  <div class="policy-articles-list">
+    ${[
+      ["1. Objetivo", "Establecer los lineamientos, criterios y reglas aplicables a la recolección, consulta, almacenamiento, uso, circulación, transferencia, transmisión, supresión y demás formas de Tratamiento realizadas por Trade4Cash, en calidad de Responsable y/o Encargado del Tratamiento, con el fin de garantizar la protección de los derechos de los Titulares, el cumplimiento de los principios y deberes legales aplicables, y la adecuada gestión de los riesgos asociados —en particular los propios de una plataforma que facilita encuentros físicos entre particulares y transferencias de dinero."],
+      ["2. Alcance", "Esta Política aplica a todo Tratamiento de datos personales contenido en bases de datos, registros físicos, electrónicos o digitales, realizado por Trade4Cash en desarrollo de su objeto social y de sus procesos de registro, verificación de identidad, emparejamiento (matching), mensajería interna, sugerencia de puntos de encuentro, capacitación previa al registro, transacciones y atención al usuario."],
+      ["3. Obligatoriedad y destinatarios", "Esta Política es de obligatorio cumplimiento para colaboradores, contratistas, desarrolladores, proveedores tecnológicos, aliados y, en general, para toda persona que por razón de sus funciones acceda, recolecte, almacena, use, consulte, circule o suprima datos personales por cuenta de Trade4Cash. La Dirección de la compañía deberá promover su implementación efectiva y asignar los recursos necesarios para su cumplimiento."],
+      ["4. Identificación de la empresa responsable del Tratamiento", "El Responsable del Tratamiento de los datos personales objeto de esta Política es Trade4Cash S.A.S., con domicilio principal en la ciudad de Bogotá D.C., Colombia."],
+      ["5. Canales de atención", "Para el ejercicio de los derechos de conocer, consultar, actualizar, rectificar, suprimir datos personales, revocar la autorización, o presentar peticiones, consultas o reclamos, los Titulares o sus apoderados podrán comunicarse a través de: Ciudad: Bogotá D.C., Colombia; Dirección: Plataforma 100% virtual; Correo electrónico: camilacardenasc1@gmail.com; Teléfono: 3184641985. Área responsable: Área de Soporte Legal y Operaciones."],
+      ["6. Marco normativo aplicable", "Constitución Política de Colombia (artículo 15); Ley 1266 de 2008 (Habeas Data Financiero); Ley 1581 de 2012; Decretos Reglamentarios 1377 de 2013 y 886 de 2014 compilados en el Decreto Único Reglamentario 1074 de 2015; Ley 2300 de 2023 (canales y horarios de contactabilidad); Circulares Externas de la Superintendencia de Industria y Comercio (SIC); y normativa en materia de prevención de Lavado de Activos y Financiación del Terrorismo (SARLAFT) aplicable."],
+      ["7. Definiciones", "Se adoptan las definiciones legales de Autorización, Aviso de Privacidad, Base de Datos, Dato biométrico (dato sensible físico/fisiológico como reconocimiento facial para KYC), Dato financiero/transaccional (divisas, tasas pactadas, medios de pago), Dato personal, Dato sensible, Encargado del Tratamiento, Responsable del Tratamiento (Trade4Cash), Titular, Tratamiento, Transferencia y Transmisión."],
+      ["8. Principios", "Trade4Cash aplica los principios rectores de legalidad, finalidad, libertad, veracidad o calidad, transparencia, acceso y circulación restringida, seguridad y confidencialidad. Complementariamente, adopta la responsabilidad demostrada (accountability), necesidad y minimización de datos, privacidad desde el diseño y por defecto, y gestión integral del riesgo."],
+      ["9. Derechos del Titular", "El Titular tiene derecho a: 1. Conocer, actualizar y rectificar sus datos personales frente a Trade4Cash. 2. Solicitar prueba de la autorización otorgada. 3. Ser informado sobre el uso dado a sus datos. 4. Presentar quejas ante la Superintendencia de Industria y Comercio una vez agotado el trámite ante Trade4Cash. 5. Revocar la autorización y/o solicitar la supresión del dato cuando proceda. 6. Acceder de forma gratuita a sus datos objeto de Tratamiento."],
+      ["10. Uso de la plataforma por menores de edad", "El uso de Trade4Cash está RESTRINGIDO ESTRICTAMENTE a personas mayores de 18 años, dado que la actividad de intercambio de divisas y el encuentro físico entre particulares implican riesgos no admisibles para niños, niñas o adolescentes. El tratamiento de sus datos personales está prohibido. Si se detecta que un Titular es menor de edad, Trade4Cash eliminará de inmediato la cuenta y los datos asociados."],
+      ["11. Deberes de Trade4Cash", "Trade4Cash se compromete a usar la información solo para finalidades autorizadas, garantizar el ejercicio del Hábeas Data, conservar los datos bajo altos estándares de seguridad, actualizar y rectificar la información oportunamente, tramitar consultas y reclamos en los plazos de ley, reportar incidentes de seguridad a la SIC y designar al área responsable de protección de datos."],
+      ["12. Política de autorizaciones", "El Tratamiento requiere la autorización previa, expresa e informada del Titular (casilla de aceptación en el registro o mecanismos verificables). En ningún caso el silencio se entenderá como autorización. Se diferencian finalidades necesarias (registro, verificación KYC, matching) de finalidades accesorias (comunicaciones comerciales)."],
+      ["13. Aviso de Privacidad", "Comunicación para informar sobre la existencia de esta Política, finalidades y canales de atención cuando no sea posible presentar el texto íntegro al momento de la recolección, disponible permanentemente en la plataforma y sitio web."],
+      ["14. Eventos en los cuales no es necesaria la autorización", "Casos previstos en la ley: información requerida por entidad pública o judicial en ejercicio de funciones legales; datos de naturaleza pública; urgencia médica o sanitaria; o fines estadísticos con disociación/anonimización de identidad."],
+      ["15. Legitimación para el ejercicio de los derechos", "Podrán ejercer los derechos: el propio Titular acreditando su identidad; sus causahabientes acreditando tal calidad; o sus representantes/apoderados debidamente acreditados."],
+      ["16. Datos recolectados y finalidades", "16.1 Categorías: Identificación y contacto, Verificación KYC (copia de documento y selfie biométrica para prevención de fraude), Ubicación (geolocalización para puntos seguros), Transaccionales, Financieros, Comunicaciones internas de chat y Datos técnicos (IP, dispositivo). 16.2 Finalidades: Administración de cuenta, verificación KYC, sugerir puntos de encuentro seguros evitando domicilios particulares, facilitar chat y acuerdo de tasa, capacitación en Academy, calificaciones de reputación y cumplimiento legal/SARLAFT."],
+      ["17. Datos sensibles", "El documento de identidad y los datos biométricos se consideran sensibles. Trade4Cash informa que su entrega es facultativa (aunque indispensable para funciones dependientes de verificación), exige autorización explícita y separada, restringe su acceso, prohíbe decisiones automatizadas con efectos jurídicos sin supervisión humana y los conserva únicamente mientras perdure la necesidad de verificación."],
+      ["18. Cobranza, mercadeo y comunicaciones comerciales", "El envío de comunicaciones promocionales requiere autorización previa y específica, respetando las solicitudes de exclusión y el Registro de Números Excluidos (RNE)."],
+      ["19. Transferencia internacional de datos", "No se transferirán datos a países que no ofrezcan un nivel adecuado de protección según la SIC, salvo excepciones de ley (autorización inequívoca, ejecución contractual, transferencias bancarias o cláusulas contractuales estándar)."],
+      ["20. Transmisión internacional de datos personales", "Al utilizar proveedores de nube, pasarelas o validación de identidad en el exterior que actúen como Encargados, se suscribirán contratos de transmisión que garanticen confidencialidad, seguridad y supresión de datos."],
+      ["21. Conservación, bloqueo y eliminación", "Los datos se conservarán durante el tiempo necesario para cumplir las finalidades autorizadas o exigencias legales (contables, prevención de lavado de activos). Vencidos los plazos, se eliminarán o anonimizarán de forma segura."],
+      ["22. Procedimientos para consultas, reclamos y peticiones", "22.1 Consultas: Trade4Cash responderá dentro de los diez (10) días hábiles siguientes, prorrogables por cinco (5) días hábiles más informando al titular. 22.2 Reclamos: Se presentarán con identificación y hechos. Si está incompleto se requerirá subsanar en cinco (5) días hábiles (dos meses sin subsanar opera desistimiento). Recibido completo, se incluirá la leyenda 'RECLAMO EN TRÁMITE' en dos (2) días hábiles. El plazo máximo de respuesta será de quince (15) días hábiles, prorrogable por ocho (8) días hábiles más. 22.3 Revocatoria y 22.4 Supresión conforme a la ley."],
+      ["23. Área responsable y Oficial de Protección de Datos", "Área de Soporte Legal y Operaciones de Trade4Cash S.A.S., encargada de atender solicitudes, tramitar incidentes ante la SIC y mantener el inventario de bases de datos."],
+      ["24. Seguridad de la información", "Medidas técnicas, humanas y administrativas de cifrado de comunicaciones, control de acceso y protocolos de contingencia ante incidentes."],
+      ["25. Atención de requerimientos de autoridades", "Trámite de solicitudes judiciales o administrativas competentes, suministrando únicamente lo estrictamente necesario con registro de trazabilidad."],
+      ["26. Vigencia y modificaciones", "Vigencia a partir de su publicación. Cualquier cambio sustancial en las finalidades será informado a los Titulares antes de su aplicación y requerirá nueva autorización."],
+      ["27. Aprobación y divulgación", "Revisado y aprobado para su implementación por la Dirección General de Trade4Cash S.A.S. Divulgación en la aplicación y sitio web."]
+    ].map((art, idx) => `
+      <article class="policy-article">
+        <header class="policy-article-header" onclick="this.nextElementSibling.classList.toggle('hide')">
+          <span>${art[0]}</span>
+          <span style="font-size:11px;color:var(--green)">Ver detalle ▾</span>
+        </header>
+        <div class="policy-article-body ${idx>1?'hide':''}">
+          ${art[1]}
+        </div>
+      </article>
+    `).join("")}
+  </div>
+
+  <div class="form-warning" style="margin-top:20px">
+    ⚖️ <strong>Ejercicio de tus derechos:</strong> Para ejercer tus derechos de Hábeas Data escribe a <strong>camilacardenasc1@gmail.com</strong> o comunícate al <strong>3184641985</strong> indicando tu nombre, documento y descripción de la petición.
+  </div>`;
+
+  modal("📜 Política de Protección y Tratamiento de Datos Personales", fullPolicyHTML, true);
+}
+
+// --- ACADEMY Y SIMULADOR ---
+function drawAcademy(){
+  modal("🎓 Trade4Cash Academy",`
+  <p class="muted">Aprende lo básico antes de realizar un intercambio con otra persona.</p>
+  <section class="academy-grid">
+    <article class="info-card academy-card">
+      <h3>💵 Detecta un billete falso</h3>
+      <p>No te limites a una sola característica. Inspecciona varios elementos:</p>
+      <ul>
+        <li>Toca la textura y calidad del papel moneda.</li>
+        <li>Revisa marcas de agua a contraluz y cintas de seguridad.</li>
+        <li>Comprueba que la tinta cambie de color y los relieves sean nítidos.</li>
+        <li>Compara el billete con uno auténtico de denominación conocida.</li>
+      </ul>
+    </article>
+    <article class="info-card academy-card">
+      <h3>🛡️ Acuerdos en lugares seguros</h3>
+      <p>La seguridad física es la prioridad número uno:</p>
+      <ul>
+        <li>Encuéntrate únicamente en espacios públicos y vigilados (ej. Starbucks, centros comerciales).</li>
+        <li>Evita acudir a domicilios particulares o sitios solitarios.</li>
+        <li>Revisa la reputación del usuario y número de acuerdos exitosos.</li>
+        <li>No aceptes presiones ni apresuramientos para cerrar el trato.</li>
+      </ul>
+    </article>
+    <article class="info-card academy-card">
+      <h3>📈 Entendiendo la Tasa de Cambio</h3>
+      <p>La tasa indica cuántos pesos recibes o entregas por unidad de moneda extranjera:</p>
+      <ul>
+        <li>Ejemplo: 1 USD = 4.000 COP. Si vendes 500 USD recibes 2.000.000 COP.</li>
+        <li>Compara siempre con la TRM oficial del día para evaluar si la oferta es justa.</li>
+        <li>Define claramente el valor total antes de acudir a la cita.</li>
+      </ul>
+    </article>
+    <article class="info-card academy-card">
+      <h3>🚨 Señales de alerta</h3>
+      <p>Detén la negociación de inmediato si:</p>
+      <ul>
+        <li>El usuario insiste en cambiar la cita a un lugar aislado o fuera del centro comercial.</li>
+        <li>Ofrece una tasa excesivamente ventajosa fuera de la realidad del mercado.</li>
+        <li>Te solicita anticipos por transferencias virtuales previas.</li>
+        <li>Detectas contradicciones en sus datos personales.</li>
+      </ul>
+    </article>
+  </section>
+  <div class="form-warning" style="margin-top:16px">
+    💡 <strong>Aviso:</strong> Trade4Cash es un prototipo demostrativo. La plataforma jamás intermedia, custodia ni transfiere fondos entre las partes.
+  </div>`, true);
+}
+
+function drawSimulator(){
+  let s = state.simStep;
+  let tips = [
+    "Escoge la moneda que deseas ofrecer en esta simulación.",
+    "Indica la cantidad ficticia que quieres publicar.",
+    "Define la tasa en COP para calcular el monto final.",
+    "💡 Revisa tu publicación simulada antes de que esté lista para otros usuarios."
+  ];
+  let inline = s===1 ? "" : `<div class="zeta-msg-bubble" style="background:#eaf8ef;margin-bottom:14px"><strong>🤖 Zeta:</strong> ${tips[s-1]}</div>`;
+  let headings = ["Selecciona la divisa","Indica la cantidad","Define tu tasa","Revisa tu publicación"];
+  let descriptions = [
+    "Elige qué moneda extranjera deseas simular vender.",
+    "Escribe qué cantidad tienes disponible.",
+    "Indica cuántos pesos colombianos deseas recibir por cada unidad.",
+    "Así luciría tu oferta en el panel de Trade4Cash:"
+  ];
+  let content = "";
+  if(s===1) content = `<label class="form-field"><span class="subtle">Divisa</span><select class="select" id="simCurrency">${["Dólar USA","Euro","Peso Mexicano","Dólar Canadá"].map(x=>`<option ${state.sim.currency===x?'selected':''}>${x}</option>`).join("")}</select></label>`;
+  if(s===2) content = `<label class="form-field"><span class="subtle">Cantidad</span><input class="field" id="simAmount" type="number" min="0" value="${state.sim.amount}"></label>`;
+  if(s===3) content = `<label class="form-field"><span class="subtle">Tasa en COP por unidad</span><input class="field" id="simRate" type="number" min="0" value="${state.sim.rate}"></label>`;
+  if(s===4) content = `
+    <div class="result-box">
+      <h3 style="margin-top:0">Tu publicación simulada</h3>
+      <div class="result-line"><span>Divisa:</span><strong>${esc(state.sim.currency)}</strong></div>
+      <div class="result-line"><span>Cantidad:</span><strong>${fmt(state.sim.amount)} ${esc(state.sim.currency)}</strong></div>
+      <div class="result-line"><span>Tasa propuesta:</span><strong>$${fmt(state.sim.rate)} COP</strong></div>
+      <div class="result-line"><span>Total aproximado a recibir:</span><strong>$${fmt(Number(state.sim.amount)*Number(state.sim.rate))} COP</strong></div>
+    </div>
+    <div class="form-warning" style="margin-top:14px">Recuerda: esta es una simulación de aprendizaje. No se realiza ninguna transferencia real de dinero.</div>`;
+
+  modal("🧮 Simulador de publicación",`
+    <p class="muted">Practica una venta de divisas paso a paso.</p>
+    <div class="progress"><span style="width:${s*25}%"></span></div>
+    <div class="sim-step"><span class="stepdot">${s}</span><strong>Paso ${s} de 4</strong></div>
+    <h3>${headings[s-1]}</h3>
+    <p class="muted">${descriptions[s-1]}</p>
+    ${inline}
+    ${content}
+    <div class="actions" style="margin-top:20px;justify-content:space-between">
+      ${s>1?'<button class="btn light" id="simBack">Atrás</button>':'<span></span>'}
+      <button class="btn green" id="simNext">${s===4?'✓ Finalizar':'Continuar'}</button>
+    </div>`, false);
+}
+
+// --- AUTENTICACIÓN / REGISTRO CON CHECKBOX DE TRATAMIENTO DE DATOS ---
+function drawAuth(){
+  let signup = state.modal === "signup";
+  modal(signup?"Crear cuenta en Trade4Cash":"Iniciar sesión",`
+    <p class="muted">${signup?"Regístrate en la plataforma de demostración. Cumplimos con la Ley 1581 de 2012 de Protección de Datos Personales.":"Ingresa con tu usuario registrado o utiliza las credenciales de demostración."}</p>
+    <form id="authForm" class="form-stack">
+      ${signup ? `
+        <label class="form-field">
+          <span>Nombre completo</span>
+          <input class="field" placeholder="Tu nombre y apellidos" required>
+        </label>
+        <label class="form-field">
+          <span>Fecha de nacimiento (Exclusivo mayores de 18 años)</span>
+          <input class="field" type="date" required value="1998-06-15">
+        </label>
+      ` : ''}
+      <label class="form-field">
+        <span>Correo electrónico</span>
+        <input class="field" value="${signup?'':'camilacardenasc1@gmail.com'}" placeholder="correo@ejemplo.com" type="email" required>
+      </label>
+      <label class="form-field">
+        <span>Contraseña</span>
+        <input class="field" value="${signup?'':'demostracion'}" type="password" required>
+      </label>
+      
+      ${signup ? `
+        <div class="form-check">
+          <input type="checkbox" id="authPrivacyCheck" required checked>
+          <label for="authPrivacyCheck">
+            Autorizo de manera previa, expresa e informada el tratamiento de mis datos personales a <strong>Trade4Cash S.A.S.</strong> según su <button type="button" class="linkbtn" data-modal="privacy">Política de Tratamiento de Datos Personales</button> (Ley 1581 de 2012).
+          </label>
+        </div>
+      ` : ''}
+
+      <p class="smallprint">🔐 Plataforma con entorno de pruebas. Tus datos están protegidos y nunca se comparten con terceros no autorizados.</p>
+      <button class="btn green block" type="submit">${signup?"Crear mi cuenta":"Ingresar a Trade4Cash"}</button>
+    </form>
+    <p class="smallprint" style="text-align:center;margin-top:14px">
+      ${signup?"¿Ya tienes cuenta? ":"¿No tienes cuenta? "}
+      <button class="linkbtn" id="switchAuth">${signup?"Iniciar sesión":"Crear cuenta nueva"}</button>
+    </p>`, false);
+}
+
+// --- MOTOR DE CONOCIMIENTO LOCAL Y ASISTENTE ZETA CON GEMINI IA ---
+
+// PROMPT DE SISTEMA INTEGRAL PARA GEMINI
+const ZETA_SYSTEM_PROMPT = `
+Eres Zeta, el asistente de inteligencia artificial oficial de la plataforma "Trade4Cash" (desarrollada por Trade4Cash S.A.S. en Bogotá D.C., Colombia).
+Tu personalidad es amable, pedagógica, clara, profesional y enfocada en la seguridad y protección de los usuarios.
+
+SOBRE TRADE4CASH:
+1. Trade4Cash es un mercado digital entre pares (P2P) para que personas en Bogotá acuerden el intercambio directo de divisas (Dólares, Euros, Pesos Mexicanos, Pesos Colombianos, etc.).
+2. CÓMO FUNCIONA COMPRAR: En la sección "Comprar", el usuario explora publicaciones de otros usuarios con filtros por divisa, ubicación (Norte, Centro, Chapinero, etc.) y distancia (hasta 2 km, 5 km, 10 km). Puede revisar la reputación y contactar al usuario mediante mensajería interna.
+3. CÓMO FUNCIONA VENDER: En la sección "Vender", el usuario publica la moneda que tiene, la cantidad, la tasa en COP que desea recibir, un punto público de encuentro y el radio de visibilidad.
+4. REGLA FUNDAMENTAL DE SEGURIDAD: Trade4Cash NO recibe, NO transfiere, NO custodia ni intermedia dinero. Es una plataforma comunitaria de contacto. Las partes deben acordar puntos de encuentro PÚBLICOS y SEGUROS (ej. Starbucks, centros comerciales con vigilancia) y NUNCA acudir a domicilios privados ni hacer pagos adelantados.
+5. ACADEMY: Módulo pedagógico para enseñar a detectar billetes falsos (textura, marcas de agua, tintas que cambian de color, relieves), entender la Tasa Representativa del Mercado (TRM) y señales de alerta de estafas.
+6. SIMULADOR: Herramienta interactiva para practicar cómo estructurar una oferta de divisas con valores ficticios sin riesgo financiero.
+7. EDAD MÍNIMA: Plataforma restringida estrictamente a mayores de 18 años.
+
+POLÍTICA DE PROTECCIÓN Y TRATAMIENTO DE DATOS PERSONALES (Trade4Cash S.A.S. - Ley 1581 de 2012):
+- Responsable: Trade4Cash S.A.S., plataforma 100% virtual con domicilio en Bogotá D.C., Colombia.
+- Canales de atención para Habeas Data (consultas, reclamos, supresión, revocatoria):
+  * Correo: camilacardenasc1@gmail.com
+  * Teléfono: 3184641985
+  * Área encargada: Área de Soporte Legal y Operaciones.
+- Tiempos de respuesta legales:
+  * Consultas: 10 días hábiles (prorrogables por 5 días hábiles avisando previamente).
+  * Reclamos: 15 días hábiles (prorrogables por 8 días hábiles). Se anota la leyenda "RECLAMO EN TRÁMITE" en 2 días hábiles tras recibirlo completo.
+- Datos recolectados: Identificación, contacto, verificación KYC (documento y biometría selfie facial facultativa), geolocalización para puntos seguros, datos transaccionales y técnicos.
+- Menores de edad: Prohibido. Si se detecta un menor, se cancela la cuenta y se borran los datos.
+- Derechos del titular: Conocer, actualizar, rectificar, revocar autorización, solicitar supresión y presentar quejas ante la Superintendencia de Industria y Comercio (SIC).
+
+DIRECTRICES DE TUS RESPUESTAS:
+- Responde siempre en español, de forma concisa, estructurada y muy clara.
+- Usa negritas y viñetas para que sea fácil de leer.
+- Si te preguntan sobre datos personales o cómo radicar un reclamo, proporciona siempre el correo camilacardenasc1@gmail.com, el teléfono 3184641985 y los plazos de 10 o 15 días hábiles.
+- Si te preguntan si Trade4Cash custodia el dinero, aclara de inmediato que NO custodia dinero y recomienda siempre puntos públicos concurridos.
+- Sé servicial y empático.
+`;
+
+// ASISTENTE INTELIGENTE LOCAL (RESPALDO OFFLINE O SIN API KEY)
+function localZetaAnswer(question){
+  let q = question.toLowerCase();
+
+  // Tratamiento de datos y privacidad
+  if(/dat(o|os)|privacid|pol[ií]tic|habeas|sic|ley 1581|titular|derech(o|os)|suprim|revoc|reclamo|consulta/i.test(q)){
+    if(/plazo|tiemp|d[ií]a|cu[aá]nto tarda/i.test(q)){
+      return `De acuerdo con el **numeral 22 de la Política de Tratamiento de Datos Personales** de Trade4Cash S.A.S.:
+• **Consultas:** Se responden en un máximo de **10 días hábiles** (prorrogables por 5 días hábiles más con aviso previo).
+• **Reclamos:** Se resuelven en un término máximo de **15 días hábiles** (prorrogables por 8 días hábiles adicionales). Se estampa la leyenda *"RECLAMO EN TRÁMITE"* en la base de datos dentro de los 2 días hábiles siguientes a recibirlo completo.
+Puedes radicar peticiones a **camilacardenasc1@gmail.com** o al teléfono **3184641985**.`;
+    }
+    if(/canal|contact|correo|tel[eé]fono|d[oó]nde|oficial/i.test(q)){
+      return `Los canales oficiales del **Área de Soporte Legal y Operaciones** de Trade4Cash S.A.S. para el ejercicio de tus derechos de Hábeas Data son:
+• 📧 **Correo electrónico:** camilacardenasc1@gmail.com
+• 📞 **Teléfono:** 3184641985
+• 📍 **Domicilio:** Bogotá D.C., Colombia (Plataforma 100% virtual).
+Puedes solicitar conocer, actualizar, rectificar o suprimir tus datos personales en cualquier momento.`;
+    }
+    return `La **Política de Protección y Tratamiento de Datos Personales de Trade4Cash S.A.S.** se rige bajo la Ley 1581 de 2012 y el Decreto 1074 de 2015:
+1. **Titularidad:** Tienes derecho a conocer, actualizar, rectificar y suprimir tus datos o revocar la autorización.
+2. **Canales:** Escribe a **camilacardenasc1@gmail.com** o llama al **3184641985**.
+3. **Plazos:** 10 días hábiles para consultas y 15 días hábiles para reclamos.
+4. **Datos sensibles KYC:** Se solicitan solo con fines de prevención de fraude y verificación de identidad con tu consentimiento.
+5. **Menores de edad:** El servicio es exclusivo para mayores de 18 años.
+Puedes consultar los 27 numerales completos haciendo clic en el botón *"Privacidad"* del menú superior o en el pie de página.`;
+  }
+
+  // TRM
+  if(/trm|tasa|d[oó]lar hoy|referencia|superfinanciera/i.test(q)){
+    return `La **TRM (Tasa Representativa del Mercado)** es el valor oficial de referencia del dólar fijado por la Superintendencia Financiera de Colombia.
+• En Trade4Cash la consultamos en tiempo real directamente desde el portal oficial de datos abiertos (*datos.gov.co*).
+• Sirve como guía para comparar si la oferta que te propone otro usuario es competitiva frente al mercado bancario.
+• Recuerda que en Trade4Cash la tasa es libre y se pacta de mutuo acuerdo entre comprador y vendedor.`;
+  }
+
+  // Comprar
+  if(/compr|buscar|filtro|encontr/i.test(q)){
+    return `Para **comprar divisas** en Trade4Cash:
+1. Ingresa a la sección **"Comprar"** en el menú superior.
+2. Selecciona la divisa deseada (Dólar USA, Euro, Peso Mexicano, etc.).
+3. Aplica filtros por ubicación (Norte, Centro, Chapinero) o distancia máxima (2 km, 5 km, 10 km).
+4. Revisa la calificación y reputación de cada usuario.
+5. Presiona **"Contactar"** para abrir el chat y acordar la tasa definitiva y un punto de encuentro seguro.`;
+  }
+
+  // Vender
+  if(/vend|public|crear oferta|ofrecer/i.test(q)){
+    return `Para **vender divisas** en Trade4Cash:
+1. Ve a la pestaña **"Vender"**.
+2. Completa el formulario con la divisa, la cantidad disponible y la tasa en COP que deseas recibir por unidad.
+3. Especifica un **punto público de encuentro** sugerido (por ejemplo: un Starbucks o centro comercial concurrido).
+4. Establece el radio de visibilidad para que usuarios cercanos te encuentren.
+5. Confirma la publicación y revisa las personas interesadas en tu oferta.`;
+  }
+
+  // Seguridad y Custodia de dinero
+  if(/segur|custod|estaf|billete|fals|efectivo|peligr|miedo/i.test(q)){
+    return `🛡️ **Directrices de seguridad indispensables en Trade4Cash:**
+• **Trade4Cash NO custodia ni recibe dinero:** No entregues dinero a intermediarios virtuales ni aceptes pagos por adelantado.
+• **Puntos de encuentro públicos:** Acuerden siempre encontrarse en lugares con vigilancia y flujo de personas (centros comerciales, entidades bancarias o cafés).
+• **Revisión de billetes:** En **Trade4Cash Academy** te enseñamos a tocar la textura, comprobar las marcas de agua a contraluz y verificar los relieves de seguridad.
+• **Reputación:** Revisa siempre las estrellas y número de acuerdos del otro usuario antes de cerrar el trato.`;
+  }
+
+  // Academy y Simulador
+  if(/academ|aprender|simul|practic/i.test(q)){
+    return `🎓 **Herramientas de aprendizaje de Trade4Cash:**
+• **Trade4Cash Academy:** Módulos interactivos sobre detección de billetes falsos, cálculo de tasas y cómo identificar señales de alerta antes de encontrarte con alguien.
+• **Simulador de publicación:** Guía interactiva de 4 pasos para practicar el cálculo del valor total y familiarizarte con las ofertas sin utilizar dinero real.
+Puedes acceder a ambos desde el Inicio o el pie de página.`;
+  }
+
+  // Menores de edad
+  if(/menor|edad|18 a[ñn]os|ni[ñn]o/i.test(q)){
+    return `El uso de Trade4Cash está **estrictamente reservado a mayores de 18 años** (numeral 10 de la Política de Tratamiento de Datos).
+Está prohibido el registro o tratamiento de datos de menores. Si se detecta una cuenta perteneciente a un menor de edad, será dada de baja de inmediato con la supresión de toda su información.`;
+  }
+
+  // Respuesta general de bienvenida / orientación
+  return `¡Con gusto te ayudo! Como asistente de **Trade4Cash**, puedo orientarte sobre:
+• **Comprar o Vender:** Cómo explorar ofertas, crear publicaciones y usar los filtros de distancia.
+• **Seguridad:** Puntos de encuentro recomendados y cómo detectar billetes falsos.
+• **TRM del día:** Dólar oficial de la Superfinanciera y cómo negociar tasas.
+• **Política de Tratamiento de Datos:** Canales (camilacardenasc1@gmail.com, 3184641985), plazos de respuesta y derechos de Hábeas Data.
+• **Configurar Gemini:** Puedes activar respuestas de IA avanzadas ingresando tu clave API de Gemini en el engranaje ⚙️ de esta ventana.`;
+}
+
+// LLAMADA A LA API DE GEMINI
+async function callGeminiAI(userPrompt){
+  let apiKey = state.geminiKey.trim();
+  if(!apiKey){
+    // Si no tiene clave, usamos el motor local enriquecido
+    return localZetaAnswer(userPrompt);
+  }
+
+  let model = state.geminiModel || "gemini-2.5-flash";
+  let endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
+
+  // Construir historial de mensajes para Gemini
+  let contents = [];
+  // Últimos 6 turnos para mantener contexto sin sobrecargar tokens
+  let recent = state.zetaMessages.slice(-6);
+  for(let m of recent){
+    contents.push({
+      role: m.role === "user" ? "user" : "model",
+      parts: [{ text: m.text }]
+    });
+  }
+  // Agregar el mensaje actual del usuario
+  contents.push({
+    role: "user",
+    parts: [{ text: userPrompt }]
+  });
+
+  let payload = {
+    system_instruction: {
+      parts: [{ text: ZETA_SYSTEM_PROMPT }]
+    },
+    contents: contents,
+    generationConfig: {
+      temperature: 0.65,
+      maxOutputTokens: 900
+    }
+  };
+
+  try {
+    let res = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if(!res.ok){
+      let errData = await res.json().catch(()=>({}));
+      console.warn("Gemini API error:", res.status, errData);
+      let errMsg = errData?.error?.message || `HTTP ${res.status}`;
+      return `*(Aviso: Ocurrió un error conectando con Gemini API: ${errMsg}. Respondido con el asistente local de Trade4Cash:)*\n\n` + localZetaAnswer(userPrompt);
+    }
+
+    let data = await res.json();
+    let replyText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    if(replyText){
+      return replyText;
+    } else {
+      return localZetaAnswer(userPrompt);
+    }
+  } catch(err){
+    console.error("Fetch Gemini error:", err);
+    return `*(Nota: Hubo un problema de conexión a internet o clave API. Asistente local activado:)*\n\n` + localZetaAnswer(userPrompt);
+  }
+}
+
+// SÍNTESIS DE VOZ NATIVA (ESPAÑOL)
+function speakText(text){
+  if(!("speechSynthesis" in window)){
+    toast("Tu navegador no soporta síntesis de voz.");
+    return;
+  }
+  window.speechSynthesis.cancel();
+  // Limpiar markdown para hablar
+  let clean = text.replace(/[*_#`•\-]/g, ' ').replace(/\s+/g, ' ').trim();
+  let utterance = new SpeechSynthesisUtterance(clean);
+  utterance.lang = "es-CO";
+  utterance.rate = 1.05;
+  // Intentar seleccionar voz en español si existe
+  let voices = window.speechSynthesis.getVoices();
+  let esVoice = voices.find(v => v.lang.startsWith("es"));
+  if(esVoice) utterance.voice = esVoice;
+  window.speechSynthesis.speak(utterance);
+}
+
+// --- DIBUJADO DE LA INTERFAZ DE CHAT DE ZETA ---
+function drawZeta(){
+  let old = document.getElementById("zetaPanel");
+  if(old) old.remove();
+  if(!state.zetaOpen) return;
+
+  let isConnected = Boolean(state.geminiKey.trim());
+  let statusText = isConnected ? `Gemini IA (${state.geminiModel})` : "Modo Asistente Local";
+
+  let p = document.createElement("section");
+  p.id = "zetaPanel";
+  p.className = "zeta-panel";
+  p.setAttribute("role", "dialog");
+  p.setAttribute("aria-label", "Asistente virtual Zeta con IA");
+
+  p.innerHTML = `
+    <header class="zeta-head">
+      <div class="zeta-head-left">
+        <div class="zeta-head-avatar">
+          <img src="zeta-robot.png" alt="Zeta">
+        </div>
+        <div>
+          <strong>Zeta · Asistente IA</strong>
+          <span class="zeta-head-status">
+            <span class="status-dot ${isConnected?'':'offline'}"></span>
+            <span>${statusText}</span>
+          </span>
+        </div>
+      </div>
+      <div class="zeta-head-actions">
+        <button class="zeta-icon-btn" id="zetaSettingsBtn" title="Configurar clave de Gemini IA">⚙️</button>
+        <button class="zeta-icon-btn" id="zetaClearBtn" title="Limpiar conversación">🗑️</button>
+        <button class="zeta-icon-btn" id="zetaCloseBtn" title="Cerrar ventana">✕</button>
+      </div>
+    </header>
+
+    <div class="zeta-chat-body" id="zetaChatBody">
+      ${state.zetaMessages.map((m, idx) => `
+        <div class="zeta-msg-row ${m.role==='user'?'user':'bot'}">
+          ${m.role==='model' ? `
+            <div class="zeta-bot-avatar"><img src="zeta-robot.png" alt=""></div>
+          ` : ''}
+          <div class="zeta-msg-bubble">
+            ${formatMarkdown(m.text)}
+            <div class="zeta-msg-meta">
+              <span>${m.role==='model'?'Zeta':'Tú'}</span>
+              ${m.role==='model' ? `
+                <button type="button" class="zeta-voice-btn" data-speak-idx="${idx}" title="Escuchar en voz alta">🔊 Escuchar</button>
+              ` : ''}
+            </div>
+          </div>
+        </div>
+      `).join("")}
+
+      ${state.zetaLoading ? `
+        <div class="zeta-msg-row bot">
+          <div class="zeta-bot-avatar"><img src="zeta-robot.png" alt=""></div>
+          <div class="zeta-typing">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      ` : ''}
+
+      ${state.zetaMessages.length <= 2 ? `
+        <div style="margin-top:8px">
+          <span class="subtle" style="display:block;margin-bottom:6px;font-size:11px">Preguntas sugeridas:</span>
+          <div class="zeta-chips">
+            <button class="zeta-chip-btn" data-zeta-query="¿Cómo funciona comprar y vender divisas?">🪙 ¿Cómo comprar y vender?</button>
+            <button class="zeta-chip-btn" data-zeta-query="¿Qué dice la política de tratamiento de datos personales?">📜 Política de datos (Ley 1581)</button>
+            <button class="zeta-chip-btn" data-zeta-query="¿Cuáles son los plazos para resolver consultas y reclamos de datos?">⏱️ Plazos de consultas y reclamos</button>
+            <button class="zeta-chip-btn" data-zeta-query="¿Trade4Cash custodia o transfiere el dinero?">🛡️ ¿Trade4Cash custodia mi dinero?</button>
+            <button class="zeta-chip-btn" data-zeta-query="¿Cómo detectar billetes falsos según la Academy?">💵 Detectar billetes falsos</button>
+            <button class="zeta-chip-btn" data-zeta-query="¿Qué es la TRM y de dónde se consulta?">💱 TRM oficial de hoy</button>
+          </div>
+        </div>
+      ` : ''}
+    </div>
+
+    <footer class="zeta-footer">
+      <form class="zeta-input-row" id="zetaChatForm">
+        <input class="field" id="zetaChatInput" placeholder="Pregúntale a Zeta sobre la página o privacidad..." autocomplete="off">
+        <button class="zeta-send-btn" id="zetaSendBtn" type="submit" title="Enviar consulta" ${state.zetaLoading?'disabled':''}>➤</button>
+      </form>
+      <div class="zeta-status-bar">
+        <span>${isConnected ? '✨ Gemini IA Conectado' : '💡 Usando asistente local'}</span>
+        <button type="button" id="zetaOpenSettingsLink">${isConnected ? 'Cambiar API Key' : 'Conectar Gemini API Key'}</button>
+      </div>
+    </footer>
+  `;
+
+  layers.appendChild(p);
+  scrollZetaChat();
+}
+
+function scrollZetaChat(){
+  let el = document.getElementById("zetaChatBody");
+  if(el){
+    setTimeout(()=>{ el.scrollTop = el.scrollHeight + 100; }, 40);
+  }
+}
+
+// MODAL DE CONFIGURACIÓN DE GEMINI
+function drawGeminiSettingsModal(){
+  let modalContent = `
+    <p class="muted">Conecta el asistente Zeta directamente a los modelos de inteligencia artificial de Google Gemini para obtener respuestas naturales, detalladas y contextualizadas.</p>
+    
+    <form id="geminiConfigForm" class="form-stack">
+      <label class="form-field">
+        <span>Clave de API de Gemini (API Key)</span>
+        <input class="field" id="geminiApiKeyInput" type="password" placeholder="AIzaSy..." value="${esc(state.geminiKey)}" required>
+        <span class="subtle" style="display:block;margin-top:4px">
+          Obtén tu clave gratuita en <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" style="color:var(--green);font-weight:700">Google AI Studio</a>. Se almacena localmente de forma privada.
+        </span>
+      </label>
+
+      <label class="form-field">
+        <span>Modelo de IA</span>
+        <select class="select" id="geminiModelInput">
+          <option value="gemini-2.5-flash" ${state.geminiModel==='gemini-2.5-flash'?'selected':''}>gemini-2.5-flash (Recomendado: Máxima velocidad y precisión)</option>
+          <option value="gemini-2.0-flash" ${state.geminiModel==='gemini-2.0-flash'?'selected':''}>gemini-2.0-flash (Flash 2.0)</option>
+          <option value="gemini-1.5-flash" ${state.geminiModel==='gemini-1.5-flash'?'selected':''}>gemini-1.5-flash (Estable)</option>
+        </select>
+      </label>
+
+      <div style="background:#eaf8ef;padding:12px;border-radius:10px;font-size:12px;line-height:1.5;color:#235741">
+        🔒 <strong>Privacidad garantizada:</strong> Tu clave nunca se almacena en bases de datos de terceros; se envía de forma directa desde tu navegador a los servidores seguros de Google Cloud para procesar la consulta.
+      </div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <button class="btn green" type="submit">Guardar y Conectar</button>
+        <button class="btn light" type="button" id="btnTestInModal">Probar conexión</button>
+        ${state.geminiKey ? `<button class="btn light" type="button" id="btnRemoveInModal" style="color:#ba3030">Eliminar clave</button>` : ''}
+      </div>
+    </form>
+  `;
+
+  modal("⚙️ Configuración de Gemini IA para Zeta", modalContent, false);
+}
+
+// PROBAR CONEXIÓN CON GEMINI
+async function testGeminiConnection(key, model){
+  if(!key){
+    toast("Ingresa primero una clave de API.");
+    return;
+  }
+  toast("Probando conexión con Google Gemini...");
+  let endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(key)}`;
+  try {
+    let res = await fetch(endpoint, {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({
+        contents:[{role:"user",parts:[{text:"Responde únicamente la palabra 'CONECTADO'"}]}]
+      })
+    });
+    if(!res.ok){
+      let err = await res.json().catch(()=>({}));
+      toast("Error al conectar: " + (err?.error?.message || "HTTP " + res.status));
+      return false;
+    }
+    toast("✅ ¡Conexión exitosa con Gemini AI (" + model + ")!");
+    return true;
+  } catch(e){
+    toast("No se pudo conectar: " + e.message);
+    return false;
+  }
+}
+
+// GESTIÓN DEL ENVÍO DE MENSAJES EN ZETA
+async function sendZetaMessage(text){
+  let prompt = text.trim();
+  if(!prompt || state.zetaLoading) return;
+
+  state.zetaMessages.push({role:"user", text:prompt});
+  state.zetaLoading = true;
+  drawZeta();
+
+  try {
+    let answer = await callGeminiAI(prompt);
+    state.zetaMessages.push({role:"model", text:answer});
+  } catch(e){
+    state.zetaMessages.push({role:"model", text:"Ocurrió un error al procesar tu consulta. Intenta nuevamente."});
+  } finally {
+    state.zetaLoading = false;
+    drawZeta();
+  }
+}
+
+// --- COACH / GUÍAS DEMOSTRATIVAS ---
+function coachData(id){
+  return {
+    home:[
+      "🏠 Bienvenido a Trade4Cash",
+      `En Inicio puedes buscar una divisa en Comprar o publicar tu oferta en Vender.
+- Revisa Academy para aprender a detectar billetes falsos, concretar acuerdos en lugares seguros, entender la tasa de cambio y reconocer señales de alerta ante usuarios poco confiables.
+- Consulta nuestro Tratamiento de Datos Personales.
+- Utiliza a Zeta IA para resolver cualquier duda.`,
+      "Entendido"
+    ],
+    buy:["🔎 Explora ofertas publicadas","Elige una divisa y descubre lo que otras personas ofrecen con tasa, ubicación y punto de encuentro seguro.","Entendido"],
+    filters:["🎯 Ajusta tu búsqueda","Filtra por moneda, zona de Bogotá o distancia máxima para encontrar personas cerca de ti.","Entendido"],
+    offer:["💬 Revisa los detalles del acuerdo","Verifica la cantidad, la tasa pactada y el punto público de encuentro. Trade4Cash no custodia el dinero.","Entendido"],
+    sell:["💸 Tu espacio para ofrecer divisas","Publica la divisa que tienes disponible, la tasa que deseas recibir y el punto público de encuentro sugerido.","Entendido"],
+    create:["📝 Creación paso a paso","Indica divisa, cantidad, tasa en COP, lugar vigilado y radio de visibilidad.","Empezar"],
+    currency:["💵 Selecciona la divisa","Elige la moneda extranjera que tienes en efectivo o digital.","Entendido"],
+    amount:["💰 Cantidad disponible","Indica el monto que deseas intercambiar.","Entendido"],
+    rate:["📈 Tasa que deseas recibir","Indica cuántos pesos colombianos propones recibir por unidad de divisa.","Entendido"],
+    meeting:["📍 Punto de encuentro seguro","Propón un lugar público concurrido y con seguridad (Starbucks, centros comerciales).","Entendido"],
+    radius:["👀 Radio de visibilidad","Elige a qué distancia máxima de tu punto se mostrará tu oferta.","Entendido"],
+    simulator:["🧮 Simulador interactivo","Practica cómo crear una oferta y revisar los cálculos de conversión sin riesgo alguno.","Entendido"],
+    academy:["🎓 Aprende antes de intercambiar","Consulta cómo detectar billetes falsos, verificar marcas de agua y mantenerte seguro en tus encuentros.","Entendido"],
+    security:["🛡️ Encuentro seguro","Recuerda siempre verificar la legitimidad del dinero y reunirte en sitios vigilados.","Entendido"],
+    account:["👤 Tu cuenta y privacidad","Consulta tus datos, configura tu clave de Gemini y gestiona tus derechos de Hábeas Data.","Entendido"]
+  }[id];
+}
+
+let guide = {seen:{},completed:false,started:false};
+try{ guide = Object.assign(guide, JSON.parse(localStorage.getItem("t4c-current-guide")||"{}")); }catch{}
+
+function showCoach(id, target, force=false){
+  let msg = coachData(id);
+  if(!msg) return;
+  if(!force && (guide.completed || guide.seen[id])) return;
+  guide.started = true;
+  localStorage.setItem("t4c-current-guide", JSON.stringify(guide));
+
+  let el = document.createElement("aside");
+  el.className = "coach";
+  el.setAttribute("role","status");
+  el.setAttribute("aria-live","polite");
+  el.innerHTML = `
+    <div class="coach-head">
+      <span class="coach-avatar">${robot()}</span>
+      <strong>Zeta · Trade4Cash</strong>
+      <button class="xbtn" aria-label="Cerrar" data-coach-close style="margin-left:auto;color:#60796d">×</button>
+    </div>
+    <div class="coach-title">${msg[0]}</div>
+    <div class="coach-body">${formatMarkdown(msg[1])}</div>
+    <div class="coach-actions">
+      <button class="btn green" data-coach-close>${msg[2]}</button>
+      <button class="coach-skip" data-coach-skip>Finalizar guía</button>
+    </div>
+  `;
+  layers.querySelector(".coach")?.remove();
+  layers.appendChild(el);
+
+  let place = () => {
+    if(innerWidth < 680) return;
+    let r = target?.getBoundingClientRect?.();
+    let w = el.offsetWidth, h = el.offsetHeight;
+    let x = r ? r.left : innerWidth - w - 18;
+    x = Math.max(12, Math.min(innerWidth - w - 12, x));
+    let y = r ? r.bottom + 12 : innerHeight - h - 18;
+    let above = false;
+    if(y + h > innerHeight - 8){ y = (r ? r.top : innerHeight) - h - 12; above = true; }
+    el.style.left = x + "px";
+    el.style.top = Math.max(12, y) + "px";
+    el.dataset.above = above ? "true" : "false";
+  };
+  place();
+
+  el.querySelectorAll("[data-coach-close]").forEach(b => b.onclick = () => {
+    guide.seen[id] = true;
+    localStorage.setItem("t4c-current-guide", JSON.stringify(guide));
+    el.remove();
+  });
+  el.querySelector("[data-coach-skip]").onclick = () => {
+    guide.completed = true;
+    localStorage.setItem("t4c-current-guide", JSON.stringify(guide));
+    el.remove();
+  };
+}
+
+function toast(text){
+  let e = document.createElement("div");
+  e.className = "toast";
+  e.textContent = text;
+  layers.appendChild(e);
+  setTimeout(() => e.remove(), 3200);
+}
+
+function page(to){
+  state.modal = null;
+  state.page = to;
+  state.chat = null;
+  state.messages = [];
+  layers.querySelector(".coach")?.remove();
+  document.getElementById("nav").classList.remove("open");
+  render();
+  window.scrollTo(0,0);
+  if(to==="home") setTimeout(() => showCoach("home", document.querySelector(".section-title") || document.querySelector(".hero"), true), 60);
+  if(to==="buy") setTimeout(() => showCoach("buy", document.querySelector(".page-head")), 80);
+  if(to==="sell") setTimeout(() => showCoach("sell", document.querySelector(".page-head")), 80);
+  if(to==="account") setTimeout(() => showCoach("account", document.querySelector(".page-head")), 80);
+}
+
+function openChat(index){
+  state.chat = seedOffers[index] || seedOffers[0];
+  state.page = "chat";
+  render();
+  window.scrollTo(0,0);
+  setTimeout(() => showCoach("offer", document.querySelector(".chat-top")), 60);
+}
+
+// PANTALLA DE BIENVENIDA
+function drawWelcome(){
+  if(localStorage.getItem("t4c-entered")) return;
+  let e = document.createElement("div");
+  e.className = "welcomeScreen";
+  e.id = "welcome";
+  e.innerHTML = `
+    <section class="welcomeCard">
+      <div class="brand">Trade4<span>Cash</span></div>
+      <img class="zeta-welcome-img" src="zeta-robot.png" alt="Zeta">
+      <h1>Tu dinero,<br><span>tu acuerdo.</span></h1>
+      <p>Intercambia divisas directamente con otras personas en Bogotá de forma segura, informada y libre.</p>
+      <button class="btn primary block" id="welcomeLogin">Iniciar sesión</button>
+      <button class="btn block" id="welcomeSignup">Crear cuenta (Mayor de 18 años)</button>
+      <div style="margin-top:14px">
+        <button class="linkbtn" data-modal="privacy" style="color:#d5f4e3;font-size:12px">Política de Tratamiento de Datos Personales (Ley 1581)</button>
+      </div>
+      <div class="smallprint" style="margin-top:12px">Simulador académico · Datos ficticios · Entorno de demostración interactiva</div>
+    </section>
+  `;
+  layers.appendChild(e);
+
+  document.getElementById("welcomeLogin").onclick = () => { state.modal="login"; drawAuth(); };
+  document.getElementById("welcomeSignup").onclick = () => { state.modal="signup"; drawAuth(); };
+}
+
+// --- EVENT LISTENERS Y DELEGACIÓN ---
+document.addEventListener("click", ev => {
+  let b = ev.target.closest("button,[data-page],.brand,[data-overlay]");
+  if(!b) return;
+
+  // Botón o enlace de navegación por página
+  if(b.dataset.page){
+    page(b.dataset.page);
+    return;
+  }
+
+  // Modales
+  if(b.dataset.modal){
+    state.modal = b.dataset.modal;
+    if(state.modal === "academy") drawAcademy();
+    else if(state.modal === "simulator") drawSimulator();
+    else if(state.modal === "privacy") drawPrivacyModal();
+    return;
+  }
+
+  // Chips de divisa en Comprar
+  if(b.dataset.currency){
+    state.currency = b.dataset.currency;
+    render();
+    return;
+  }
+
+  // Contactar en oferta
+  if(b.dataset.contact !== undefined){
+    openChat(Number(b.dataset.contact));
+    return;
+  }
+
+  // Pestañas de Mi Cuenta
+  if(b.dataset.accountTab){
+    state.accountTab = b.dataset.accountTab;
+    render();
+    return;
+  }
+
+  // Radicar Habeas Data desde cuenta
+  if(b.id === "btnHabeasDataReq"){
+    modal("Radicar Solicitud de Hábeas Data", `
+      <p class="muted">Ejerce tus derechos de conocer, actualizar, rectificar o suprimir tus datos personales frente a Trade4Cash S.A.S.</p>
+      <form id="habeasDataForm" class="form-stack">
+        <label class="form-field"><span>Nombre completo del Titular</span><input class="field" required value="Laura Méndez"></label>
+        <label class="form-field"><span>Número de documento de identidad</span><input class="field" required placeholder="Cédula de ciudadanía o extranjería"></label>
+        <label class="form-field"><span>Tipo de solicitud</span>
+          <select class="select">
+            <option>Consulta de datos almacenados (Término 10 días hábiles)</option>
+            <option>Rectificación o actualización de información</option>
+            <option>Supresión de datos / Cancelación de cuenta</option>
+            <option>Revocatoria de la autorización otorgada</option>
+          </select>
+        </label>
+        <label class="form-field"><span>Descripción de los hechos o petición</span><textarea class="textarea" rows="3" placeholder="Detalla claramente tu solicitud..."></textarea></label>
+        <p class="smallprint">📧 Tu requerimiento será remitido al Área de Soporte Legal y Operaciones (camilacardenasc1@gmail.com - Tel: 3184641985).</p>
+        <button class="btn green block" type="submit">Enviar solicitud formal</button>
+      </form>
+    `, false);
+    return;
+  }
+
+  // Cerrar modal
+  if(b.hasAttribute("data-close-modal") || (b.hasAttribute("data-overlay") && ev.target===b)){
+    state.modal = null;
+    layers.querySelector(".overlay")?.remove();
+    return;
+  }
+
+  // Menú móvil
+  if(b.id === "menuBtn"){
+    document.getElementById("nav").classList.toggle("open");
+    return;
+  }
+
+  // Abrir Zeta desde botones especiales
+  if(b.id === "askZeta" || b.id === "homeAskZeta"){
+    state.zetaOpen = true;
+    drawZeta();
+    return;
+  }
+
+  // Botón flotante FAB Zeta
+  if(b.id === "zetaFab" || b.closest("#zetaFab")){
+    state.zetaOpen = !state.zetaOpen;
+    drawZeta();
+    return;
+  }
+
+  // Cerrar Zeta
+  if(b.id === "zetaCloseBtn"){
+    state.zetaOpen = false;
+    document.getElementById("zetaPanel")?.remove();
+    return;
+  }
+
+  // Limpiar chat Zeta
+  if(b.id === "zetaClearBtn"){
+    state.zetaMessages = [
+      {role:"model", text:"Conversación reiniciada. ¿En qué más puedo asistirte hoy sobre Trade4Cash, compras, ventas o la política de tratamiento de datos?"}
+    ];
+    drawZeta();
+    toast("Conversación de Zeta reiniciada.");
+    return;
+  }
+
+  // Abrir ajustes de Gemini desde Zeta
+  if(b.id === "zetaSettingsBtn" || b.id === "zetaOpenSettingsLink"){
+    drawGeminiSettingsModal();
+    return;
+  }
+
+  // Chips sugeridos de Zeta
+  if(b.dataset.zetaQuery){
+    sendZetaMessage(b.dataset.zetaQuery);
+    return;
+  }
+
+  // Escuchar mensaje por voz (TTS)
+  if(b.dataset.speakIdx !== undefined){
+    let idx = Number(b.dataset.speakIdx);
+    let msg = state.zetaMessages[idx];
+    if(msg) speakText(msg.text);
+    return;
+  }
+
+  // Cambiar entre Login y Signup
+  if(b.id === "switchAuth"){
+    state.modal = state.modal==="signup" ? "login" : "signup";
+    drawAuth();
+    return;
+  }
+
+  // Pasos del Simulador
+  if(b.id === "simBack"){
+    state.simStep = Math.max(1, state.simStep-1);
+    drawSimulator();
+    return;
+  }
+  if(b.id === "simNext"){
+    if(state.simStep===1) state.sim.currency = document.getElementById("simCurrency").value;
+    if(state.simStep===2) state.sim.amount = document.getElementById("simAmount").value || 0;
+    if(state.simStep===3) state.sim.rate = document.getElementById("simRate").value || 0;
+    if(state.simStep===4){
+      state.modal = null;
+      layers.querySelector(".overlay")?.remove();
+      toast("¡Simulación completada con éxito!");
+      return;
+    }
+    state.simStep++;
+    drawSimulator();
+    return;
+  }
+
+  // Probar Gemini en modal de configuración
+  if(b.id === "btnTestInModal"){
+    let key = document.getElementById("geminiApiKeyInput")?.value || "";
+    let model = document.getElementById("geminiModelInput")?.value || "gemini-2.5-flash";
+    testGeminiConnection(key, model);
+    return;
+  }
+
+  // Eliminar clave en modal
+  if(b.id === "btnRemoveInModal"){
+    state.geminiKey = "";
+    localStorage.removeItem("trade4cash_gemini_api_key");
+    state.modal = null;
+    layers.querySelector(".overlay")?.remove();
+    drawZeta();
+    toast("Clave API de Gemini eliminada. Se usará el asistente local.");
+    return;
+  }
+
+  // Acciones en Mi Cuenta > Configuración Gemini
+  if(b.id === "btnTestGeminiKey"){
+    let key = document.getElementById("accGeminiKey")?.value || state.geminiKey;
+    let model = document.getElementById("accGeminiModel")?.value || state.geminiModel;
+    testGeminiConnection(key, model);
+    return;
+  }
+  if(b.id === "btnClearGeminiKey"){
+    state.geminiKey = "";
+    localStorage.removeItem("trade4cash_gemini_api_key");
+    render();
+    if(state.zetaOpen) drawZeta();
+    toast("Clave de Gemini eliminada de tu navegador.");
+    return;
+  }
+
+  // Notificaciones demostrativas
+  if(b.dataset.toast){
+    toast(b.dataset.toast);
+    return;
+  }
+  if(b.dataset.premium){
+    toast("La suscripción está deshabilitada en esta versión de demostración.");
+    return;
+  }
+
+  // Ver oferta desde chat
+  if(b.hasAttribute("data-view-offer")){
+    modal("Detalles de la oferta de " + esc(state.chat.name), `
+      <div class="result-box">
+        <div class="result-line"><span>Ofrece:</span><strong>${esc(state.chat.amount)} ${esc(state.chat.currency)}</strong></div>
+        <div class="result-line"><span>Busca recibir:</span><strong>${esc(state.chat.want)}</strong></div>
+        <div class="result-line"><span>Tasa pactada:</span><strong>${esc(state.chat.rate)}</strong></div>
+        <div class="result-line"><span>Punto propuesto:</span><strong>${esc(state.chat.place)}</strong></div>
+        <div class="result-line"><span>Zona:</span><strong>${esc(state.chat.zone)} · ${state.chat.distance} km</strong></div>
+      </div>
+      <div class="form-warning" style="margin-top:12px">Recuerda: Trade4Cash no recibe ni custodia fondos. Acuerden siempre encontrarse en lugares públicos vigilados.</div>
+    `);
+    return;
+  }
+
+  // Administrar publicación propia
+  if(b.dataset.manage !== undefined){
+    state.selectedPost = Number(b.dataset.manage);
+    let p = state.posts[state.selectedPost];
+    modal("Administrar publicación", `
+      <p>Publicación de ${esc(p.currency)}: ${esc(p.amount)} a ${esc(p.rate)} en ${esc(p.place)}.</p>
+      <button class="btn light block" id="togglePost">${p.status==="Activa"?"Pausar publicación":"Activar publicación"}</button>
+    `);
+    return;
+  }
+  if(b.id === "togglePost"){
+    let p = state.posts[state.selectedPost];
+    if(p) p.status = p.status==="Activa" ? "Pausada" : "Activa";
+    state.modal = null;
+    layers.querySelector(".overlay")?.remove();
+    render();
+    toast("Estado de la publicación actualizado.");
+    return;
+  }
+
+  // Interesados en publicación
+  if(b.dataset.interested !== undefined){
+    let p = state.posts[Number(b.dataset.interested)];
+    modal("Personas interesadas", `
+      <p>Usuarios que han consultado tu oferta de ${esc(p.currency)}:</p>
+      <div class="info-card"><h3>María Gómez · 4.8 ★</h3><p>Propone acordar en Starbucks Torre Colpatria.</p></div>
+      <div class="info-card" style="margin-top:10px"><h3>Carlos Pérez · 4.6 ★</h3><p>Disponible hoy en la tarde en CC Andino.</p></div>
+    `, false);
+    return;
+  }
+});
+
+// FORMULARIOS (SUBMIT)
+document.addEventListener("submit", ev => {
+  ev.preventDefault();
+
+  // Publicar oferta de venta
+  if(ev.target.id === "sellForm"){
+    let currency = document.getElementById("sellCurrency").value;
+    let amount = document.getElementById("sellAmount").value;
+    let rate = document.getElementById("sellRate").value;
+    let place = document.getElementById("sellPlace").value;
+    if(!amount || !rate || !place){
+      toast("Completa todos los campos para crear la publicación.");
+      return;
+    }
+    state.posts.unshift({
+      currency,
+      amount,
+      rate: "$" + fmt(rate) + " COP",
+      contacts: "0 personas contactadas",
+      place,
+      status: "Activa"
+    });
+    render();
+    toast("¡Publicación creada exitosamente en Trade4Cash!");
+    return;
+  }
+
+  // Chat con otro usuario
+  if(ev.target.id === "chatForm"){
+    let input = document.getElementById("chatInput");
+    if(!input.value.trim()) return;
+    state.messages.push({mine:true, text:input.value.trim()});
+    state.messages.push({mine:false, text:"Gracias por tu mensaje. Me parece bien. Nos vemos en el punto acordado; recuerda revisar los billetes con calma."});
+    input.value = "";
+    render();
+    let body = document.getElementById("chatBody");
+    if(body) body.scrollTop = 99999;
+    return;
+  }
+
+  // Formulario de autenticación / registro
+  if(ev.target.id === "authForm"){
+    state.modal = null;
+    layers.querySelector(".overlay")?.remove();
+    localStorage.setItem("t4c-entered","1");
+    layers.querySelector("#welcome")?.remove();
+    render();
+    toast("¡Bienvenido a Trade4Cash!");
+    setTimeout(() => {
+      showCoach("home", document.querySelector(".section-title") || document.querySelector(".hero"), true);
+    }, 100);
+    return;
+  }
+
+  // Radicación formal de Hábeas Data
+  if(ev.target.id === "habeasDataForm"){
+    state.modal = null;
+    layers.querySelector(".overlay")?.remove();
+    modal("Solicitud Radicada Exitosamente", `
+      <div style="text-align:center;padding:10px">
+        <div style="font-size:44px;margin-bottom:10px">✅</div>
+        <h3 style="color:var(--deep)">Radicado #HD-2026-0938</h3>
+        <p style="font-size:14px;line-height:1.6;color:#355848">
+          Tu requerimiento ha sido recibido formalmente por el <strong>Área de Soporte Legal y Operaciones</strong> de Trade4Cash S.A.S.
+        </p>
+        <p style="font-size:13px;color:var(--muted)">
+          Término legal de respuesta: <strong>10 días hábiles</strong> para consultas y <strong>15 días hábiles</strong> para reclamos, conforme a la Ley 1581 de 2012. Copia remitida a camilacardenasc1@gmail.com.
+        </p>
+        <button class="btn green block" data-close-modal style="margin-top:16px">Entendido</button>
+      </div>
+    `);
+    return;
+  }
+
+  // Formulario de chat con Zeta IA
+  if(ev.target.id === "zetaChatForm"){
+    let input = document.getElementById("zetaChatInput");
+    let val = input.value.trim();
+    if(!val) return;
+    input.value = "";
+    sendZetaMessage(val);
+    return;
+  }
+
+  // Guardar configuración de Gemini en modal
+  if(ev.target.id === "geminiConfigForm"){
+    let key = document.getElementById("geminiApiKeyInput").value.trim();
+    let model = document.getElementById("geminiModelInput").value;
+    state.geminiKey = key;
+    state.geminiModel = model;
+    localStorage.setItem("trade4cash_gemini_api_key", key);
+    localStorage.setItem("trade4cash_gemini_model", model);
+    state.modal = null;
+    layers.querySelector(".overlay")?.remove();
+    drawZeta();
+    toast("¡Configuración de Gemini IA guardada exitosamente!");
+    return;
+  }
+
+  // Guardar configuración en Mi Cuenta
+  if(ev.target.id === "accountGeminiForm"){
+    let key = document.getElementById("accGeminiKey").value.trim();
+    let model = document.getElementById("accGeminiModel").value;
+    state.geminiKey = key;
+    state.geminiModel = model;
+    localStorage.setItem("trade4cash_gemini_api_key", key);
+    localStorage.setItem("trade4cash_gemini_model", model);
+    render();
+    if(state.zetaOpen) drawZeta();
+    toast("Configuración de Gemini actualizada.");
+    return;
+  }
+});
+
+// EVENTOS DE ENTRADA Y FILTROS
+app.addEventListener("input", ev => {
+  let el = ev.target;
+  if(el.id === "offerSearch"){
+    state.search = el.value;
+    let pos = el.selectionStart;
+    render();
+    let n = document.getElementById("offerSearch");
+    n?.focus();
+    n?.setSelectionRange(pos,pos);
+  }
+  if(el.id === "simAmount") state.sim.amount = el.value;
+  if(el.id === "simRate") state.sim.rate = el.value;
+});
+
+app.addEventListener("change", ev => {
+  let el = ev.target;
+  if(el.id === "zoneFilter"){ state.zone = el.value; render(); }
+  if(el.id === "distanceFilter"){ state.distance = el.value; render(); }
+  if(el.id === "sellCurrency") showCoach("currency", el);
+  if(el.id === "simCurrency") state.sim.currency = el.value;
+});
+
+app.addEventListener("focusin", ev => {
+  let el = ev.target;
+  if(el.dataset.coachField){
+    let fieldCoach = el.dataset.coachField;
+    if(state.page==="sell" && fieldCoach==="currency" && !guide.seen.create) fieldCoach="create";
+    showCoach(fieldCoach, el);
+  }
+  if(el.id==="chatInput") showCoach("security", el);
+  if(el.id==="offerSearch" || el.id==="zoneFilter" || el.id==="distanceFilter") showCoach("filters", el);
+});
+
+// CERRAR MODALES CON ESCAPE
+document.addEventListener("keydown", ev => {
+  if(ev.key === "Escape"){
+    state.modal = null;
+    layers.querySelector(".overlay")?.remove();
+    state.zetaOpen = false;
+    document.getElementById("zetaPanel")?.remove();
+  }
+});
+
+// INICIALIZACIÓN
+render();
+drawWelcome();
+if(localStorage.getItem("t4c-entered")){
+  setTimeout(() => {
+    showCoach("home", document.querySelector(".section-title") || document.querySelector(".hero"));
+  }, 160);
+}
+</script>
+</body>
+</html>
