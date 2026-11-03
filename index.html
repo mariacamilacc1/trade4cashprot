@@ -60,14 +60,14 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   cursor:pointer;
 }
 .brand span{color:#78e8a8}
-.nav{display:flex;align-items:center;gap:6px}
+.nav{display:flex;align-items:center;gap:5px}
 .nav button{
   background:transparent;
   color:#f2fff7;
   border:0;
   border-radius:12px;
-  padding:10px 13px;
-  font-size:14px;
+  padding:9px 12px;
+  font-size:13.5px;
   font-weight:700;
   white-space:nowrap;
   transition:.15s ease;
@@ -75,7 +75,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .nav button:hover,.nav button.active{background:#ffffff1a}
 .menu-btn{display:none;background:transparent;border:0;color:#fff;font-size:24px}
 .container{max-width:1124px;width:calc(100% - 48px);margin:0 auto}
-.page{padding:30px 0 60px;flex:1}
+.page{padding:28px 0 60px;flex:1}
 
 .trm-card{
   margin:18px 0 27px;
@@ -112,7 +112,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .hero h1 span{color:var(--mint)}
 .hero .lead{font-size:17px;margin:0 0 16px;color:#d5f4e3}
 .hero p{max-width:840px;font-size:16px;line-height:1.65;color:#e2f6eb;margin:0 0 24px}
-.actions{display:flex;gap:14px;flex-wrap:wrap}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
 
 .btn{
   border:1px solid transparent;
@@ -144,16 +144,16 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .section-title h2{margin:0;color:var(--deep);font-size:26px;letter-spacing:-.5px}
 .section-title p{margin:3px 0 0;color:var(--muted)}
 
-.intro-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.intro-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .intro-card,.panel,.offer-card,.post-card,.plan-card,.info-card{
   background:#fff;
   border:1px solid var(--line);
   border-radius:18px;
   box-shadow:0 4px 15px #073c2d07;
 }
-.intro-card{padding:22px;min-height:170px;display:flex;flex-direction:column}
-.intro-card h3{margin:0 0 6px;color:var(--ink);font-size:19px}
-.intro-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.intro-card{padding:20px;min-height:170px;display:flex;flex-direction:column}
+.intro-card h3{margin:0 0 6px;color:var(--ink);font-size:18px}
+.intro-card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.5}
 .intro-card button{margin-top:auto;align-self:flex-start;padding:12px 0 0;background:none;border:0;color:var(--green);font-weight:750}
 .intro-card button:hover{text-decoration:underline}
 
@@ -195,11 +195,11 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   min-height:42px;
 }
 .field::placeholder,.textarea::placeholder{color:#9aaea3}
-.offer-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
-.offer-card{padding:17px;min-width:0;position:relative;transition:.17s}
+.offer-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.offer-card{padding:18px;min-width:0;position:relative;transition:.17s;display:flex;flex-direction:column}
 .offer-card:hover{border-color:#98dcb5;transform:translateY(-2px);box-shadow:var(--shadow)}
 .offer-card.flagged{border-color:#eed18e;background:#fffdfa}
-.person{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+.person{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .avatar{
   width:46px;
   height:46px;
@@ -221,9 +221,44 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .fact{background:#f0f8f3;border-radius:11px;padding:8px 10px;min-width:0;font-size:12px;line-height:1.35}
 .fact b{display:block;font-size:13px;color:#18352b;overflow-wrap:anywhere}
 .rate{color:var(--green);font-size:21px;font-weight:850;letter-spacing:-.4px;margin:12px 0}
-.offer-card .btn{width:100%}
-.result-count{font-size:13px;color:var(--muted);margin:12px 0}
-.empty{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--muted);background:#fff;border-radius:16px}
+.offer-actions{display:flex;gap:8px;margin-top:auto}
+
+/* BADGES Y ETIQUETAS */
+.banknote-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:7px;font-size:11.5px;font-weight:700;background:#f0f5f2;color:#355848;border:1px solid #d4e5dc}
+.banknote-badge.sealed{background:#fff7e6;color:#8f5c09;border-color:#fae0aa}
+.banknote-badge.deteriorated{background:#fdecec;color:#9b2424;border-color:#f8caca}
+.payment-pills{display:flex;gap:4px;flex-wrap:wrap;margin:10px 0 6px}
+.payment-pill{display:inline-flex;align-items:center;gap:3px;padding:3px 7px;border-radius:6px;font-size:11px;background:#eef7f2;color:#076348;border:1px solid #c9e8d7;font-weight:600}
+
+/* RATE BANDS EN FORMULARIO */
+.rate-band{padding:11px 14px;border-radius:11px;font-size:13px;line-height:1.45;margin-top:8px}
+.rate-band.ok{background:#eaf8ef;color:#086b4f;border:1px solid #bce9cf}
+.rate-band.warn{background:#fff8e6;color:#8f6208;border:1px solid #f5dc9e}
+.rate-band.danger{background:#fdeeee;color:#a81c1c;border:1px solid #f8c6c6}
+
+/* MERCADO DE DIVISAS */
+.market-hero{background:linear-gradient(115deg,#064b38,#0e7555);border-radius:22px;padding:34px 6%;color:#fff;margin-bottom:22px}
+.market-hero h1{margin:0 0 6px;font-size:32px}
+.market-hero p{margin:0;color:#d7f3e4;font-size:15px}
+.market-selector-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:24px;box-shadow:0 4px 15px #073c2d07}
+.market-featured-rate{font-size:clamp(30px,5vw,44px);font-weight:900;color:var(--deep);letter-spacing:-1px;margin:12px 0 6px}
+.market-meta-row{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);align-items:center;margin-top:8px}
+.currency-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin:20px 0}
+.currency-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;transition:.15s}
+.currency-card:hover{transform:translateY(-2px);border-color:#98dcb5;box-shadow:var(--shadow)}
+.converter-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin:24px 0}
+.converter-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;align-items:center}
+.converter-result{font-size:23px;font-weight:850;color:var(--green);margin-top:16px;padding:14px;background:#f0f9f4;border-radius:12px;border:1px solid #cde9d7;text-align:center}
+
+/* PASARELA SIMULADA Y COMPROBANTES */
+.stepper-status{display:flex;gap:6px;margin:16px 0;flex-wrap:wrap}
+.step-pill{padding:6px 11px;border-radius:8px;font-size:11.5px;font-weight:700;background:#edf3f0;color:#6b8778}
+.step-pill.active{background:var(--green);color:#fff}
+.step-pill.done{background:#def7e8;color:#087044}
+.receipt-box{background:#fff;border:2px dashed #bce2ce;border-radius:16px;padding:24px;position:relative;margin:16px 0}
+.receipt-watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-15deg);font-size:clamp(20px,3.8vw,32px);font-weight:900;color:#086b4f16;text-align:center;pointer-events:none;white-space:nowrap;text-transform:uppercase;border:3px dashed #086b4f25;padding:10px 22px;border-radius:12px}
+.tx-card{padding:18px;background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:12px;transition:.15s}
+.tx-card:hover{border-color:#98dcb5}
 
 .panel{padding:22px;margin:20px 0}
 .panel-title{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px}
@@ -323,14 +358,14 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .modal{
   background:#fff;
   border-radius:20px;
-  width:min(560px,100%);
+  width:min(580px,100%);
   max-height:min(90vh,850px);
   overflow:auto;
   box-shadow:var(--shadow-lg);
   display:flex;
   flex-direction:column;
 }
-.modal.wide{width:min(860px,100%)}
+.modal.wide{width:min(880px,100%)}
 .modal-head{
   background:#064b38;
   color:#fff;
@@ -655,7 +690,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .coach{
   position:fixed;
   z-index:60;
-  width:min(420px,calc(100vw - 28px));
+  width:min(440px,calc(100vw - 28px));
   background:#fff;
   border:1px solid #a9dfbc;
   border-radius:20px;
@@ -711,6 +746,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 @media(max-width:980px){
   .offer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .intro-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:680px){
@@ -738,7 +774,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   .trm-card{flex-direction:column;align-items:flex-start;gap:6px;padding:16px}
   .trm-date{text-align:left;max-width:none}
   .intro-grid,.academy-grid,.plans,.about-copy,.value-grid{grid-template-columns:1fr}
-  .filterbar{grid-template-columns:1fr}
+  .filterbar,.converter-grid{grid-template-columns:1fr}
   .offer-grid{grid-template-columns:1fr}
   .form-grid,.data-list{grid-template-columns:1fr}
   .account-layout{grid-template-columns:1fr}
@@ -752,6 +788,259 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   .coach{left:14px!important;right:14px!important;bottom:88px!important;top:auto!important;width:auto}
   .coach:before{display:none}
 }
+
+/* ================= T4C v4 · REDISEÑO VISUAL ================= */
+:root{
+  --amber:#f5a524;--amber-soft:#fff4de;
+  --coral:#ef6a6a;--coral-soft:#fdeeee;
+  --sky:#3aa6e6;--sky-soft:#e6f4fd;
+  --violet:#8b7bf0;--violet-soft:#efecfd;
+  --pink:#e0558a;--pink-soft:#fde8f1;
+}
+.btn{padding:14px 22px;font-size:15.5px;border-radius:14px;min-height:48px}
+.btn.small{padding:10px 15px;font-size:14px;border-radius:12px;min-height:42px}
+.nav button{font-size:14.5px}
+
+/* --- Inicio --- */
+.hero{min-height:0;padding:44px 6%}
+.hero h1{font-size:clamp(34px,5vw,50px);margin-bottom:10px}
+.hero .lead{font-size:18px;margin:0 0 24px}
+.trm-card .trm-caption{display:none}
+
+/* --- Academy (módulos interactivos) --- */
+.acad-head{margin:36px 0 18px}
+.acad-head h2{margin:0;color:var(--deep);font-size:28px;letter-spacing:-.6px}
+.acad-head p{margin:4px 0 0;color:var(--muted);font-size:16px}
+.acad-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mod{--ac:var(--green);--acs:var(--mint-soft);background:#fff;border:1.5px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.mod:hover,.mod.open{border-color:var(--ac)}
+.mod.sky{--ac:#2b93d3;--acs:var(--sky-soft)}
+.mod.amber{--ac:#d98a0a;--acs:var(--amber-soft)}
+.mod.violet{--ac:#7060e0;--acs:var(--violet-soft)}
+.mod.coral{--ac:#d64f4f;--acs:var(--coral-soft)}
+.mod.pink{--ac:#cc3f78;--acs:var(--pink-soft)}
+.mod-head{width:100%;display:flex;align-items:center;gap:16px;padding:20px;background:transparent;border:0;text-align:left;color:var(--ink)}
+.mod-ico{width:56px;height:56px;border-radius:18px;background:var(--acs);display:grid;place-items:center;font-size:28px;flex:none;transition:transform .25s}
+.mod:hover .mod-ico{transform:scale(1.07) rotate(-4deg)}
+.mod-head h3{margin:0;font-size:19px;line-height:1.2}
+.mod-head p{margin:3px 0 0;font-size:14px;color:var(--muted)}
+.mod-chev{margin-left:auto;width:34px;height:34px;border-radius:50%;background:var(--acs);color:var(--ac);display:grid;place-items:center;font-weight:900;font-size:13px;flex:none;transition:transform .3s}
+.mod.open .mod-chev{transform:rotate(180deg)}
+.mod-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.mod.open .mod-wrap{grid-template-rows:1fr}
+.mod-inner{overflow:hidden;min-height:0}
+.mod-body{padding:2px 20px 22px}
+.mod-lead{margin:0 0 14px;font-size:15.5px;color:#355848;line-height:1.5}
+.tap-row{display:flex;flex-wrap:wrap;gap:8px}
+.tap{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:11px 17px;font-weight:700;font-size:14.5px;color:var(--ink);transition:.15s;min-height:44px}
+.tap:hover{border-color:var(--ac);transform:translateY(-1px)}
+.tap.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.mod-out{margin-top:14px;padding:15px 17px;border-radius:15px;background:var(--acs);font-size:15.5px;line-height:1.5;animation:t4cpop .3s ease}
+.mod-out b{color:var(--ac)}
+@keyframes t4cpop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.chk{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:13px 15px;border:1.5px solid var(--line);background:#fff;border-radius:15px;margin-bottom:9px;font-size:15px;font-weight:650;color:var(--ink);transition:.15s;min-height:50px}
+.chk:hover{border-color:var(--ac)}
+.chk i{width:26px;height:26px;border-radius:9px;border:2px solid #c6d8cf;display:grid;place-items:center;font-style:normal;color:#fff;font-size:14px;flex:none;transition:.2s}
+.chk.on{border-color:var(--ac);background:var(--acs)}
+.chk.on i{background:var(--ac);border-color:var(--ac)}
+.prog{height:9px;border-radius:99px;background:#e3e9f3;margin:12px 0 6px;overflow:hidden}
+.prog span{display:block;height:100%;width:0;background:var(--ac);border-radius:99px;transition:width .4s ease}
+.prog-txt{font-size:13.5px;color:var(--muted);font-weight:650}
+.flips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.flip{perspective:800px;height:118px;border:0;background:transparent;padding:0}
+.flip-in{position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d}
+.flip.flipped .flip-in{transform:rotateY(180deg)}
+.flip-f,.flip-b{position:absolute;inset:0;border-radius:17px;padding:12px;display:flex;align-items:center;justify-content:center;text-align:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.flip-f{background:var(--acs);color:var(--ink);border:1.5px solid var(--ac);font-size:15px;font-weight:800;flex-direction:column;gap:4px}
+.flip-f small{font-weight:600;color:var(--muted);font-size:12px}
+.flip-b{background:var(--ac);color:#fff;transform:rotateY(180deg);font-size:13.5px;font-weight:600;line-height:1.4}
+.slide{width:100%;accent-color:var(--ac);height:10px;margin:6px 0 2px}
+.slide-ends{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);font-weight:650}
+.pill-state{display:inline-block;margin-left:6px;padding:3px 10px;border-radius:99px;font-size:12.5px;font-weight:800}
+.pill-state.in{background:#d6f5e4;color:#087044}
+.pill-state.out{background:var(--coral-soft);color:#a32b2b}
+
+/* --- Comprar --- */
+.offer-grid{grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+.offer-card{padding:22px}
+.oc-top{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.avatar.xl{width:74px;height:74px;font-size:25px;border-width:3px}
+.oc-name{margin:0 0 3px;font-size:19px;line-height:1.2}
+.oc-sub{font-size:13px;color:var(--muted)}
+.oc-flag{padding:9px 12px;border-radius:12px;background:var(--amber-soft);color:#8a5a00;font-size:12.5px;font-weight:700;margin-bottom:12px}
+.oc-money{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:15px 17px;background:#f0f8f3;border-radius:17px;margin-bottom:12px}
+.oc-money small{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:2px}
+.oc-amt{font-size:22px;font-weight:850;color:var(--deep);line-height:1.1}
+.oc-rate{text-align:right}
+.oc-rate b{font-size:22px;font-weight:850;color:var(--green);line-height:1.1}
+.oc-meta{font-size:13.5px;color:var(--muted);margin-bottom:12px}
+.pay-row{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 16px}
+.offer-actions{gap:10px}
+.offer-actions .btn.primary{background:var(--green);color:#fff}
+.offer-actions .btn.primary:hover{background:#07563f}
+
+/* --- Medios de pago (chips uniformes) --- */
+.pay-chip{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:92px;height:36px;padding:0 13px;border-radius:11px;background:linear-gradient(180deg,#f4fcf7,#e4f5eb);border:1px solid #c4e6d2;color:var(--deep);font-weight:800;font-size:13.5px}
+.pay-chip .pay-logo{height:20px;max-width:64px;object-fit:contain}
+
+/* --- Mis publicaciones --- */
+.pub-hero{display:flex;align-items:center;gap:18px;padding:24px;border-radius:24px;background:linear-gradient(115deg,#064b38,#0e7555);color:#fff;margin-bottom:20px;flex-wrap:wrap}
+.pub-hero .avatar{width:76px;height:76px;font-size:25px;border:3px solid var(--mint);background:#e9faf0}
+.pub-hero h1{margin:0;font-size:28px;letter-spacing:-.5px;color:#fff}
+.pub-hero p{margin:3px 0 0;color:#cfeedd;font-size:15px}
+.pub-hero .btn{margin-left:auto}
+.pub-tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;margin-bottom:12px}
+.pub-tab{flex:none;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:11px 18px;font-weight:750;font-size:14.5px;color:var(--ink);min-height:44px;transition:.15s}
+.pub-tab b{margin-left:6px;color:var(--muted);font-weight:800}
+.pub-tab:hover{border-color:#76d9a0}
+.pub-tab.on{background:var(--green);border-color:var(--green);color:#fff}
+.pub-tab.on b{color:#bff0d5}
+.post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;margin-bottom:26px}
+.pc{background:#fff;border:1px solid var(--line);border-top:6px solid var(--st);border-radius:22px;padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px}
+.pc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.pc-cur{display:flex;align-items:center;gap:13px}
+.pc-flag{width:52px;height:52px;border-radius:16px;background:#f0f8f3;display:grid;place-items:center;font-size:28px;flex:none}
+.pc-cur b{display:block;font-size:19px;line-height:1.15}
+.pc-cur span{font-size:13px;color:var(--muted)}
+.stt{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:800;background:var(--sts);color:var(--stc);white-space:nowrap}
+.stt:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--stc)}
+.s-activa{--st:#1fb97a;--sts:#e0f7ec;--stc:#087a50}
+.s-reservada{--st:#f5a524;--sts:#fff4de;--stc:#8f5c00}
+.s-proceso{--st:#3aa6e6;--sts:#e6f4fd;--stc:#18699b}
+.s-completada{--st:#8b7bf0;--sts:#efecfd;--stc:#4c3fb3}
+.s-pausada{--st:#9fb0a8;--sts:#eef2f0;--stc:#566860}
+.s-cancelada{--st:#ef6a6a;--sts:#fdeeee;--stc:#a32b2b}
+.pc-money{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;background:#f0f8f3;border-radius:16px}
+.pc-money small{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:2px}
+.pc-money b{font-size:20px;line-height:1.1}
+.pc-money .r b{color:var(--green)}
+.pc-meta{font-size:13.5px;color:var(--muted)}
+.pc-actions{display:flex;gap:10px;margin-top:auto}
+.pc-actions .btn{flex:1}
+.new-pub .panel-title{margin-bottom:18px}
+.new-pub .form-field label{font-weight:700;font-size:14px}
+.new-pub .field,.new-pub .select{min-height:48px;font-size:15.5px}
+.link-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* --- Alerta ±5 % (solo aparece al excederse) --- */
+.t4c-alert{border:1.5px solid #f0b0b0;background:#fff5f5;border-radius:20px;padding:18px;margin-top:14px;animation:t4cpop .3s ease}
+.ta-head{display:flex;gap:13px;align-items:flex-start;margin-bottom:14px}
+.ta-ico{width:44px;height:44px;border-radius:14px;background:#fde0e0;display:grid;place-items:center;font-size:23px;flex:none}
+.ta-head strong{display:block;font-size:18px;color:#8f1d1d;line-height:1.2}
+.ta-head span{font-size:14px;color:#a24a4a}
+.ta-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:14px}
+.ta-grid div{background:#fff;border:1px solid #f3cccc;border-radius:13px;padding:11px 13px}
+.ta-grid small{display:block;font-size:11.5px;color:#a24a4a;font-weight:800;text-transform:uppercase;letter-spacing:.03em;margin-bottom:3px}
+.ta-grid b{font-size:16.5px;color:#2b1717;line-height:1.2}
+.ta-pct{display:inline-block;margin-left:6px;padding:2px 9px;border-radius:99px;background:#e04d4d;color:#fff;font-size:12.5px;font-style:normal;font-weight:800}
+.ta-why{margin:0 0 6px;font-size:14px;color:#6b3a3a;line-height:1.5}
+.ta-fix{margin:0 0 4px;font-weight:800;font-size:14.5px;color:#8f1d1d}
+.ta-actions{margin-top:12px}
+.toast{font-weight:700}
+
+/* --- Premium --- */
+.plans-v2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch;margin-top:26px}
+.pl{background:#fff;border:1.5px solid var(--line);border-radius:26px;padding:28px 26px;display:flex;flex-direction:column;box-shadow:var(--shadow);position:relative}
+.pl.mid{border-color:var(--green)}
+.pl.top{background:linear-gradient(160deg,#064b38,#0e7555);color:#fff;border:0;box-shadow:var(--shadow-lg)}
+.pl-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--amber);color:#4a2f00;font-weight:850;font-size:12.5px;padding:6px 14px;border-radius:99px;white-space:nowrap}
+.pl h2{margin:0 0 4px;font-size:23px;letter-spacing:-.4px}
+.pl-sub{font-size:14px;color:var(--muted)}
+.pl.top .pl-sub{color:#bfe9d3}
+.pl-price{font-size:42px;font-weight:900;letter-spacing:-1.4px;margin:14px 0 2px;line-height:1}
+.pl-price small{font-size:15px;font-weight:650;color:var(--muted);letter-spacing:0}
+.pl.top .pl-price small{color:#bfe9d3}
+.pl-list{list-style:none;padding:0;margin:20px 0 24px;display:grid;gap:12px;flex:1}
+.pl-list li{display:flex;gap:11px;align-items:flex-start;font-size:15px;line-height:1.35}
+.pl-list li:before{content:"✓";width:24px;height:24px;border-radius:50%;background:var(--mint-soft);color:var(--green);display:grid;place-items:center;font-weight:900;font-size:13px;flex:none}
+.pl.top .pl-list li:before{background:#ffffff26;color:var(--mint)}
+.pl-list li.no{color:#9db0a6}
+.pl-list li.no:before{content:"–";background:#eef2f0;color:#9db0a6}
+.pl .btn{margin-top:auto}
+.pl.top .btn.green{background:var(--mint);color:#063d2d}
+.pl.top .btn.green:hover{background:#8cf0b4}
+.pl .btn.off{background:#eef2f0;color:#6b7b72;cursor:default;transform:none}
+
+/* --- Mi perfil (estilo Instagram) --- */
+.ig{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;padding:4px 0 24px;border-bottom:1px solid var(--line)}
+.ig-ring{width:136px;height:136px;border-radius:50%;padding:5px;background:conic-gradient(from 200deg,#75e6a5,#086b4f,#f5a524,#75e6a5)}
+.ig-ring .avatar{width:100%;height:100%;font-size:44px;border:5px solid #fff}
+.ig-name{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ig-name h2{margin:0;font-size:28px;letter-spacing:-.5px}
+.ig-stats{display:flex;gap:34px;margin:16px 0 4px;flex-wrap:wrap}
+.ig-stats b{display:block;font-size:24px;line-height:1.1}
+.ig-stats span{font-size:13.5px;color:var(--muted)}
+.ig-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.ig-badge{display:inline-flex;gap:6px;align-items:center;padding:7px 13px;border-radius:99px;background:var(--mint-soft);color:var(--green);font-weight:800;font-size:13px}
+.ig-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.ig-sec{margin:22px 0 12px;font-size:15px;font-weight:850;color:var(--deep);text-transform:uppercase;letter-spacing:.05em}
+.ig-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.ig-tile{aspect-ratio:1/.82;border-radius:18px;background:#f0f8f3;border:1px solid var(--line);border-bottom:5px solid var(--st);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;padding:8px}
+.ig-tile .f{font-size:30px}
+.ig-tile b{font-size:16px;line-height:1.15}
+.ig-tile span{font-size:12.5px;color:var(--muted)}
+.ig-tile em{font-style:normal;font-size:11.5px;font-weight:800;color:var(--stc)}
+
+.chat-top .avatar{width:64px;height:64px;font-size:22px}
+
+@media (max-width:900px){
+  .plans-v2{grid-template-columns:1fr}
+  .acad-grid{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  .hero{padding:32px 22px}
+  .ta-grid{grid-template-columns:1fr}
+  .ig{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .ig-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ig-name,.ig-stats,.ig-badges,.ig-actions{justify-content:center}
+  .pub-hero .btn{margin-left:0;width:100%}
+  .flips{grid-template-columns:1fr 1fr}
+  .oc-money{flex-direction:column;align-items:flex-start}
+  .oc-rate{text-align:left}
+}
+.acad-box{margin-top:36px;background:linear-gradient(160deg,#e8f8ef 0%,#f4faf6 100%);border:2px solid var(--line);border-radius:34px;padding:30px;box-shadow:var(--shadow)}
+.acad-box .acad-head{margin:0 0 22px}
+.big-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:28px}
+.mod.big{padding:34px 28px 28px;display:flex;flex-direction:column;gap:12px;text-align:left;min-height:300px;border-width:2px}
+.mod.big .big-ico{width:76px;height:76px;border-radius:22px;background:var(--acs);display:grid;place-items:center;font-size:40px}
+.mod.big h3{margin:6px 0 0;font-size:24px;line-height:1.2;color:var(--deep)}
+.mod.big p{margin:0;color:var(--muted);font-size:16px;line-height:1.55;flex:1}
+@media(max-width:900px){.big-grid{grid-template-columns:1fr}.acad-box{padding:18px;border-radius:26px}.mod.big{min-height:0}}
+.flow-quick{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:12px 20px;border-top:1px solid var(--line);background:#fff}
+.flow-quick span{font-weight:700;color:var(--deep);font-size:14px}
+.flow-typing{padding:10px 20px;color:var(--muted);font-size:13px;display:flex;align-items:center;gap:8px;background:#f9fcfa}
+.dots{display:inline-flex;gap:3px}.dots i{width:6px;height:6px;border-radius:50%;background:var(--green);animation:fdot 1s infinite}.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes fdot{0%,60%,100%{opacity:.25}30%{opacity:1}}
+.flow-card{margin:0;padding:20px;background:linear-gradient(160deg,#e8f8ef,#fff);border-top:2px solid var(--green)}
+.flow-head{display:flex;gap:12px;align-items:center;margin:12px 0}
+.flow-head b{display:block;color:var(--deep);font-size:17px}.flow-head span:not(.flow-ico){color:var(--muted);font-size:13.5px}
+.flow-ico{width:44px;height:44px;border-radius:14px;background:#fff;display:grid;place-items:center;font-size:22px;border:1.5px solid var(--line);flex:none}
+.flow-steps{display:flex;gap:6px;flex-wrap:wrap}
+.flow-steps span{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--muted);background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:4px 10px 4px 5px}
+.flow-steps i{width:20px;height:20px;border-radius:50%;background:var(--line);color:var(--deep);display:grid;place-items:center;font-style:normal;font-size:11px}
+.flow-steps .on{color:var(--deep);border-color:var(--green)}.flow-steps .on i,.flow-steps .done i{background:var(--green);color:#fff}.flow-steps .done{color:var(--green)}
+.code-box{background:var(--deep);color:#fff;border-radius:20px;padding:18px;text-align:center;margin:6px 0 14px}
+.code-box small{display:block;opacity:.8;font-size:13px}
+.code-box b{display:block;font-size:42px;letter-spacing:6px;font-variant-numeric:tabular-nums;margin:6px 0;color:var(--mint)}
+.code-box em{font-style:normal;font-size:13px;opacity:.85}
+.code-form{display:flex;gap:10px}.code-in{font-size:24px;letter-spacing:5px;text-align:center;font-variant-numeric:tabular-nums}
+.flow-err{margin-top:10px;background:#fdeaea;color:#a02828;border-radius:12px;padding:10px 12px;font-weight:700;font-size:14px}
+.flow-ok{background:var(--mint-soft);color:var(--deep);border-radius:12px;padding:10px 12px;font-weight:700;margin:12px 0 4px;font-size:14px}
+.flow-card.done{text-align:center}.flow-big{font-size:46px;margin-top:8px}.flow-title{display:block;color:var(--deep);font-size:20px;margin-top:4px}
+.flow-card.done .data-list{text-align:left}
+.flow-card .btn[disabled]{opacity:.45;cursor:not-allowed}
+@media(max-width:600px){.code-box b{font-size:34px}.code-form{flex-direction:column}}
+
+.chat-card.is-done .chat-body,.chat-card.is-done .chat-compose,.chat-card.is-done .chat-tools,.chat-card.is-done .chat-top .btn,.chat-card.is-done .chat-top + div[style]{display:none!important}
+.chat-card.is-done .flow-card{border-top:0}
+.rate-box{margin-top:14px;background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:16px;text-align:center;display:flex;flex-direction:column;gap:8px}
+.rate-box b{color:var(--deep)}.rate-box small{color:var(--muted);font-size:13.5px;min-height:18px}
+.stars{display:flex;justify-content:center;gap:6px}
+.star{border:0;background:transparent;font-size:44px;line-height:1;color:#d4dfd9;padding:2px 4px;cursor:pointer;transition:transform .12s,color .12s}
+.star:hover{transform:scale(1.15)}.star.on{color:#f2b01e}
+.stars.static .star{font-size:34px;cursor:default}.stars.static .star:hover{transform:none}
+.rate-box.done{background:var(--mint-soft);border-color:var(--green)}
+@media(max-width:600px){.star{font-size:40px}}
 </style>
 </head>
 <body>
@@ -762,17 +1051,19 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   <nav class="nav" id="nav">
     <button data-page="home">Inicio</button>
     <button data-page="buy" id="navBuy">Comprar</button>
-    <button data-page="sell" id="navSell">Vender</button>
+    <button data-page="sell" id="navSell">Mis publicaciones</button>
+    <button data-page="market" id="navMarket">Mercado</button>
     <button data-page="about">Quiénes somos</button>
     <button data-page="premium">Premium</button>
     <button data-page="account">Mi cuenta</button>
     <button data-modal="privacy" style="color:#78e8a8">Privacidad</button>
+    <button data-modal="terms" style="color:#78e8a8">Términos y condiciones</button>
   </nav>
 </header>
 
 <main class="container page" id="app"></main>
 
-<!-- FOOTER INSTITUCIONAL CON POLÍTICA DE DATOS -->
+<!-- FOOTER INSTITUCIONAL -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -786,9 +1077,10 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
         <ul>
           <li><button data-page="home">Inicio</button></li>
           <li><button data-page="buy">Comprar divisas</button></li>
-          <li><button data-page="sell">Publicar oferta</button></li>
+          <li><button data-page="sell">Mis publicaciones</button></li>
+          <li><button data-page="market">Mercado de divisas (TRM)</button></li>
           <li><button data-modal="simulator">Simulador de oferta</button></li>
-          <li><button data-modal="academy">Trade4Cash Academy</button></li>
+          <li><button data-page="home">Trade4Cash Academy</button></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -797,13 +1089,13 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
           <li><button data-modal="privacy" style="font-weight:700;color:#78e8a8">Tratamiento de Datos Personales</button></li>
           <li><button data-modal="privacy">Habeas Data (Ley 1581 de 2012)</button></li>
           <li><button data-page="about">Quiénes somos y valores</button></li>
-          <li><button data-page="account">Preferencias de cuenta</button></li>
+          <li><button data-page="account">Preferencias y seguridad</button></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Canales de Atención</h4>
         <p>Para consultas, reclamos o ejercicio de derechos de datos personales:</p>
-        <p>📧 <strong>camilacardenasc1@gmail.com</strong><br>
+        <p>📧 <strong>trade4cash.atencioncliente@gmail.com</strong><br>
         📞 <strong>+57 318 464 1985</strong><br>
         🏢 Área de Soporte Legal y Operaciones<br>
         📍 Plataforma 100% virtual · Bogotá D.C.</p>
@@ -825,27 +1117,39 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <div id="layers"></div>
 
 <script>
-// --- DATOS GLOBALES Y ESTADO ---
-const currencies = ["Dólar USA","Euro","Peso Mexicano","Pesos Colombianos","Otras divisas","Yen Japonés","Dólar Canadá","Real Brasileño","Franco Suizo","Dólar Australiano","Dólar Neozelandés"];
+// --- DATOS GLOBALES Y TASAS DE REFERENCIA OFICIALES ---
+const referenceRates = {
+  "Dólar USA": { code: "USD", symbol: "$", flag: "🇺🇸", rate: 3985, source: "Superintendencia Financiera (TRM Oficial)", url: "https://www.datos.gov.co/Econom-a-y-Finanzas/TRM/ceyp-9c7c", date: "Vigente hoy", note: "TRM Oficial Regulada" },
+  "Euro": { code: "EUR", symbol: "€", flag: "🇪🇺", rate: 4790, source: "Banco de la República / BCE", url: "https://www.banrep.gov.co", date: "Vigente hoy", note: "Indicativa Oficial" },
+  "Peso Mexicano": { code: "MXN", symbol: "$", flag: "🇲🇽", rate: 226, source: "Banco de la República / Banxico", url: "https://www.banrep.gov.co", date: "Vigente hoy", note: "Indicativa Oficial" },
+  "Dólar Canadá": { code: "CAD", symbol: "C$", flag: "🇨🇦", rate: 2965, source: "Banco de la República / Bank of Canada", url: "https://www.banrep.gov.co", date: "Vigente hoy", note: "Indicativa Oficial" },
+  "Real Brasileño": { code: "BRL", symbol: "R$", flag: "🇧🇷", rate: 752, source: "Banco de la República / BCB", url: "https://www.banrep.gov.co", date: "Vigente hoy", note: "Indicativa Oficial" },
+  "Libra Esterlina": { code: "GBP", symbol: "£", flag: "🇬🇧", rate: 5240, source: "Banco de la República / Bank of England", url: "https://www.banrep.gov.co", date: "Vigente hoy", note: "Indicativa Oficial" },
+  "Yen Japonés": { code: "JPY", symbol: "¥", flag: "🇯🇵", rate: 26.8, source: "Banco de la República / Bank of Japan", url: "https://www.banrep.gov.co", date: "Vigente hoy", note: "Indicativa Oficial" },
+  "Franco Suizo": { code: "CHF", symbol: "Fr.", flag: "🇨🇭", rate: 4620, source: "Banco de la República / SNB", url: "https://www.banrep.gov.co", date: "Vigente hoy", note: "Indicativa Oficial" },
+  "Pesos Colombianos": { code: "COP", symbol: "$", flag: "🇨🇴", rate: 1, source: "Moneda de curso legal en Colombia", url: "https://www.banrep.gov.co", date: "Vigente", note: "Moneda Base Nacional" }
+};
+
+const currencies = ["Dólar USA","Euro","Peso Mexicano","Pesos Colombianos","Otras divisas","Yen Japonés","Dólar Canadá","Real Brasileño","Franco Suizo","Libra Esterlina","Dólar Australiano"];
 
 const seedOffers = [
-  {name:"Laura Gómez",rating:"4.3",age:"hace 3 min",currency:"Dólar USA",amount:"800",want:"$3.200.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$3.980 COP",flag:true},
-  {name:"Carlos López",rating:"4.4",age:"hace 17 min",currency:"Dólar USA",amount:"1.300",want:"$5.200.000 COP",zone:"Norte",distance:3.6,place:"Starbucks Norte",rate:"$3.983 COP"},
-  {name:"Valentina Pérez",rating:"4.5",age:"hace 42 min",currency:"Dólar USA",amount:"1.000",want:"$4.000.000 COP",zone:"Norte",distance:7.8,place:"Starbucks Norte",rate:"$3.986 COP"},
-  {name:"Andrés Castro",rating:"4.4",age:"hace 3 min",currency:"Euro",amount:"1.200",want:"$5.760.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$4.787 COP"},
-  {name:"Camila Rojas",rating:"4.5",age:"hace 17 min",currency:"Euro",amount:"900",want:"$4.320.000 COP",zone:"Norte",distance:3.6,place:"Starbucks Norte",rate:"$4.790 COP"},
-  {name:"Mateo Mendoza",rating:"4.6",age:"hace 42 min",currency:"Euro",amount:"1.400",want:"$6.720.000 COP",zone:"Norte",distance:7.8,place:"Starbucks Norte",rate:"$4.793 COP"},
-  {name:"Mariana Gómez",rating:"4.5",age:"hace 3 min",currency:"Peso Mexicano",amount:"10.600",want:"$2.438.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$224 COP"},
-  {name:"Sebastián López",rating:"4.6",age:"hace 17 min",currency:"Peso Mexicano",amount:"10.300",want:"$2.369.000 COP",zone:"Norte",distance:3.6,place:"Starbucks Norte",rate:"$227 COP"},
-  {name:"Gabriela Pérez",rating:"4.7",age:"hace 42 min",currency:"Peso Mexicano",amount:"10.000",want:"$2.300.000 COP",zone:"Norte",distance:7.8,place:"Starbucks Norte",rate:"$230 COP"},
-  {name:"Nicolás Castro",rating:"4.6",age:"hace 3 min",currency:"Pesos Colombianos",amount:"$2.000.100 COP",want:"$2.000.100 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$2 COP"},
-  {name:"Ana Moreno",rating:"4.4",age:"hace 3 min",currency:"Dólar USA",amount:"1.500",want:"$6.000.000 COP",zone:"Centro",distance:1.2,place:"Starbucks Centro",rate:"$3.993 COP"},
-  {name:"Martín Díaz",rating:"4.5",age:"hace 17 min",currency:"Dólar USA",amount:"1.200",want:"$4.800.000 COP",zone:"Centro",distance:3.6,place:"Starbucks Centro",rate:"$3.996 COP"},
-  {name:"Diego Rodríguez",rating:"4.5",age:"hace 3 min",currency:"Euro",amount:"1.100",want:"$5.280.000 COP",zone:"Centro",distance:1.2,place:"Starbucks Centro",rate:"$4.800 COP"},
-  {name:"Victoria Hernández",rating:"4.6",age:"hace 17 min",currency:"Euro",amount:"1.600",want:"$7.680.000 COP",zone:"Centro",distance:3.6,place:"Starbucks Centro",rate:"$4.803 COP"},
-  {name:"Lucía Gómez",rating:"4.7",age:"hace 3 min",currency:"Yen Japonés",amount:"100.400",want:"$2.710.800 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$35 COP"},
-  {name:"Juan Castro",rating:"4.8",age:"hace 3 min",currency:"Dólar Canadá",amount:"1.700",want:"$5.015.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$2.965 COP"},
-  {name:"Daniela Gómez",rating:"4.9",age:"hace 3 min",currency:"Real Brasileño",amount:"2.700",want:"$2.079.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$751 COP"}
+  {name:"Laura Gómez",rating:"4.3",age:"hace 3 min",currency:"Dólar USA",amount:"800",want:"$3.184.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$3.980 COP",flag:true,condition:"Sin sellos ni anotaciones",payments:["Efectivo","Nequi","DaviPlata"],notes:"Billetes nuevos serie azul de 100 USD"},
+  {name:"Carlos López",rating:"4.4",age:"hace 17 min",currency:"Dólar USA",amount:"1.300",want:"$5.177.900 COP",zone:"Norte",distance:3.6,place:"Starbucks Norte",rate:"$3.983 COP",condition:"Sin sellos ni anotaciones",payments:["Nequi","DaviPlata","Bancolombia"],notes:"Denominaciones de 50 y 100 USD"},
+  {name:"Valentina Pérez",rating:"4.5",age:"hace 42 min",currency:"Dólar USA",amount:"1.000",want:"$3.986.000 COP",zone:"Norte",distance:7.8,place:"Starbucks Norte",rate:"$3.986 COP",condition:"Con sellos de casas de cambio",payments:["Efectivo","Nequi"],notes:"Sellos pequeños en esquinas"},
+  {name:"Andrés Castro",rating:"4.4",age:"hace 3 min",currency:"Euro",amount:"1.200",want:"$5.744.400 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$4.787 COP",condition:"Sin sellos ni anotaciones",payments:["Transferencia Bancolombia","DaviPlata"],notes:"Billetes de 50 EUR en excelente estado"},
+  {name:"Camila Rojas",rating:"4.5",age:"hace 17 min",currency:"Euro",amount:"900",want:"$4.311.000 COP",zone:"Norte",distance:3.6,place:"Starbucks Norte",rate:"$4.790 COP",condition:"Sin sellos ni anotaciones",payments:["Nequi","Efectivo"],notes:"Billetes de 20 y 50 EUR"},
+  {name:"Mateo Mendoza",rating:"4.6",age:"hace 42 min",currency:"Euro",amount:"1.400",want:"$6.710.200 COP",zone:"Norte",distance:7.8,place:"Starbucks Norte",rate:"$4.793 COP",condition:"Con sellos de casas de cambio",payments:["Nequi","DaviPlata"],notes:"Sellos discretos"},
+  {name:"Mariana Gómez",rating:"4.5",age:"hace 3 min",currency:"Peso Mexicano",amount:"10.600",want:"$2.374.400 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$224 COP",condition:"Sin sellos ni anotaciones",payments:["Efectivo","DaviPlata"],notes:"Billetes de 500 MXN"},
+  {name:"Sebastián López",rating:"4.6",age:"hace 17 min",currency:"Peso Mexicano",amount:"10.300",want:"$2.338.100 COP",zone:"Norte",distance:3.6,place:"Starbucks Norte",rate:"$227 COP",condition:"Con deterioro físico",payments:["Nequi"],notes:"Billetes de 200 y 500 MXN con dobleces"},
+  {name:"Gabriela Pérez",rating:"4.7",age:"hace 42 min",currency:"Peso Mexicano",amount:"10.000",want:"$2.300.000 COP",zone:"Norte",distance:7.8,place:"Starbucks Norte",rate:"$230 COP",condition:"Sin sellos ni anotaciones",payments:["Transferencia Bancaria","Efectivo"],notes:"Excelente estado"},
+  {name:"Nicolás Castro",rating:"4.6",age:"hace 3 min",currency:"Pesos Colombianos",amount:"2.000.000",want:"$500 USD",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$4.000 COP",condition:"Sin sellos ni anotaciones",payments:["Nequi","DaviPlata","Efectivo"],notes:"COP disponibles para comprar USD"},
+  {name:"Ana Moreno",rating:"4.4",age:"hace 3 min",currency:"Dólar USA",amount:"1.500",want:"$5.989.500 COP",zone:"Centro",distance:1.2,place:"Starbucks Centro",rate:"$3.993 COP",condition:"Sin sellos ni anotaciones",payments:["Nequi","Bancolombia"],notes:"Billetes de 100 USD"},
+  {name:"Martín Díaz",rating:"4.5",age:"hace 17 min",currency:"Dólar USA",amount:"1.200",want:"$4.795.200 COP",zone:"Centro",distance:3.6,place:"Starbucks Centro",rate:"$3.996 COP",condition:"Con sellos de casas de cambio",payments:["DaviPlata","Efectivo"],notes:"Sello visible en reverso"},
+  {name:"Diego Rodríguez",rating:"4.5",age:"hace 3 min",currency:"Euro",amount:"1.100",want:"$5.280.000 COP",zone:"Centro",distance:1.2,place:"Starbucks Centro",rate:"$4.800 COP",condition:"Sin sellos ni anotaciones",payments:["Nequi","Efectivo"],notes:"Billetes de 100 EUR"},
+  {name:"Victoria Hernández",rating:"4.6",age:"hace 17 min",currency:"Euro",amount:"1.600",want:"$7.684.800 COP",zone:"Centro",distance:3.6,place:"Starbucks Centro",rate:"$4.803 COP",condition:"Sin sellos ni anotaciones",payments:["Bancolombia","DaviPlata"],notes:"Billetes impecables"},
+  {name:"Lucía Gómez",rating:"4.7",age:"hace 3 min",currency:"Yen Japonés",amount:"100.000",want:"$2.680.000 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$26.8 COP",condition:"Sin sellos ni anotaciones",payments:["Efectivo","Nequi"],notes:"Billetes de 10.000 JPY"},
+  {name:"Juan Castro",rating:"4.8",age:"hace 3 min",currency:"Dólar Canadá",amount:"1.700",want:"$5.040.500 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$2.965 COP",condition:"Sin sellos ni anotaciones",payments:["Nequi","DaviPlata"],notes:"Billetes polímero CAD"},
+  {name:"Daniela Gómez",rating:"4.9",age:"hace 3 min",currency:"Real Brasileño",amount:"2.700",want:"$2.030.400 COP",zone:"Norte",distance:1.2,place:"Starbucks Norte",rate:"$752 COP",condition:"Sin sellos ni anotaciones",payments:["Transferencia","Efectivo"],notes:"Billetes de 100 BRL"}
 ];
 
 const state = {
@@ -855,9 +1159,10 @@ const state = {
   distance:"Cualquier distancia",
   search:"",
   posts:[
-    {currency:"Dólar USA",amount:"500",rate:"$4.020 COP",contacts:"2 personas contactadas",place:"Starbucks Chapinero",status:"Activa"},
-    {currency:"Euro",amount:"700",rate:"$4.780 COP",contacts:"5 personas contactadas",place:"Centro Comercial Andino",status:"Activa"},
-    {currency:"Pesos Colombianos",amount:"2.000.000",rate:"$4.000 COP",contacts:"8 personas contactadas",place:"Unicentro",status:"Finalizada"}
+    {currency:"Dólar USA",amount:"500",rate:"$4.020 COP",contacts:"2 personas contactadas",place:"Starbucks Chapinero",status:"Activa",condition:"Sin sellos ni anotaciones",payments:["Nequi","DaviPlata"]},
+    {currency:"Euro",amount:"700",rate:"$4.780 COP",contacts:"5 personas contactadas",place:"Centro Comercial Andino",status:"Activa",condition:"Sin sellos ni anotaciones",payments:["Transferencia","Efectivo"]},
+    {currency:"Dólar Canadá",amount:"1.200",rate:"$2.970 COP",contacts:"3 personas contactadas",place:"Parque de la 93",status:"Reservada",condition:"Sin sellos ni anotaciones",payments:["Nequi","Efectivo"]},
+    {currency:"Pesos Colombianos",amount:"2.000.000",rate:"$4.000 COP",contacts:"8 personas contactadas",place:"Unicentro",status:"Finalizada",condition:"Sin sellos ni anotaciones",payments:["Nequi","Efectivo"]}
   ],
   simStep:1,
   sim:{currency:"Dólar USA",amount:0,rate:0},
@@ -871,10 +1176,63 @@ const state = {
   geminiKey: localStorage.getItem("trade4cash_gemini_api_key") || "",
   geminiModel: localStorage.getItem("trade4cash_gemini_model") || "gemini-2.5-flash",
   zetaMessages: [
-    {role:"model",text:"¡Hola! Soy **Zeta**, tu asistente con IA en **Trade4Cash**. ¿En qué puedo orientarte hoy sobre publicaciones, tasas, puntos de encuentro seguros o la política de tratamiento de datos?"}
+    {role:"model",text:"¡Hola! Soy **Zeta**, tu asistente con IA en **Trade4Cash**. ¿En qué puedo orientarte hoy sobre publicaciones, mercado de divisas, pagos digitales simulados, seguridad o la política de tratamiento de datos?"}
   ],
   zetaLoading:false,
-  zetaSettingsOpen:false
+  // NUEVAS MEJORAS V2
+  selectedMarketCurrency: "Dólar USA",
+  marketCalc: { amount: 100, from: "Dólar USA", to: "Pesos Colombianos" },
+  rateThresholds: { limit: 5 }, // Margen configurable (±%) frente a la referencia oficial
+  pubFilter: "Todas", openMod: null, rateLog: [],
+  userPaymentMethods: {
+    nequi: { active: true, label: "Nequi", identifier: "318***1985" },
+    daviplata: { active: true, label: "DaviPlata", identifier: "318***1985" },
+    bancolombia: { active: true, label: "Bancolombia Ahorros", identifier: "Cta ****4821" },
+    efectivo: { active: true, label: "Efectivo en punto público", identifier: "Entrega presencial" }
+  },
+  security: {
+    emailVerified: true,
+    verifyDate: "15/09/2026",
+    reauthCycleDays: 30,
+    lastAuthDate: "12/10/2026",
+    activeSessions: [
+      { device: "Navegador Web (Windows / Chrome)", ip: "192.168.80.22", place: "Bogotá D.C., Colombia", date: "Activa ahora", current: true },
+      { device: "Dispositivo Móvil (iOS / Safari)", ip: "186.84.112.5", place: "Bogotá D.C., Colombia", date: "Hace 2 días", current: false }
+    ]
+  },
+  transactions: [
+    {
+      id: "TX-2026-8491",
+      date: "15/10/2026 14:32",
+      seller: "Carlos López",
+      buyer: "Laura Méndez",
+      currency: "Dólar USA",
+      amount: "1.300",
+      rate: "$3.983 COP",
+      totalCop: "$5.177.900 COP",
+      method: "Nequi",
+      status: "Completada",
+      banknoteCondition: "Sin sellos ni anotaciones",
+      referenceUsed: "TRM Oficial Superfinanciera ($3.985 COP)",
+      note: "Intercambio coordinado exitosamente en Starbucks Norte."
+    },
+    {
+      id: "TX-2026-6218",
+      date: "12/10/2026 10:15",
+      seller: "Mateo Mendoza",
+      buyer: "Laura Méndez",
+      currency: "Euro",
+      amount: "700",
+      rate: "$4.790 COP",
+      totalCop: "$3.353.000 COP",
+      method: "DaviPlata",
+      status: "Completada",
+      banknoteCondition: "Con sellos de casas de cambio (Aceptado por contraparte)",
+      referenceUsed: "Ref. Banco de la República ($4.790 COP)",
+      note: "Acuerdo exitoso en Centro Comercial Andino."
+    }
+  ],
+  activeSimTx: null
 };
 
 const app = document.getElementById("app"), layers = document.getElementById("layers");
@@ -909,58 +1267,416 @@ function formatMarkdown(text){
   return html || "<p>" + safe + "</p>";
 }
 
-// --- VISTAS PRINCIPALES ---
+// VALIDACIÓN DE BANDAS DE TASAS
+// ===== T4C v4 · MARGEN ±% FRENTE A LA REFERENCIA OFICIAL =====
+// El margen es configurable en state.rateThresholds.limit (por defecto 5 %).
+// Para "Pesos Colombianos" la referencia es la TRM del dólar. Monedas sin referencia no se validan.
+function refKeyFor(cur){ return cur === "Pesos Colombianos" ? "Dólar USA" : cur; }
+
+function parseRate(str, cur){
+  let s = String(str ?? "").replace(/[^0-9.,]/g, "");
+  if(cur === "Yen Japonés") return parseFloat(s.replace(",", ".")) || 0;
+  return Number(s.replace(/\./g, "").replace(",", ".")) || 0;
+}
+
+function checkRateBand(currency, proposedRate){
+  const key = refKeyFor(currency);
+  const ref = referenceRates[key]?.rate;
+  if(!ref || key === "Pesos Colombianos") return { status: "noref" };
+  if(!(proposedRate > 0)) return { status: "unknown" };
+  const lim = state.rateThresholds.limit;
+  const lower = ref * (1 - lim / 100), upper = ref * (1 + lim / 100);
+  const pct = ((proposedRate - ref) / ref) * 100;
+  const out = proposedRate < lower - 1e-9 || proposedRate > upper + 1e-9;
+  return { status: out ? "out" : "ok", cur: currency, key, ref, lower, upper, pct, lim };
+}
+
+function logRate(ctx, cur, band, rate){
+  try{
+    if(!state.rateLog) state.rateLog = [];
+    state.rateLog.push({
+      fecha: new Date().toISOString(), contexto: ctx, divisa: cur, tasa: rate,
+      referencia: band.ref ?? null, diferenciaPct: band.pct != null ? Number(band.pct.toFixed(2)) : null,
+      resultado: band.status
+    });
+    if(state.rateLog.length > 100) state.rateLog.shift();
+    localStorage.setItem("t4c-rate-log", JSON.stringify(state.rateLog));
+  }catch(e){}
+}
+
+function rateMoney(n, key){
+  const d = key === "Yen Japonés" ? 1 : 0;
+  return "$" + n.toLocaleString("es-CO", { minimumFractionDigits: 0, maximumFractionDigits: d });
+}
+
+function rateAlertHTML(band, rate, ctx){
+  const d = band.key === "Yen Japonés" ? 10 : 1;
+  const lowDisp = Math.ceil(band.lower * d) / d, upDisp = Math.floor(band.upper * d) / d;
+  const isUSD = band.key === "Dólar USA";
+  const refName = isUSD ? "TRM vigente" : "Referencia vigente";
+  const pctTxt = (band.pct > 0 ? "+" : "") + band.pct.toFixed(1).replace(".", ",") + " %";
+  const heads = {
+    crear: "No se puede publicar esta oferta",
+    editar: "No se puede guardar el cambio",
+    aceptar: "No se puede aceptar esta oferta",
+    confirmar: "No se puede confirmar el intercambio"
+  };
+  const own = ctx === "crear" || ctx === "editar";
+  const nearest = band.pct > 0 ? upDisp : lowDisp;
+  const timeNote = own ? "" : " La referencia pudo cambiar desde que se publicó la oferta.";
+  return `
+  <div class="t4c-alert" role="alert">
+    <div class="ta-head">
+      <div class="ta-ico">⚠️</div>
+      <div><strong>Tasa fuera del rango</strong><span>${heads[ctx] || heads.crear}</span></div>
+    </div>
+    <div class="ta-grid">
+      <div><small>${refName}</small><b>${rateMoney(band.ref, band.key)}</b></div>
+      <div><small>Rango permitido</small><b>${rateMoney(lowDisp, band.key)} – ${rateMoney(upDisp, band.key)}</b></div>
+      <div><small>${own ? "Tu tasa" : "Tasa ofrecida"}</small><b>${rateMoney(rate, band.key)}<em class="ta-pct">${pctTxt}</em></b></div>
+    </div>
+    <p class="ta-why">Trade4Cash permite hasta ${band.lim} % por encima o por debajo de la ${isUSD ? "TRM" : "referencia oficial"} para evitar ofertas engañosas.${timeNote}</p>
+    <p class="ta-fix">${own ? "Cambia la tasa para continuar." : "Pide a la otra persona que ajuste su tasa, o elige otra oferta."}</p>
+    ${own ? `<div class="ta-actions"><button type="button" class="btn small green" data-fix-rate="${nearest}">Usar ${rateMoney(nearest, band.key)}</button></div>` : ""}
+  </div>`;
+}
+
+// Devuelve true si la tasa es válida. Si excede el margen, muestra la alerta (en línea o en ventana) y devuelve false.
+function rateGuard(currency, rate, ctx, opts){
+  const band = checkRateBand(currency, rate);
+  logRate(ctx, currency, band, rate);
+  if(band.status !== "out") return true;
+  const html = rateAlertHTML(band, rate, ctx);
+  const box = opts && opts.target ? document.getElementById(opts.target) : null;
+  if(box){
+    box.innerHTML = html;
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    modal("Aviso de seguridad", html + '<button class="btn green block" data-close-modal style="margin-top:14px">Entendido</button>', false);
+  }
+  return false;
+}
+
+function txRateGuard(ctx){
+  const tx = state.activeSimTx;
+  if(!tx) return true;
+  return rateGuard(tx.currency, parseRate(tx.rate, tx.currency), ctx);
+}
+
+function liveRate(inputId, cur, alertId, ctx){
+  const input = document.getElementById(inputId), box = document.getElementById(alertId);
+  if(!input || !box) return;
+  const val = Number(input.value);
+  if(!(val > 0)){ box.innerHTML = ""; return; }
+  const band = checkRateBand(cur, val);
+  box.innerHTML = band.status === "out" ? rateAlertHTML(band, val, ctx) : "";
+}
+
+// ===== Medios de pago: chips uniformes (si existe logos/<medio>.png se muestra el logo oficial) =====
+function payKey(p){
+  const s = String(p).toLowerCase();
+  if(s.includes("nequi")) return "nequi";
+  if(s.includes("davi")) return "daviplata";
+  if(s.includes("bancolombia")) return "bancolombia";
+  if(s.includes("efectivo")) return "efectivo";
+  return "transferencia";
+}
+function payChip(p){
+  const k = payKey(p);
+  const label = k === "nequi" ? "Nequi" : k === "daviplata" ? "Daviplata" : k === "bancolombia" ? "Bancolombia" : k === "efectivo" ? "💵 Efectivo" : String(p);
+  const logo = ["nequi","daviplata","bancolombia"].includes(k)
+    ? `<img class="pay-logo" src="logos/${k}.png" alt="" onload="this.nextElementSibling.style.display='none'" onerror="this.remove()">` : "";
+  return `<span class="pay-chip pk-${k}">${logo}<span>${esc(label)}</span></span>`;
+}
+
+// ===== Estados de publicaciones =====
+function stKey(s){
+  s = String(s || "").toLowerCase();
+  if(s === "reservada") return "reservada";
+  if(s.startsWith("en intercambio") || s.includes("proceso")) return "proceso";
+  if(s === "finalizada" || s === "completada") return "completada";
+  if(s === "pausada") return "pausada";
+  if(s === "cancelada") return "cancelada";
+  return "activa";
+}
+const ST_LABEL = { activa:"Activa", reservada:"Reservada", proceso:"En intercambio", completada:"Completada", pausada:"Pausada", cancelada:"Cancelada" };
+
+// VISTA HOME (dedicada a Trade4Cash Academy)
 function home(){
+  const mods = [
+    { id:"divisa", c:"sky", ico:"💱", t:"¿Qué es una divisa?", s:"Dinero de otros países", body: `
+        <p class="mod-lead">Una divisa es la moneda de otro país. Toca una para ver cuánto vale hoy.</p>
+        <div class="tap-row">
+          ${["Dólar USA","Euro","Peso Mexicano","Dólar Canadá"].map(n => `<button class="tap" data-cur-pick="${n}">${referenceRates[n].flag} ${referenceRates[n].code}</button>`).join("")}
+        </div>
+        <div class="mod-out" id="out-divisa">Toca una divisa 👆</div>` },
+    { id:"trm", c:"", ico:"📈", t:"Tasa de referencia", s:"El precio oficial de cada divisa", body: (() => {
+        const cur0 = "Dólar USA", ref = referenceRates[cur0].rate;
+        return `
+        <p class="mod-lead">Cada divisa tiene una tasa oficial de referencia. La del dólar se llama <b>TRM</b>. Aquí las ofertas pueden variar hasta un 5 % frente a ella. Elige una divisa y prueba una tasa:</p>
+        <div class="tap-row">
+          ${["Dólar USA","Euro","Libra Esterlina","Peso Mexicano","Dólar Canadá","Real Brasileño"].map(n => `<button class="tap ${n===cur0?"on":""}" data-trm-cur="${n}">${referenceRates[n].flag} ${referenceRates[n].code}</button>`).join("")}
+        </div>
+        <div class="mod-out" id="out-trmref">Hoy: <b>1 ${referenceRates[cur0].code} = $${fmt(ref)} COP</b></div>
+        <input class="slide" id="trmSlide" type="range" min="${Math.round(ref*0.85)}" max="${Math.round(ref*1.15)}" step="${ref>1000?5:1}" value="${ref}" aria-label="Tasa de prueba">
+        <div class="slide-ends"><span id="trmMin">$${fmt(Math.round(ref*0.85))}</span><span id="trmMax">$${fmt(Math.round(ref*1.15))}</span></div>
+        <div class="mod-out" id="out-trm"><b>$${fmt(ref)}</b> <span class="pill-state in">✓ Dentro del rango</span></div>`; })() },
+    { id:"oferta", c:"amber", ico:"🤝", t:"Cómo funciona", s:"Una oferta, tres pasos", body: `
+        <p class="mod-lead">Toca cada paso.</p>
+        <div class="tap-row">
+          <button class="tap on" data-tabout="out-oferta" data-tabtxt="Indica divisa, cantidad y tu tasa en <b>Mis publicaciones</b>.">1 · Publica</button>
+          <button class="tap" data-tabout="out-oferta" data-tabtxt="Otra persona te escribe. Acuerdan tasa y medio de pago por chat.">2 · Acuerda</button>
+          <button class="tap" data-tabout="out-oferta" data-tabtxt="Se ven en un lugar <b>público y vigilado</b>, revisan los billetes y cierran.">3 · Encuéntrate</button>
+        </div>
+        <div class="mod-out" id="out-oferta">Indica divisa, cantidad y tu tasa en <b>Mis publicaciones</b>.</div>` },
+    { id:"seguro", c:"violet", ico:"🛡️", t:"Intercambio seguro", s:"Tu lista antes de salir", body: `
+        <p class="mod-lead">Marca lo que ya hiciste.</p>
+        ${["Lugar público y vigilado","Reputación revisada","Sin presiones ni afán","Billetes revisados antes de entregar"].map(x => `<button class="chk" data-chk><i>✓</i>${x}</button>`).join("")}
+        <div class="prog"><span></span></div>
+        <div class="prog-txt">0 de 4 listos</div>` },
+    { id:"billetes", c:"coral", ico:"💵", t:"Billetes falsos", s:"Cuatro formas de revisarlos", body: `
+        <p class="mod-lead">Toca una forma de revisar.</p>
+        <div class="tap-row">
+          <button class="tap" data-tabout="out-billetes" data-tabtxt="El papel moneda se siente <b>firme y rugoso</b>, no liso.">✋ Tacto</button>
+          <button class="tap" data-tabout="out-billetes" data-tabtxt="A contraluz debe verse la <b>marca de agua</b> y la cinta de seguridad.">💡 Luz</button>
+          <button class="tap" data-tabout="out-billetes" data-tabtxt="Al inclinarlo, la tinta <b>cambia de color</b> y los relieves se sienten nítidos.">🎨 Tinta</button>
+          <button class="tap" data-tabout="out-billetes" data-tabtxt="Ponlo junto a uno <b>auténtico</b> de la misma denominación.">🔍 Compara</button>
+        </div>
+        <div class="mod-out" id="out-billetes">Toca una opción 👆</div>` },
+    { id:"alertas", c:"pink", ico:"🚨", t:"Señales de alerta", s:"Toca para ver por qué", body: `
+        <p class="mod-lead">Voltea cada tarjeta.</p>
+        <div class="flips">
+          ${[["Tasa demasiado buena","Si se aleja mucho de la TRM, puede ser un engaño."],["Cambian el lugar","Evita sitios solitarios o fuera del centro comercial."],["Piden adelantos","No transfieras dinero antes de verse."],["Te presionan","Un trato justo no necesita afán."]].map(f => `
+            <button class="flip" data-flip><div class="flip-in"><div class="flip-f">${f[0]}<small>Toca para ver</small></div><div class="flip-b">${f[1]}</div></div></button>`).join("")}
+        </div>` }
+  ];
+  const bigCards = [
+    { c:"sky", ico:"🧮", t:"Simulador", d:"Crea una oferta de práctica en 4 pasos y mira cuánto recibirías. No se publica nada.", b:"Abrir simulador", m:"simulator" },
+    { c:"violet", ico:"🔐", t:"Tratamiento de datos", d:"Tus datos se usan solo para verificarte y conectarte con otras personas. Puedes consultarlos, corregirlos o borrarlos (Ley 1581 de 2012).", b:"Leer la política", m:"privacy" },
+    { c:"amber", ico:"📄", t:"Términos y condiciones", d:"Trade4Cash conecta personas y no guarda tu dinero. Aquí están las reglas de uso, el margen de ±5 % y tus responsabilidades.", b:"Leer los términos", m:"terms" }
+  ];
+
   return `
   <section class="hero" data-coach="home">
     <div class="hero-copy">
       <h1>Tu dinero,<br><span>tu acuerdo.</span></h1>
-      <div class="lead">Intercambia divisas directamente con otras personas.</div>
-      <p>Trade4Cash conecta personas que quieren comprar y vender divisas de manera directa, permitiendo negociar tasas y acordar puntos de encuentro seguros en Bogotá.</p>
+      <div class="lead">Intercambia divisas con personas en Bogotá.</div>
       <div class="actions">
-        <button class="btn primary" data-page="buy">Quiero comprar</button>
-        <button class="btn ghost" data-page="sell">Quiero vender</button>
-        <button class="btn ghost" id="homeAskZeta">🤖 Preguntar a Zeta IA</button>
+        <button class="btn primary" data-page="buy">Comprar divisas</button>
+        <button class="btn ghost" data-page="sell">Mis publicaciones</button>
+        <button class="btn ghost" id="homeAskZeta">🤖 Preguntar a Zeta</button>
       </div>
     </div>
   </section>
 
   <section class="trm-card" aria-label="Tasa Representativa del Mercado">
     <div class="trm-copy">
-      <div class="trm-kicker">💱 TRM · Dólar de referencia</div>
-      <div class="trm-caption">Tasa Representativa del Mercado oficial vigente por cada dólar</div>
+      <div class="trm-kicker">💱 TRM oficial · Dólar <button class="linkbtn" id="btnTrmRefresh" style="color:var(--green);font-weight:700;font-size:12px;margin-left:8px">↻ Actualizar</button></div>
     </div>
-    <div class="trm-value" id="trmValue" aria-live="polite">Consultando…</div>
+    <div class="trm-value" id="trmValue" aria-live="polite">$3.985,00 COP</div>
     <div class="trm-date">
-      <span id="trmDate">Buscando el dato vigente</span><br>
+      <span id="trmDate">Vigente hoy</span><br>
       <a href="https://www.datos.gov.co/Econom-a-y-Finanzas/TRM/ceyp-9c7c" target="_blank" rel="noopener">Fuente: Superintendencia Financiera</a>
+      · <button class="linkbtn" data-page="market" style="font-size:12px">Ver más monedas ▾</button>
     </div>
   </section>
 
-  <div class="section-title">
-    <h2>Antes de empezar</h2>
-    <p>Aprende lo esencial para operar seguro y con confianza en Trade4Cash.</p>
-  </div>
-  <section class="intro-grid">
-    <article class="intro-card">
-      <h3>🎓 Trade4Cash Academy</h3>
-      <p>Aprende a detectar billetes falsos, calcular tasas y elegir lugares públicos vigilados.</p>
-      <button data-modal="academy">Iniciar Academy →</button>
-    </article>
-    <article class="intro-card">
-      <h3>🧮 Simulador interactivo</h3>
-      <p>Practica cómo crear una oferta y calcular el valor estimado antes de publicar.</p>
-      <button data-modal="simulator">Realizar simulador →</button>
-    </article>
-    <article class="intro-card">
-      <h3>📜 Tratamiento de Datos</h3>
-      <p>Conoce la Política de Protección de Datos Personales de Trade4Cash S.A.S. (Ley 1581/2012).</p>
-      <button data-modal="privacy">Ver política oficial →</button>
-    </article>
+  <section class="acad-box" aria-label="Trade4Cash Academy">
+    <div class="acad-head section-title">
+      <h2>🎓 Trade4Cash Academy</h2>
+      <p>Interactúa y descubre cómo cambiar divisas con confianza.</p>
+    </div>
+    <div class="acad-grid">
+      ${mods.map(m => `
+      <article class="mod ${m.c} ${state.openMod === m.id ? "open" : ""}" data-mod="${m.id}">
+        <button class="mod-head" data-mod-toggle aria-expanded="${state.openMod === m.id}">
+          <span class="mod-ico">${m.ico}</span>
+          <span><h3>${m.t}</h3><p>${m.s}</p></span>
+          <span class="mod-chev">▼</span>
+        </button>
+        <div class="mod-wrap"><div class="mod-inner"><div class="mod-body">${m.body}</div></div></div>
+      </article>`).join("")}
+    </div>
   </section>
-  <div class="tiny-foot" style="text-align:center;margin-top:25px;color:var(--muted);font-size:12px">Simulador académico · Datos ficticios · Entorno de demostración interactiva</div>`;
+
+  <section class="big-grid">
+    ${bigCards.map(c => `
+    <article class="mod big ${c.c}">
+      <div class="big-ico">${c.ico}</div>
+      <h3>${c.t}</h3>
+      <p>${c.d}</p>
+      <button class="btn green block" data-modal="${c.m}">${c.b}</button>
+    </article>`).join("")}
+  </section>`;
 }
 
+// VISTA MIS PUBLICACIONES
+function sell(){
+  const counts = {};
+  state.posts.forEach(p => { const k = stKey(p.status); counts[k] = (counts[k] || 0) + 1; });
+  const order = ["activa","reservada","proceso","completada","pausada","cancelada"].filter(k => counts[k]);
+  const cur = state.pubFilter || "Todas";
+  const list = state.posts.map((p,i) => ({p,i,k:stKey(p.status)})).filter(x => cur === "Todas" || x.k === cur);
+
+  return `
+  <div class="pub-hero page-head">
+    <div class="avatar">LM</div>
+    <div>
+      <h1>Mis publicaciones</h1>
+      <p>Laura Méndez · ${state.posts.length} ${state.posts.length===1?"oferta":"ofertas"}</p>
+    </div>
+    <a class="btn primary" href="#createListing" data-go-create>＋ Nueva oferta</a>
+  </div>
+
+  <div class="pub-tabs" role="tablist">
+    <button class="pub-tab ${cur==="Todas"?"on":""}" data-pubfilter="Todas">Todas<b>${state.posts.length}</b></button>
+    ${order.map(k => `<button class="pub-tab ${cur===k?"on":""}" data-pubfilter="${k}">${ST_LABEL[k]}<b>${counts[k]}</b></button>`).join("")}
+  </div>
+
+  <section class="post-grid">
+    ${list.length ? list.map(({p,i,k}) => {
+      const ref = referenceRates[p.currency] || {};
+      return `
+      <article class="pc s-${k}">
+        <div class="pc-top">
+          <div class="pc-cur"><div class="pc-flag">${ref.flag || "💵"}</div><div><b>${esc(p.currency)}</b><span>Oferta #${i+1}</span></div></div>
+          <span class="stt">${ST_LABEL[k]}</span>
+        </div>
+        <div class="pc-money">
+          <div><small>Cantidad</small><b>${esc(p.amount)}</b></div>
+          <div class="r" style="text-align:right"><small>Tasa</small><b>${esc(p.rate)}</b></div>
+        </div>
+        <div class="pc-meta">☕ ${esc(p.place)}<br>💬 ${esc(p.contacts || "0 personas contactadas")}</div>
+        <div class="pay-row" style="margin:0">${(p.payments || []).map(x => payChip(x)).join("")}</div>
+        <div class="pc-actions">
+          <button class="btn green small" data-interested="${i}">Interesados</button>
+          <button class="btn light small" data-manage="${i}">Administrar</button>
+        </div>
+      </article>`;
+    }).join("") : '<div class="empty">No tienes ofertas en este estado.</div>'}
+  </section>
+
+  <section class="panel new-pub" id="createListing">
+    <div class="panel-title">
+      <div><h2>Nueva oferta</h2></div>
+      <button class="btn light small" type="button" data-modal="simulator">🧮 Practicar primero</button>
+    </div>
+    <form id="sellForm">
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="sellCurrency">Divisa</label>
+          <select class="select" id="sellCurrency" data-coach-field="currency">
+            ${currencies.filter(x=>x!=="Otras divisas").map(x=>`<option>${x}</option>`).join("")}
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="sellAmount">Cantidad</label>
+          <input class="field" id="sellAmount" type="number" min="1" placeholder="Ej. 500" data-coach-field="amount" required>
+        </div>
+
+        <div class="form-field" style="grid-column:1/-1">
+          <label for="sellRate">Tu tasa (COP por unidad)</label>
+          <input class="field" id="sellRate" type="number" min="1" step="any" placeholder="Ej. 3980" data-coach-field="rate" required>
+          <div id="rateAlert" aria-live="assertive"></div>
+        </div>
+
+        <div class="form-field">
+          <label for="sellCondition">Estado de los billetes</label>
+          <select class="select" id="sellCondition">
+            <option value="Sin sellos ni anotaciones">Sin sellos ni anotaciones</option>
+            <option value="Con sellos de casas de cambio">Con sellos de casas de cambio</option>
+            <option value="Con otras marcas o anotaciones">Con otras marcas o anotaciones</option>
+            <option value="Con deterioro físico">Con deterioro físico</option>
+            <option value="Estado no verificado">Estado no verificado</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="sellPayments">Medios de pago</label>
+          <select class="select" id="sellPayments">
+            <option value="Efectivo en persona, Nequi, DaviPlata">Efectivo, Nequi y DaviPlata</option>
+            <option value="Solo Efectivo en punto vigilado">Solo efectivo</option>
+            <option value="Solo Pagos Digitales (Nequi / DaviPlata)">Solo Nequi y DaviPlata</option>
+            <option value="Transferencia Bancaria Bancolombia">Transferencia Bancolombia</option>
+          </select>
+        </div>
+
+        <div class="form-field" style="grid-column:1/-1">
+          <label for="sellNotes">Notas (opcional)</label>
+          <input class="field" id="sellNotes" placeholder="Ej. Billetes de 100 USD nuevos">
+        </div>
+
+        <div class="form-field">
+          <label for="sellPlace">Punto de encuentro</label>
+          <input class="field" id="sellPlace" placeholder="Ej. Starbucks CC Andino" data-coach-field="meeting" required>
+        </div>
+        <div class="form-field">
+          <label for="sellRadius">Visible hasta</label>
+          <select class="select" id="sellRadius" data-coach-field="radius">
+            <option>2 km</option><option>5 km</option><option>10 km</option><option>20 km</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="banknoteLegalWarning" class="form-warning hide">
+        ⚖️ <strong>Billetes:</strong> los que tienen sellos, notas o deterioro pueden ser rechazados. Verifica su estado antes de cambiar.
+      </div>
+
+      <div class="form-warning">
+        ⚠️ Trade4Cash no recibe ni custodia dinero. Encuéntrense en lugares públicos y vigilados.
+      </div>
+      <button class="btn green block" id="sellSubmitBtn" type="submit">Publicar oferta</button>
+    </form>
+  </section>`;
+}
+
+// VISTA PREMIUM
+function premium(){
+  const rows = [
+    ["Publicaciones",   "Limitadas", "Más al mes", "Ilimitadas"],
+    ["Visibilidad",     "Normal", "Mayor", "Prioridad máxima"],
+    ["Filtros avanzados", null, "Reputación y distancia", "Reputación y distancia"],
+    ["Insignia",        null, "Verificado Plus", "Gold"],
+    ["Alertas de emparejamiento", null, null, "Incluidas"],
+    ["Radio de visibilidad", null, null, "Extendido en Bogotá"],
+    ["Soporte",         null, null, "Prioritario"]
+  ];
+  const col = idx => rows.map(r => r[idx] ? `<li><span><b>${r[0]}:</b> ${r[idx]}</span></li>` : `<li class="no"><span>${r[0]}</span></li>`).join("");
+  return `
+  <div class="page-head centered" style="text-align:center">
+    <h1>Trade4Cash Premium</h1>
+    <p>Más visibilidad y herramientas para quien intercambia seguido.</p>
+  </div>
+  <section class="plans-v2">
+    <article class="pl">
+      <h2>Básico</h2>
+      <div class="pl-sub">Para empezar</div>
+      <div class="pl-price">Gratis</div>
+      <ul class="pl-list">${col(1)}</ul>
+      <button class="btn off block" type="button" disabled>Incluido</button>
+    </article>
+    <article class="pl mid">
+      <h2>Premium</h2>
+      <div class="pl-sub">Más alcance</div>
+      <div class="pl-price">$11.56 <small>/ mes</small></div>
+      <ul class="pl-list">${col(2)}</ul>
+      <button class="btn green block" data-premium="Premium">Elegir Premium</button>
+    </article>
+    <article class="pl top">
+      <span class="pl-tag">⭐ Más completo</span>
+      <h2>Premium Plus</h2>
+      <div class="pl-sub">Todo incluido</div>
+      <div class="pl-price">$19.99 <small>/ mes</small></div>
+      <ul class="pl-list">${col(3)}</ul>
+      <button class="btn green block" data-premium="Premium Plus">Elegir Premium Plus</button>
+    </article>
+  </section>
+  <p class="tiny-foot" style="text-align:center;margin-top:20px;color:var(--muted)">Simulación académica. No se procesan pagos reales.</p>`;
+}
+
+// VISTA HOME
+
+// VISTA COMPRAR (CON PAGOS DIGITALES Y ESTADO DE BILLETES)
 function buy(){
   const visible = seedOffers.filter(o =>
     (state.currency==="TODAS" || state.currency==="Otras divisas"
@@ -977,13 +1693,13 @@ function buy(){
   <button class="back" data-page="home" style="border:0;background:transparent;color:var(--green);font-weight:800;padding:6px 0;margin:0 0 16px;cursor:pointer">← Volver a inicio</button>
   <div class="page-head">
     <h1>Encuentra personas</h1>
-    <p>Selecciona una divisa y descubre ofertas cercanas con punto de encuentro propuesto.</p>
+    <p>Selecciona una divisa y descubre ofertas cercanas con medios de pago y condición de billetes verificables.</p>
   </div>
   <div class="filters">
     ${chips.map(c => `<button class="chip ${state.currency===c[0]?'selected':''}" data-currency="${esc(c[0])}">${esc(c[1])}</button>`).join("")}
   </div>
   <div class="filterbar">
-    <input class="field" id="offerSearch" placeholder="Buscar nombre o ubicación..." value="${esc(state.search)}" aria-label="Buscar nombre o ubicación" data-coach="filters">
+    <input class="field" id="offerSearch" placeholder="Buscar por usuario, divisa o punto..." value="${esc(state.search)}" aria-label="Buscar nombre o ubicación" data-coach="filters">
     <select class="select" id="zoneFilter" aria-label="Ubicación" data-coach="filters">
       ${["Todas las ubicaciones","Norte","Centro","Sur","Chapinero","Usaquén","Teusaquillo"].map(x => `<option ${state.zone===x?'selected':''}>${x}</option>`).join("")}
     </select>
@@ -993,8 +1709,13 @@ function buy(){
   </div>
   <div class="result-count">Mostrando ${visible.length} ofertas disponibles</div>
   <section class="offer-grid">
-    ${visible.length ? visible.map((o,i) => `
-      <article class="offer-card ${o.flag?'flagged':''}" data-offer="${seedOffers.indexOf(o)}">
+    ${visible.length ? visible.map((o,i) => {
+      let originalIdx = seedOffers.indexOf(o);
+      let isSealed = o.condition && o.condition.includes("sellos");
+      let isDeter = o.condition && o.condition.includes("deterioro");
+      let conditionClass = isSealed ? "sealed" : isDeter ? "deteriorated" : "";
+      return `
+      <article class="offer-card ${o.flag?'flagged':''}" data-offer="${originalIdx}">
         <div class="person">
           <div class="avatar">${initials(o.name)}</div>
           <div>
@@ -1003,94 +1724,157 @@ function buy(){
           </div>
         </div>
         ${o.flag?'<div class="warning">⚠️ Este usuario presenta señales que requieren precaución.</div>':''}
+        <div style="margin-bottom:8px">
+          <span class="banknote-badge ${conditionClass}">💵 ${esc(o.condition || "Sin sellos ni anotaciones")}</span>
+        </div>
         <div class="offer-facts">
           <div class="fact">💵 Tiene<b>${esc(o.amount)} ${esc(o.currency)}</b></div>
           <div class="fact">🎯 Busca<b>${esc(o.want)}</b></div>
           <div class="fact">📍 ${esc(o.zone)}<b>${o.distance} km</b></div>
           <div class="fact">☕ Punto<b>${esc(o.place)}</b></div>
         </div>
+        <div class="payment-pills">
+          ${(o.payments || ["Efectivo"]).map(p => `<span class="payment-pill">💳 ${esc(p)}</span>`).join("")}
+        </div>
         <div class="rate">Tasa: ${esc(o.rate)}</div>
-        <button class="btn primary block" data-contact="${seedOffers.indexOf(o)}">Contactar</button>
+        <div class="offer-actions">
+          <button class="btn primary" style="flex:1" data-contact="${originalIdx}">Contactar</button>
+          <button class="btn light small" data-show-payments="${originalIdx}" title="Ver medios de pago digitales">💳 Medios de pago</button>
+        </div>
       </article>
-    `).join("") : '<div class="empty">No encontramos publicaciones con esos filtros. Prueba ampliando la distancia o cambiando de divisa.</div>'}
+      `;
+    }).join("") : '<div class="empty">No encontramos publicaciones con esos filtros. Prueba ampliando la distancia o cambiando de divisa.</div>'}
   </section>`;
 }
 
-function sell(){
+// VISTA VENDER (CON LÍMITES DE TASAS Y DECLARACIÓN DE BILLETES)
+
+// VISTA MERCADO DE DIVISAS (CON SELECTOR MULTI-TRM Y CONVERSOR)
+function market(){
+  let selCur = state.selectedMarketCurrency || "Dólar USA";
+  let curData = referenceRates[selCur] || referenceRates["Dólar USA"];
+  
+  // Calcular monedas más activas en Trade4Cash
+  let counts = {};
+  seedOffers.forEach(o => { counts[o.currency] = (counts[o.currency]||0) + 1; });
+  let activeRanking = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+
   return `
-  <div class="page-head">
-    <h1>Vender divisas</h1>
-    <p>Crea tu publicación indicando la cantidad, la tasa que deseas recibir y el punto público de encuentro.</p>
-  </div>
-  <section class="panel">
-    <div class="panel-title">
-      <div><h2>Tus publicaciones</h2><span class="subtle">Administra tus ofertas activas y pausadas.</span></div>
-      <span class="count">${state.posts.length}</span>
+  <section class="market-hero">
+    <h1>Mercado de Divisas y Tasas de Referencia</h1>
+    <p>Consulta las cotizaciones oficiales indicativas del mercado colombiano, compara con las ofertas entre usuarios y convierte divisas al instante.</p>
+  </section>
+
+  <!-- SELECTOR MULTI-TRM -->
+  <section class="market-selector-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px">
+      <div>
+        <h2 style="margin:0;font-size:20px;color:var(--deep)">Verificador Oficial de Tasa de Referencia / TRM</h2>
+        <span class="subtle">Selecciona una divisa para inspeccionar su cotización regulada oficial:</span>
+      </div>
+      <div style="min-width:240px">
+        <select class="select" id="marketCurrencySelect" aria-label="Seleccionar divisa para verificar TRM">
+          ${Object.keys(referenceRates).filter(k=>k!=="Pesos Colombianos").map(k => `
+            <option value="${k}" ${k===selCur?'selected':''}>${referenceRates[k].flag} ${k} (${referenceRates[k].code})</option>
+          `).join("")}
+        </select>
+      </div>
     </div>
-    <div class="post-list">
-      ${state.posts.map((p,i) => `
-        <article class="post-card">
-          <div class="post-head">
-            <div>
-              <h3>Venta de ${esc(p.currency)}</h3>
-              <div class="subtle">Publicación #${i+1}</div>
-            </div>
-            <span class="status ${p.status==="Activa"?"":"off"}">${esc(p.status)}</span>
-          </div>
-          <div class="post-facts">
-            <div class="fact"><span class="subtle">Cantidad</span><b>${esc(p.amount)} ${esc(p.currency)}</b></div>
-            <div class="fact"><span class="subtle">Tasa</span><b>${esc(p.rate)}</b></div>
-            <div class="fact"><span class="subtle">Contactos</span><b>${esc(p.contacts)}</b></div>
-          </div>
-          <div class="post-place">Punto propuesto: ${esc(p.place)}</div>
-          <div class="post-actions">
-            <button class="btn green small" data-interested="${i}">Ver interesados</button>
-            <button class="btn light small" data-manage="${i}">Administrar</button>
-          </div>
-        </article>
-      `).join("")}
+
+    <div style="padding:16px 0 0">
+      <div style="display:flex;align-items:baseline;gap:10px">
+        <span style="font-size:32px">${curData.flag}</span>
+        <span style="font-size:18px;font-weight:800;color:var(--deep)">1 ${curData.code} equivale a:</span>
+      </div>
+      <div class="market-featured-rate">
+        $${fmt(curData.rate)} COP
+      </div>
+      <div class="market-meta-row">
+        <span>🏛️ <strong>Fuente oficial:</strong> <a href="${curData.url}" target="_blank" rel="noopener" style="color:var(--green)">${curData.source} ↗</a></span>
+        <span>📅 <strong>Fecha:</strong> ${curData.date}</span>
+        <span class="status">${curData.note}</span>
+      </div>
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn green small" data-prefill-currency="${selCur}">Crear oferta con ${curData.code} →</button>
+        <button class="btn light small" data-filter-currency="${selCur}">Buscar publicaciones de ${curData.code} en Comprar</button>
+      </div>
     </div>
   </section>
 
-  <section class="panel" id="createListing">
-    <div class="panel-title">
-      <div><h2>Crear nueva publicación</h2><span class="subtle">Indica qué divisa tienes disponible.</span></div>
+  <!-- GRID DE TODAS LAS DIVISAS PRINCIPALES -->
+  <div class="section-title">
+    <h2>Cotizaciones de Referencia para Colombia</h2>
+    <p>Principales monedas negociadas con sus tasas representativas e indicativas oficiales.</p>
+  </div>
+  <div class="currency-grid">
+    ${Object.entries(referenceRates).filter(([k])=>k!=="Pesos Colombianos").map(([name, data]) => `
+      <div class="currency-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <span style="font-size:24px">${data.flag}</span>
+          <span class="status">${data.code}</span>
+        </div>
+        <h3 style="margin:0 0 4px;font-size:16px">${name}</h3>
+        <div style="font-size:20px;font-weight:850;color:var(--deep)">$${fmt(data.rate)} COP</div>
+        <div class="subtle" style="margin-top:6px;font-size:11.5px">
+          ${data.source.split("/")[0]} · <a href="${data.url}" target="_blank" rel="noopener" style="color:var(--green)">Fuente ↗</a>
+        </div>
+      </div>
+    `).join("")}
+  </div>
+
+  <!-- CONVERSOR DE MONEDAS INTERACTIVO -->
+  <section class="converter-card">
+    <h2 style="margin:0 0 6px;color:var(--deep)">Calculadora y Conversor de Divisas</h2>
+    <p class="muted">Calcula valores estimados en pesos colombianos con base en las cotizaciones de referencia:</p>
+    <div class="converter-grid" style="margin-top:16px">
+      <div class="form-field">
+        <label>Cantidad a convertir</label>
+        <input class="field" type="number" id="calcAmount" value="${state.marketCalc.amount}" min="1">
+      </div>
+      <div class="form-field">
+        <label>Moneda de origen</label>
+        <select class="select" id="calcFrom">
+          ${Object.keys(referenceRates).map(k=>`<option ${k===state.marketCalc.from?'selected':''}>${k}</option>`).join("")}
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Moneda de destino</label>
+        <select class="select" id="calcTo">
+          ${Object.keys(referenceRates).map(k=>`<option ${k===state.marketCalc.to?'selected':''}>${k}</option>`).join("")}
+        </select>
+      </div>
     </div>
-    <form id="sellForm">
-      <div class="form-grid">
-        <div class="form-field">
-          <label for="sellCurrency">Divisa a ofrecer</label>
-          <select class="select" id="sellCurrency" data-coach-field="currency">
-            ${currencies.filter(x=>x!=="Otras divisas").map(x=>`<option>${x}</option>`).join("")}
-          </select>
-        </div>
-        <div class="form-field">
-          <label for="sellAmount">Cantidad disponible</label>
-          <input class="field" id="sellAmount" type="number" min="1" placeholder="Ej. 500" data-coach-field="amount" required>
-        </div>
-        <div class="form-field">
-          <label for="sellRate">Tasa que deseas recibir (COP por unidad)</label>
-          <input class="field" id="sellRate" type="number" min="1" placeholder="Ej. 4020" data-coach-field="rate" required>
-        </div>
-        <div class="form-field">
-          <label for="sellPlace">Punto público de encuentro sugerido</label>
-          <input class="field" id="sellPlace" placeholder="Ej. Starbucks CC Andino" data-coach-field="meeting" required>
-        </div>
-        <div class="form-field">
-          <label for="sellRadius">Radio de visibilidad</label>
-          <select class="select" id="sellRadius" data-coach-field="radius">
-            <option>2 km</option><option>5 km</option><option>10 km</option><option>20 km</option>
-          </select>
-        </div>
+    <div class="converter-result" id="calcResultDisplay">
+      Calculando…
+    </div>
+    <div style="text-align:center;margin-top:14px">
+      <button class="btn green small" id="btnConverterToSell">Iniciar oferta con esta divisa →</button>
+    </div>
+  </section>
+
+  <!-- ESTADÍSTICAS INTERNAS DE ACTIVIDAD EN TRADE4CASH -->
+  <section class="panel">
+    <div class="panel-title">
+      <div>
+        <h2>Monedas con Mayor Actividad en Trade4Cash</h2>
+        <span class="subtle">Calculado a partir de las ofertas e intercambios reales registrados en la plataforma.</span>
       </div>
-      <div class="form-warning">
-        ⚠️ <strong>Aviso legal:</strong> Trade4Cash no recibe, transfiere ni custodia dinero en ningún momento. Las partes son responsables de comprobar la legitimidad de las divisas y reunirse en espacios públicos y seguros.
-      </div>
-      <button class="btn green" type="submit">Confirmar y publicar</button>
-    </form>
+    </div>
+    <div class="data-list">
+      ${activeRanking.map(([curr, count], idx) => `
+        <div class="data-item">
+          <span>#${idx+1} · ${curr}</span>
+          <strong>${count} ofertas registradas (${Math.round(count/seedOffers.length*100)}% de la actividad)</strong>
+        </div>
+      `).join("")}
+    </div>
+    <p class="smallprint" style="margin-top:14px">
+      * <strong>Aclaración estadística:</strong> Esta métrica representa exclusivamente la frecuencia y volumen de acuerdos dentro de la comunidad de Trade4Cash y no debe interpretarse como un ranking bursátil del mercado financiero internacional.
+    </p>
   </section>`;
 }
 
+// VISTA QUIÉNES SOMOS
 function about(){
   return `
   <section class="about-hero">
@@ -1101,7 +1885,7 @@ function about(){
     <article class="info-card">
       <h2>Nuestra historia</h2>
       <p>Trade4Cash nace de una idea clara: quienes necesitan comprar o vender divisas muchas veces no encuentran flexibilidad ni tasas justas en los canales convencionales.</p>
-      <p>Creamos una comunidad digital en la que compradores y vendedores pueden encontrarse, acordar sus propias tasas y fijar puntos de encuentro seguros, respaldados por reputación, educación y tecnología de asistencia con Inteligencia Artificial.</p>
+      <p>Creamos una comunidad digital en la que compradores y vendedores pueden encontrarse, acordar sus propias tasas, verificar el estado de los billetes y fijar puntos de encuentro seguros o coordinar pagos digitales, respaldados por reputación, educación y tecnología de asistencia con Inteligencia Artificial.</p>
     </article>
     <div>
       <article class="info-card">
@@ -1134,7 +1918,7 @@ function about(){
     <div class="value-grid">
       <article class="info-card">
         <h3>📧 Correo de soporte</h3>
-        <p><strong>camilacardenasc1@gmail.com</strong></p>
+        <p><strong>trade4cash.atencioncliente@gmail.com</strong></p>
         <span class="subtle">Área de Soporte Legal y Operaciones</span>
       </article>
       <article class="info-card">
@@ -1150,79 +1934,156 @@ function about(){
   </section>`;
 }
 
-function premium(){
-  return `
-  <div class="page-head centered" style="text-align:center">
-    <h1>Trade4Cash Premium</h1>
-    <p>Herramientas y visibilidad preferencial para usuarios frecuentes.</p>
-  </div>
-  <section class="plans">
-    <article class="plan-card">
-      <h2>Plan Premium</h2>
-      <div class="price">$11.56 <span class="subtle">/ mes</span></div>
-      <ul>
-        <li>Límite ampliado de publicaciones mensuales</li>
-        <li>Filtros avanzados por reputación y distancia</li>
-        <li>Mayor visibilidad en el listado de ofertas</li>
-        <li>Insignia distintiva de Usuario Verificado Plus</li>
-      </ul>
-      <button class="btn green block" data-premium="Premium">Elegir Plan Premium</button>
-    </article>
-    <article class="plan-card">
-      <h2>Plan Premium Plus</h2>
-      <div class="price">$19.99 <span class="subtle">/ mes</span></div>
-      <ul>
-        <li>Publicaciones ilimitadas</li>
-        <li>Prioridad máxima en el motor de búsqueda</li>
-        <li>Filtro inteligente de emparejamiento con alertas</li>
-        <li>Radio de visibilidad extendido en Bogotá</li>
-        <li>Insignia destacada Gold y soporte prioritario</li>
-      </ul>
-      <button class="btn green block" data-premium="Premium Plus">Elegir Premium Plus</button>
-    </article>
-  </section>
-  <p class="tiny-foot" style="text-align:center;margin-top:20px;color:var(--muted)">Entorno de simulación académica. No se procesan transacciones financieras reales.</p>`;
-}
+// VISTA PREMIUM
 
+// VISTA MI CUENTA (CON PAGOS DIGITALES, SEGURIDAD E HISTORIAL ENRIQUECIDO)
 function account(){
-  const tabs = ["Mi información","Mis publicaciones","Historial","Privacidad y permisos","Ayuda","Configuración Gemini"];
+  const tabs = ["Mi información","Mis publicaciones","Medios de pago","Historial y comprobantes","Seguridad y sesiones","Privacidad y permisos","Configuración Gemini","Ayuda"];
   let content = "";
 
   if(state.accountTab === "Mi información"){
     content = `
-    <div class="profile">
-      <div class="avatar">LM</div>
+    <div class="ig">
+      <div class="ig-ring"><div class="avatar">LM</div></div>
       <div>
-        <h2>Laura Méndez</h2>
-        <span class="status">Usuario verificado</span>
-        <div class="rating">★★★★★ 4.9 · 28 acuerdos completados</div>
+        <div class="ig-name"><h2>Laura Méndez</h2><span class="status">✓ Verificado</span></div>
+        <div class="ig-stats">
+          <div><b>${state.posts.length}</b><span>publicaciones</span></div>
+          <div><b>28</b><span>acuerdos</span></div>
+          <div><b>4.9 ★</b><span>calificación</span></div>
+        </div>
+        <div class="ig-badges">
+          <span class="ig-badge">🪪 Identidad verificada</span>
+          <span class="ig-badge">✉️ Correo verificado</span>
+          <span class="ig-badge">🤝 28 intercambios</span>
+        </div>
+        <div class="ig-actions">
+          <button class="btn light small" id="btnEditProfileSecurity">Editar perfil</button>
+          <button class="btn light small" data-page="sell">Mis publicaciones</button>
+        </div>
       </div>
     </div>
+    <h3 class="ig-sec">Publicaciones</h3>
+    <div class="ig-grid">
+      ${state.posts.slice(0,6).map(p => { const k = stKey(p.status); return `
+        <div class="ig-tile s-${k}"><span class="f">${(referenceRates[p.currency]||{}).flag || "💵"}</span><b>${esc(p.amount)}</b><span>${esc(p.rate)}</span><em>${ST_LABEL[k]}</em></div>`; }).join("")}
+    </div>
+    <h3 class="ig-sec">Datos de la cuenta</h3>
     <div class="data-list">
       <div class="data-item"><span>Nombre completo</span><strong>Laura Méndez</strong></div>
       <div class="data-item"><span>Ubicación</span><strong>Bogotá, Colombia</strong></div>
       <div class="data-item"><span>Teléfono registrado</span><strong>+57 318 464 1985</strong></div>
-      <div class="data-item"><span>Correo electrónico</span><strong>camilacardenasc1@gmail.com</strong></div>
+      <div class="data-item"><span>Correo electrónico</span><strong>trade4cash.atencioncliente@gmail.com</strong></div>
       <div class="data-item"><span>Fecha de nacimiento</span><strong>15/06/1998 (Mayor de 18 años)</strong></div>
       <div class="data-item"><span>Verificación de identidad</span><strong>Documento y Biometría KYC Validados</strong></div>
     </div>
     <div class="post-actions" style="margin-top:20px">
-      <button class="btn light small" data-toast="Perfil simulado de demostración.">Editar perfil</button>
       <button class="btn light small" data-modal="privacy">Ver política de datos aplicable</button>
     </div>`;
   } else if(state.accountTab === "Mis publicaciones"){
     content = `
     <h2>Mis publicaciones</h2>
-    <p class="muted">Tus ofertas activas y pausadas se administran desde la sección Vender.</p>
+    <p class="muted">Tus ofertas activas y pausadas se administran desde Mis publicaciones.</p>
     <button class="btn green" data-page="sell">Ir al gestor de publicaciones</button>`;
-  } else if(state.accountTab === "Historial"){
+  } else if(state.accountTab === "Medios de pago"){
     content = `
-    <h2>Historial de intercambios</h2>
-    <p class="muted">Registro de acuerdos coordinados a través de la plataforma.</p>
-    <div class="info-card" style="margin-top:12px">
-      <strong>Intercambio acordado · 500 USD por COP</strong>
-      <p class="subtle" style="margin:4px 0">Con Carlos López · Starbucks Norte · Tasa $3.980 COP</p>
-      <span class="status">Finalizado con éxito</span>
+    <h2>Gestión de Medios de Pago Declarados</h2>
+    <p class="muted">Indica qué métodos de pago digital o presencial estás dispuesto a recibir. La información se muestra a otros usuarios solo para coordinar intercambios.</p>
+    
+    <div class="policy-box">
+      <h3 style="margin-top:0;color:var(--deep)">Tus medios de pago activos</h3>
+      <div style="display:grid;gap:12px;margin:16px 0">
+        ${Object.entries(state.userPaymentMethods).map(([k, v]) => `
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:#fff;border:1px solid var(--line);border-radius:12px">
+            <div>
+              ${payChip(v.label)}
+              <span class="subtle" style="display:block">${v.identifier}</span>
+            </div>
+            <label class="form-check" style="margin:0">
+              <input type="checkbox" data-payment-key="${k}" ${v.active?'checked':''}>
+              <span>Habilitado</span>
+            </label>
+          </div>
+        `).join("")}
+      </div>
+      <div class="form-warning">
+        🔒 <strong>Seguridad estricta:</strong> Trade4Cash NUNCA solicita ni almacena contraseñas bancarias, claves dinámicas, PIN, CVV ni códigos OTP bancarios. La información declarada es solo un identificador de contacto.
+      </div>
+      <button class="btn green small" data-toast="Configuración de medios de pago guardada.">Guardar preferencias de pago</button>
+    </div>`;
+  } else if(state.accountTab === "Historial y comprobantes"){
+    content = `
+    <h2>Historial de Operaciones y Comprobantes</h2>
+    <p class="muted">Registro auditable de acuerdos coordinados a través de la plataforma, tanto en efectivo como con pago digital simulado.</p>
+    <div style="margin-top:16px">
+      ${state.transactions.map((tx, idx) => `
+        <article class="tx-card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px">
+            <div>
+              <strong style="font-size:15px;color:var(--deep)">${tx.id} · ${tx.currency}</strong>
+              <div class="subtle">${tx.date} · Entre ${tx.seller} y ${tx.buyer}</div>
+            </div>
+            <span class="status ${tx.status==='Completada'?'':'off'}">${tx.status}</span>
+          </div>
+          <div class="post-facts" style="margin:10px 0">
+            <div class="fact"><span>Monto transferido</span><b>${tx.amount} ${tx.currency}</b></div>
+            <div class="fact"><span>Equivalente en COP</span><b>${tx.totalCop}</b></div>
+            <div class="fact"><span>Tasa acordada</span><b>${tx.rate}</b></div>
+            <div class="fact"><span>Medio de pago</span><b>${tx.method}</b></div>
+          </div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:10px">
+            🛡️ Condición de billetes: <strong>${tx.banknoteCondition}</strong><br>
+            💱 Referencia: ${tx.referenceUsed}
+          </div>
+          <button class="btn light small" data-view-receipt="${tx.id}">📄 Ver comprobante de demostración</button>
+        </article>
+      `).join("")}
+    </div>`;
+  } else if(state.accountTab === "Seguridad y sesiones"){
+    content = `
+    <h2>Seguridad y Autenticación Periódica</h2>
+    <p class="muted">Controles de seguridad para proteger tu cuenta y la integridad de la comunidad.</p>
+    
+    <div class="policy-box">
+      <h3 style="margin-top:0;color:var(--deep)">Estado de Verificación y Sesiones</h3>
+      <div class="policy-meta-grid">
+        <div class="policy-meta-card">
+          <span class="subtle">Correo electrónico</span>
+          <strong>${state.security.emailVerified ? '🟢 Verificado (Enlace único)' : '🟡 Pendiente'}</strong>
+        </div>
+        <div class="policy-meta-card">
+          <span class="subtle">Fecha de verificación</span>
+          <strong>${state.security.verifyDate}</strong>
+        </div>
+        <div class="policy-meta-card">
+          <span class="subtle">Ciclo de reautenticación</span>
+          <strong>Cada ${state.security.reauthCycleDays} días (Configurable)</strong>
+        </div>
+        <div class="policy-meta-card">
+          <span class="subtle">Última validación</span>
+          <strong>${state.security.lastAuthDate}</strong>
+        </div>
+      </div>
+
+      <div style="margin-top:16px">
+        <h4 style="margin:0 0 8px;color:var(--deep)">Dispositivos y Sesiones Activas</h4>
+        <div style="display:grid;gap:8px">
+          ${state.security.activeSessions.map(s => `
+            <div style="padding:10px 14px;background:#fff;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <strong style="font-size:13px">${s.device}</strong>
+                <span class="subtle" style="display:block">IP: ${s.ip} · ${s.place}</span>
+              </div>
+              <span class="status ${s.current?'':'off'}">${s.date}</span>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn light small" id="btnSimReauth">Simular reautenticación de seguridad</button>
+        <button class="btn light small" id="btnSimVerifyEmail">Reenviar verificación de correo</button>
+      </div>
     </div>`;
   } else if(state.accountTab === "Privacidad y permisos"){
     content = `
@@ -1232,30 +2093,12 @@ function account(){
     <div class="policy-box">
       <h3 style="margin-top:0;color:var(--deep)">Resumen de cumplimiento Habeas Data</h3>
       <div class="policy-meta-grid">
-        <div class="policy-meta-card">
-          <span class="subtle">Responsable</span>
-          <strong>Trade4Cash S.A.S.</strong>
-        </div>
-        <div class="policy-meta-card">
-          <span class="subtle">Oficial de Datos</span>
-          <strong>Soporte Legal y Operaciones</strong>
-        </div>
-        <div class="policy-meta-card">
-          <span class="subtle">Canal oficial PQR</span>
-          <strong>camilacardenasc1@gmail.com</strong>
-        </div>
-        <div class="policy-meta-card">
-          <span class="subtle">Plazo Consultas</span>
-          <strong>10 días hábiles (+5 prórroga)</strong>
-        </div>
-        <div class="policy-meta-card">
-          <span class="subtle">Plazo Reclamos</span>
-          <strong>15 días hábiles (+8 prórroga)</strong>
-        </div>
-        <div class="policy-meta-card">
-          <span class="subtle">Edad mínima</span>
-          <strong>Estrictamente +18 años</strong>
-        </div>
+        <div class="policy-meta-card"><span class="subtle">Responsable</span><strong>Trade4Cash S.A.S.</strong></div>
+        <div class="policy-meta-card"><span class="subtle">Oficial de Datos</span><strong>Soporte Legal y Operaciones</strong></div>
+        <div class="policy-meta-card"><span class="subtle">Canal oficial PQR</span><strong>trade4cash.atencioncliente@gmail.com</strong></div>
+        <div class="policy-meta-card"><span class="subtle">Plazo Consultas</span><strong>10 días hábiles (+5 prórroga)</strong></div>
+        <div class="policy-meta-card"><span class="subtle">Plazo Reclamos</span><strong>15 días hábiles (+8 prórroga)</strong></div>
+        <div class="policy-meta-card"><span class="subtle">Edad mínima</span><strong>Estrictamente +18 años</strong></div>
       </div>
       <p style="font-size:13px;line-height:1.6;color:#395a4a;margin:0 0 14px">
         Tienes derecho a conocer, actualizar, rectificar y suprimir tus datos personales, así como a revocar la autorización otorgada y consultar tus registros de forma gratuita.
@@ -1308,16 +2151,16 @@ function account(){
   return `
   <div class="page-head">
     <h1>Mi cuenta</h1>
-    <p>Administración del perfil, seguridad, política de datos y configuración del asistente.</p>
+    <p>Administración del perfil, seguridad, pagos digitales, política de datos y asistente.</p>
   </div>
   <div class="account-layout">
     <aside class="panel account-menu">
       ${tabs.map(t => `
         <button class="${state.accountTab===t?'selected':''}" data-account-tab="${esc(t)}">
-          ${t==="Mi información"?"👤 ":t==="Mis publicaciones"?"📄 ":t==="Historial"?"🕘 ":t==="Privacidad y permisos"?"🔐 ":t==="Configuración Gemini"?"✨ ":"❓ "}${esc(t)}
+          ${t==="Mi información"?"👤 ":t==="Mis publicaciones"?"📄 ":t==="Medios de pago"?"💳 ":t==="Historial y comprobantes"?"🕘 ":t==="Seguridad y sesiones"?"🛡️ ":t==="Privacidad y permisos"?"🔐 ":t==="Configuración Gemini"?"✨ ":"❓ "}${esc(t)}
         </button>
       `).join("")}
-      <button data-toast="Sesión activa en el prototipo">↪ Cerrar sesión</button>
+      <button id="btnLogout" style="color:#b32d2d;font-weight:600">↪ Cerrar sesión</button>
     </aside>
     <section class="panel">
       ${content}
@@ -1325,31 +2168,54 @@ function account(){
   </div>`;
 }
 
+// VISTA CHAT (CON ACEPTACIÓN EXPRESA DE ESTADO DE BILLETES Y PAGO DIGITAL)
 function chat(){
   let c = state.chat || seedOffers[0];
+  let isSealed = c.condition && c.condition.includes("sellos");
+  let isDeter = c.condition && c.condition.includes("deterioro");
+
   return `
   <button class="back" data-page="buy" style="border:0;background:transparent;color:var(--green);font-weight:800;padding:6px 0;margin:0 0 16px;cursor:pointer">← Volver al listado</button>
-  <section class="chat-card">
+  <section class="chat-card ${state.flow && state.flow.step === 4 && state.flow.mode === "presencial" ? "is-done" : ""}">
     <div class="chat-top">
       <div class="avatar">${initials(c.name)}</div>
       <div>
         <h2>${esc(c.name)}</h2>
         <div class="subtle">${esc(c.zone)} · ${c.distance} km · ${esc(c.currency)}</div>
       </div>
-      <button class="btn light small" style="margin-left:auto" data-view-offer>Ver publicación</button>
+      <div style="margin-left:auto;display:flex;gap:6px">
+        <button class="btn light small" data-view-offer>Ver oferta</button>
+        <button class="btn green small" data-start-gateway="${seedOffers.indexOf(c)}">💳 Iniciar pago digital</button>
+      </div>
     </div>
+
+    ${(isSealed || isDeter) ? `
+      <div style="background:#fff8e6;border-bottom:1px solid #f2db9a;padding:12px 20px;font-size:12.5px;color:#785208;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <div>
+          ⚠️ <strong>Condición de billetes declarada:</strong> ${esc(c.condition)} (${esc(c.notes || "Verificada")}).
+          <br>«Verifica su estado y condiciones de aceptación antes de completar el intercambio».
+        </div>
+        <label class="form-check" style="margin:0;font-weight:700">
+          <input type="checkbox" id="acceptBanknoteCondition" checked>
+          <span>Acepto esta condición</span>
+        </label>
+      </div>
+    ` : ''}
+
     <div class="chat-body" id="chatBody">
-      <div class="bubble">Hola, soy ${esc(c.name)}. Tengo ${esc(c.amount)} ${esc(c.currency)} disponibles y busco aproximadamente ${esc(c.want)}. Mi tasa propuesta es ${esc(c.rate)}. ¿Qué punto público te queda bien para acordar?</div>
-      ${state.messages.map(m => `<div class="bubble ${m.mine?'mine':''}">${esc(m.text)}</div>`).join("")}
+      <div class="bubble">Hola, soy ${esc(c.name)}. Tengo ${esc(c.amount)} ${esc(c.currency)} disponibles y busco aproximadamente ${esc(c.want)}. Mi tasa propuesta es ${esc(c.rate)}. ¿Qué punto público o medio de pago te queda bien para acordar?</div>
+      ${state.messages.map(m => `<div class="bubble ${m.mine?'mine':''}"><div style="font-size:11px;color:${m.mine?'#064b38':'#6b8275'};margin-bottom:3px;font-weight:700">${m.mine?'Tú':'Contraparte'}</div>${esc(m.text)}</div>`).join("")}
     </div>
+    ${chatFlowHTML(c)}
     <form class="chat-compose" id="chatForm">
       <input class="field" id="chatInput" placeholder="Escribe un mensaje para acordar detalles..." autocomplete="off">
       <button class="btn green" type="submit">Enviar</button>
     </form>
     <div class="chat-tools">
-      <button class="btn light small" data-toast="La calificación se habilita una vez finalizado el acuerdo presencial.">⭐ Calificar</button>
-      <button class="btn light small" data-toast="Reporte preventivo registrado para revisión de seguridad.">⚠️ Reportar usuario</button>
+      <button class="btn light small" data-start-gateway="${seedOffers.indexOf(c)}">💳 Intercambio digital simulado</button>
       <button class="btn light small" data-modal="academy">🎓 Consejos de seguridad</button>
+      <button class="btn light small" data-toast="La calificación se habilita una vez finalizado el acuerdo.">⭐ Calificar</button>
+      <button class="btn light small" data-toast="Reporte preventivo registrado para revisión de seguridad.">⚠️ Reportar</button>
     </div>
   </section>`;
 }
@@ -1361,10 +2227,10 @@ let trmFetchedAt = 0, trmPromise = null;
 function setTRM(record, stale=false){
   let value = document.getElementById("trmValue"), date = document.getElementById("trmDate");
   if(!value || !date) return;
+  window.__trmRec = record;
   let amount = Number(record?.valor);
   if(!Number.isFinite(amount)){
-    value.textContent = "No disponible";
-    date.textContent = "No se encontró un dato válido.";
+    date.textContent = "Valor de referencia";
     return;
   }
   value.textContent = "$" + amount.toLocaleString("es-CO",{minimumFractionDigits:2,maximumFractionDigits:2}) + " COP";
@@ -1373,11 +2239,18 @@ function setTRM(record, stale=false){
     return bits.length===3 ? bits[2]+"/"+bits[1]+"/"+bits[0] : "";
   };
   let from = formatDate(record.vigenciadesde), to = formatDate(record.vigenciahasta);
-  date.textContent = (stale ? "Dato en caché · " : "Vigente ") + (from ? (from + (to && to!==from ? " al " + to : "")) : "");
+  date.textContent = (stale ? "Dato en caché · " : "Vigente ") + (from ? (from + (to && to!==from ? " al " + to : "")) : "") + " · actualizada " + new Date(trmFetchedAt||Date.now()).toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"});
+  
+  // Actualizar en el objeto de tasas de referencia globales
+  if (referenceRates["Dólar USA"]) {
+    referenceRates["Dólar USA"].rate = amount;
+    referenceRates["Dólar USA"].date = from ? "Vigente (" + from + ")" : "Vigente hoy";
+  }
 }
 
 function loadTRM(){
-  if(trmPromise || Date.now() - trmFetchedAt < 15*60*1000) return;
+  if(trmPromise) return;
+  if(Date.now() - trmFetchedAt < 15*60*1000){ if(window.__trmRec) setTRM(window.__trmRec); return; }
   let value = document.getElementById("trmValue"), date = document.getElementById("trmDate");
   if(!value || !date) return;
   trmPromise = fetch(TRM_ENDPOINT, {headers:{Accept:"application/json"},cache:"no-store"})
@@ -1392,20 +2265,48 @@ function loadTRM(){
       let cached;
       try { cached = JSON.parse(localStorage.getItem("t4c-trm-cache")||"null"); } catch{}
       if(cached) setTRM(cached, true);
-      else { value.textContent = "No disponible"; date.textContent = "Consulta datos.gov.co"; }
+      else { date.textContent = "Valor de referencia"; }
     })
-    .finally(() => { trmFetchedAt = Date.now(); trmPromise = null; });
+    .finally(() => { trmFetchedAt = Date.now(); trmPromise = null; loadFX(); });
 }
 
-// --- RENDERIZADO GLOBAL ---
+// CÁLCULO EN VIVO DEL CONVERSOR DE MERCADO
+function updateConverterDisplay(){
+  let display = document.getElementById("calcResultDisplay");
+  if(!display) return;
+  let amt = Number(document.getElementById("calcAmount")?.value || state.marketCalc.amount || 100);
+  let from = document.getElementById("calcFrom")?.value || state.marketCalc.from;
+  let to = document.getElementById("calcTo")?.value || state.marketCalc.to;
+  
+  let rateFrom = referenceRates[from]?.rate || 1;
+  let rateTo = referenceRates[to]?.rate || 1;
+  
+  // Convertir amount -> COP -> target
+  let inCop = amt * rateFrom;
+  let result = inCop / rateTo;
+  
+  state.marketCalc.amount = amt;
+  state.marketCalc.from = from;
+  state.marketCalc.to = to;
+  
+  display.innerHTML = `
+    <span style="font-size:15px;color:var(--muted);display:block">Resultado aproximado de conversión:</span>
+    <strong>${fmt(amt)} ${from} = ${to==="Pesos Colombianos" ? '$' + fmt(result) + ' COP' : fmt(result.toFixed(2)) + ' ' + to}</strong>
+    <span class="subtle" style="display:block;margin-top:4px">Basado en cotización oficial indicativa. No incluye comisiones de intermediación.</span>
+  `;
+}
+
+// RENDERIZADO GLOBAL
 function render(){
-  let view = state.page==="home"?home():state.page==="buy"?buy():state.page==="sell"?sell():state.page==="about"?about():state.page==="premium"?premium():state.page==="account"?account():state.page==="chat"?chat():home();
+  let view = state.page==="home"?home():state.page==="buy"?buy():state.page==="sell"?sell():state.page==="market"?market():state.page==="about"?about():state.page==="premium"?premium():state.page==="account"?account():state.page==="chat"?chat():home();
   app.innerHTML = view;
   headerActive();
-  if(state.page==="home") loadTRM();
+  if(state.page==="home" || state.page==="market") loadTRM();
+  if(state.page==="market") updateConverterDisplay();
   if(state.modal==="simulator") drawSimulator();
   if(state.modal==="academy") drawAcademy();
   if(state.modal==="privacy") drawPrivacyModal();
+  if(state.modal==="terms") drawTermsModal();
   if(state.modal==="login" || state.modal==="signup") drawAuth();
   updateZetaFabBadge();
 }
@@ -1418,7 +2319,7 @@ function updateZetaFabBadge(){
       badge.title = "Zeta conectado con Gemini IA";
     } else {
       badge.style.background = "#ffd166";
-      badge.title = "Zeta en modo asistente local (agrega tu API key de Gemini para IA avanzada)";
+      badge.title = "Zeta en modo asistente local";
     }
   }
 }
@@ -1434,6 +2335,201 @@ function modal(title, body, wide){
       <div class="modal-body">${body}</div>
     </section>
   </div>`;
+}
+
+// --- MODAL DE MEDIOS DE PAGO DEL USUARIO ---
+function drawUserPaymentsModal(offerIdx){
+  let o = seedOffers[offerIdx];
+  if(!o) return;
+  modal(`Medios de pago de ${esc(o.name)}`, `
+    <p class="muted">Consulta los medios de pago declarados por ${esc(o.name)} para acordar este intercambio de ${esc(o.amount)} ${esc(o.currency)}.</p>
+    
+    <div style="margin:16px 0;display:grid;gap:10px">
+      ${(o.payments || ["Efectivo"]).map(p => `
+        <div style="padding:14px;background:#f7faf8;border:1px solid var(--line);border-radius:12px;display:flex;align-items:center;gap:12px">
+          ${payChip(p)}
+          <div>
+            <span class="subtle">Disponible para este intercambio</span>
+          </div>
+          <span class="status" style="margin-left:auto">Aceptado</span>
+        </div>
+      `).join("")}
+    </div>
+
+    <div class="form-warning">
+      🔒 <strong>Garantía de privacidad:</strong> Trade4Cash nunca almacena claves dinámicas, contraseñas bancarias ni números completos de tarjetas.
+    </div>
+
+    <div style="display:flex;gap:10px;margin-top:16px">
+      <button class="btn green block" data-start-gateway="${offerIdx}">Iniciar intercambio con pago digital simulado →</button>
+    </div>
+  `, false);
+}
+
+// --- FLUJO DE PASARELA Y PAGOS DIGITALES SIMULADOS ---
+function drawDigitalPaymentFlow(offerIdx, step=1){
+  let o = seedOffers[offerIdx] || seedOffers[0];
+  state.activeSimTx = state.activeSimTx || {
+    id: "TX-2026-" + Math.floor(1000 + Math.random() * 9000),
+    seller: o.name,
+    buyer: "Laura Méndez (Tú)",
+    currency: o.currency,
+    amount: o.amount,
+    rate: o.rate,
+    totalCop: o.want,
+    method: "Nequi",
+    status: "Pendiente",
+    banknoteCondition: o.condition || "Sin sellos ni anotaciones",
+    date: new Date().toLocaleDateString("es-CO") + " " + new Date().toLocaleTimeString("es-CO",{hour:'2-digit',minute:'2-digit'})
+  };
+  let tx = state.activeSimTx;
+
+  let steps = ["Resumen","Medio de pago","Confirmación","Comprobante"];
+  let stepPills = steps.map((s, idx) => {
+    let num = idx + 1;
+    let cls = num === step ? "active" : num < step ? "done" : "";
+    return `<span class="step-pill ${cls}">${num}. ${s}</span>`;
+  }).join("");
+
+  let content = "";
+  if(step === 1){
+    content = `
+      <div class="result-box">
+        <h3 style="margin-top:0;color:var(--deep)">Resumen de la Operación</h3>
+        <div class="result-line"><span>Identificador de transacción:</span><strong>${tx.id}</strong></div>
+        <div class="result-line"><span>Vendedor:</span><strong>${esc(tx.seller)}</strong></div>
+        <div class="result-line"><span>Comprador:</span><strong>${esc(tx.buyer)}</strong></div>
+        <div class="result-line"><span>Divisa e importe:</span><strong>${esc(tx.amount)} ${esc(tx.currency)}</strong></div>
+        <div class="result-line"><span>Tasa acordada:</span><strong>${esc(tx.rate)}</strong></div>
+        <div class="result-line"><span>Total a transferir:</span><strong>${esc(tx.totalCop)}</strong></div>
+        <div class="result-line"><span>Comisión de la plataforma:</span><strong style="color:var(--green)">$0 COP (Demo Gratuita)</strong></div>
+        <div class="result-line"><span>Condición declarada:</span><strong>${esc(tx.banknoteCondition)}</strong></div>
+      </div>
+      <div class="form-warning">
+        ⚠️ <strong>Modo Demostración:</strong> Esta es una simulación interactiva. No se ejecutará ningún débito de tu cuenta bancaria ni se moverá dinero real.
+      </div>
+      <div style="display:flex;justify-content:flex-end;margin-top:16px">
+        <button class="btn green" onclick="drawDigitalPaymentFlow(${offerIdx}, 2)">Continuar: Seleccionar Medio de Pago →</button>
+      </div>
+    `;
+  } else if(step === 2){
+    content = `
+      <p class="muted">Elige el canal digital compatible con el vendedor para transferir los <strong>${esc(tx.totalCop)}</strong>:</p>
+      <form id="gatewayMethodForm" style="display:grid;gap:10px;margin:16px 0">
+        ${["Nequi","DaviPlata","Transferencia Bancolombia"].map((m, idx) => `
+          <label style="padding:14px;background:#fff;border:1px solid var(--line);border-radius:12px;display:flex;align-items:center;gap:12px;cursor:pointer">
+            <input type="radio" name="simPayMethod" value="${m}" ${idx===0?'checked':''}>
+            <div>
+              <strong style="color:var(--deep)">${m}</strong>
+              <span class="subtle" style="display:block">Transferencia digital instantánea simulada</span>
+            </div>
+          </label>
+        `).join("")}
+      </form>
+      <div class="actions" style="justify-content:space-between;margin-top:16px">
+        <button class="btn light" onclick="drawDigitalPaymentFlow(${offerIdx}, 1)">Atrás</button>
+        <button class="btn green" id="btnGatewayProceedPayment">Simular Pago y Confirmación →</button>
+      </div>
+    `;
+  } else if(step === 3){
+    tx.status = "Intercambio en proceso";
+    content = `
+      <div style="text-align:center;padding:16px 10px">
+        <div style="font-size:42px;margin-bottom:10px">🔄</div>
+        <h3 style="color:var(--deep);margin:0 0 6px">Transacción ${tx.id} en Proceso</h3>
+        <p class="muted">Simulando verificación de fondos mediante ${tx.method}...</p>
+        
+        <div class="progress" style="margin:20px 0"><span style="width:75%"></span></div>
+        
+        <div class="result-box" style="text-align:left">
+          <div class="result-line"><span>Estado actual:</span><strong style="color:#d97706">Pago simulado · Confirmación requerida</strong></div>
+          <div class="result-line"><span>Canal seleccionado:</span><strong>${tx.method}</strong></div>
+          <div class="result-line"><span>Monto transferido ficticio:</span><strong>${esc(tx.totalCop)}</strong></div>
+        </div>
+      </div>
+      <div class="actions" style="justify-content:space-between;margin-top:20px">
+        <button class="btn light" onclick="drawDigitalPaymentFlow(${offerIdx}, 2)">Cancelar</button>
+        <button class="btn green" id="btnGatewayCompleteTx">Confirmar Recepción y Finalizar ✓</button>
+      </div>
+    `;
+  } else if(step === 4){
+    tx.status = "Completada";
+    // Agregar al historial si no existe
+    if(!state.transactions.some(t => t.id === tx.id)){
+      state.transactions.unshift(Object.assign({}, tx));
+    }
+    content = `
+      <div style="text-align:center;padding:12px 10px">
+        <div style="font-size:48px;margin-bottom:8px">🎉</div>
+        <h3 style="color:var(--green);margin:0 0 4px">¡Intercambio Digital Simulado Exitoso!</h3>
+        <p class="muted">La operación se ha completado correctamente en el entorno de demostración.</p>
+        
+        <div class="receipt-box" style="text-align:left;margin-top:16px">
+          <div class="receipt-watermark">MODO DEMOSTRACIÓN</div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:10px">
+            <strong>Trade4Cash S.A.S.</strong>
+            <span class="status">Comprobante Oficial</span>
+          </div>
+          <div class="result-line"><span>ID de Operación:</span><strong>${tx.id}</strong></div>
+          <div class="result-line"><span>Fecha y Hora:</span><strong>${tx.date}</strong></div>
+          <div class="result-line"><span>Comprador:</span><strong>${tx.buyer}</strong></div>
+          <div class="result-line"><span>Vendedor:</span><strong>${tx.seller}</strong></div>
+          <div class="result-line"><span>Divisas intercambiadas:</span><strong>${tx.amount} ${tx.currency}</strong></div>
+          <div class="result-line"><span>Valor acordado en COP:</span><strong>${tx.totalCop}</strong></div>
+          <div class="result-line"><span>Medio utilizado:</span><strong>${tx.method}</strong></div>
+          <div class="result-line"><span>Estado:</span><strong style="color:var(--green)">✓ Completada</strong></div>
+        </div>
+        
+        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn green block" data-pdf="sim">📄 Descargar comprobante (PDF)</button>
+          <button class="btn light block" data-close-modal>Volver a la plataforma</button>
+        </div>
+      </div>
+    `;
+  }
+
+  modal(`💳 Pasarela Digital Simulada · Trade4Cash`, `
+    <div class="stepper-status">${stepPills}</div>
+    ${content}
+  `, step===1||step===4);
+}
+
+// --- MODAL DE COMPROBANTE DE DEMOSTRACIÓN ---
+function drawReceiptModal(txId){
+  let tx = state.transactions.find(t => t.id === txId) || state.transactions[0];
+  if(!tx) return;
+
+  modal(`📄 Comprobante de Demostración · ${tx.id}`, `
+    <div class="receipt-box">
+      <div class="receipt-watermark">MODO DEMOSTRACIÓN</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:14px">
+        <div class="brand" style="color:var(--deep)">Trade4<span>Cash</span></div>
+        <div style="text-align:right">
+          <span class="status ${tx.status==='Completada'?'':'off'}">${tx.status}</span>
+          <div class="subtle" style="margin-top:2px">${tx.date}</div>
+        </div>
+      </div>
+
+      <div class="result-line"><span>Identificador de transacción:</span><strong>${tx.id}</strong></div>
+      <div class="result-line"><span>Vendedor:</span><strong>${esc(tx.seller)}</strong></div>
+      <div class="result-line"><span>Comprador:</span><strong>${esc(tx.buyer)}</strong></div>
+      <div class="result-line"><span>Divisa entregada:</span><strong>${esc(tx.amount)} ${esc(tx.currency)}</strong></div>
+      <div class="result-line"><span>Tasa acordada:</span><strong>${esc(tx.rate)}</strong></div>
+      <div class="result-line"><span>Total abonado en COP:</span><strong>${esc(tx.totalCop)}</strong></div>
+      <div class="result-line"><span>Medio de pago declarado:</span><strong>${esc(tx.method)}</strong></div>
+      <div class="result-line"><span>Condición de billetes:</span><strong>${esc(tx.banknoteCondition)}</strong></div>
+      <div class="result-line"><span>Referencia de mercado:</span><span class="subtle">${esc(tx.referenceUsed || "TRM Oficial")}</span></div>
+
+      <div class="form-warning" style="margin-top:16px">
+        ⚠️ <strong>Aviso:</strong> Este documento es un comprobante de demostración emitido dentro del entorno académico de pruebas de Trade4Cash S.A.S. No constituye un recibo bancario oficial ni certifica depósitos financieros reales.
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <button class="btn green small" data-pdf="${tx.id}">📄 Descargar PDF</button>
+        <button class="btn light small" data-close-modal>Cerrar</button>
+      </div>
+    </div>
+  `, false);
 }
 
 // --- MODAL DE POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES (27 NUMERALES) ---
@@ -1459,7 +2555,7 @@ function drawPrivacyModal(){
       </div>
       <div class="policy-meta-card">
         <span class="subtle">Correo oficial de atención</span>
-        <strong>camilacardenasc1@gmail.com</strong>
+        <strong>trade4cash.atencioncliente@gmail.com</strong>
       </div>
       <div class="policy-meta-card">
         <span class="subtle">Restricción de edad</span>
@@ -1490,7 +2586,7 @@ function drawPrivacyModal(){
       ["2. Alcance", "Esta Política aplica a todo Tratamiento de datos personales contenido en bases de datos, registros físicos, electrónicos o digitales, realizado por Trade4Cash en desarrollo de su objeto social y de sus procesos de registro, verificación de identidad, emparejamiento (matching), mensajería interna, sugerencia de puntos de encuentro, capacitación previa al registro, transacciones y atención al usuario."],
       ["3. Obligatoriedad y destinatarios", "Esta Política es de obligatorio cumplimiento para colaboradores, contratistas, desarrolladores, proveedores tecnológicos, aliados y, en general, para toda persona que por razón de sus funciones acceda, recolecte, almacena, use, consulte, circule o suprima datos personales por cuenta de Trade4Cash. La Dirección de la compañía deberá promover su implementación efectiva y asignar los recursos necesarios para su cumplimiento."],
       ["4. Identificación de la empresa responsable del Tratamiento", "El Responsable del Tratamiento de los datos personales objeto de esta Política es Trade4Cash S.A.S., con domicilio principal en la ciudad de Bogotá D.C., Colombia."],
-      ["5. Canales de atención", "Para el ejercicio de los derechos de conocer, consultar, actualizar, rectificar, suprimir datos personales, revocar la autorización, o presentar peticiones, consultas o reclamos, los Titulares o sus apoderados podrán comunicarse a través de: Ciudad: Bogotá D.C., Colombia; Dirección: Plataforma 100% virtual; Correo electrónico: camilacardenasc1@gmail.com; Teléfono: 3184641985. Área responsable: Área de Soporte Legal y Operaciones."],
+      ["5. Canales de atención", "Para el ejercicio de los derechos de conocer, consultar, actualizar, rectificar, suprimir datos personales, revocar la autorización, o presentar peticiones, consultas o reclamos, los Titulares o sus apoderados podrán comunicarse a través de: Ciudad: Bogotá D.C., Colombia; Dirección: Plataforma 100% virtual; Correo electrónico: trade4cash.atencioncliente@gmail.com; Teléfono: 3184641985. Área responsable: Área de Soporte Legal y Operaciones."],
       ["6. Marco normativo aplicable", "Constitución Política de Colombia (artículo 15); Ley 1266 de 2008 (Habeas Data Financiero); Ley 1581 de 2012; Decretos Reglamentarios 1377 de 2013 y 886 de 2014 compilados en el Decreto Único Reglamentario 1074 de 2015; Ley 2300 de 2023 (canales y horarios de contactabilidad); Circulares Externas de la Superintendencia de Industria y Comercio (SIC); y normativa en materia de prevención de Lavado de Activos y Financiación del Terrorismo (SARLAFT) aplicable."],
       ["7. Definiciones", "Se adoptan las definiciones legales de Autorización, Aviso de Privacidad, Base de Datos, Dato biométrico (dato sensible físico/fisiológico como reconocimiento facial para KYC), Dato financiero/transaccional (divisas, tasas pactadas, medios de pago), Dato personal, Dato sensible, Encargado del Tratamiento, Responsable del Tratamiento (Trade4Cash), Titular, Tratamiento, Transferencia y Transmisión."],
       ["8. Principios", "Trade4Cash aplica los principios rectores de legalidad, finalidad, libertad, veracidad o calidad, transparencia, acceso y circulación restringida, seguridad y confidencialidad. Complementariamente, adopta la responsabilidad demostrada (accountability), necesidad y minimización de datos, privacidad desde el diseño y por defecto, y gestión integral del riesgo."],
@@ -1527,7 +2623,7 @@ function drawPrivacyModal(){
   </div>
 
   <div class="form-warning" style="margin-top:20px">
-    ⚖️ <strong>Ejercicio de tus derechos:</strong> Para ejercer tus derechos de Hábeas Data escribe a <strong>camilacardenasc1@gmail.com</strong> o comunícate al <strong>3184641985</strong> indicando tu nombre, documento y descripción de la petición.
+    ⚖️ <strong>Ejercicio de tus derechos:</strong> Para ejercer tus derechos de Hábeas Data escribe a <strong>trade4cash.atencioncliente@gmail.com</strong> o comunícate al <strong>3184641985</strong> indicando tu nombre, documento y descripción de la petición.
   </div>`;
 
   modal("📜 Política de Protección y Tratamiento de Datos Personales", fullPolicyHTML, true);
@@ -1573,7 +2669,7 @@ function drawAcademy(){
       <ul>
         <li>El usuario insiste en cambiar la cita a un lugar aislado o fuera del centro comercial.</li>
         <li>Ofrece una tasa excesivamente ventajosa fuera de la realidad del mercado.</li>
-        <li>Te solicita anticipos por transferencias virtuales previas.</li>
+        <li>Te solicita anticipos por transferencias virtuales previas sin garantías.</li>
         <li>Detectas contradicciones en sus datos personales.</li>
       </ul>
     </article>
@@ -1645,7 +2741,7 @@ function drawAuth(){
       ` : ''}
       <label class="form-field">
         <span>Correo electrónico</span>
-        <input class="field" value="${signup?'':'camilacardenasc1@gmail.com'}" placeholder="correo@ejemplo.com" type="email" required>
+        <input class="field" value="${signup?'':'trade4cash.atencioncliente@gmail.com'}" placeholder="correo@ejemplo.com" type="email" required>
       </label>
       <label class="form-field">
         <span>Contraseña</span>
@@ -1671,144 +2767,95 @@ function drawAuth(){
 }
 
 // --- MOTOR DE CONOCIMIENTO LOCAL Y ASISTENTE ZETA CON GEMINI IA ---
-
-// PROMPT DE SISTEMA INTEGRAL PARA GEMINI
 const ZETA_SYSTEM_PROMPT = `
 Eres Zeta, el asistente de inteligencia artificial oficial de la plataforma "Trade4Cash" (desarrollada por Trade4Cash S.A.S. en Bogotá D.C., Colombia).
 Tu personalidad es amable, pedagógica, clara, profesional y enfocada en la seguridad y protección de los usuarios.
 
-SOBRE TRADE4CASH:
-1. Trade4Cash es un mercado digital entre pares (P2P) para que personas en Bogotá acuerden el intercambio directo de divisas (Dólares, Euros, Pesos Mexicanos, Pesos Colombianos, etc.).
-2. CÓMO FUNCIONA COMPRAR: En la sección "Comprar", el usuario explora publicaciones de otros usuarios con filtros por divisa, ubicación (Norte, Centro, Chapinero, etc.) y distancia (hasta 2 km, 5 km, 10 km). Puede revisar la reputación y contactar al usuario mediante mensajería interna.
-3. CÓMO FUNCIONA VENDER: En la sección "Vender", el usuario publica la moneda que tiene, la cantidad, la tasa en COP que desea recibir, un punto público de encuentro y el radio de visibilidad.
-4. REGLA FUNDAMENTAL DE SEGURIDAD: Trade4Cash NO recibe, NO transfiere, NO custodia ni intermedia dinero. Es una plataforma comunitaria de contacto. Las partes deben acordar puntos de encuentro PÚBLICOS y SEGUROS (ej. Starbucks, centros comerciales con vigilancia) y NUNCA acudir a domicilios privados ni hacer pagos adelantados.
-5. ACADEMY: Módulo pedagógico para enseñar a detectar billetes falsos (textura, marcas de agua, tintas que cambian de color, relieves), entender la Tasa Representativa del Mercado (TRM) y señales de alerta de estafas.
-6. SIMULADOR: Herramienta interactiva para practicar cómo estructurar una oferta de divisas con valores ficticios sin riesgo financiero.
-7. EDAD MÍNIMA: Plataforma restringida estrictamente a mayores de 18 años.
+SOBRE TRADE4CASH (VERSIÓN 2):
+1. Trade4Cash es un mercado digital entre pares (P2P) para que personas en Bogotá acuerden el intercambio directo de divisas (Dólares, Euros, Pesos Mexicanos, Pesos Colombianos, Libras, etc.).
+2. CÓMO FUNCIONA COMPRAR: En la sección "Comprar", el usuario explora publicaciones con filtros de divisa, ubicación y distancia, revisa la reputación, los medios de pago aceptados y la condición física de los billetes declarada.
+3. CÓMO FUNCIONA VENDER: En "Mis publicaciones", el usuario publica divisa, cantidad, tasa en COP (validada frente a la referencia oficial), punto público de encuentro, radio de visibilidad y condición de los billetes (sin sellos, con sellos, con deterioro, etc.).
+4. LÍMITES DE TASAS DE CAMBIO:
+   - Desviación de hasta ±5% de la referencia oficial: publicación normal.
+   - Desviación entre >5% y 10%: advertencia preventiva que requiere confirmación.
+   - Desviación superior al 10%: bloqueo automático preventivo para evitar fraudes o errores.
+5. REPORTES DE MERCADO DE DIVISAS: Sección "Mercado" con cotizaciones oficiales indicativas (USD con TRM oficial de la Superfinanciera, EUR, MXN, CAD, BRL, JPY de Banrep), conversor interactivo y ranking de actividad interna.
+6. CONDICIÓN DE BILLETES FÍSICOS: Se declara el estado (sin sellos, con sellos de casas de cambio, marcas, deterioro). Aviso legal: «Algunos billetes con sellos o deterioro pueden ser rechazados por ciertas entidades. Verifica su aceptación antes de completar el acuerdo».
+7. PAGOS DIGITALES Y PASARELA SIMULADA: Permite seleccionar Nequi, DaviPlata o Transferencia Bancaria, genera ID único (TX-2026-XXXX) y emite un comprobante de demostración.
+8. REGLA FUNDAMENTAL DE SEGURIDAD: Trade4Cash NO recibe, NO transfiere ni custodia dinero real. Los pagos digitales se coordinan directamente o se simulan con fines de demostración. Encuentros siempre en sitios públicos vigilados. Prohibido menores de 18 años.
+9. POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES (Ley 1581 de 2012):
+   - Responsable: Trade4Cash S.A.S. (trade4cash.atencioncliente@gmail.com, Tel: 3184641985, Bogotá D.C.).
+   - Plazo consultas: 10 días hábiles (+5 prórroga).
+   - Plazo reclamos: 15 días hábiles (+8 prórroga).
 
-POLÍTICA DE PROTECCIÓN Y TRATAMIENTO DE DATOS PERSONALES (Trade4Cash S.A.S. - Ley 1581 de 2012):
-- Responsable: Trade4Cash S.A.S., plataforma 100% virtual con domicilio en Bogotá D.C., Colombia.
-- Canales de atención para Habeas Data (consultas, reclamos, supresión, revocatoria):
-  * Correo: camilacardenasc1@gmail.com
-  * Teléfono: 3184641985
-  * Área encargada: Área de Soporte Legal y Operaciones.
-- Tiempos de respuesta legales:
-  * Consultas: 10 días hábiles (prorrogables por 5 días hábiles avisando previamente).
-  * Reclamos: 15 días hábiles (prorrogables por 8 días hábiles). Se anota la leyenda "RECLAMO EN TRÁMITE" en 2 días hábiles tras recibirlo completo.
-- Datos recolectados: Identificación, contacto, verificación KYC (documento y biometría selfie facial facultativa), geolocalización para puntos seguros, datos transaccionales y técnicos.
-- Menores de edad: Prohibido. Si se detecta un menor, se cancela la cuenta y se borran los datos.
-- Derechos del titular: Conocer, actualizar, rectificar, revocar autorización, solicitar supresión y presentar quejas ante la Superintendencia de Industria y Comercio (SIC).
-
-DIRECTRICES DE TUS RESPUESTAS:
-- Responde siempre en español, de forma concisa, estructurada y muy clara.
-- Usa negritas y viñetas para que sea fácil de leer.
-- Si te preguntan sobre datos personales o cómo radicar un reclamo, proporciona siempre el correo camilacardenasc1@gmail.com, el teléfono 3184641985 y los plazos de 10 o 15 días hábiles.
-- Si te preguntan si Trade4Cash custodia el dinero, aclara de inmediato que NO custodia dinero y recomienda siempre puntos públicos concurridos.
-- Sé servicial y empático.
+Responde siempre en español, con claridad, usando negritas y viñetas.
 `;
 
-// ASISTENTE INTELIGENTE LOCAL (RESPALDO OFFLINE O SIN API KEY)
 function localZetaAnswer(question){
   let q = question.toLowerCase();
 
-  // Tratamiento de datos y privacidad
-  if(/dat(o|os)|privacid|pol[ií]tic|habeas|sic|ley 1581|titular|derech(o|os)|suprim|revoc|reclamo|consulta/i.test(q)){
-    if(/plazo|tiemp|d[ií]a|cu[aá]nto tarda/i.test(q)){
-      return `De acuerdo con el **numeral 22 de la Política de Tratamiento de Datos Personales** de Trade4Cash S.A.S.:
-• **Consultas:** Se responden en un máximo de **10 días hábiles** (prorrogables por 5 días hábiles más con aviso previo).
-• **Reclamos:** Se resuelven en un término máximo de **15 días hábiles** (prorrogables por 8 días hábiles adicionales). Se estampa la leyenda *"RECLAMO EN TRÁMITE"* en la base de datos dentro de los 2 días hábiles siguientes a recibirlo completo.
-Puedes radicar peticiones a **camilacardenasc1@gmail.com** o al teléfono **3184641985**.`;
-    }
-    if(/canal|contact|correo|tel[eé]fono|d[oó]nde|oficial/i.test(q)){
-      return `Los canales oficiales del **Área de Soporte Legal y Operaciones** de Trade4Cash S.A.S. para el ejercicio de tus derechos de Hábeas Data son:
-• 📧 **Correo electrónico:** camilacardenasc1@gmail.com
-• 📞 **Teléfono:** 3184641985
-• 📍 **Domicilio:** Bogotá D.C., Colombia (Plataforma 100% virtual).
-Puedes solicitar conocer, actualizar, rectificar o suprimir tus datos personales en cualquier momento.`;
-    }
+  if(/mercado|divisa|trm|tasa|d[oó]lar hoy|euro|banco de la rep[uú]blica/i.test(q)){
+    return `En la sección **"Mercado"** de Trade4Cash puedes:
+• **Verificar la TRM oficial:** Consultamos en tiempo real la TRM de USD/COP fijada por la Superintendencia Financiera.
+• **Revisar otras divisas:** Tienes un selector desplegable con cotizaciones indicativas oficiales para **EUR, MXN, CAD, BRL, GBP, JPY y CHF** respaldadas por el Banco de la República.
+• **Conversor de divisas:** Calcula al instante cuántos COP equivalen a cualquier monto e inicia tu publicación con un solo clic.
+• **Actividad interna:** Conoce qué monedas son las más transaccionadas dentro de Trade4Cash.`;
+  }
+
+  if(/pago|digital|nequi|daviplata|pasarela|comprobante/i.test(q)){
+    return `💳 **Pagos digitales y comprobantes en Trade4Cash:**
+• Puedes ver los medios de pago que acepta cada vendedor (Nequi, DaviPlata, Transferencia Bancolombia o Efectivo) con el botón **"Medios de pago"**.
+• Contamos con un flujo de **intercambio digital simulado** que genera un ID de operación único (ej. 'TX-2026-8491'), avanza por estados de confirmación y emite un **Comprobante de demostración**.
+• Recuerda que Trade4Cash **no custodia dinero ni pide tus contraseñas, PIN ni códigos OTP**.`;
+  }
+
+  if(/sello|marca|deterioro|billete|estado/i.test(q)){
+    return `💵 **Declaración de estado de billetes físicos:**
+Al publicar o revisar una oferta en efectivo, se especifica la condición:
+1. *Sin sellos ni anotaciones (Excelente estado)*
+2. *Con sellos de casas de cambio*
+3. *Con otras marcas o anotaciones*
+4. *Con deterioro físico*
+5. *Estado no verificado*
+⚠️ *Aviso importante:* Algunos billetes con sellos o desgaste pueden ser rechazados en casas de cambio o comercios. Ambas partes deben revisar y aceptar expresamente esta condición antes de concretar el encuentro.`;
+  }
+
+  if(/l[ií]mite|banda|desviaci[oó]n|porcentaje|validaci[oó]n/i.test(q)){
+    return `📈 **Límites de tasas en Trade4Cash:**
+Para prevenir precios abusivos o errores tipográficos:
+• **Hasta ±5% de la referencia oficial:** Publicación directa permitida.
+• **Entre 5% y 10%:** Alerta preventiva amarilla; debes marcar una casilla confirmando que estás consciente de la variación.
+• **Más del 10%:** Bloqueo preventivo en rojo; la plataforma no permite publicaciones con diferencias extremas frente a la TRM o referencia oficial.`;
+  }
+
+  if(/dat(o|os)|privacid|pol[ií]tic|habeas|sic|ley 1581|titular|derech(o|os)|reclamo|consulta/i.test(q)){
     return `La **Política de Protección y Tratamiento de Datos Personales de Trade4Cash S.A.S.** se rige bajo la Ley 1581 de 2012 y el Decreto 1074 de 2015:
 1. **Titularidad:** Tienes derecho a conocer, actualizar, rectificar y suprimir tus datos o revocar la autorización.
-2. **Canales:** Escribe a **camilacardenasc1@gmail.com** o llama al **3184641985**.
+2. **Canales:** Escribe a **trade4cash.atencioncliente@gmail.com** o llama al **3184641985**.
 3. **Plazos:** 10 días hábiles para consultas y 15 días hábiles para reclamos.
 4. **Datos sensibles KYC:** Se solicitan solo con fines de prevención de fraude y verificación de identidad con tu consentimiento.
 5. **Menores de edad:** El servicio es exclusivo para mayores de 18 años.
 Puedes consultar los 27 numerales completos haciendo clic en el botón *"Privacidad"* del menú superior o en el pie de página.`;
   }
 
-  // TRM
-  if(/trm|tasa|d[oó]lar hoy|referencia|superfinanciera/i.test(q)){
-    return `La **TRM (Tasa Representativa del Mercado)** es el valor oficial de referencia del dólar fijado por la Superintendencia Financiera de Colombia.
-• En Trade4Cash la consultamos en tiempo real directamente desde el portal oficial de datos abiertos (*datos.gov.co*).
-• Sirve como guía para comparar si la oferta que te propone otro usuario es competitiva frente al mercado bancario.
-• Recuerda que en Trade4Cash la tasa es libre y se pacta de mutuo acuerdo entre comprador y vendedor.`;
-  }
-
-  // Comprar
-  if(/compr|buscar|filtro|encontr/i.test(q)){
-    return `Para **comprar divisas** en Trade4Cash:
-1. Ingresa a la sección **"Comprar"** en el menú superior.
-2. Selecciona la divisa deseada (Dólar USA, Euro, Peso Mexicano, etc.).
-3. Aplica filtros por ubicación (Norte, Centro, Chapinero) o distancia máxima (2 km, 5 km, 10 km).
-4. Revisa la calificación y reputación de cada usuario.
-5. Presiona **"Contactar"** para abrir el chat y acordar la tasa definitiva y un punto de encuentro seguro.`;
-  }
-
-  // Vender
-  if(/vend|public|crear oferta|ofrecer/i.test(q)){
-    return `Para **vender divisas** en Trade4Cash:
-1. Ve a la pestaña **"Vender"**.
-2. Completa el formulario con la divisa, la cantidad disponible y la tasa en COP que deseas recibir por unidad.
-3. Especifica un **punto público de encuentro** sugerido (por ejemplo: un Starbucks o centro comercial concurrido).
-4. Establece el radio de visibilidad para que usuarios cercanos te encuentren.
-5. Confirma la publicación y revisa las personas interesadas en tu oferta.`;
-  }
-
-  // Seguridad y Custodia de dinero
-  if(/segur|custod|estaf|billete|fals|efectivo|peligr|miedo/i.test(q)){
-    return `🛡️ **Directrices de seguridad indispensables en Trade4Cash:**
-• **Trade4Cash NO custodia ni recibe dinero:** No entregues dinero a intermediarios virtuales ni aceptes pagos por adelantado.
-• **Puntos de encuentro públicos:** Acuerden siempre encontrarse en lugares con vigilancia y flujo de personas (centros comerciales, entidades bancarias o cafés).
-• **Revisión de billetes:** En **Trade4Cash Academy** te enseñamos a tocar la textura, comprobar las marcas de agua a contraluz y verificar los relieves de seguridad.
-• **Reputación:** Revisa siempre las estrellas y número de acuerdos del otro usuario antes de cerrar el trato.`;
-  }
-
-  // Academy y Simulador
-  if(/academ|aprender|simul|practic/i.test(q)){
-    return `🎓 **Herramientas de aprendizaje de Trade4Cash:**
-• **Trade4Cash Academy:** Módulos interactivos sobre detección de billetes falsos, cálculo de tasas y cómo identificar señales de alerta antes de encontrarte con alguien.
-• **Simulador de publicación:** Guía interactiva de 4 pasos para practicar el cálculo del valor total y familiarizarte con las ofertas sin utilizar dinero real.
-Puedes acceder a ambos desde el Inicio o el pie de página.`;
-  }
-
-  // Menores de edad
-  if(/menor|edad|18 a[ñn]os|ni[ñn]o/i.test(q)){
-    return `El uso de Trade4Cash está **estrictamente reservado a mayores de 18 años** (numeral 10 de la Política de Tratamiento de Datos).
-Está prohibido el registro o tratamiento de datos de menores. Si se detecta una cuenta perteneciente a un menor de edad, será dada de baja de inmediato con la supresión de toda su información.`;
-  }
-
-  // Respuesta general de bienvenida / orientación
-  return `¡Con gusto te ayudo! Como asistente de **Trade4Cash**, puedo orientarte sobre:
-• **Comprar o Vender:** Cómo explorar ofertas, crear publicaciones y usar los filtros de distancia.
-• **Seguridad:** Puntos de encuentro recomendados y cómo detectar billetes falsos.
-• **TRM del día:** Dólar oficial de la Superfinanciera y cómo negociar tasas.
-• **Política de Tratamiento de Datos:** Canales (camilacardenasc1@gmail.com, 3184641985), plazos de respuesta y derechos de Hábeas Data.
-• **Configurar Gemini:** Puedes activar respuestas de IA avanzadas ingresando tu clave API de Gemini en el engranaje ⚙️ de esta ventana.`;
+  return `¡Hola! Soy Zeta. Como asistente de **Trade4Cash**, puedo orientarte sobre:
+• **Comprar y Mis publicaciones:** Filtros, ofertas y puntos de encuentro seguros.
+• **Mercado de Divisas:** TRM oficial de USD, cotizaciones de EUR, MXN, CAD y conversor en vivo.
+• **Pagos Digitales Simulados:** Nequi, DaviPlata y generación de comprobantes.
+• **Billetes Físicos:** Sellos, marcas y recomendaciones de seguridad de Academy.
+• **Tratamiento de Datos:** Canales (trade4cash.atencioncliente@gmail.com, 3184641985) y derechos de Hábeas Data.`;
 }
 
-// LLAMADA A LA API DE GEMINI
 async function callGeminiAI(userPrompt){
   let apiKey = state.geminiKey.trim();
   if(!apiKey){
-    // Si no tiene clave, usamos el motor local enriquecido
     return localZetaAnswer(userPrompt);
   }
 
   let model = state.geminiModel || "gemini-2.5-flash";
   let endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
 
-  // Construir historial de mensajes para Gemini
   let contents = [];
-  // Últimos 6 turnos para mantener contexto sin sobrecargar tokens
   let recent = state.zetaMessages.slice(-6);
   for(let m of recent){
     contents.push({
@@ -1816,21 +2863,15 @@ async function callGeminiAI(userPrompt){
       parts: [{ text: m.text }]
     });
   }
-  // Agregar el mensaje actual del usuario
   contents.push({
     role: "user",
     parts: [{ text: userPrompt }]
   });
 
   let payload = {
-    system_instruction: {
-      parts: [{ text: ZETA_SYSTEM_PROMPT }]
-    },
+    system_instruction: { parts: [{ text: ZETA_SYSTEM_PROMPT }] },
     contents: contents,
-    generationConfig: {
-      temperature: 0.65,
-      maxOutputTokens: 900
-    }
+    generationConfig: { temperature: 0.65, maxOutputTokens: 900 }
   };
 
   try {
@@ -1843,43 +2884,34 @@ async function callGeminiAI(userPrompt){
     if(!res.ok){
       let errData = await res.json().catch(()=>({}));
       console.warn("Gemini API error:", res.status, errData);
-      let errMsg = errData?.error?.message || `HTTP ${res.status}`;
-      return `*(Aviso: Ocurrió un error conectando con Gemini API: ${errMsg}. Respondido con el asistente local de Trade4Cash:)*\n\n` + localZetaAnswer(userPrompt);
+      return `*(Nota: Consulta procesada con el asistente local de Trade4Cash)*\n\n` + localZetaAnswer(userPrompt);
     }
 
     let data = await res.json();
     let replyText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-    if(replyText){
-      return replyText;
-    } else {
-      return localZetaAnswer(userPrompt);
-    }
+    return replyText || localZetaAnswer(userPrompt);
   } catch(err){
     console.error("Fetch Gemini error:", err);
-    return `*(Nota: Hubo un problema de conexión a internet o clave API. Asistente local activado:)*\n\n` + localZetaAnswer(userPrompt);
+    return `*(Nota: Asistente local activado por conexión)*\n\n` + localZetaAnswer(userPrompt);
   }
 }
 
-// SÍNTESIS DE VOZ NATIVA (ESPAÑOL)
 function speakText(text){
   if(!("speechSynthesis" in window)){
     toast("Tu navegador no soporta síntesis de voz.");
     return;
   }
   window.speechSynthesis.cancel();
-  // Limpiar markdown para hablar
   let clean = text.replace(/[*_#`•\-]/g, ' ').replace(/\s+/g, ' ').trim();
   let utterance = new SpeechSynthesisUtterance(clean);
   utterance.lang = "es-CO";
   utterance.rate = 1.05;
-  // Intentar seleccionar voz en español si existe
   let voices = window.speechSynthesis.getVoices();
   let esVoice = voices.find(v => v.lang.startsWith("es"));
   if(esVoice) utterance.voice = esVoice;
   window.speechSynthesis.speak(utterance);
 }
 
-// --- DIBUJADO DE LA INTERFAZ DE CHAT DE ZETA ---
 function drawZeta(){
   let old = document.getElementById("zetaPanel");
   if(old) old.remove();
@@ -1946,12 +2978,11 @@ function drawZeta(){
         <div style="margin-top:8px">
           <span class="subtle" style="display:block;margin-bottom:6px;font-size:11px">Preguntas sugeridas:</span>
           <div class="zeta-chips">
-            <button class="zeta-chip-btn" data-zeta-query="¿Cómo funciona comprar y vender divisas?">🪙 ¿Cómo comprar y vender?</button>
+            <button class="zeta-chip-btn" data-zeta-query="¿Cómo funciona el Mercado de Divisas y las TRM?">📊 Mercado de divisas y TRMs</button>
+            <button class="zeta-chip-btn" data-zeta-query="¿Cómo funcionan los pagos digitales y comprobantes?">💳 Pagos digitales y comprobantes</button>
+            <button class="zeta-chip-btn" data-zeta-query="¿Cuáles son los límites de tasas permitidos?">📈 Límites y bandas de tasas</button>
+            <button class="zeta-chip-btn" data-zeta-query="¿Qué pasa si mis billetes tienen sellos o deterioro?">💵 Billetes con sellos o marcas</button>
             <button class="zeta-chip-btn" data-zeta-query="¿Qué dice la política de tratamiento de datos personales?">📜 Política de datos (Ley 1581)</button>
-            <button class="zeta-chip-btn" data-zeta-query="¿Cuáles son los plazos para resolver consultas y reclamos de datos?">⏱️ Plazos de consultas y reclamos</button>
-            <button class="zeta-chip-btn" data-zeta-query="¿Trade4Cash custodia o transfiere el dinero?">🛡️ ¿Trade4Cash custodia mi dinero?</button>
-            <button class="zeta-chip-btn" data-zeta-query="¿Cómo detectar billetes falsos según la Academy?">💵 Detectar billetes falsos</button>
-            <button class="zeta-chip-btn" data-zeta-query="¿Qué es la TRM y de dónde se consulta?">💱 TRM oficial de hoy</button>
           </div>
         </div>
       ` : ''}
@@ -1959,7 +2990,7 @@ function drawZeta(){
 
     <footer class="zeta-footer">
       <form class="zeta-input-row" id="zetaChatForm">
-        <input class="field" id="zetaChatInput" placeholder="Pregúntale a Zeta sobre la página o privacidad..." autocomplete="off">
+        <input class="field" id="zetaChatInput" placeholder="Pregúntale a Zeta sobre divisas, pagos o seguridad..." autocomplete="off">
         <button class="zeta-send-btn" id="zetaSendBtn" type="submit" title="Enviar consulta" ${state.zetaLoading?'disabled':''}>➤</button>
       </form>
       <div class="zeta-status-bar">
@@ -1980,7 +3011,6 @@ function scrollZetaChat(){
   }
 }
 
-// MODAL DE CONFIGURACIÓN DE GEMINI
 function drawGeminiSettingsModal(){
   let modalContent = `
     <p class="muted">Conecta el asistente Zeta directamente a los modelos de inteligencia artificial de Google Gemini para obtener respuestas naturales, detalladas y contextualizadas.</p>
@@ -2018,7 +3048,6 @@ function drawGeminiSettingsModal(){
   modal("⚙️ Configuración de Gemini IA para Zeta", modalContent, false);
 }
 
-// PROBAR CONEXIÓN CON GEMINI
 async function testGeminiConnection(key, model){
   if(!key){
     toast("Ingresa primero una clave de API.");
@@ -2047,7 +3076,6 @@ async function testGeminiConnection(key, model){
   }
 }
 
-// GESTIÓN DEL ENVÍO DE MENSAJES EN ZETA
 async function sendZetaMessage(text){
   let prompt = text.trim();
   if(!prompt || state.zetaLoading) return;
@@ -2070,19 +3098,12 @@ async function sendZetaMessage(text){
 // --- COACH / GUÍAS DEMOSTRATIVAS ---
 function coachData(id){
   return {
-    home:[
-      "🏠 Bienvenido a Trade4Cash",
-      `En Inicio puedes buscar una divisa en Comprar o publicar tu oferta en Vender.
-- Revisa Academy para aprender a detectar billetes falsos, concretar acuerdos en lugares seguros, entender la tasa de cambio y reconocer señales de alerta ante usuarios poco confiables.
-- Consulta nuestro Tratamiento de Datos Personales.
-- Utiliza a Zeta IA para resolver cualquier duda.`,
-      "Entendido"
-    ],
-    buy:["🔎 Explora ofertas publicadas","Elige una divisa y descubre lo que otras personas ofrecen con tasa, ubicación y punto de encuentro seguro.","Entendido"],
+    home:["🏠 Bienvenido a Trade4Cash","Aquí consultas la tasa oficial de cada divisa y aprendes a cambiar con seguridad. Compra en **Comprar**, publica en **Mis publicaciones** y pregunta a **Zeta** lo que quieras.","Entendido"],
+    buy:["🔎 Comprar divisas","Aquí podrás ver las ofertas de otras personas, filtrar por divisa, zona y distancia, y escribirles para acordar el intercambio.","Entendido"],
     filters:["🎯 Ajusta tu búsqueda","Filtra por moneda, zona de Bogotá o distancia máxima para encontrar personas cerca de ti.","Entendido"],
-    offer:["💬 Revisa los detalles del acuerdo","Verifica la cantidad, la tasa pactada y el punto público de encuentro. Trade4Cash no custodia el dinero.","Entendido"],
-    sell:["💸 Tu espacio para ofrecer divisas","Publica la divisa que tienes disponible, la tasa que deseas recibir y el punto público de encuentro sugerido.","Entendido"],
-    create:["📝 Creación paso a paso","Indica divisa, cantidad, tasa en COP, lugar vigilado y radio de visibilidad.","Empezar"],
+    offer:["💬 Revisa los detalles del acuerdo","Verifica la cantidad, la tasa pactada, los medios de pago y el estado de los billetes. Trade4Cash no custodia el dinero.","Entendido"],
+    sell:["💸 Mis publicaciones","Aquí podrás crear ofertas nuevas, editar la tasa, pausarlas y ver su estado. Si quieres ensayar antes, usa el simulador.","Entendido"],
+    create:["📝 Creación paso a paso","Indica divisa, cantidad, tasa en COP, condición de billetes y radio de visibilidad.","Empezar"],
     currency:["💵 Selecciona la divisa","Elige la moneda extranjera que tienes en efectivo o digital.","Entendido"],
     amount:["💰 Cantidad disponible","Indica el monto que deseas intercambiar.","Entendido"],
     rate:["📈 Tasa que deseas recibir","Indica cuántos pesos colombianos propones recibir por unidad de divisa.","Entendido"],
@@ -2091,7 +3112,10 @@ function coachData(id){
     simulator:["🧮 Simulador interactivo","Practica cómo crear una oferta y revisar los cálculos de conversión sin riesgo alguno.","Entendido"],
     academy:["🎓 Aprende antes de intercambiar","Consulta cómo detectar billetes falsos, verificar marcas de agua y mantenerte seguro en tus encuentros.","Entendido"],
     security:["🛡️ Encuentro seguro","Recuerda siempre verificar la legitimidad del dinero y reunirte en sitios vigilados.","Entendido"],
-    account:["👤 Tu cuenta y privacidad","Consulta tus datos, configura tu clave de Gemini y gestiona tus derechos de Hábeas Data.","Entendido"]
+    market:["📊 Mercado","Aquí podrás ver la tasa de referencia de cada divisa y convertir montos. Es la base del margen de ±5 % de las ofertas.","Entendido"],
+    premium:["⭐ Premium","Aquí podrás comparar los planes y elegir el que mejor se ajuste a lo que necesitas.","Entendido"],
+    about:["🤝 Quiénes somos","Aquí conocerás quiénes somos y cómo cuidamos cada intercambio.","Entendido"],
+    account:["👤 Tu cuenta y privacidad","Consulta tus datos, configura tus medios de pago, tu clave de Gemini y gestiona tus derechos de Hábeas Data.","Entendido"]
   }[id];
 }
 
@@ -2165,25 +3189,24 @@ function page(to){
   state.page = to;
   state.chat = null;
   state.messages = [];
+  state.flow = null; state.typing = false;
   layers.querySelector(".coach")?.remove();
   document.getElementById("nav").classList.remove("open");
   render();
   window.scrollTo(0,0);
   if(to==="home") setTimeout(() => showCoach("home", document.querySelector(".section-title") || document.querySelector(".hero"), true), 60);
-  if(to==="buy") setTimeout(() => showCoach("buy", document.querySelector(".page-head")), 80);
-  if(to==="sell") setTimeout(() => showCoach("sell", document.querySelector(".page-head")), 80);
-  if(to==="account") setTimeout(() => showCoach("account", document.querySelector(".page-head")), 80);
+  if(["buy","sell","market","premium","about","account"].includes(to)) setTimeout(() => showCoach(to, document.querySelector(".pub-hero, .page-head, .section-title"), true), 80);
 }
 
 function openChat(index){
   state.chat = seedOffers[index] || seedOffers[0];
+  state.flow = null; state.typing = false; state.messages = [];
   state.page = "chat";
   render();
   window.scrollTo(0,0);
   setTimeout(() => showCoach("offer", document.querySelector(".chat-top")), 60);
 }
 
-// PANTALLA DE BIENVENIDA
 function drawWelcome(){
   if(localStorage.getItem("t4c-entered")) return;
   let e = document.createElement("div");
@@ -2197,6 +3220,7 @@ function drawWelcome(){
       <p>Intercambia divisas directamente con otras personas en Bogotá de forma segura, informada y libre.</p>
       <button class="btn primary block" id="welcomeLogin">Iniciar sesión</button>
       <button class="btn block" id="welcomeSignup">Crear cuenta (Mayor de 18 años)</button>
+      <button class="btn block" id="welcomeGuest" style="margin-top:8px;background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.28)">Explorar plataforma (Modo Demo)</button>
       <div style="margin-top:14px">
         <button class="linkbtn" data-modal="privacy" style="color:#d5f4e3;font-size:12px">Política de Tratamiento de Datos Personales (Ley 1581)</button>
       </div>
@@ -2207,6 +3231,15 @@ function drawWelcome(){
 
   document.getElementById("welcomeLogin").onclick = () => { state.modal="login"; drawAuth(); };
   document.getElementById("welcomeSignup").onclick = () => { state.modal="signup"; drawAuth(); };
+  document.getElementById("welcomeGuest").onclick = () => {
+    localStorage.setItem("t4c-entered","1");
+    layers.querySelector("#welcome")?.remove();
+    render();
+    toast("¡Bienvenido a Trade4Cash!");
+    setTimeout(() => {
+      showCoach("home", document.querySelector(".section-title") || document.querySelector(".hero"), true);
+    }, 60);
+  };
 }
 
 // --- EVENT LISTENERS Y DELEGACIÓN ---
@@ -2226,6 +3259,7 @@ document.addEventListener("click", ev => {
     if(state.modal === "academy") drawAcademy();
     else if(state.modal === "simulator") drawSimulator();
     else if(state.modal === "privacy") drawPrivacyModal();
+    else if(state.modal === "terms") drawTermsModal();
     return;
   }
 
@@ -2242,10 +3276,65 @@ document.addEventListener("click", ev => {
     return;
   }
 
+  // Ver medios de pago de un usuario
+  if(b.dataset.showPayments !== undefined){
+    drawUserPaymentsModal(Number(b.dataset.showPayments));
+    return;
+  }
+
+  // Iniciar pasarela de pago digital simulada
+  if(b.dataset.startGateway !== undefined){
+    const gIdx = Number(b.dataset.startGateway), gOffer = seedOffers[gIdx] || seedOffers[0];
+    state.activeSimTx = null; // cada intercambio empieza con los datos de su oferta
+    if(!rateGuard(gOffer.currency, parseRate(gOffer.rate, gOffer.currency), "aceptar")) return;
+    drawDigitalPaymentFlow(gIdx, 1);
+    return;
+  }
+
+  // Ver comprobante de demostración
+  if(b.dataset.viewReceipt !== undefined){
+    drawReceiptModal(b.dataset.viewReceipt);
+    return;
+  }
+
+  // Acciones desde Mercado de Divisas
+  if(b.dataset.prefillCurrency){
+    state.page = "sell";
+    render();
+    let sel = document.getElementById("sellCurrency");
+    if(sel){ sel.value = b.dataset.prefillCurrency; sel.dispatchEvent(new Event('change')); }
+    return;
+  }
+  if(b.dataset.filterCurrency){
+    state.currency = b.dataset.filterCurrency;
+    state.page = "buy";
+    render();
+    return;
+  }
+  if(b.id === "btnConverterToSell"){
+    state.page = "sell";
+    render();
+    let sel = document.getElementById("sellCurrency");
+    if(sel){ sel.value = state.marketCalc.from; sel.dispatchEvent(new Event('change')); }
+    let amt = document.getElementById("sellAmount");
+    if(amt){ amt.value = state.marketCalc.amount; }
+    return;
+  }
+
   // Pestañas de Mi Cuenta
   if(b.dataset.accountTab){
     state.accountTab = b.dataset.accountTab;
     render();
+    return;
+  }
+
+  // Cerrar sesión
+  if(b.id === "btnLogout"){
+    localStorage.removeItem("t4c-entered");
+    toast("Has cerrado sesión correctamente.");
+    state.modal = null;
+    layers.innerHTML = "";
+    drawWelcome();
     return;
   }
 
@@ -2265,10 +3354,39 @@ document.addEventListener("click", ev => {
           </select>
         </label>
         <label class="form-field"><span>Descripción de los hechos o petición</span><textarea class="textarea" rows="3" placeholder="Detalla claramente tu solicitud..."></textarea></label>
-        <p class="smallprint">📧 Tu requerimiento será remitido al Área de Soporte Legal y Operaciones (camilacardenasc1@gmail.com - Tel: 3184641985).</p>
+        <p class="smallprint">📧 Tu requerimiento será remitido al Área de Soporte Legal y Operaciones (trade4cash.atencioncliente@gmail.com - Tel: 3184641985).</p>
         <button class="btn green block" type="submit">Enviar solicitud formal</button>
       </form>
     `, false);
+    return;
+  }
+
+  // Seguridad: simular reautenticación
+  if(b.id === "btnSimReauth"){
+    modal("Reautenticación Periódica de Seguridad", `
+      <p class="muted">Para proteger tu cuenta, Trade4Cash solicita una reautenticación periódica cada 30 días o ante cambios sensibles.</p>
+      <form id="simReauthForm" class="form-stack">
+        <label class="form-field"><span>Contraseña actual</span><input class="field" type="password" required value="demostracion"></label>
+        <button class="btn green block" type="submit">Confirmar mi identidad</button>
+      </form>
+    `, false);
+    return;
+  }
+
+  // Seguridad: editar perfil con confirmación
+  if(b.id === "btnEditProfileSecurity"){
+    modal("Confirmación de Seguridad", `
+      <p class="muted">Por políticas de seguridad, para modificar tu información de contacto o perfil ingresa tu clave actual:</p>
+      <form id="confirmEditProfileForm" class="form-stack">
+        <label class="form-field"><span>Contraseña</span><input class="field" type="password" required value="demostracion"></label>
+        <button class="btn green block" type="submit">Validar y continuar</button>
+      </form>
+    `, false);
+    return;
+  }
+
+  if(b.id === "btnSimVerifyEmail"){
+    toast("Enlace único de verificación enviado a trade4cash.atencioncliente@gmail.com.");
     return;
   }
 
@@ -2309,7 +3427,7 @@ document.addEventListener("click", ev => {
   // Limpiar chat Zeta
   if(b.id === "zetaClearBtn"){
     state.zetaMessages = [
-      {role:"model", text:"Conversación reiniciada. ¿En qué más puedo asistirte hoy sobre Trade4Cash, compras, ventas o la política de tratamiento de datos?"}
+      {role:"model", text:"Conversación reiniciada. ¿En qué más puedo asistirte hoy sobre Trade4Cash, mercado de divisas, pagos digitales o la política de tratamiento de datos?"}
     ];
     drawZeta();
     toast("Conversación de Zeta reiniciada.");
@@ -2411,15 +3529,17 @@ document.addEventListener("click", ev => {
 
   // Ver oferta desde chat
   if(b.hasAttribute("data-view-offer")){
-    modal("Detalles de la oferta de " + esc(state.chat.name), `
+    let c = state.chat || seedOffers[0];
+    modal("Detalles de la oferta de " + esc(c.name), `
       <div class="result-box">
-        <div class="result-line"><span>Ofrece:</span><strong>${esc(state.chat.amount)} ${esc(state.chat.currency)}</strong></div>
-        <div class="result-line"><span>Busca recibir:</span><strong>${esc(state.chat.want)}</strong></div>
-        <div class="result-line"><span>Tasa pactada:</span><strong>${esc(state.chat.rate)}</strong></div>
-        <div class="result-line"><span>Punto propuesto:</span><strong>${esc(state.chat.place)}</strong></div>
-        <div class="result-line"><span>Zona:</span><strong>${esc(state.chat.zone)} · ${state.chat.distance} km</strong></div>
+        <div class="result-line"><span>Ofrece:</span><strong>${esc(c.amount)} ${esc(c.currency)}</strong></div>
+        <div class="result-line"><span>Busca recibir:</span><strong>${esc(c.want)}</strong></div>
+        <div class="result-line"><span>Tasa pactada:</span><strong>${esc(c.rate)}</strong></div>
+        <div class="result-line"><span>Punto propuesto:</span><strong>${esc(c.place)}</strong></div>
+        <div class="result-line"><span>Condición de billetes:</span><strong>${esc(c.condition || "Sin sellos")}</strong></div>
+        <div class="result-line"><span>Medios aceptados:</span><strong>${(c.payments||["Efectivo"]).join(", ")}</strong></div>
       </div>
-      <div class="form-warning" style="margin-top:12px">Recuerda: Trade4Cash no recibe ni custodia fondos. Acuerden siempre encontrarse en lugares públicos vigilados.</div>
+      <div class="form-warning" style="margin-top:12px">Recuerda: Trade4Cash no recibe ni custodia fondos. Acuerden siempre encontrarse en lugares públicos vigilados o usar pagos digitales declarados.</div>
     `);
     return;
   }
@@ -2428,9 +3548,19 @@ document.addEventListener("click", ev => {
   if(b.dataset.manage !== undefined){
     state.selectedPost = Number(b.dataset.manage);
     let p = state.posts[state.selectedPost];
-    modal("Administrar publicación", `
-      <p>Publicación de ${esc(p.currency)}: ${esc(p.amount)} a ${esc(p.rate)} en ${esc(p.place)}.</p>
-      <button class="btn light block" id="togglePost">${p.status==="Activa"?"Pausar publicación":"Activar publicación"}</button>
+    const pk = stKey(p.status), canToggle = pk === "activa" || pk === "pausada";
+    modal("Administrar oferta", `
+      <div class="pc-top" style="margin-bottom:14px">
+        <div class="pc-cur"><div class="pc-flag">${(referenceRates[p.currency]||{}).flag || "💵"}</div><div><b>${esc(p.currency)}</b><span>${esc(p.amount)} · ${esc(p.place)}</span></div></div>
+        <span class="stt s-${pk}" style="--sts:var(--sts);">${ST_LABEL[pk]}</span>
+      </div>
+      <div class="form-field">
+        <label for="editRate" style="font-weight:700">Tasa (COP por unidad)</label>
+        <input class="field" id="editRate" type="number" min="1" step="any" value="${parseRate(p.rate, p.currency)}">
+        <div id="editRateAlert" aria-live="assertive"></div>
+      </div>
+      <button class="btn green block" id="saveEditRate" style="margin-top:14px">Guardar tasa</button>
+      ${canToggle ? `<button class="btn light block" id="togglePost" style="margin-top:10px">${pk==="activa"?"Pausar oferta":"Activar oferta"}</button>` : ""}
     `);
     return;
   }
@@ -2449,9 +3579,26 @@ document.addEventListener("click", ev => {
     let p = state.posts[Number(b.dataset.interested)];
     modal("Personas interesadas", `
       <p>Usuarios que han consultado tu oferta de ${esc(p.currency)}:</p>
-      <div class="info-card"><h3>María Gómez · 4.8 ★</h3><p>Propone acordar en Starbucks Torre Colpatria.</p></div>
-      <div class="info-card" style="margin-top:10px"><h3>Carlos Pérez · 4.6 ★</h3><p>Disponible hoy en la tarde en CC Andino.</p></div>
+      <div class="info-card"><h3>María Gómez · 4.8 ★</h3><p>Propone pagar con Nequi en Starbucks Torre Colpatria.</p></div>
+      <div class="info-card" style="margin-top:10px"><h3>Carlos Pérez · 4.6 ★</h3><p>Disponible hoy en la tarde en CC Andino para entrega presencial.</p></div>
     `, false);
+    return;
+  }
+
+  // Avance de pasarela simulada paso 2 -> 3
+  if(b.id === "btnGatewayProceedPayment"){
+    if(!txRateGuard("confirmar")) return;
+    let selectedMethod = document.querySelector('input[name="simPayMethod"]:checked')?.value || "Nequi";
+    if(state.activeSimTx) state.activeSimTx.method = selectedMethod;
+    drawDigitalPaymentFlow(0, 3);
+    return;
+  }
+
+  // Avance de pasarela simulada paso 3 -> 4 (Completar)
+  if(b.id === "btnGatewayCompleteTx"){
+    if(!txRateGuard("confirmar")) return;
+    drawDigitalPaymentFlow(0, 4);
+    toast("¡Intercambio digital completado en modo demo!");
     return;
   }
 });
@@ -2460,26 +3607,37 @@ document.addEventListener("click", ev => {
 document.addEventListener("submit", ev => {
   ev.preventDefault();
 
-  // Publicar oferta de venta
+  // Publicar oferta de venta con validación de tasas y sellos
   if(ev.target.id === "sellForm"){
     let currency = document.getElementById("sellCurrency").value;
     let amount = document.getElementById("sellAmount").value;
-    let rate = document.getElementById("sellRate").value;
+    let rate = Number(document.getElementById("sellRate").value);
+    let condition = document.getElementById("sellCondition").value;
+    let payments = [document.getElementById("sellPayments").value];
+    let notes = document.getElementById("sellNotes").value;
     let place = document.getElementById("sellPlace").value;
+
     if(!amount || !rate || !place){
-      toast("Completa todos los campos para crear la publicación.");
+      toast("Completa todos los campos obligatorios.");
       return;
     }
+
+    // Margen ±% frente a la referencia oficial (la alerta solo aparece si se excede)
+    if(!rateGuard(currency, rate, "crear", { target: "rateAlert" })) return;
+
     state.posts.unshift({
       currency,
       amount,
       rate: "$" + fmt(rate) + " COP",
       contacts: "0 personas contactadas",
       place,
-      status: "Activa"
+      status: "Activa",
+      condition,
+      payments,
+      notes
     });
     render();
-    toast("¡Publicación creada exitosamente en Trade4Cash!");
+    toast("✓ Publicación creada.");
     return;
   }
 
@@ -2487,12 +3645,8 @@ document.addEventListener("submit", ev => {
   if(ev.target.id === "chatForm"){
     let input = document.getElementById("chatInput");
     if(!input.value.trim()) return;
-    state.messages.push({mine:true, text:input.value.trim()});
-    state.messages.push({mine:false, text:"Gracias por tu mensaje. Me parece bien. Nos vemos en el punto acordado; recuerda revisar los billetes con calma."});
+    chatSend(input.value.trim());
     input.value = "";
-    render();
-    let body = document.getElementById("chatBody");
-    if(body) body.scrollTop = 99999;
     return;
   }
 
@@ -2522,11 +3676,28 @@ document.addEventListener("submit", ev => {
           Tu requerimiento ha sido recibido formalmente por el <strong>Área de Soporte Legal y Operaciones</strong> de Trade4Cash S.A.S.
         </p>
         <p style="font-size:13px;color:var(--muted)">
-          Término legal de respuesta: <strong>10 días hábiles</strong> para consultas y <strong>15 días hábiles</strong> para reclamos, conforme a la Ley 1581 de 2012. Copia remitida a camilacardenasc1@gmail.com.
+          Término legal de respuesta: <strong>10 días hábiles</strong> para consultas y <strong>15 días hábiles</strong> para reclamos, conforme a la Ley 1581 de 2012. Copia remitida a trade4cash.atencioncliente@gmail.com.
         </p>
         <button class="btn green block" data-close-modal style="margin-top:16px">Entendido</button>
       </div>
     `);
+    return;
+  }
+
+  // Reautenticación de seguridad
+  if(ev.target.id === "simReauthForm"){
+    state.modal = null;
+    layers.querySelector(".overlay")?.remove();
+    state.security.lastAuthDate = new Date().toLocaleDateString("es-CO");
+    render();
+    toast("✓ Identidad confirmada exitosamente. Ciclo de seguridad renovado.");
+    return;
+  }
+
+  if(ev.target.id === "confirmEditProfileForm"){
+    state.modal = null;
+    layers.querySelector(".overlay")?.remove();
+    toast("Identidad confirmada. En la versión de demostración los datos del perfil se mantienen de muestra.");
     return;
   }
 
@@ -2570,9 +3741,10 @@ document.addEventListener("submit", ev => {
   }
 });
 
-// EVENTOS DE ENTRADA Y FILTROS
+// EVENTOS DE ENTRADA, FILTROS Y VALIDACIONES EN TIEMPO REAL
 app.addEventListener("input", ev => {
   let el = ev.target;
+  
   if(el.id === "offerSearch"){
     state.search = el.value;
     let pos = el.selectionStart;
@@ -2581,6 +3753,12 @@ app.addEventListener("input", ev => {
     n?.focus();
     n?.setSelectionRange(pos,pos);
   }
+  
+  // Conversor en vista mercado
+  if(el.id === "calcAmount"){
+    updateConverterDisplay();
+  }
+
   if(el.id === "simAmount") state.sim.amount = el.value;
   if(el.id === "simRate") state.sim.rate = el.value;
 });
@@ -2589,7 +3767,44 @@ app.addEventListener("change", ev => {
   let el = ev.target;
   if(el.id === "zoneFilter"){ state.zone = el.value; render(); }
   if(el.id === "distanceFilter"){ state.distance = el.value; render(); }
-  if(el.id === "sellCurrency") showCoach("currency", el);
+  if(el.id === "sellCurrency"){
+    let rateInput = document.getElementById("sellRate");
+    if(rateInput) rateInput.dispatchEvent(new Event('input'));
+  }
+  
+  // Mostrar aviso de billetes con sellos o deterioro
+  if(el.id === "sellCondition"){
+    let val = el.value;
+    let warn = document.getElementById("banknoteLegalWarning");
+    if(warn){
+      if(val.includes("sellos") || val.includes("marcas") || val.includes("deterioro")){
+        warn.classList.remove("hide");
+      } else {
+        warn.classList.add("hide");
+      }
+    }
+  }
+
+  // Desplegable Multi-TRM en Mercado de divisas
+  if(el.id === "marketCurrencySelect"){
+    state.selectedMarketCurrency = el.value;
+    render();
+  }
+
+  // Selectores de conversor
+  if(el.id === "calcFrom" || el.id === "calcTo"){
+    updateConverterDisplay();
+  }
+
+  // Gestión de medios de pago en Mi Cuenta
+  if(el.dataset.paymentKey){
+    let key = el.dataset.paymentKey;
+    if(state.userPaymentMethods[key]){
+      state.userPaymentMethods[key].active = el.checked;
+      toast(state.userPaymentMethods[key].label + (el.checked ? " habilitado" : " deshabilitado"));
+    }
+  }
+
   if(el.id === "simCurrency") state.sim.currency = el.value;
 });
 
@@ -2612,6 +3827,477 @@ document.addEventListener("keydown", ev => {
     state.zetaOpen = false;
     document.getElementById("zetaPanel")?.remove();
   }
+});
+
+
+// ===== T4C v4 · INTERACCIONES NUEVAS (Academy, filtros, validación ±%) =====
+document.addEventListener("click", ev => {
+  const t = ev.target;
+  let el;
+
+  // Academy: abrir / cerrar módulo (sin ventanas emergentes)
+  if((el = t.closest("[data-mod-toggle]"))){
+    const m = el.closest(".mod"), id = m.dataset.mod, wasOpen = m.classList.contains("open");
+    document.querySelectorAll(".mod.open").forEach(x => { x.classList.remove("open"); x.querySelector("[data-mod-toggle]")?.setAttribute("aria-expanded","false"); });
+    if(!wasOpen){ m.classList.add("open"); el.setAttribute("aria-expanded","true"); }
+    state.openMod = wasOpen ? null : id;
+    return;
+  }
+  // Divisa -> valor en pesos
+  if((el = t.closest("[data-cur-pick]"))){
+    const n = el.dataset.curPick, r = referenceRates[n];
+    el.parentElement.querySelectorAll(".tap").forEach(x => x.classList.toggle("on", x === el));
+    const out = document.getElementById("out-divisa");
+    if(out && r){ out.innerHTML = `1 ${r.code} vale hoy <b>$${fmt(r.rate)} COP</b>`; out.style.animation = "none"; out.offsetWidth; out.style.animation = ""; }
+    return;
+  }
+  // Pestañas con texto (cómo funciona, billetes)
+  if((el = t.closest("[data-tabout]"))){
+    el.parentElement.querySelectorAll(".tap").forEach(x => x.classList.toggle("on", x === el));
+    const out = document.getElementById(el.dataset.tabout);
+    if(out){ out.innerHTML = el.getAttribute("data-tabtxt"); out.style.animation = "none"; out.offsetWidth; out.style.animation = ""; }
+    return;
+  }
+  // Tasa de referencia: elegir divisa
+  if((el = t.closest("[data-trm-cur]"))){
+    const n = el.dataset.trmCur, r = referenceRates[n], ref = r.rate;
+    el.parentElement.querySelectorAll(".tap").forEach(x => x.classList.toggle("on", x === el));
+    const sl = document.getElementById("trmSlide");
+    sl.dataset.cur = n; sl.min = Math.round(ref*0.85); sl.max = Math.round(ref*1.15); sl.step = ref > 1000 ? 5 : 1; sl.value = ref;
+    document.getElementById("trmMin").textContent = "$" + fmt(Math.round(ref*0.85));
+    document.getElementById("trmMax").textContent = "$" + fmt(Math.round(ref*1.15));
+    document.getElementById("out-trmref").innerHTML = `Hoy: <b>1 ${r.code} = $${fmt(ref)} COP</b>`;
+    document.getElementById("out-trm").innerHTML = `<b>$${fmt(ref)}</b> <span class="pill-state in">✓ Dentro del rango</span>`;
+    return;
+  }
+  // Actualizar la tasa ahora
+  if(t.closest("#btnTrmRefresh")){
+    trmFetchedAt = 0; loadTRM(); toast("Actualizando tasas…");
+    return;
+  }
+  // Lista de seguridad
+  if((el = t.closest("[data-chk]"))){
+    el.classList.toggle("on");
+    const body = el.closest(".mod-body"), all = body.querySelectorAll(".chk"), on = body.querySelectorAll(".chk.on").length;
+    body.querySelector(".prog span").style.width = (on / all.length * 100) + "%";
+    body.querySelector(".prog-txt").textContent = on === all.length ? "✓ ¡Todo listo para salir seguro!" : `${on} de ${all.length} listos`;
+    return;
+  }
+  // Tarjetas que se voltean
+  if((el = t.closest("[data-flip]"))){
+    el.classList.toggle("flipped");
+    return;
+  }
+  // Filtro de estado en Mis publicaciones
+  if((el = t.closest("[data-pubfilter]"))){
+    state.pubFilter = el.dataset.pubfilter;
+    render();
+    return;
+  }
+  // Ir al formulario de nueva oferta
+  if((el = t.closest("[data-go-create]"))){
+    ev.preventDefault();
+    document.getElementById("createListing")?.scrollIntoView({ behavior:"smooth", block:"start" });
+    return;
+  }
+  // Usar la tasa límite sugerida
+  if((el = t.closest("[data-fix-rate]"))){
+    const input = document.getElementById("sellRate") || document.getElementById("editRate");
+    if(input){ input.value = el.dataset.fixRate; input.dispatchEvent(new Event("input", { bubbles:true })); input.focus(); }
+    return;
+  }
+  // Guardar tasa editada de una publicación
+  if(t.closest("#saveEditRate")){
+    const p = state.posts[state.selectedPost];
+    const rate = Number(document.getElementById("editRate")?.value);
+    if(!p || !(rate > 0)){ toast("Escribe una tasa válida."); return; }
+    if(!rateGuard(p.currency, rate, "editar", { target:"editRateAlert" })) return;
+    p.rate = "$" + fmt(rate) + " COP";
+    state.modal = null;
+    layers.querySelector(".overlay")?.remove();
+    render();
+    toast("✓ Tasa actualizada.");
+    return;
+  }
+});
+
+document.addEventListener("input", ev => {
+  const el = ev.target;
+  if(el.id === "sellRate" || el.id === "sellCurrency"){
+    liveRate("sellRate", document.getElementById("sellCurrency")?.value || "Dólar USA", "rateAlert", "crear");
+  }
+  if(el.id === "editRate"){
+    const p = state.posts[state.selectedPost];
+    if(p) liveRate("editRate", p.currency, "editRateAlert", "editar");
+  }
+  if(el.id === "trmSlide"){
+    const cur = el.dataset.cur || "Dólar USA", v = Number(el.value);
+    const band = checkRateBand(cur, v);
+    const out = document.getElementById("out-trm");
+    if(out) out.innerHTML = `<b>$${fmt(v)}</b> <span class="pill-state ${band.status === "out" ? "out" : "in"}">${band.status === "out" ? "✕ Fuera del rango" : "✓ Dentro del rango"}</span>`;
+  }
+});
+
+
+// ===== T4C v4.1 · TASAS EN VIVO PARA OTRAS DIVISAS + TÉRMINOS Y CONDICIONES =====
+// El dólar usa la TRM oficial (datos.gov.co). Las demás divisas se derivan de esa TRM
+// con tipos de cambio internacionales del día (open.er-api.com). Si algo falla, se
+// mantienen los valores de referencia guardados.
+const FX_ENDPOINT = "https://open.er-api.com/v6/latest/USD";
+let fxPromise = null;
+function loadFX(){
+  if(fxPromise) return;
+  fxPromise = fetch(FX_ENDPOINT, { cache:"no-store" })
+    .then(r => { if(!r.ok) throw Error("FX error"); return r.json(); })
+    .then(d => {
+      const usd = referenceRates["Dólar USA"].rate, q = d && d.rates;
+      if(!q) throw Error("FX vacío");
+      let changed = false;
+      Object.keys(referenceRates).forEach(name => {
+        const r = referenceRates[name];
+        if(name === "Dólar USA" || name === "Pesos Colombianos") return;
+        const per = q[r.code];
+        if(per > 0){
+          const v = usd / per;
+          r.rate = v >= 100 ? Math.round(v) : Math.round(v * 100) / 100;
+          r.date = "Actualizada hoy";
+          r.note = "Derivada de la TRM";
+          changed = true;
+        }
+      });
+      if(changed){
+        try { localStorage.setItem("t4c-fx-cache", JSON.stringify(Object.fromEntries(Object.keys(referenceRates).map(k => [k, referenceRates[k].rate])))); } catch{}
+        if(state.page === "market" && !document.activeElement?.matches?.("input,select,textarea")) render();
+      }
+    })
+    .catch(() => {
+      try {
+        const c = JSON.parse(localStorage.getItem("t4c-fx-cache") || "null");
+        if(c) Object.keys(c).forEach(k => { if(referenceRates[k] && k !== "Dólar USA") referenceRates[k].rate = c[k]; });
+      } catch{}
+    })
+    .finally(() => { setTimeout(() => { fxPromise = null; }, 60 * 1000); });
+}
+// Se actualiza sola cada 15 minutos mientras la página esté abierta
+setInterval(() => { trmFetchedAt = 0; if(state.page === "home" || state.page === "market") loadTRM(); }, 15 * 60 * 1000);
+
+// --- TÉRMINOS Y CONDICIONES ---
+function drawTermsModal(){
+  const items = [
+    ["1. Qué es Trade4Cash", "Una plataforma que conecta a personas que quieren comprar o vender divisas entre sí. Trade4Cash no compra, no vende, no recibe ni guarda tu dinero."],
+    ["2. Quién puede usarla", "Personas mayores de 18 años, con identidad verificada y datos reales. Cada cuenta es personal y no se puede prestar."],
+    ["3. Ofertas y tasas", "Tú decides la tasa de tus ofertas. Para proteger a todos, la tasa debe estar dentro de ±5 % de la tasa oficial de referencia (la TRM en el caso del dólar). Si se pasa del límite, la plataforma no deja publicar ni confirmar el intercambio."],
+    ["4. Acuerdo entre personas", "El intercambio es un acuerdo directo entre quienes participan. Revisen cantidad, tasa, medio de pago y estado de los billetes antes de cerrar."],
+    ["5. Encuentros seguros", "Recomendamos lugares públicos y vigilados, con luz y gente. Evita adelantar dinero y desconfía de cambios de lugar de último minuto."],
+    ["6. Conductas no permitidas", "Engañar, presionar, usar billetes falsos, suplantar a otra persona, lavar dinero o usar la plataforma para algo ilegal. Podemos suspender o cerrar cuentas que lo hagan."],
+    ["7. Planes Premium", "Los planes Premium dan más herramientas de visibilidad. No cambian las reglas de seguridad ni la tasa permitida."],
+    ["8. Responsabilidad", "Trade4Cash ofrece la herramienta de conexión y de seguridad, pero no responde por lo que las personas acuerden o hagan fuera de la plataforma. Cada quien es responsable de verificar lo que recibe."],
+    ["9. Tus datos", "Tratamos tus datos según nuestra Política de Tratamiento de Datos Personales y la Ley 1581 de 2012."],
+    ["10. Cambios y ley aplicable", "Podemos actualizar estos términos y te avisaremos en la plataforma. Se rigen por las leyes de Colombia."]
+  ];
+  modal("📄 Términos y condiciones", `
+    <div class="policy-box">
+      <span class="subtle">Trade4Cash S.A.S. · Bogotá D.C., Colombia</span>
+      <div class="form-warning" style="margin:12px 0">Borrador para el prototipo. Debe ser revisado por un abogado antes de publicarse.</div>
+      ${items.map(i => `<h4 style="margin:16px 0 4px;color:var(--deep)">${i[0]}</h4><p style="margin:0;color:var(--ink);line-height:1.55">${i[1]}</p>`).join("")}
+      <p class="subtle" style="margin-top:18px">¿Dudas? Escríbenos a <strong>trade4cash.atencioncliente@gmail.com</strong></p>
+    </div>`, true);
+}
+
+
+// ===== T4C v4.2 · CHAT: la contraparte responde y el acuerdo sigue su camino =====
+// Presencial -> código de encuentro, verificación mutua, lista de revisión y confirmación.
+// Digital    -> botón para iniciar el pago digital.
+function codeFmt(c){ return String(c).replace(/(\d{3})(\d{3})/, "$1 $2"); }
+function newCode(){ return String(Math.floor(100000 + Math.random() * 900000)); }
+function offerTotal(c){
+  const amt = Number(String(c.amount).replace(/\./g, "")) || 0;
+  return { amt, total: amt * parseRate(c.rate, c.currency) };
+}
+
+function chatIntent(text){
+  const t = text.toLowerCase();
+  const pres = /presencial|en persona|efectivo|encuentr|vernos|vemos|nos vemos|punto|starbucks|centro comercial|cash|lugar/.test(t);
+  const dig = /digital|nequi|daviplata|transferenc|bancolombia|pse|virtual|app|pago online/.test(t);
+  if(pres && !dig) return "presencial";
+  if(dig && !pres) return "digital";
+  return "ninguno";
+}
+
+function chatSend(text){
+  if(!text) return;
+  const c = state.chat || seedOffers[0];
+  state.messages.push({ mine:true, text });
+  const intent = chatIntent(text);
+  let reply = null, next = null;
+  if(state.flow && state.flow.mode === "presencial" && state.flow.step < 4){
+    reply = "Perfecto. Te espero en el punto. Cuando llegues, toca «Ya estoy en el punto» y verificamos los códigos.";
+  } else if(state.flow && state.flow.mode === "digital"){
+    reply = "Dale. Inicia el pago digital con el botón y te confirmo cuando lo reciba.";
+  } else if(intent === "presencial"){
+    reply = `¡Listo, entonces presencial! Nos vemos en ${c.place}. Llevo los billetes revisados. Abajo te dejo tu código de encuentro; muéstralo solo cuando estemos frente a frente.`;
+    next = { mode:"presencial", step:1, myCode:newCode(), theirCode:newCode(), checks:[false,false,false], entered:"", error:"" };
+  } else if(intent === "digital"){
+    const pay = (c.payments || []).find(p => !/efectivo/i.test(p)) || "pago digital";
+    reply = `Va, pago digital con ${pay}. Inicia el pago desde el botón de abajo y yo te confirmo cuando lo vea.`;
+    next = { mode:"digital", step:1, pay };
+  } else {
+    reply = "¿Cómo prefieres cerrar el intercambio: presencial en un punto público o con pago digital?";
+  }
+  state.typing = true;
+  render();
+  const body0 = document.getElementById("chatBody"); if(body0) body0.scrollTop = 99999;
+  setTimeout(() => {
+    state.typing = false;
+    state.messages.push({ mine:false, text:reply });
+    if(next) state.flow = next;
+    if(state.page === "chat"){ render(); const b = document.getElementById("chatBody"); if(b) b.scrollTop = 99999; }
+  }, 900);
+}
+
+function chatFlowHTML(c){
+  const f = state.flow, tot = offerTotal(c);
+  let html = "";
+  if(state.typing) html += `<div class="flow-typing"><span class="dots"><i></i><i></i><i></i></span> ${esc(c.name)} está escribiendo…</div>`;
+  if(!f){
+    html += `<div class="flow-quick"><span>Elige cómo cerrar:</span>
+      <button class="tap" type="button" data-chat-quick="Prefiero presencial, en el punto público acordado.">🤝 Presencial</button>
+      <button class="tap" type="button" data-chat-quick="Prefiero pago digital por transferencia.">💳 Pago digital</button></div>`;
+    return html;
+  }
+  if(f.mode === "digital"){
+    return html + `<div class="flow-card">
+      <div class="flow-head"><span class="flow-ico">💳</span><div><b>Pago digital acordado</b><span>${esc(f.pay)} · ${esc(c.amount)} ${esc(c.currency)} a ${esc(c.rate)}</span></div></div>
+      <button class="btn green block" data-start-gateway="${seedOffers.indexOf(c)}">Iniciar pago digital</button>
+      <button class="btn light block" style="margin-top:8px" data-flow-cancel>Cambiar a presencial</button>
+    </div>`;
+  }
+  // PRESENCIAL
+  const steps = ["Código", "Llegada", "Revisión", "Listo"];
+  const bar = `<div class="flow-steps">${steps.map((s, i) => `<span class="${i + 1 < f.step ? "done" : i + 1 === f.step ? "on" : ""}"><i>${i + 1 < f.step ? "✓" : i + 1}</i>${s}</span>`).join("")}</div>`;
+  if(f.step === 1){
+    html += `<div class="flow-card">${bar}
+      <div class="flow-head"><span class="flow-ico">📍</span><div><b>Encuentro presencial</b><span>${esc(c.place)} · lugar público y vigilado</span></div></div>
+      <div class="code-box"><small>Tu código de encuentro</small><b>${codeFmt(f.myCode)}</b><em>Muéstralo solo cuando estés frente a la persona.</em></div>
+      <button class="btn green block" data-flow-arrive>Ya estoy en el punto</button>
+      <button class="btn light block" style="margin-top:8px" data-flow-cancel>Cancelar encuentro</button>
+    </div>`;
+  } else if(f.step === 2){
+    html += `<div class="flow-card">${bar}
+      <div class="flow-head"><span class="flow-ico">🔢</span><div><b>Verifica a la otra persona</b><span>Pídele su código y escríbelo aquí</span></div></div>
+      <form id="codeForm" class="code-form" autocomplete="off">
+        <input class="field code-in" id="codeInput" inputmode="numeric" maxlength="7" placeholder="000 000" value="${esc(f.entered)}" aria-label="Código de la otra persona">
+        <button class="btn green" type="submit">Verificar</button>
+      </form>
+      ${f.error ? `<div class="flow-err">${f.error}</div>` : ""}
+      <button class="btn light block" style="margin-top:8px" data-flow-cancel>Algo no cuadra: cancelar</button>
+    </div>`;
+  } else if(f.step === 3){
+    const items = ["Revisé los billetes (tacto, luz y tinta)", `Conté ${c.amount} ${c.currency}`, `La tasa acordada es ${c.rate}`];
+    const all = f.checks.every(Boolean);
+    html += `<div class="flow-card">${bar}
+      <div class="flow-ok">✓ Códigos verificados. Ya sabes que es la persona correcta.</div>
+      <div class="flow-head"><span class="flow-ico">🧾</span><div><b>Revisa antes de entregar</b><span>Marca cada punto</span></div></div>
+      ${items.map((x, i) => `<button class="chk ${f.checks[i] ? "on" : ""}" type="button" data-flow-chk="${i}"><i>✓</i>${esc(x)}</button>`).join("")}
+      <button class="btn green block" style="margin-top:12px" data-flow-confirm ${all ? "" : "disabled"}>Confirmar intercambio</button>
+    </div>`;
+  } else {
+    html += `<div class="flow-card done">${bar}
+      <div class="flow-big">🎉</div>
+      <b class="flow-title">Intercambio presencial completado</b>
+      <div class="data-list" style="margin-top:12px">
+        <div class="data-item"><span>Entregas</span><strong>${esc(c.amount)} ${esc(c.currency)}</strong></div>
+        <div class="data-item"><span>Tasa</span><strong>${esc(c.rate)}</strong></div>
+        <div class="data-item"><span>Total en pesos</span><strong>$${fmt(tot.total)} COP</strong></div>
+        <div class="data-item"><span>Lugar</span><strong>${esc(c.place)}</strong></div>
+      </div>
+      <button class="btn green block" style="margin-top:12px" data-pdf="flow">📄 Descargar comprobante (PDF)</button>
+      ${f.rating ? `<div class="rate-box done"><div class="stars static">${[1,2,3,4,5].map(n => `<span class="star ${n <= f.rating ? "on" : ""}">★</span>`).join("")}</div><b>Calificaste a ${esc(c.name)} con ${f.rating} de 5. ¡Gracias!</b></div>` : `
+      <div class="rate-box">
+        <b>¿Cómo fue tu experiencia con ${esc(c.name)}?</b>
+        <div class="stars" role="radiogroup" aria-label="Calificación de 1 a 5 estrellas">${[1,2,3,4,5].map(n => `<button class="star ${n <= (f.pick || 0) ? "on" : ""}" type="button" data-star="${n}" role="radio" aria-checked="${f.pick === n}" aria-label="${n} ${n === 1 ? "estrella" : "estrellas"}">★</button>`).join("")}</div>
+        <small>${f.pick ? ["", "Muy mala", "Mala", "Regular", "Buena", "Excelente"][f.pick] : "Toca una estrella de 1 a 5"}</small>
+        <button class="btn green block" data-rate-send ${f.pick ? "" : "disabled"}>Enviar calificación</button>
+      </div>`}
+      <button class="btn light block" style="margin-top:8px" data-page="buy">Volver a Comprar</button>
+    </div>`;
+  }
+  return html;
+}
+
+document.addEventListener("click", ev => {
+  const t = ev.target; let el;
+  const c = state.chat || seedOffers[0];
+  if((el = t.closest("[data-chat-quick]"))){ chatSend(el.dataset.chatQuick); return; }
+  if(t.closest("[data-flow-arrive]")){
+    state.flow.step = 2; state.flow.error = "";
+    state.messages.push({ mine:false, text:`¡Ya llegué! Estoy en ${c.place}. Mi código es ${codeFmt(state.flow.theirCode)}. Dime el tuyo y verificamos.` });
+    render(); const b = document.getElementById("chatBody"); if(b) b.scrollTop = 99999;
+    return;
+  }
+  if((el = t.closest("[data-flow-chk]"))){
+    const i = Number(el.dataset.flowChk); state.flow.checks[i] = !state.flow.checks[i]; render(); return;
+  }
+  if(t.closest("[data-flow-confirm]")){
+    if(!state.flow.checks.every(Boolean)) return;
+    if(!rateGuard(c.currency, parseRate(c.rate, c.currency), "confirmar")) return;
+    state.flow.step = 4;
+    const tt = offerTotal(c), now = new Date();
+    state.flowTx = {
+      id: "TX-2026-" + Math.floor(1000 + Math.random() * 9000),
+      date: now.toLocaleDateString("es-CO") + " " + now.toLocaleTimeString("es-CO", { hour:"2-digit", minute:"2-digit" }),
+      seller: c.name, buyer: "Laura Méndez (Tú)", currency: c.currency, amount: c.amount, rate: c.rate,
+      totalCop: "$" + fmt(tt.total) + " COP", method: "Efectivo (presencial)", status: "Completada",
+      banknoteCondition: c.condition || "Sin sellos ni anotaciones", place: c.place,
+      verifyCode: codeFmt(state.flow.myCode) + " / " + codeFmt(state.flow.theirCode),
+      referenceUsed: "Tasa de referencia oficial (margen +/-5 %)",
+      note: "Intercambio presencial con verificación mutua de códigos en " + c.place + "."
+    };
+    state.transactions.unshift(state.flowTx);
+    state.messages.push({ mine:false, text:"¡Todo en orden! Gracias por el intercambio. 🤝" });
+    render(); toast("✓ Intercambio completado."); return;
+  }
+  if((el = t.closest("[data-star]"))){ state.flow.pick = Number(el.dataset.star); render(); return; }
+  if(t.closest("[data-rate-send]")){
+    if(!state.flow.pick) return;
+    state.flow.rating = state.flow.pick;
+    if(state.flowTx) state.flowTx.rating = state.flow.rating;
+    render(); toast("★ Calificación enviada."); return;
+  }
+  if(t.closest("[data-flow-cancel]")){
+    const wasDigital = state.flow && state.flow.mode === "digital";
+    state.flow = null;
+    state.messages.push({ mine:false, text: wasDigital ? "Sin problema. ¿Prefieres vernos en persona?" : "Entendido, cancelamos el encuentro. Si quieres, lo agendamos de nuevo." });
+    render(); return;
+  }
+});
+
+document.addEventListener("submit", ev => {
+  if(ev.target.id !== "codeForm") return;
+  ev.preventDefault();
+  const f = state.flow, v = (document.getElementById("codeInput").value || "").replace(/\D/g, "");
+  if(v.length !== 6){ f.error = "Escribe los 6 números del código."; f.entered = v; render(); return; }
+  if(v === f.theirCode){ f.step = 3; f.error = ""; f.entered = ""; }
+  else { f.error = "El código no coincide. No entregues dinero y confirma con la otra persona."; f.entered = ""; }
+  render();
+});
+
+
+// ===== T4C v4.3 · COMPROBANTE EN PDF (sin librerías: funciona sin internet) =====
+function pdfLatin(str){
+  const map = { "✓":"OK", "–":"-", "—":"-", "“":'"', "”":'"', "‘":"'", "’":"'", "±":"+/-", "•":"-", "…":"..." };
+  return String(str == null ? "" : str).replace(/[✓–—“”‘’±•…]/g, ch => map[ch]).replace(/[^\x20-\x7E\xA0-\xFF]/g, "");
+}
+function pdfEsc(s){ return pdfLatin(s).replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)"); }
+
+function buildReceiptPDF(tx){
+  const W = 595, H = 842, ops = [];
+  const rect = (x, y, w, h, rgb) => ops.push(`${rgb.join(" ")} rg ${x} ${y} ${w} ${h} re f`);
+  const line = (x1, y, x2, rgb) => ops.push(`${rgb.join(" ")} RG 0.8 w ${x1} ${y} m ${x2} ${y} l S`);
+  const text = (x, y, size, str, o = {}) => {
+    const rgb = o.rgb || [0.09, 0.21, 0.17];
+    ops.push(`BT /${o.bold ? "F2" : "F1"} ${size} Tf ${rgb.join(" ")} rg ${x} ${y} Td (${pdfEsc(str)}) Tj ET`);
+  };
+  const wrap = (str, n) => {
+    const words = pdfLatin(str).split(" "), out = []; let cur = "";
+    words.forEach(w => { if((cur + " " + w).trim().length > n){ out.push(cur); cur = w; } else cur = (cur + " " + w).trim(); });
+    if(cur) out.push(cur); return out;
+  };
+  const green = [0.024, 0.239, 0.176], mint = [0.46, 0.9, 0.65], gray = [0.41, 0.5, 0.46], pale = [0.91, 0.97, 0.94], lineC = [0.86, 0.93, 0.89];
+
+  // Encabezado
+  rect(0, H - 120, W, 120, green);
+  text(40, H - 62, 28, "Trade4Cash", { bold:true, rgb:[1, 1, 1] });
+  text(40, H - 86, 13, "Comprobante de intercambio", { rgb:mint });
+  text(W - 215, H - 62, 11, "No. " + tx.id, { bold:true, rgb:[1, 1, 1] });
+  text(W - 215, H - 80, 11, tx.date || "", { rgb:[1, 1, 1] });
+
+  // Estado
+  rect(40, H - 175, 130, 28, pale);
+  text(52, H - 165, 12, "OK  " + (tx.status || "Completada"), { bold:true, rgb:green });
+
+  // Filas
+  const rows = [
+    ["Vendedor", tx.seller], ["Comprador", tx.buyer],
+    ["Divisa entregada", `${tx.amount} ${tx.currency}`], ["Tasa acordada", tx.rate],
+    ["Medio de pago", tx.method], ["Lugar de encuentro", tx.place],
+    ["Condición de billetes", tx.banknoteCondition], ["Referencia de mercado", tx.referenceUsed],
+    ["Calificación", tx.rating ? tx.rating + " de 5 estrellas" : null],
+    ["Verificación presencial", tx.verifyCode ? `Códigos de encuentro verificados (${tx.verifyCode})` : null]
+  ].filter(r => r[1]);
+  let y = H - 215;
+  rows.forEach(r => {
+    const ls = wrap(r[1], 52);
+    text(40, y, 10.5, r[0], { rgb:gray });
+    ls.forEach((l, i) => text(215, y - i * 14, 11.5, l, { bold:true }));
+    y -= 14 * ls.length + 8;
+    line(40, y + 4, W - 40, lineC);
+    y -= 14;
+  });
+
+  // Total
+  y -= 6;
+  rect(40, y - 52, W - 80, 62, green);
+  text(58, y - 18, 11, "Total acordado en pesos colombianos", { rgb:mint });
+  text(58, y - 42, 22, tx.totalCop || "", { bold:true, rgb:[1, 1, 1] });
+  y -= 92;
+
+  // Nota
+  if(tx.note){ wrap(tx.note, 90).forEach(l => { text(40, y, 10.5, l, { rgb:gray }); y -= 14; }); y -= 6; }
+
+  // Aviso
+  rect(40, 60, W - 80, 62, [1, 0.97, 0.9]);
+  wrap("Aviso: este comprobante fue emitido en el entorno académico de pruebas de Trade4Cash S.A.S. No es un recibo bancario oficial ni certifica depósitos financieros reales. Trade4Cash no recibe ni custodia dinero.", 100)
+    .forEach((l, i) => text(52, 106 - i * 14, 9.5, l, { rgb:[0.47, 0.32, 0.03] }));
+  text(40, 36, 9, "Trade4Cash S.A.S. - Bogotá D.C., Colombia - trade4cash.atencioncliente@gmail.com", { rgb:gray });
+
+  // Armado del PDF (binario, Latin-1)
+  const stream = ops.join("\n");
+  const objs = [
+    "<< /Type /Catalog /Pages 2 0 R >>",
+    "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+    `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${W} ${H}] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>`,
+    "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>",
+    "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>",
+    `<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`
+  ];
+  let pdf = "%PDF-1.4\n"; const offs = [];
+  objs.forEach((o, i) => { offs.push(pdf.length); pdf += `${i + 1} 0 obj\n${o}\nendobj\n`; });
+  const xref = pdf.length;
+  pdf += `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n` + offs.map(o => String(o).padStart(10, "0") + " 00000 n \n").join("");
+  pdf += `trailer\n<< /Size ${objs.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`;
+  const bytes = new Uint8Array(pdf.length);
+  for(let i = 0; i < pdf.length; i++) bytes[i] = pdf.charCodeAt(i) & 255;
+  return new Blob([bytes], { type:"application/pdf" });
+}
+
+async function downloadReceiptPDF(tx){
+  if(!tx) return;
+  const blob = buildReceiptPDF(tx), name = `Comprobante-${tx.id}.pdf`;
+  // En la página publicada, el visor entrega el archivo con su propia confirmación
+  try {
+    const dl = window.claude && window.claude.use ? await window.claude.use("downloads") : null;
+    if(dl){
+      try { await dl.save({ filename: name, data: blob }); toast("✓ Comprobante descargado."); }
+      catch(e){ if(e && e.code !== "declined") toast("No se pudo descargar el comprobante."); }
+      return;
+    }
+  } catch{}
+  // Abierto como archivo en el computador: descarga directa
+  const url = URL.createObjectURL(blob), a = document.createElement("a");
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+  toast("✓ Comprobante descargado.");
+}
+
+document.addEventListener("click", ev => {
+  const el = ev.target.closest("[data-pdf]");
+  if(!el) return;
+  const k = el.dataset.pdf;
+  if(k === "flow") downloadReceiptPDF(state.flowTx);
+  else if(k === "sim") downloadReceiptPDF(Object.assign({}, state.activeSimTx, { status:"Completada", referenceUsed:"Tasa de referencia oficial (margen +/-5 %)" }));
+  else downloadReceiptPDF(state.transactions.find(t => t.id === k));
 });
 
 // INICIALIZACIÓN
