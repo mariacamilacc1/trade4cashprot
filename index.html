@@ -1186,6 +1186,8 @@ textarea.field{resize:vertical;font-family:inherit}
 .ally-badge{position:absolute;top:14px;right:14px;background:#fff0c2;color:#7a5a00;font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px}
 .ally-steps{display:grid;gap:8px;padding-left:20px;line-height:1.5}
 @media (max-width:820px){.rule-grid{grid-template-columns:1fr}}
+.code-locked b{letter-spacing:6px;opacity:.55}
+.flow-card .btn[disabled]{opacity:.5;cursor:not-allowed}
 </style>
 </head>
 <body>
@@ -5158,7 +5160,7 @@ function chatSend(text){
   } else if(state.flow && state.flow.mode === "digital"){
     reply = "Dale. Inicia el pago digital con el botón y te confirmo cuando lo reciba.";
   } else if(intent === "presencial"){
-    reply = `¡Listo, entonces presencial! Nos vemos en ${c.place}. Llevo los billetes revisados. Abajo te dejo tu código de encuentro; muéstralo solo cuando estemos frente a frente.`;
+    reply = `¡Listo, entonces presencial! Nos vemos en ${c.place}. Llevo los billetes revisados. Agenda la cita abajo y ahí te aparece tu código de encuentro; muéstralo solo cuando estemos frente a frente.`;
     next = { mode:"presencial", step:1, myCode:newCode(), theirCode:newCode(), checks:[false,false,false], entered:"", error:"" };
   } else if(intent === "digital"){
     const pay = (c.payments || []).find(p => !/efectivo/i.test(p)) || "pago digital";
@@ -5342,7 +5344,11 @@ const _chatFlowBase = chatFlowHTML;
 chatFlowHTML = function(c){
   let html = _chatFlowBase(c); const f = state.flow;
   if(f && f.mode === "presencial"){
-    if(f.step === 1) html = html.replace('<button class="btn green block" data-flow-arrive>', seguroHTML(c, f) + '<button class="btn green block" data-flow-arrive>');
+    if(f.step === 1){
+      const arrive = f.appt ? '<button class="btn green block" data-flow-arrive>' : '<button class="btn green block" data-flow-arrive disabled title="Primero agenda la cita">';
+      html = html.replace('<button class="btn green block" data-flow-arrive>', seguroHTML(c, f) + arrive);
+      if(!f.appt) html = html.replace(/<div class="code-box">[\s\S]*?<\/div>/, '<div class="code-box code-locked"><small>Tu código de encuentro</small><b>••• •••</b><em>Aparece cuando agendes la cita.</em></div>');
+    }
     if(f.step === 4){
       const blk = f.doneNotice ? `<div class="safe-confirmed" style="margin-top:12px">✓ Avisaste que terminaste. ${esc(c.name.split(" ")[0])} ya lo sabe.</div>`
         : `<button class="btn light block" style="margin-top:12px" type="button" data-safe-done>👋 Avisar que ya terminé</button>`;
@@ -5467,6 +5473,47 @@ function aliados(){
   <section class="panel"><h3>¿Cómo se activa una alianza?</h3>
     <ol class="ally-steps"><li><b>Conversamos</b> con la empresa y definimos el beneficio.</li><li><b>Firmamos</b> un acuerdo por escrito.</li><li><b>Publicamos</b> el beneficio en Puntos y en Academy, con su nombre.</li></ol></section>`;
 }
+
+// ===== T4C v5 · LAS OFERTAS DE EJEMPLO SIGUEN A LA TASA OFICIAL DEL DÍA =====
+// Las ofertas de ejemplo se escribieron con una TRM fija. Cuando llega la TRM real, guardamos
+// la diferencia de cada oferta frente a la referencia (p. ej. +0,5 %) y la recalculamos con
+// la referencia vigente, así ninguna queda fuera del ±15 % por un cambio del mercado.
+const REB_STATIC = {}; Object.keys(referenceRates).forEach(k => { REB_STATIC[k] = referenceRates[k].rate; });
+function rebNum(s){ const m = String(s).match(/\d[\d.,]*/); return m ? { m:m[0], v:Number(m[0].replace(/\./g, "").replace(",", ".")) } : null; }
+function rebRateStr(orig, cur, v){
+  if(cur === "Yen Japonés"){ const t = v.toFixed(1); return "$" + (String(orig).includes(",") ? t.replace(".", ",") : t) + " COP"; }
+  return "$" + fmt(Math.round(v)) + " COP";
+}
+function rebInit(list, isPost){
+  list.forEach(o => {
+    if(o.own || o._reb) return;
+    const cur = isPost ? o.currency : rateCur(o), key = refKeyFor(cur), ref0 = REB_STATIC[key], rate0 = parseRate(o.rate, cur);
+    if(!(ref0 > 0) || !(rate0 > 0) || key === "Pesos Colombianos") return;
+    o._reb = { off: rate0 / ref0 - 1, rate0, orig: o.rate, want0: isPost ? null : rebNum(o.want), wantStr: o.want, cur, key };
+  });
+}
+function rebApply(list){
+  list.forEach(o => {
+    const r = o._reb; if(!r) return;
+    const ref = referenceRates[r.key] && referenceRates[r.key].rate; if(!(ref > 0)) return;
+    const nv = ref * (1 + r.off);
+    o.rate = rebRateStr(r.orig, r.cur, nv);
+    if(r.want0){
+      const k = nv / r.rate0, isCOP = o.currency === "Pesos Colombianos";
+      const val = isCOP ? r.want0.v / k : r.want0.v * k;
+      o.want = r.wantStr.replace(r.want0.m, fmt(Math.round(val)));
+    }
+  });
+}
+function rebaseRates(){
+  if(!window._rebDone){ rebInit(seedOffers, false); rebInit(state.posts || [], true); window._rebDone = true; }
+  rebApply(seedOffers); rebApply(state.posts || []);
+}
+rebaseRates();
+const _renderReb = render;
+render = function(){ rebaseRates(); _renderReb(); };
+const _setTRMReb = setTRM;
+setTRM = function(record, stale){ _setTRMReb(record, stale); rebaseRates(); };
 
 
 // ===== T4C v4.3 · COMPROBANTE EN PDF (sin librerías: funciona sin internet) =====
