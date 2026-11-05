@@ -10,7 +10,9 @@ const path = require("path");
 
 const PORT = Number(process.env.PORT) || 3000;
 const KEY = process.env.GEMINI_API_KEY || "";
-const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+// Modelos a probar, en orden. Si uno responde 404 (no existe o no está disponible para tu llave), pasa al siguiente.
+const MODELS = [process.env.GEMINI_MODEL, "gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash"].filter((m, i, a) => m && a.indexOf(m) === i);
+let MODEL = MODELS[0];
 const LIMIT = Number(process.env.RATE_LIMIT_PCT) || 15;
 const PUBLIC = path.join(__dirname, "public");
 
@@ -83,12 +85,19 @@ async function gemini(system, history, message){
     .filter(m => m && typeof m.text === "string")
     .map(m => ({ role: m.role === "model" || m.mine === false ? "model" : "user", parts: [{ text: String(m.text).slice(0, 2000) }] }));
   contents.push({ role: "user", parts: [{ text: message }] });
-  const r = await fetch(`${process.env.GEMINI_BASE || "https://generativelanguage.googleapis.com"}/v1beta/models/${encodeURIComponent(MODEL)}:generateContent`, {
-    method: "POST", signal: AbortSignal.timeout(25000),
-    headers: { "Content-Type": "application/json", "x-goog-api-key": KEY },
-    body: JSON.stringify({ system_instruction: { parts: [{ text: system }] }, contents, generationConfig: { temperature: 0.7, maxOutputTokens: 900 } })
-  });
-  if(!r.ok) throw new Error("gemini " + r.status);
+  const body = JSON.stringify({ system_instruction: { parts: [{ text: system }] }, contents, generationConfig: { temperature: 0.7, maxOutputTokens: 2048 } });
+  const order = [MODEL].concat(MODELS.filter(m => m !== MODEL));
+  let r = null, last = 0;
+  for(const m of order){
+    r = await fetch(`${process.env.GEMINI_BASE || "https://generativelanguage.googleapis.com"}/v1beta/models/${encodeURIComponent(m)}:generateContent`, {
+      method: "POST", signal: AbortSignal.timeout(25000),
+      headers: { "Content-Type": "application/json", "x-goog-api-key": KEY }, body
+    });
+    last = r.status;
+    if(r.ok){ if(m !== MODEL){ console.log("Modelo activo: " + m); MODEL = m; } break; }
+    if(r.status !== 404) break;
+  }
+  if(!r.ok) throw new Error("gemini " + last);
   const j = await r.json();
   const txt = j && j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts && j.candidates[0].content.parts.map(p => p.text || "").join("").trim();
   if(!txt) throw new Error("respuesta vacía");
