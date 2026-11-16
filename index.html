@@ -1704,6 +1704,10 @@ background:linear-gradient(#0a5a42,#0a5a42) padding-box,linear-gradient(120deg,#
 .zeta-bot-avatar{width:48px;height:48px;border:2px solid #a4dfbd;background:radial-gradient(circle at 35% 30%,#f2fff8,#c9f0dc)}
 .zeta-bot-avatar img{width:36px;height:42px}
 .zeta-msg-row{gap:10px}
+.zeta-fab{overflow:hidden}
+.zp2 .za{width:46px;height:46px;margin-top:0;background:radial-gradient(circle at 35% 30%,#f2fff8,#c9f0dc)}
+.zp2 .za img{width:32px;height:40px}
+.zp2 .zm{gap:10px}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -6260,7 +6264,7 @@ setTRM = function(record, stale){ _setTRMReb(record, stale); rebaseRates(); };
   }
 
   // ---------- Instancias ----------
-  const FRAMES = { full: { fov: 30, z: 10.6, y: -.18 }, bust: { fov: 30, z: 6.1, y: .55 }, head: { fov: 30, z: 5.3, y: 1.1 } };
+  const FRAMES = { full: { fov: 30, z: 10.6, y: -.18 }, bust: { fov: 30, z: 6.1, y: .55 }, fab: { fov: 30, z: 9.8, y: .5 }, head: { fov: 30, z: 5.3, y: 1.1 } };
   const instances = [];
   const mouse = { x: 0, y: 0, has: false };
   addEventListener("pointermove", e => { mouse.x = e.clientX; mouse.y = e.clientY; mouse.has = true; }, { passive: true });
@@ -6351,7 +6355,7 @@ setTRM = function(record, stale){ _setTRMReb(record, stale); rebaseRates(); };
 
   // ---------- Montaje: reemplaza las imágenes PNG de Zeta cuando existen ----------
   const TARGETS = [
-    { sel: "#zetaFab img.zeta-image", cfg: { w: 60, h: 60, frame: "bust", style: "margin:auto" } },
+    { sel: "#zetaFab img.zeta-image", cfg: { w: 58, h: 58, frame: "fab", style: "margin:auto" } },
     { sel: ".zeta-head-avatar img", cfg: { w: 54, h: 54, frame: "head" } },
     { sel: ".hist-zeta img", cfg: { w: 200, h: 236, frame: "full", pose: "present", style: "margin:0 auto" } },
     { sel: "#welcome .zeta-welcome-img", cfg: { w: 220, h: 250, frame: "full", style: "margin:0 auto 4px" } }
