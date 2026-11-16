@@ -129,6 +129,25 @@ const server = http.createServer(async (req, res) => {
   try{
     const url = new URL(req.url, "http://x");
     if(req.method === "GET" && url.pathname === "/api/health") return send(res, 200, { ok:true, ai: Boolean(KEY), model: MODEL, limitPct: LIMIT });
+    if(req.method === "GET" && url.pathname === "/api/diag"){
+      // Diagnóstico de Zeta: dice por qué Gemini responde o no (sin mostrar la clave)
+      const base = process.env.GEMINI_BASE || "https://generativelanguage.googleapis.com";
+      const out = { ai: Boolean(KEY), keyChars: KEY ? KEY.length : 0, modelo: MODEL, disponibles: null, pruebas: [] };
+      if(!KEY) return send(res, 200, Object.assign(out, { pista: "Falta GEMINI_API_KEY: agrégala en Render > Environment y vuelve a desplegar." }));
+      try{
+        const r = await fetch(base + "/v1beta/models?pageSize=100", { headers: { "x-goog-api-key": KEY }, signal: AbortSignal.timeout(15000) });
+        const j = await r.json().catch(() => ({}));
+        out.disponibles = { http: r.status, error: j.error && j.error.message, modelos: (j.models || []).filter(m => (m.supportedGenerationMethods || []).includes("generateContent")).map(m => m.name.replace("models/", "")).slice(0, 40) };
+      }catch(e){ out.disponibles = { error: String(e.message) }; }
+      for(const m of [MODEL].concat(MODELS.filter(x => x !== MODEL)).slice(0, 4)){
+        try{
+          const r = await fetch(`${base}/v1beta/models/${encodeURIComponent(m)}:generateContent`, { method: "POST", signal: AbortSignal.timeout(20000), headers: { "Content-Type": "application/json", "x-goog-api-key": KEY }, body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: "Responde solo: ok" }] }] }) });
+          const j = await r.json().catch(() => ({}));
+          out.pruebas.push({ modelo: m, http: r.status, error: j.error && j.error.message, respuesta: j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts && j.candidates[0].content.parts[0] && j.candidates[0].content.parts[0].text });
+        }catch(e){ out.pruebas.push({ modelo: m, error: String(e.message) }); }
+      }
+      return send(res, 200, out);
+    }
     if(req.method === "POST" && url.pathname === "/api/chat"){
       const ip = (req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim();
       if(limited(ip)) return send(res, 429, { error:"Demasiados mensajes. Espera un momento." });
