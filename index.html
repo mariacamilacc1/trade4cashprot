@@ -1373,6 +1373,22 @@ h3{font-weight:700}
 .hist-zeta{width:200px;margin:-14px -10px 0 8px}
 .hist-bubble{left:-92px;top:6px}
 @media(max-width:760px){.car-btn{display:none}.hist-zeta{width:130px}.hist-zeta img{width:130px}}
+.act-card{width:190px;background:#fff;border:2px solid var(--line);border-radius:24px;padding:20px 16px;display:grid;justify-items:center;gap:6px;text-align:center;position:relative;transition:transform .3s,box-shadow .3s}
+.act-card:hover{transform:translateY(-8px);box-shadow:0 18px 34px #064b3829}
+.act-card.r1{background:linear-gradient(170deg,#fff7d6,#fff);border-color:#f2cf55}.act-card.r2{background:linear-gradient(170deg,#eef2f5,#fff);border-color:#c3ccd4}.act-card.r3{background:linear-gradient(170deg,#fbeadb,#fff);border-color:#dba777}
+.act-rank{position:absolute;left:12px;top:10px;font:800 18px var(--f-head);color:#4f6b5d}
+.act-card h3{margin:2px 0 0;font-size:17px}.act-n{color:#4f6b5d;font-size:14px}.act-n b{font:800 34px var(--f-head);color:var(--deep);margin-right:2px}
+.act-bar{width:100%;height:9px;border-radius:9px;background:#e3efe8;overflow:hidden}.act-bar span{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#14a373,#75e6a5);animation:t4cGrow 1.2s both;transform-origin:left}
+.act-card small{font-weight:700;color:#086b4f}
+.act-card{width:210px;background:#fff;border:2px solid var(--line);border-radius:24px;padding:18px 16px;display:grid;justify-items:center;gap:6px;position:relative;text-align:center;transition:transform .3s,box-shadow .3s}
+.act-card:hover{transform:translateY(-8px);box-shadow:0 18px 34px #064b3829}
+.act-card.top{background:linear-gradient(170deg,#e8f8ef,#fff);border-color:#9fe3c0}
+.act-rank{position:absolute;left:12px;top:10px;font:800 22px var(--f-head);color:#14a373}
+.act-card h3{margin:0;font-size:17px}.act-n{color:#4f6b5d;font-size:14px}.act-n b{font:800 30px var(--f-head);color:var(--deep);margin-right:4px}
+.act-bar{width:100%;height:9px;border-radius:9px;background:#e1efe7;overflow:hidden}
+.act-bar span{display:block;height:100%;width:var(--w);border-radius:9px;background:linear-gradient(90deg,#14a373,#75e6a5);animation:t4cGrow 1.2s cubic-bezier(.2,.8,.2,1) both;transform-origin:left}
+.act-card small{color:#5c7a6b;font-weight:600}
+.act-car .car-track{padding-top:12px}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -6011,7 +6027,7 @@ const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg
   const _about = about;
   about = function(){
     return _about.apply(this, arguments).replace('<h2>Nuestra historia</h2>',
-      '<div class="hist-zeta"><img src="zeta-robot.png" alt="Zeta"><span class="hist-bubble">¡Hola! Soy Zeta 👋</span></div><span class="kicker light">Cómo empezó</span><h2>Nuestra historia</h2>');
+      '<div class="hist-zeta"><img src="zeta-robot.png" alt="Zeta"></div><span class="kicker light">Cómo empezó</span><h2>Nuestra historia</h2>');
   };
 
   // --- Mercado: carrusel de divisas con banderas ---
@@ -6034,7 +6050,14 @@ const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg
     h = h.replace(/<section class="market-hero">[\s\S]*?<\/section>/, hero);
     h = h.replace(/<div style="min-width:240px">[\s\S]*?<\/select>\s*<\/div>/, "");
     h = h.replace("Selecciona una divisa para inspeccionar su cotización regulada oficial:", "Tasa regulada de la divisa que elegiste arriba:");
-    h = h.replace(/<!-- GRID DE TODAS[\s\S]*?(?=<!-- CONVERSOR)/, "");
+    const cnt = {}; seedOffers.forEach(o => { cnt[o.currency] = (cnt[o.currency] || 0) + 1; });
+    const rank = Object.entries(cnt).sort((a, b) => b[1] - a[1]), mx = rank[0][1];
+    const act = rank.map(([n, c], i) => { const d = referenceRates[n] || {}, pct = Math.round(c / seedOffers.length * 100);
+      return `<article role="listitem" class="act-card r${i < 3 ? i + 1 : 0}"><span class="act-rank">${i < 3 ? ["🥇","🥈","🥉"][i] : "#" + (i + 1)}</span>
+        <span class="mk-flag">${t4cFlag(d.flag || "🏳️", 80)}</span><h3>${n}</h3><div class="act-n"><b>${c}</b> ofertas</div>
+        <div class="act-bar"><span style="width:${Math.max(8, Math.round(c / mx * 100))}%"></span></div><small>${pct}% de la actividad</small></article>`; }).join("");
+    const actSec = `<div class="section-title"><h2>Monedas con mayor actividad</h2><p>Lo que más se está cambiando hoy en Trade4Cash.</p></div>${carousel("act-car", act, "Actividad")}`;
+    h = h.replace(/<section class="panel">\s*<div class="panel-title">[\s\S]*?Monedas con Mayor[\s\S]*?<\/section>/, actSec);
     return h;
   };
 
