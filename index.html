@@ -1389,6 +1389,41 @@ h3{font-weight:700}
 .act-bar span{display:block;height:100%;width:var(--w);border-radius:9px;background:linear-gradient(90deg,#14a373,#75e6a5);animation:t4cGrow 1.2s cubic-bezier(.2,.8,.2,1) both;transform-origin:left}
 .act-card small{color:#5c7a6b;font-weight:600}
 .act-car .car-track{padding-top:12px}
+
+/* ===== v7c ===== */
+.mk-hero{padding:44px 6% 0!important}.mk-hero .sub{margin:0 0 28px!important}
+.tk b{display:inline-flex;align-items:center;gap:6px}.tk .flag-img{width:20px;height:14px;border-radius:2px}.tk .flag-emo{font-size:15px}
+.mk-pick{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.mk-search{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--line);border-radius:99px;padding:10px 16px;min-width:min(300px,100%);color:#086b4f;transition:border-color .2s,box-shadow .2s}
+.mk-search:focus-within{border-color:#14a373;box-shadow:0 0 0 4px #75e6a533}
+.mk-search input{border:0;outline:0;background:transparent;font:600 15px var(--f-body);color:var(--deep);width:100%}
+.mk-none{align-self:center;color:#4f6b5d;font-weight:600;padding:20px}
+/* calculadora */
+.cv{border-radius:30px;padding:30px;margin:28px 0;background:linear-gradient(135deg,#053b2d,#0b6a4d 60%,#14a373);color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.cv::after{content:"$";position:absolute;right:26px;top:-34px;font:800 190px/1 var(--f-head);color:#ffffff10;pointer-events:none}
+.cv-head h2{color:#fff;margin:0 0 4px;font-size:clamp(26px,3.4vw,34px)}.cv-head p{margin:0 0 20px;color:#cdeedd}
+.cv .kicker{background:#ffffff22;color:#d9fbe9}
+.cv-row{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;position:relative;z-index:1}
+.cv-box{background:#ffffff;color:var(--deep);border-radius:22px;padding:18px 20px;display:grid;gap:10px;box-shadow:0 14px 30px #0003}
+.cv-box.out{background:#e9fbf1}
+.cv-box label{font:700 12px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#4f6b5d}
+.cv-amt{border:0;outline:0;background:transparent;font:800 clamp(34px,5vw,48px) var(--f-head);color:var(--deep);width:100%;letter-spacing:-.03em;padding:0}
+.cv-res{font:800 clamp(34px,5vw,48px)/1.1 var(--f-head);color:#086b4f;letter-spacing:-.03em;animation:t4cPop .4s both;word-break:break-all}.cv-res span{font-size:18px;margin-left:8px;color:#14a373;letter-spacing:.05em}
+.cv-line{display:flex;align-items:center;gap:10px;background:#f2f8f4;border-radius:14px;padding:8px 12px}
+.cv-box.out .cv-line{background:#fff}
+.cv-flag{width:30px;height:22px;border-radius:4px;overflow:hidden;display:grid;place-items:center;flex:none}.cv-flag .flag-img{border-radius:4px}.cv-flag .flag-emo{font-size:20px}
+.cv-sel{border:0;background:transparent;font:700 15px var(--f-body);color:var(--deep);width:100%;outline:0;cursor:pointer}
+.cv-chips{display:flex;gap:8px;flex-wrap:wrap}.cv-chips button{border:0;background:#e3f6ec;color:#086b4f;font:700 13px var(--f-body);padding:6px 14px;border-radius:99px;cursor:pointer;transition:transform .2s,background .2s}.cv-chips button:hover{background:#75e6a5;transform:translateY(-2px)}
+.cv-swap{width:52px;height:52px;border-radius:50%;border:0;background:#75e6a5;color:#053b2d;font:800 24px var(--f-head);cursor:pointer;box-shadow:0 8px 20px #0004;transition:transform .4s}.cv-swap:hover{transform:rotate(180deg) scale(1.08)}
+.cv-rate{font-size:13.5px;font-weight:600;color:#4f6b5d}
+.cv-foot{text-align:center;margin-top:20px;position:relative;z-index:1}
+@media(max-width:760px){.cv{padding:20px}.cv-row{grid-template-columns:1fr}.cv-swap{justify-self:center;transform:rotate(90deg)}.cv-swap:hover{transform:rotate(270deg)}}
+/* puntos: cómo ganar más */
+.earn-car .earn{width:290px;min-height:200px;display:grid!important;grid-template-columns:1fr!important;justify-items:start;align-content:start;gap:8px;padding:20px;background:#fff;border:2px solid var(--line);border-radius:24px}
+.earn-car .earn:hover{transform:translateY(-8px)}
+.earn-car .earn-ico{width:54px;height:54px;font-size:28px}
+.earn-car .earn b{font:700 18px var(--f-head);color:var(--deep)}.earn-car .earn small{display:block;color:#5c7a6b;margin-top:4px;line-height:1.45}
+.earn-car .earn-pts{grid-column:auto!important;text-align:left!important;font:800 26px var(--f-head);color:#086b4f;margin-top:auto}.earn-car .earn-pts em{display:block;font:600 12px var(--f-body);color:#14a373}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -6030,6 +6065,42 @@ const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg
       '<div class="hist-zeta"><img src="zeta-robot.png" alt="Zeta"></div><span class="kicker light">Cómo empezó</span><h2>Nuestra historia</h2>');
   };
 
+  // fuentes de las tasas: Morningstar
+  Object.values(referenceRates).forEach(d => { d.source = "Morningstar"; d.url = "https://www.morningstar.com/"; });
+  const _home = home;
+  home = function(){ return _home.apply(this, arguments).replace(/<a href="https:\/\/www\.datos\.gov\.co[^>]*>Fuente: Superintendencia Financiera<\/a>/, '<a href="https://www.morningstar.com/" target="_blank" rel="noopener">Fuente: Morningstar</a>'); };
+
+  // --- Calculadora rediseñada ---
+  const opts = sel => Object.keys(referenceRates).map(k => `<option ${k === sel ? "selected" : ""}>${k}</option>`).join("");
+  const flagOf = k => t4cFlag((referenceRates[k] || {}).flag || "💱", 40);
+  function converterHTML(){
+    const c = state.marketCalc;
+    return `<section class="cv"><div class="cv-head"><span class="kicker">Conversor</span><h2>Calculadora de divisas</h2><p>Un estimado rápido con las tasas de referencia, sin comisiones.</p></div>
+      <div class="cv-row">
+        <div class="cv-box"><label for="calcAmount">Tengo</label>
+          <input class="cv-amt" type="number" id="calcAmount" value="${c.amount}" min="1" inputmode="decimal">
+          <div class="cv-line"><span class="cv-flag" id="cvFlagFrom">${flagOf(c.from)}</span><select class="cv-sel" id="calcFrom" aria-label="Moneda de origen">${opts(c.from)}</select></div>
+          <div class="cv-chips">${[50, 100, 500, 1000].map(n => `<button type="button" data-cvamt="${n}">${n}</button>`).join("")}</div></div>
+        <button class="cv-swap" id="cvSwap" type="button" aria-label="Intercambiar monedas">⇄</button>
+        <div class="cv-box out"><label>Recibo aproximadamente</label>
+          <div class="cv-res" id="calcResultDisplay" aria-live="polite">…</div>
+          <div class="cv-line"><span class="cv-flag" id="cvFlagTo">${flagOf(c.to)}</span><select class="cv-sel" id="calcTo" aria-label="Moneda de destino">${opts(c.to)}</select></div>
+          <div class="cv-rate" id="cvRate"></div></div>
+      </div>
+      <div class="cv-foot"><button class="btn green" id="btnConverterToSell" type="button">Iniciar oferta con esta divisa →</button></div></section>`;
+  }
+  updateConverterDisplay = function(){
+    const d = document.getElementById("calcResultDisplay"); if(!d) return;
+    const amt = Number(document.getElementById("calcAmount")?.value || state.marketCalc.amount || 100);
+    const from = document.getElementById("calcFrom")?.value || state.marketCalc.from, to = document.getElementById("calcTo")?.value || state.marketCalc.to;
+    const rf = (referenceRates[from] || {}).rate || 1, rt = (referenceRates[to] || {}).rate || 1, res = amt * rf / rt;
+    Object.assign(state.marketCalc, { amount: amt, from, to });
+    const cf = document.getElementById("cvFlagFrom"), ct = document.getElementById("cvFlagTo"); if(cf) cf.innerHTML = flagOf(from); if(ct) ct.innerHTML = flagOf(to);
+    const code = (referenceRates[to] || {}).code || "";
+    d.innerHTML = `<b>${to === "Pesos Colombianos" ? "$" + fmt(res) : fmt(res.toFixed(2))}</b><span>${code}</span>`;
+    const r = document.getElementById("cvRate"); if(r) r.textContent = `1 ${(referenceRates[from] || {}).code} = ${(rf / rt).toLocaleString("es-CO", { maximumSignificantDigits: 3 })} ${code}`;
+  };
+
   // --- Mercado: carrusel de divisas con banderas ---
   const flagCode = e => { const cp = [...e].map(c => c.codePointAt(0)); return cp.length === 2 && cp.every(x => x >= 0x1F1E6 && x <= 0x1F1FF) ? cp.map(x => String.fromCharCode(x - 0x1F1E6 + 97)).join("") : ""; };
   window.t4cFlag = (e, w) => { const c = flagCode(e); return c ? `<img class="flag-img" src="https://flagcdn.com/w${w || 80}/${c}.png" alt="${e}" loading="lazy" onerror="this.outerHTML='<span class=flag-emo>${e}</span>'">` : `<span class="flag-emo">${e}</span>`; };
@@ -6042,18 +6113,24 @@ const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg
       <button type="button" role="listitem" class="mk-card ${n === sel ? "on" : ""}" data-mkcur="${n}">
         <span class="mk-flag">${t4cFlag(d.flag, 80)}</span><b>${d.code}</b><small>${n}</small><em>$${fmt(d.rate)}</em><i>COP</i>
       </button>`).join("");
+    const tick = Object.entries(referenceRates).filter(([k]) => k !== "Pesos Colombianos").map(([n, d]) => `<span class="tk"><b>${t4cFlag(d.flag, 40)} ${d.code}</b> $${fmt(d.rate)}</span>`).join("");
     const hero = `<section class="market-hero mk-hero"><span class="kicker light"><i class="live"></i> Tasas de referencia</span>
       <h1>Mercado de Divisas</h1><p class="sub">Elige una moneda, mira su tasa oficial y conviértela al instante.</p>
-      <div class="mk-float" aria-hidden="true"><i>$</i><i>€</i><i>£</i><i>¥</i><i>$</i></div></section>
-      <div class="section-title"><h2>Elige una divisa</h2><p>Desliza o usa las flechas. Toca una tarjeta para ver su tasa oficial.</p></div>
+      <div class="mk-float" aria-hidden="true"><i>$</i><i>€</i><i>£</i><i>¥</i><i>$</i></div>
+      <div class="ticker"><div class="ticker-track">${tick}${tick}</div></div></section>
+      <div class="section-title mk-pick"><div><h2>Elige una divisa</h2><p>Desliza, usa las flechas o búscala por nombre o código.</p></div>
+        <label class="mk-search"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="mkSearch" type="search" placeholder="Buscar: USD, euro, peso…" autocomplete="off" aria-label="Buscar divisa"></label></div>
       ${carousel("mk-car", cards, "Divisas")}`;
     h = h.replace(/<section class="market-hero">[\s\S]*?<\/section>/, hero);
     h = h.replace(/<div style="min-width:240px">[\s\S]*?<\/select>\s*<\/div>/, "");
+    h = h.replace("Verificador Oficial de Tasa de Referencia / TRM", "TRM (Tasas Representativas del Mercado) para Colombia").replace("<strong>Fuente oficial:</strong>", "<strong>Fuente:</strong>");
+    h = h.replace(/<!-- GRID DE TODAS[\s\S]*?(?=<!-- CONVERSOR)/, "");
+    h = h.replace(/<section class="converter-card">[\s\S]*?<\/section>/, converterHTML());
     h = h.replace("Selecciona una divisa para inspeccionar su cotización regulada oficial:", "Tasa regulada de la divisa que elegiste arriba:");
     const cnt = {}; seedOffers.forEach(o => { cnt[o.currency] = (cnt[o.currency] || 0) + 1; });
     const rank = Object.entries(cnt).sort((a, b) => b[1] - a[1]), mx = rank[0][1];
     const act = rank.map(([n, c], i) => { const d = referenceRates[n] || {}, pct = Math.round(c / seedOffers.length * 100);
-      return `<article role="listitem" class="act-card r${i < 3 ? i + 1 : 0}"><span class="act-rank">${i < 3 ? ["🥇","🥈","🥉"][i] : "#" + (i + 1)}</span>
+      return `<article role="listitem" class="act-card r${i < 3 ? i + 1 : 0}"><span class="act-rank">#${i + 1}</span>
         <span class="mk-flag">${t4cFlag(d.flag || "🏳️", 80)}</span><h3>${n}</h3><div class="act-n"><b>${c}</b> ofertas</div>
         <div class="act-bar"><span style="width:${Math.max(8, Math.round(c / mx * 100))}%"></span></div><small>${pct}% de la actividad</small></article>`; }).join("");
     const actSec = `<div class="section-title"><h2>Monedas con mayor actividad</h2><p>Lo que más se está cambiando hoy en Trade4Cash.</p></div>${carousel("act-car", act, "Actividad")}`;
@@ -6062,6 +6139,8 @@ const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg
   };
 
   // --- Trade Points: encabezado tipo banner + estrellas ---
+  const _points0 = points;
+  points = function(){ return _points0.apply(this, arguments).replace(/<section class="earn-list">([\s\S]*?)<\/section>\s*(?=<div class="pts-demo">)/, (m, inner) => carousel("earn-car", inner, "Cómo ganar más")); };
   const _points = points;
   points = function(){
     let h = _points.apply(this, arguments);
@@ -6099,6 +6178,21 @@ const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg
     return r;
   };
 })();
+
+document.addEventListener("input", e => {
+  if(!e.target || e.target.id !== "mkSearch") return;
+  const n = x => x.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  const q = n(e.target.value.trim()); let shown = 0;
+  document.querySelectorAll(".mk-car .mk-card").forEach(c => { const ok = !q || n(c.textContent).includes(q); c.style.display = ok ? "" : "none"; if(ok) shown++; });
+  const t = document.querySelector(".mk-car .car-track"); let m = document.getElementById("mkNone");
+  if(!shown){ if(!m){ m = document.createElement("p"); m.id = "mkNone"; m.className = "mk-none"; m.textContent = "No encontramos esa divisa. Prueba con USD, EUR o MXN."; t.appendChild(m); } } else if(m) m.remove();
+  if(t) t.scrollLeft = 0;
+});
+document.addEventListener("click", e => {
+  const chip = e.target.closest && e.target.closest("[data-cvamt]");
+  if(chip){ document.getElementById("calcAmount").value = chip.dataset.cvamt; updateConverterDisplay(); return; }
+  if(e.target.closest && e.target.closest("#cvSwap")){ const a = document.getElementById("calcFrom"), b = document.getElementById("calcTo"); const v = a.value; a.value = b.value; b.value = v; updateConverterDisplay(); }
+});
 
 
 // ===== T4C v4.3 · COMPROBANTE EN PDF (sin librerías: funciona sin internet) =====
