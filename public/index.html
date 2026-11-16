@@ -1709,6 +1709,9 @@ background:linear-gradient(#0a5a42,#0a5a42) padding-box,linear-gradient(120deg,#
 .zp2 .za img{width:32px;height:40px}
 .zp2 .zm{gap:10px}
 .zeta-fab{width:76px!important;height:76px!important}
+.pts-rules .rule-card i.rule-art{width:76px;height:76px;border-radius:22px;background:linear-gradient(145deg,#f4fff8,#c9f0dc);display:grid;place-items:center;margin-bottom:8px;box-shadow:0 6px 14px #0a3b2d33}
+.pts-rules .rule-card i.rule-art svg{width:58px;height:58px}
+.rules-head .shield svg{display:block}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -4818,9 +4821,19 @@ function points(){
 
   <section class="panel pts-rules"><h3>🛡️ Reglas para cuidar a la comunidad</h3><p class="subtle">Así mantenemos los puntos justos para todos.</p>
     <div class="rule-grid">
-      ${[["🪪","Una cuenta por persona","Un documento = una cuenta. Teléfono y correo únicos."],["🤝","Una vez al mes por persona","Con la misma persona solo suma un intercambio cada 30 días."],["📆","Máximo 3 al día","Solo 3 intercambios con puntos por día."],["⏳","Reportado = puntos en pausa","Si un intercambio se reporta, sus puntos se retienen mientras se revisa."],["🚫","Los puntos no son dinero","No se compran, no se transfieren y no se cambian por dinero."],["🧪","Beneficios de demostración","Los beneficios de alianzas son de demostración en este prototipo."]].map(r => `<div class="rule-card"><i>${r[0]}</i><b>${r[1]}</b><span>${r[2]}</span></div>`).join("")}
+      ${[["id","Una cuenta por persona","Un documento = una cuenta. Teléfono y correo únicos."],["pair","Una vez al mes por persona","Con la misma persona solo suma un intercambio cada 30 días."],["day","Máximo 3 al día","Solo 3 intercambios con puntos por día."],["pause","Reportado = puntos en pausa","Si un intercambio se reporta, sus puntos se retienen mientras se revisa."],["coin","Los puntos no son dinero","No se compran, no se transfieren y no se cambian por dinero."],["gift","Beneficios de demostración","Los beneficios de alianzas son de demostración en este prototipo."]].map(r => `<div class="rule-card"><i class="rule-art">${RULE_ART[r[0]]}</i><b>${r[1]}</b><span>${r[2]}</span></div>`).join("")}
     </div></section>`;
 }
+
+
+const RULE_ART = {
+  id:'<svg viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="36" rx="6" fill="#fff4dc" stroke="#e0b565" stroke-width="2"/><circle cx="21" cy="29" r="7" fill="#f2c9a0"/><path d="M12 45c1-8 15-8 18 0z" fill="#19b58a"/><path d="M14 27c0-8 14-8 14 0-3-3-11-3-14 0z" fill="#5a3a22"/><rect x="35" y="24" width="17" height="3" rx="1.5" fill="#cfa856"/><rect x="35" y="31" width="13" height="3" rx="1.5" fill="#e3c887"/><rect x="35" y="38" width="9" height="3" rx="1.5" fill="#e3c887"/></svg>',
+  pair:'<svg viewBox="0 0 64 64"><circle cx="21" cy="24" r="8" fill="#f2c9a0"/><path d="M12 24c0-11 18-11 18 0-4-4-14-4-18 0z" fill="#3b2a20"/><path d="M6 50c1-12 30-12 30 0z" fill="#19b58a"/><circle cx="44" cy="26" r="7" fill="#e6b88a"/><path d="M37 25c1-9 14-9 14 0-3-3-11-3-14 0z" fill="#8a4b2a"/><path d="M34 50c1-10 24-10 24 0z" fill="#f2a64b"/><circle cx="32" cy="12" r="9" fill="#fff" stroke="#19b58a" stroke-width="2.5"/><text x="32" y="16" text-anchor="middle" font-family="Arial" font-weight="800" font-size="10" fill="#0a6a50">30</text></svg>',
+  day:'<svg viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="44" rx="8" fill="#fff" stroke="#c5d8cc" stroke-width="2"/><path d="M8 20a8 8 0 0 1 8-8h32a8 8 0 0 1 8 8v6H8z" fill="#e8574a"/><rect x="18" y="6" width="5" height="12" rx="2.5" fill="#7a2d26"/><rect x="41" y="6" width="5" height="12" rx="2.5" fill="#7a2d26"/><text x="32" y="50" text-anchor="middle" font-family="Arial" font-weight="900" font-size="24" fill="#0a6a50">3</text></svg>',
+  pause:'<svg viewBox="0 0 64 64"><path d="M16 8h32M16 56h32" stroke="#a9792f" stroke-width="5" stroke-linecap="round"/><path d="M19 10h26c0 12-8 15-8 22s8 10 8 22H19c0-12 8-15 8-22s-8-10-8-22z" fill="#e8fbff" stroke="#8fc9d6" stroke-width="2"/><path d="M23 12h18c-1 6-5 8-9 8s-8-2-9-8z" fill="#f2b84a"/><path d="M26 54c1-6 4-9 6-9s5 3 6 9z" fill="#f2b84a"/><circle cx="47" cy="45" r="11" fill="#e8574a"/><rect x="43" y="40" width="3.4" height="10" rx="1.5" fill="#fff"/><rect x="48.6" y="40" width="3.4" height="10" rx="1.5" fill="#fff"/></svg>',
+  coin:'<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="#f6c453" stroke="#d29a1f" stroke-width="3"/><circle cx="32" cy="32" r="15" fill="none" stroke="#e3a92a" stroke-width="2"/><text x="32" y="40" text-anchor="middle" font-family="Arial" font-weight="900" font-size="22" fill="#a56e0c">$</text><circle cx="32" cy="32" r="26" fill="none" stroke="#e8574a" stroke-width="5"/><path d="M14 50L50 14" stroke="#e8574a" stroke-width="5" stroke-linecap="round"/></svg>',
+  gift:'<svg viewBox="0 0 64 64"><rect x="9" y="26" width="46" height="30" rx="5" fill="#19b58a"/><rect x="6" y="18" width="52" height="12" rx="4" fill="#38d3a5"/><rect x="28" y="18" width="8" height="38" fill="#f6c453"/><path d="M32 18c-3-9-14-9-12-2 1 4 9 3 12 2zM32 18c3-9 14-9 12-2-1 4-9 3-12 2z" fill="#f2a64b"/></svg>'
+};
 
 function redeemPoints(id){
   const P = state.points; let item = null; PT_CATALOG.forEach(g => g.items.forEach(i => { if(i.id === id) item = i; }));
@@ -6521,7 +6534,7 @@ const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg
     h = h.replace(/(<h2>Historial<\/h2>[\s\S]*?<\/div>)\s*<section class="panel">[\s\S]*?<\/section>/, (m, a) => a + histHTML());
     h = h.replace(/(<div class="section-title"><h2>Canjea tus puntos<\/h2>[\s\S]*?<\/div>)[\s\S]*?(?=<div class="section-title"><h2>Tus lotes)/, (m, a) => a + redeemHTML());
     h = h.replace(/(<h2>Tus lotes y vencimientos<\/h2>[\s\S]*?<\/div>)\s*<section class="panel">[\s\S]*?<\/section>/, (m, a) => a + lotsHTML());
-    h = h.replace(/<h3>🛡️ Reglas para cuidar a la comunidad<\/h3>/, '<div class="rules-head"><span class="shield">🛡️</span><div><span class="kicker light">Confianza</span><h3>Reglas para cuidar a la comunidad</h3></div></div>');
+    h = h.replace(/<h3>🛡️ Reglas para cuidar a la comunidad<\/h3>/, '<div class="rules-head"><span class="shield"><svg viewBox="0 0 64 64" width="44" height="44"><path d="M32 6l22 8v16c0 14-9 24-22 28C19 54 10 44 10 30V14z" fill="#75e6a5"/><path d="M32 6l22 8v16c0 14-9 24-22 28z" fill="#19b58a"/><path d="M21 32l8 8 15-16" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><span class="kicker light">Confianza</span><h3>Reglas para cuidar a la comunidad</h3></div></div>');
     const head = `<section class="pts-banner"><span class="kicker light">Programa de confianza</span><h1>Trade Points</h1>
       <p class="sub">Gana puntos por cambiar con confianza y cánjealos por beneficios.</p>
       <div class="pts-stars" aria-hidden="true"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div></section>`;
