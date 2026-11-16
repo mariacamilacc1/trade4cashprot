@@ -1466,6 +1466,25 @@ h3{font-weight:700}
 .pts-rules .rule-card:hover{background:#ffffff24!important;transform:translateY(-6px)}
 @media(max-width:820px){.rw-card{width:240px}}
 .rw-car .car-track{align-items:stretch}
+/* ===== v7e · historial ===== */
+.hs-tickets{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin:8px 0 22px}
+.hs-ticket{display:flex;justify-content:space-between;align-items:stretch;background:#fff;border:2px dashed #9fe3c0;border-radius:22px;overflow:hidden;position:relative;transition:transform .3s,box-shadow .3s}
+.hs-ticket:hover{transform:translateY(-5px);box-shadow:0 16px 30px #064b3824}
+.hs-ticket>div{padding:16px 18px;display:grid;gap:3px;align-content:center}
+.hs-ticket small{color:#5c7a6b;font-weight:600;font-size:12.5px}.hs-ticket b{font:700 16px var(--f-head);color:var(--deep)}.hs-ticket span{color:#c0392b;font-weight:800}
+.hs-ticket button{border:0;border-left:2px dashed #9fe3c0;background:linear-gradient(160deg,#e8f8ef,#fff);padding:12px 16px;display:grid;gap:4px;align-content:center;justify-items:center;cursor:pointer;font:inherit}
+.hs-ticket button i{font:800 13px ui-monospace,monospace;font-style:normal;color:#086b4f;letter-spacing:.04em}.hs-ticket button em{font:700 11px var(--f-body);font-style:normal;color:#14a373;text-transform:uppercase;letter-spacing:.1em}
+.hs-line{list-style:none;margin:8px 0 26px;padding:0 0 0 26px;position:relative;display:grid;gap:12px}
+.hs-line::before{content:"";position:absolute;left:49px;top:10px;bottom:10px;width:3px;border-radius:3px;background:linear-gradient(#75e6a5,#e1efe7)}
+.hs-line li{display:grid;grid-template-columns:48px 1fr auto;align-items:center;gap:14px;background:#fff;border:2px solid var(--line);border-radius:20px;padding:12px 16px 12px 12px;position:relative;transition:transform .3s,box-shadow .3s}
+.hs-line li:hover{transform:translateX(8px);box-shadow:0 12px 26px #064b3820;border-color:#9fe3c0}
+.hs-dot{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:23px;background:#e3f6ec;box-shadow:0 0 0 5px #f4faf6;position:relative;z-index:1}
+.hs-line li.neg .hs-dot{background:#fde8e4}
+.hs-line small{display:block;color:#5c7a6b;font-weight:600;font-size:12.5px}.hs-line b{font:700 16px var(--f-head);color:var(--deep)}
+.hs-line em{font:800 22px var(--f-head);font-style:normal}.hs-line .pos em{color:#086b4f}.hs-line .neg em{color:#c0392b}
+@media(max-width:560px){.hs-line{padding-left:0}.hs-line::before{display:none}}
+.hs-line{padding-left:0!important}.hs-line::before{left:35px!important}
+.hs-ticket button i{white-space:nowrap}.hs-tickets{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -6203,9 +6222,17 @@ const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg
         <div class="lot-bar"><span style="width:${left}%"></span></div><small>Vence el ${dFmt(b.expires)}</small></article>`;
     }).join("") + `</div>`;
   };
+  const histHTML = () => {
+    const P = state.points, H = P.history.slice(0, 12), R = P.redeemed.slice(0, 5);
+    const ico = h => h.pts < 0 ? "🎁" : /Academy|módulo/i.test(h.t) ? "🎓" : /amigo|invit/i.test(h.t) ? "💌" : /verific/i.test(h.t) ? "🪪" : /digital/i.test(h.t) ? "💳" : /califica/i.test(h.t) ? "⭐" : "🤝";
+    const tickets = R.length ? `<div class="hs-tickets">${R.map(r => `<article class="hs-ticket"><div><small>${dFmt(r.ts)}</small><b>${esc(r.t)}</b><span>−${fmt(r.cost)} pts</span></div><button type="button" data-cpcode="${r.code}" title="Copiar código"><i>${r.code}</i><em>Copiar</em></button></article>`).join("")}</div>` : "";
+    const line = H.length ? `<ol class="hs-line">${H.map(h => `<li class="${h.pts < 0 ? "neg" : "pos"}"><span class="hs-dot">${ico(h)}</span><div><small>${dFmt(h.ts)}</small><b>${esc(h.t)}</b></div><em>${h.pts > 0 ? "+" : "−"}${fmt(Math.abs(h.pts))}</em></li>`).join("")}</ol>` : `<div class="lot-empty"><span>🕘</span><b>Aún no hay movimientos</b><p>Tus puntos ganados y canjeados irán apareciendo aquí, del más reciente al más antiguo.</p></div>`;
+    return tickets + line;
+  };
   const _points = points;
   points = function(){
     let h = _points.apply(this, arguments);
+    h = h.replace(/(<h2>Historial<\/h2>[\s\S]*?<\/div>)\s*<section class="panel">[\s\S]*?<\/section>/, (m, a) => a + histHTML());
     h = h.replace(/(<div class="section-title"><h2>Canjea tus puntos<\/h2>[\s\S]*?<\/div>)[\s\S]*?(?=<div class="section-title"><h2>Tus lotes)/, (m, a) => a + redeemHTML());
     h = h.replace(/(<h2>Tus lotes y vencimientos<\/h2>[\s\S]*?<\/div>)\s*<section class="panel">[\s\S]*?<\/section>/, (m, a) => a + lotsHTML());
     h = h.replace(/<h3>🛡️ Reglas para cuidar a la comunidad<\/h3>/, '<div class="rules-head"><span class="shield">🛡️</span><div><span class="kicker light">Confianza</span><h3>Reglas para cuidar a la comunidad</h3></div></div>');
@@ -6257,6 +6284,12 @@ document.addEventListener("click", e => {
   const chip = e.target.closest && e.target.closest("[data-cvamt]");
   if(chip){ document.getElementById("calcAmount").value = chip.dataset.cvamt; updateConverterDisplay(); return; }
   if(e.target.closest && e.target.closest("#cvSwap")){ const a = document.getElementById("calcFrom"), b = document.getElementById("calcTo"); const v = a.value; a.value = b.value; b.value = v; updateConverterDisplay(); }
+});
+
+document.addEventListener("click", e => {
+  const b = e.target.closest && e.target.closest("[data-cpcode]"); if(!b) return;
+  try{ navigator.clipboard.writeText(b.dataset.cpcode); }catch(_){}
+  const em = b.querySelector("em"); if(em){ em.textContent = "¡Copiado!"; setTimeout(() => em.textContent = "Copiar", 1400); }
 });
 
 
