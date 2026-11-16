@@ -1485,6 +1485,16 @@ h3{font-weight:700}
 @media(max-width:560px){.hs-line{padding-left:0}.hs-line::before{display:none}}
 .hs-line{padding-left:0!important}.hs-line::before{left:35px!important}
 .hs-ticket button i{white-space:nowrap}.hs-tickets{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
+/* ===== botón Preguntar a Zeta ===== */
+.ask-zeta{position:relative;display:inline-flex;align-items:center;gap:12px;padding:8px 18px 8px 8px;border-radius:99px;border:0;cursor:pointer;font:inherit;color:#fff;text-align:left;
+background:linear-gradient(#0a5a42,#0a5a42) padding-box,linear-gradient(120deg,#75e6a5,#4fd9ff,#75e6a5) border-box;border:2px solid transparent;background-size:100% 100%,200% 100%;animation:azFlow 5s linear infinite;box-shadow:0 10px 26px #0005,0 0 0 0 #75e6a566;transition:transform .3s,box-shadow .3s}
+.ask-zeta:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 16px 32px #0006,0 0 0 6px #75e6a533}
+@keyframes azFlow{to{background-position:0 0,200% 0}}
+.az-ico{width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e8fff3,#9fe9c4);display:grid;place-items:center;flex:none;box-shadow:inset 0 -3px 6px #0a7956aa;animation:t4cBob 3.6s ease-in-out infinite}
+.az-txt{display:grid;gap:1px}.az-txt b{font:800 16px var(--f-head);letter-spacing:-.01em}.az-txt small{font-size:12px;color:#bfeed7;font-weight:500}
+.az-arrow{width:30px;height:30px;border-radius:50%;background:#75e6a5;color:#053b2d;display:grid;place-items:center;font-weight:800;transition:transform .3s}.ask-zeta:hover .az-arrow{transform:translateX(5px)}
+.az-eye{animation:t4cBlink 4.5s infinite;transform-origin:24px 24.7px}
+@media(prefers-reduced-motion:reduce){.ask-zeta,.az-ico,.az-eye{animation:none}}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -1923,7 +1933,7 @@ function home(){
       <div class="actions">
         <button class="btn primary" data-page="buy">Comprar divisas</button>
         <button class="btn ghost" data-page="sell">Mis publicaciones</button>
-        <button class="btn ghost" id="homeAskZeta">🤖 Preguntar a Zeta</button>
+        <button class="ask-zeta" id="homeAskZeta" type="button"><span class="az-ico"><svg viewBox="0 0 48 48" width="34" height="34" aria-hidden="true"><line x1="24" y1="4" x2="24" y2="11" stroke="#cdbb97" stroke-width="2.4" stroke-linecap="round"/><circle cx="24" cy="4" r="3" fill="#75e6a5"/><rect x="5" y="22" width="4" height="9" rx="2" fill="#19b58a"/><rect x="39" y="22" width="4" height="9" rx="2" fill="#19b58a"/><rect x="8" y="10" width="32" height="30" rx="14" fill="#fbf3e2" stroke="#d6c6a3" stroke-width="1.5"/><rect x="12" y="16" width="24" height="17" rx="8.5" fill="#14332b"/><rect x="17" y="23" width="14" height="3.4" rx="1.7" fill="#75e6a5" class="az-eye"/><path d="M20 29.5q4 2.4 8 0" stroke="#75e6a5" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></span><span class="az-txt"><b>Preguntar a Zeta</b><small>Tu asistente, listo para ayudarte</small></span><span class="az-arrow">→</span></button>
       </div>
     </div>
     <div class="hero-zeta">${heroArt()}</div>
