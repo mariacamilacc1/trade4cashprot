@@ -1264,7 +1264,91 @@ textarea.field{resize:vertical;font-family:inherit}
 .pts-steps li:hover,.rule-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px #0a3b2d1c}
 @media (prefers-reduced-motion:reduce){.t4c-rv{opacity:1;transform:none;transition:none}.info-card,.panel,.plan-card,.ally-card{transition:none}.info-card:hover,.plan-card:hover,.ally-card:hover{transform:none}.ally-hero::after,.ally-flow-steps::before,.data-list .data-item::after{animation:none}}
 .about-copy>.info-card:first-child{display:flex;flex-direction:column;justify-content:center}
-</style>
+
+/* ===== v7 · tipografía y jerarquía ===== */
+:root{--f-head:"Bricolage Grotesque","DM Sans",Inter,system-ui,sans-serif;--f-body:"DM Sans",Inter,system-ui,sans-serif}
+body{font-family:var(--f-body)}
+h1,h2,h3,.hero h1,.trm-value,.market-featured-rate,.pts-main b,.brand{font-family:var(--f-head)}
+h1{letter-spacing:-.03em;font-weight:800}
+h2{letter-spacing:-.02em;font-weight:800}
+h3{font-weight:700}
+.section-title{margin:44px 0 20px;padding-left:18px;position:relative}
+.section-title::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:6px;border-radius:6px;background:linear-gradient(#14a373,#75e6a5)}
+.section-title h2{font-size:clamp(26px,3.4vw,34px);line-height:1.1}
+.section-title p{font-size:16.5px;margin-top:6px;color:#4f6b5d;font-weight:500}
+.page-head h1{font-size:clamp(30px,4vw,40px)}
+.page-head p{font-size:16.5px;color:#4f6b5d;font-weight:500}
+.panel-title h2,.info-card h2{font-size:24px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font:700 12px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:#086b4f;background:#e3f6ec;border-radius:99px;padding:7px 12px;margin-bottom:12px}
+.kicker.light{background:#ffffff22;color:#d9fbe9;backdrop-filter:blur(4px)}
+.sub{font-size:clamp(16px,2vw,19px)!important;font-weight:500;max-width:640px;line-height:1.55}
+.live{width:8px;height:8px;border-radius:50%;background:#75e6a5;box-shadow:0 0 0 0 #75e6a5aa;animation:t4cLive 1.6s infinite}
+@keyframes t4cLive{70%{box-shadow:0 0 0 9px #75e6a500}100%{box-shadow:0 0 0 0 #75e6a500}}
+
+/* ===== v7 · Mercado ===== */
+.mk-hero{position:relative;overflow:hidden;padding:44px 6% 0!important;background:linear-gradient(120deg,#053b2d,#0b6a4d 60%,#14a373)!important}
+.mk-hero h1{font-size:clamp(34px,5vw,54px)!important;line-height:1.02;margin:0 0 10px!important}
+.mk-hero .sub{color:#d9fbe9;margin:0 0 28px}
+.mk-float{position:absolute;inset:0;pointer-events:none}
+.mk-float i{position:absolute;font:800 70px/1 var(--f-head);color:#ffffff14;font-style:normal;animation:t4cFloat 7s ease-in-out infinite}
+.mk-float i:nth-child(1){right:6%;top:14%}.mk-float i:nth-child(2){right:20%;top:46%;font-size:96px;animation-delay:-2s}
+.mk-float i:nth-child(3){right:34%;top:8%;font-size:52px;animation-delay:-4s}.mk-float i:nth-child(4){right:3%;top:58%;font-size:58px;animation-delay:-1s}.mk-float i:nth-child(5){right:46%;top:52%;font-size:44px;animation-delay:-3s}
+@keyframes t4cFloat{50%{transform:translateY(-14px) rotate(6deg)}}
+.ticker{position:relative;margin:0 -6.5%;background:#04281f;overflow:hidden;border-top:1px solid #ffffff1f;padding:12px 0}
+.ticker-track{display:flex;gap:34px;width:max-content;animation:t4cTick 38s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.tk{color:#cfeee0;font-weight:600;font-size:14px;white-space:nowrap}.tk b{color:#75e6a5;margin-right:6px}
+@keyframes t4cTick{to{transform:translateX(-50%)}}
+.market-selector-card h2,.converter-card h2,.panel-title h2{font-size:24px!important}
+.market-featured-rate{font-size:clamp(40px,7vw,68px)!important;letter-spacing:-.04em;background:linear-gradient(90deg,#086b4f,#14a373);-webkit-background-clip:text;background-clip:text;color:transparent!important;animation:t4cPop .6s both}
+@keyframes t4cPop{from{opacity:0;transform:translateY(10px) scale(.97)}}
+.currency-card{position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.currency-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#14a373,#75e6a5);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.currency-card:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 18px 34px #064b3829}
+.currency-card:hover::before{transform:scaleX(1)}
+.currency-card h3{font-family:var(--f-head)}
+.converter-card{background:linear-gradient(160deg,#f2fbf6,#fff)!important;border:1px solid #cfeedd!important}
+.converter-result{animation:t4cPop .5s both}
+
+/* ===== v7 · Trade Points ===== */
+.pts-banner{position:relative;overflow:hidden;border-radius:26px;padding:40px 6%;margin-bottom:22px;color:#fff;background:linear-gradient(120deg,#08533c,#14a373 70%,#4ed39b)}
+.pts-banner h1{font-size:clamp(36px,5.4vw,58px);margin:0 0 8px;line-height:1}
+.pts-banner .sub{color:#e5fbef;margin:0}
+.pts-stars{position:absolute;inset:0;pointer-events:none}
+.pts-stars i{position:absolute;font-style:normal;color:#ffe48a;font-size:56px;text-shadow:0 6px 18px #0004;animation:t4cStar 4.5s ease-in-out infinite}
+.pts-stars i:nth-child(1){right:7%;top:12%}.pts-stars i:nth-child(2){right:18%;top:52%;font-size:34px;animation-delay:-1s}.pts-stars i:nth-child(3){right:29%;top:14%;font-size:26px;animation-delay:-2s}.pts-stars i:nth-child(4){right:3%;top:60%;font-size:30px;animation-delay:-3s}.pts-stars i:nth-child(5){right:40%;top:58%;font-size:20px;animation-delay:-.5s}
+@keyframes t4cStar{50%{transform:translateY(-12px) rotate(18deg) scale(1.1)}}
+.pts-hero{position:relative;overflow:hidden}
+.pts-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 40%,#ffffff22 50%,transparent 60%);transform:translateX(-100%);animation:t4cShine 5s 1s infinite}
+@keyframes t4cShine{to{transform:translateX(100%)}}
+.pts-main b{font-size:clamp(56px,8vw,84px)!important;letter-spacing:-.04em}
+.pts-bar span{animation:t4cGrow 1.2s cubic-bezier(.2,.8,.2,1) both;transform-origin:left}
+@keyframes t4cGrow{from{transform:scaleX(0)}}
+.earn,.cat-card{transition:transform .3s,box-shadow .3s,border-color .3s}
+.earn:hover{transform:translateX(8px);border-color:#75e6a5;box-shadow:0 12px 26px #064b3822}
+.cat-card:hover{transform:translateY(-7px);box-shadow:0 20px 36px #064b3829}
+.cat-card:hover .cat-ico{transform:scale(1.18) rotate(-8deg)}.cat-ico{transition:transform .35s}
+.pts-lock-ico{animation:t4cStar 3.6s ease-in-out infinite}
+.pts-h3{font-family:var(--f-head);font-size:22px;padding-left:14px;border-left:5px solid #75e6a5}
+
+/* ===== v7 · Zeta 2D en Nuestra historia ===== */
+.hist-zeta{position:relative;width:170px;margin:-6px 0 8px auto;float:right;shape-outside:circle(50%)}
+.hist-zeta svg{width:100%;height:auto;filter:drop-shadow(0 14px 18px #0005);animation:t4cBob 3.8s ease-in-out infinite}
+@keyframes t4cBob{50%{transform:translateY(-10px)}}
+.hist-zeta .z2-armR{transform-origin:168px 160px;animation:t4cWave 2.2s ease-in-out infinite}
+@keyframes t4cWave{0%,100%{transform:rotate(0)}50%{transform:rotate(-14deg)}}
+.hist-zeta .z2-eyes rect{transform-origin:110px 88px;animation:t4cBlink 4.5s infinite}
+@keyframes t4cBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.15)}}
+.hist-zeta .z2-ant{animation:t4cLive 1.8s infinite}
+.hist-zeta .z2-sh{transform-origin:110px 246px;animation:t4cSh 3.8s ease-in-out infinite}
+@keyframes t4cSh{50%{transform:scale(.82);opacity:.1}}
+.hist-bubble{position:absolute;left:-96px;top:6px;background:#fff;color:#064b38;font:700 13px var(--f-body);padding:8px 12px;border-radius:14px 14px 4px 14px;box-shadow:0 8px 18px #0003;white-space:nowrap;animation:t4cPop .6s .5s both}
+@media(max-width:760px){.hist-zeta{width:120px}.hist-bubble{left:-70px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.ticker-track,.mk-float i,.pts-stars i,.pts-hero::after,.hist-zeta *,.pts-lock-ico{animation:none!important}}
+.about-copy>.info-card:first-child{display:block!important}
+.hist-zeta{margin:-4px -6px 6px 14px}
+.hist-bubble{left:-100px;top:2px}
+</style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -5865,6 +5949,62 @@ setTRM = function(record, stale){ _setTRMReb(record, stale); rebaseRates(); };
   }
   new MutationObserver(schedule).observe(document.body, { childList: true, subtree: true });
   schedule(); requestAnimationFrame(tick);
+})();
+
+// ===== T4C v7 · Zeta 2D, Mercado y Trade Points dinámicos =====
+const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<defs>
+<linearGradient id="zb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf3e2"/><stop offset="1" stop-color="#e9dcc2"/></linearGradient>
+<radialGradient id="zg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#9ff3d0"/><stop offset=".6" stop-color="#19b58a"/><stop offset="1" stop-color="#0a7956"/></radialGradient>
+</defs>
+<ellipse cx="110" cy="246" rx="58" ry="8" fill="#000" opacity=".18" class="z2-sh"/>
+<g class="z2-body">
+ <line x1="110" y1="22" x2="110" y2="42" stroke="#cdbb97" stroke-width="5" stroke-linecap="round"/>
+ <circle cx="110" cy="18" r="8" fill="#75e6a5" class="z2-ant"/>
+ <rect x="26" y="68" width="14" height="34" rx="7" fill="#19b58a"/><rect x="180" y="68" width="14" height="34" rx="7" fill="#19b58a"/>
+ <rect x="34" y="38" width="152" height="100" rx="46" fill="url(#zb)" stroke="#d6c6a3" stroke-width="2"/>
+ <rect x="50" y="56" width="120" height="64" rx="30" fill="#14332b"/>
+ <rect x="58" y="62" width="56" height="10" rx="5" fill="#fff" opacity=".12"/>
+ <g class="z2-eyes"><rect x="78" y="82" width="64" height="12" rx="6" fill="#75e6a5"/></g>
+ <path d="M96 106 Q110 114 124 106" stroke="#75e6a5" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".9"/>
+ <g class="z2-armL"><path d="M52 160 Q24 164 22 192" stroke="#e9dcc2" stroke-width="15" fill="none" stroke-linecap="round"/><circle cx="22" cy="196" r="9" fill="#fbf3e2" stroke="#d6c6a3" stroke-width="2"/></g>
+ <g class="z2-armR"><path d="M168 160 Q198 150 202 122" stroke="#e9dcc2" stroke-width="15" fill="none" stroke-linecap="round"/><circle cx="202" cy="118" r="9" fill="#fbf3e2" stroke="#d6c6a3" stroke-width="2"/></g>
+ <rect x="56" y="136" width="108" height="86" rx="38" fill="url(#zb)" stroke="#d6c6a3" stroke-width="2"/>
+ <circle cx="110" cy="178" r="30" fill="url(#zg)" stroke="#0a7956" stroke-width="3"/>
+ <text x="110" y="189" text-anchor="middle" font-family="Georgia,serif" font-weight="900" font-size="32" fill="#fff" opacity=".95">$</text>
+ <rect x="76" y="218" width="26" height="18" rx="9" fill="#cdbb97"/><rect x="118" y="218" width="26" height="18" rx="9" fill="#cdbb97"/>
+</g></svg>`;
+
+(function(){
+  // --- Nuestra historia: Zeta 2D ---
+  const _about = about;
+  about = function(){
+    return _about.apply(this, arguments).replace('<h2>Nuestra historia</h2>',
+      '<div class="hist-zeta">' + T4C_ZETA2D + '<span class="hist-bubble">¡Hola! Soy Zeta 👋</span></div><span class="kicker light">Cómo empezó</span><h2>Nuestra historia</h2>');
+  };
+
+  // --- Mercado: franja de tasas + hero con monedas flotantes ---
+  const _market = market;
+  market = function(){
+    let h = _market.apply(this, arguments);
+    const rows = Object.entries(referenceRates).filter(([k]) => k !== "Pesos Colombianos")
+      .map(([n, d]) => `<span class="tk"><b>${d.flag} ${d.code}</b> $${fmt(d.rate)}</span>`).join("");
+    const hero = `<section class="market-hero mk-hero"><span class="kicker light"><i class="live"></i> Tasas de referencia</span>
+      <h1>Mercado de Divisas</h1><p class="sub">Cotizaciones oficiales indicativas, ofertas entre usuarios y conversor al instante.</p>
+      <div class="mk-float" aria-hidden="true"><i>$</i><i>€</i><i>£</i><i>¥</i><i>$</i></div>
+      <div class="ticker"><div class="ticker-track">${rows}${rows}</div></div></section>`;
+    return h.replace(/<section class="market-hero">[\s\S]*?<\/section>/, hero);
+  };
+
+  // --- Trade Points: encabezado tipo banner + estrellas ---
+  const _points = points;
+  points = function(){
+    let h = _points.apply(this, arguments);
+    const head = `<section class="pts-banner"><span class="kicker light">Programa de confianza</span><h1>Trade Points</h1>
+      <p class="sub">Gana puntos por cambiar con confianza y cánjealos por beneficios.</p>
+      <div class="pts-stars" aria-hidden="true"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div></section>`;
+    return h.replace(/<div class="page-head[^"]*"[^>]*><h1>[\s\S]*?<\/div>/, head);
+  };
 })();
 
 
