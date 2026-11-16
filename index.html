@@ -1424,6 +1424,48 @@ h3{font-weight:700}
 .earn-car .earn-ico{width:54px;height:54px;font-size:28px}
 .earn-car .earn b{font:700 18px var(--f-head);color:var(--deep)}.earn-car .earn small{display:block;color:#5c7a6b;margin-top:4px;line-height:1.45}
 .earn-car .earn-pts{grid-column:auto!important;text-align:left!important;font:800 26px var(--f-head);color:#086b4f;margin-top:auto}.earn-car .earn-pts em{display:block;font:600 12px var(--f-body);color:#14a373}
+
+/* ===== v7d · canjes, lotes, reglas ===== */
+.rw-group{margin:8px 0 26px;--a:#fff3c4;--b:#f5c542;--c:#7a5a00}
+.rw-group.sky{--a:#d9f2ff;--b:#4fb3e8;--c:#0b4f78}.rw-group.mint{--a:#d8f7e6;--b:#2ccb8c;--c:#06573d}
+.rw-title{display:flex;align-items:center;gap:10px;font:800 21px var(--f-head);color:var(--deep);margin:22px 0 4px!important;padding:0!important;border:0!important}
+.rw-title span{width:30px;height:8px;border-radius:8px;background:var(--b)}
+.rw-card{width:260px;background:#fff;border:2px solid var(--line);border-radius:26px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s}
+.rw-card:hover{transform:translateY(-8px);box-shadow:0 20px 38px #064b3830;border-color:var(--b)}
+.rw-top{position:relative;height:118px;background:linear-gradient(135deg,var(--a),#fff 140%);display:grid;place-items:center;overflow:hidden}
+.rw-top::before,.rw-top::after{content:"";position:absolute;border-radius:50%;background:var(--b);opacity:.18}
+.rw-top::before{width:130px;height:130px;left:-40px;top:-50px}.rw-top::after{width:90px;height:90px;right:-24px;bottom:-40px}
+.rw-ico{font-size:54px;position:relative;z-index:1;transition:transform .4s;filter:drop-shadow(0 8px 10px #0003)}.rw-card:hover .rw-ico{transform:scale(1.18) rotate(-8deg)}
+.rw-cost{position:absolute;right:12px;top:12px;z-index:2;background:#fff;color:var(--c);border-radius:99px;padding:5px 12px;font-size:12.5px;font-weight:700;box-shadow:0 4px 12px #0002}.rw-cost b{font:800 16px var(--f-head)}
+.rw-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.rw-body h4{margin:0;font:700 17px/1.25 var(--f-head);color:var(--deep)}.rw-body p{margin:0;color:#5c7a6b;font-size:13.5px;line-height:1.45;flex:1}
+.rw-bar,.lot-bar{height:8px;border-radius:8px;background:#e6f0ea;overflow:hidden}
+.rw-bar span,.lot-bar span{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--b,#14a373),#75e6a5);animation:t4cGrow 1s both;transform-origin:left}
+.rw-body small,.lot-card small{color:#4f6b5d;font-weight:600;font-size:12.5px}
+.lot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin:8px 0 28px}
+.lot-card{background:#fff;border:2px solid #cfeedd;border-radius:24px;padding:18px;display:grid;gap:6px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.lot-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(#14a373,#75e6a5)}
+.lot-card.wait{border-color:#f3e2a6;background:linear-gradient(160deg,#fffaf0,#fff)}.lot-card.wait::before{background:linear-gradient(#f5c542,#ffe48a)}.lot-card.wait .lot-bar span{background:linear-gradient(90deg,#f5c542,#ffe48a)}
+.lot-card:hover{transform:translateY(-6px);box-shadow:0 18px 32px #064b3826}
+.lot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.lot-chip{background:#e3f6ec;color:#086b4f;border-radius:99px;padding:5px 11px;font:700 12px var(--f-body)}.lot-card.wait .lot-chip{background:#fff1c4;color:#7a5a00}
+.lot-pts{font:800 34px/1 var(--f-head);color:var(--deep)}.lot-pts small{font:700 13px var(--f-body);margin-left:3px;color:#14a373}
+.lot-card h4{margin:6px 0 0;font:700 16px var(--f-head);color:var(--deep)}.lot-card p{margin:0;color:#5c7a6b;font-size:13.5px}
+.lot-empty{text-align:center;background:linear-gradient(160deg,#f2fbf6,#fff);border:2px dashed #bfe6d0;border-radius:26px;padding:34px 20px;margin:8px 0 28px;display:grid;gap:6px;justify-items:center}
+.lot-empty span{font-size:46px;animation:t4cStar 3.6s ease-in-out infinite}.lot-empty b{font:800 20px var(--f-head);color:var(--deep)}.lot-empty p{margin:0;color:#5c7a6b}
+.pts-rules{background:linear-gradient(135deg,#053b2d,#0b6a4d 65%,#14a373)!important;border:0!important;color:#fff;border-radius:30px!important;padding:30px!important;position:relative;overflow:hidden}
+.rules-head{display:flex;align-items:center;gap:16px;margin-bottom:6px}
+.rules-head .shield{width:68px;height:68px;border-radius:22px;background:#ffffff22;display:grid;place-items:center;font-size:36px;animation:t4cStar 4s ease-in-out infinite}
+.rules-head h3{color:#fff!important;font:800 clamp(22px,3vw,30px) var(--f-head)!important;margin:0!important}.rules-head .kicker{margin-bottom:8px}
+.pts-rules>.subtle{color:#cdeedd!important;font-size:16px;margin:0 0 6px}
+.pts-rules .rule-grid{counter-reset:r;gap:14px;margin-top:18px}
+.pts-rules .rule-card{counter-increment:r;position:relative;background:#ffffff14!important;border:1px solid #ffffff2e!important;backdrop-filter:blur(6px);border-radius:22px;padding:20px!important;color:#fff;overflow:hidden}
+.pts-rules .rule-card::after{content:counter(r,decimal-leading-zero);position:absolute;right:14px;top:6px;font:800 44px var(--f-head);color:#ffffff1c}
+.pts-rules .rule-card i{background:#75e6a5;width:50px;height:50px;border-radius:16px;font-size:26px;margin-bottom:6px}
+.pts-rules .rule-card b{color:#fff;font:700 17px var(--f-head)}.pts-rules .rule-card span{color:#d6f3e4;font-size:14px}
+.pts-rules .rule-card:hover{background:#ffffff24!important;transform:translateY(-6px)}
+@media(max-width:820px){.rw-card{width:240px}}
+.rw-car .car-track{align-items:stretch}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -6141,9 +6183,32 @@ const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg
   // --- Trade Points: encabezado tipo banner + estrellas ---
   const _points0 = points;
   points = function(){ return _points0.apply(this, arguments).replace(/<section class="earn-list">([\s\S]*?)<\/section>\s*(?=<div class="pts-demo">)/, (m, inner) => carousel("earn-car", inner, "Cómo ganar más")); };
+  const redeemHTML = () => {
+    const av = ptsAvail(), pal = ["gold", "sky", "mint"];
+    return PT_CATALOG.map((g, gi) => `<div class="rw-group ${pal[gi % 3]}"><h3 class="rw-title"><span></span>${g.g}</h3>` + carousel("rw-car", g.items.map(i => {
+      const ok = av >= i.cost, pct = Math.min(100, Math.round(av / i.cost * 100));
+      return `<article class="rw-card" role="listitem"><div class="rw-top"><span class="rw-ico">${i.ico}</span><span class="rw-cost"><b>${fmt(i.cost)}</b> pts</span></div>
+        <div class="rw-body"><h4>${i.t}</h4><p>${i.d}</p>
+        <div class="rw-bar"><span style="width:${pct}%"></span></div><small>${ok ? "¡Ya te alcanza!" : "Tienes " + fmt(av) + " de " + fmt(i.cost) + " pts"}</small>
+        <button class="btn ${ok ? "green" : "light"} block" type="button" data-redeem="${i.id}" ${ok ? "" : "disabled"}>${ok ? "Canjear ahora" : "Te faltan " + fmt(i.cost - av) + " pts"}</button></div></article>`;
+    }).join(""), g.g) + `</div>`).join("");
+  };
+  const lotsHTML = () => {
+    const B = state.points.batches.slice().sort((a, b) => a.expires - b.expires), YEAR = 365 * 864e5;
+    if(!B.length) return `<div class="lot-empty"><span>🌱</span><b>Aún no tienes lotes</b><p>Cada vez que ganes puntos, aparecerán aquí con su fecha de vencimiento.</p></div>`;
+    return `<div class="lot-grid">` + B.map(b => {
+      const wait = b.status === "pending", left = Math.max(0, Math.min(100, Math.round((b.expires - Date.now()) / YEAR * 100)));
+      return `<article class="lot-card ${wait ? "wait" : ""}"><div class="lot-top"><span class="lot-chip">${wait ? "⏳ En espera" : "✅ Disponible"}</span><b class="lot-pts">${fmt(b.left)}<small>pts</small></b></div>
+        <h4>${esc(b.src)}</h4><p>${wait ? "Se liberan el " + dFmt(b.releaseAt) : "Listos para canjear"}</p>
+        <div class="lot-bar"><span style="width:${left}%"></span></div><small>Vence el ${dFmt(b.expires)}</small></article>`;
+    }).join("") + `</div>`;
+  };
   const _points = points;
   points = function(){
     let h = _points.apply(this, arguments);
+    h = h.replace(/(<div class="section-title"><h2>Canjea tus puntos<\/h2>[\s\S]*?<\/div>)[\s\S]*?(?=<div class="section-title"><h2>Tus lotes)/, (m, a) => a + redeemHTML());
+    h = h.replace(/(<h2>Tus lotes y vencimientos<\/h2>[\s\S]*?<\/div>)\s*<section class="panel">[\s\S]*?<\/section>/, (m, a) => a + lotsHTML());
+    h = h.replace(/<h3>🛡️ Reglas para cuidar a la comunidad<\/h3>/, '<div class="rules-head"><span class="shield">🛡️</span><div><span class="kicker light">Confianza</span><h3>Reglas para cuidar a la comunidad</h3></div></div>');
     const head = `<section class="pts-banner"><span class="kicker light">Programa de confianza</span><h1>Trade Points</h1>
       <p class="sub">Gana puntos por cambiar con confianza y cánjealos por beneficios.</p>
       <div class="pts-stars" aria-hidden="true"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div></section>`;
