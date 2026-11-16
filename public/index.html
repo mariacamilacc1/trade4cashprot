@@ -1535,6 +1535,28 @@ background:linear-gradient(#0a5a42,#0a5a42) padding-box,linear-gradient(120deg,#
 .zf small{text-align:center;font-size:11.5px;color:#6b8a7b}
 @media(max-width:480px){.zeta-panel.zp2{right:8px;bottom:84px;height:calc(100vh - 100px)}}
 @media(prefers-reduced-motion:reduce){.zm,.zchip,.zwel,.zdot{animation:none}}
+
+/* ===== v9 · tarjetas grandes de Inicio + logo del menú ===== */
+.topbar .brand{font-size:23px!important;letter-spacing:-.05em!important;margin-right:18px;flex:none}
+.nav{gap:3px}
+.mod.big{position:relative;padding:28px 26px 26px!important;border:2px solid var(--line)!important;border-radius:30px!important;background:#fff;min-height:0!important;gap:14px!important;transition:transform .3s,box-shadow .3s,border-color .3s}
+.mod.big::before{content:"";position:absolute;right:-60px;top:-70px;width:220px;height:220px;border-radius:50%;background:var(--acs);opacity:.9;transition:transform .5s}
+.mod.big::after{content:"";position:absolute;right:46px;top:96px;width:46px;height:46px;border-radius:50%;background:var(--ac);opacity:.12}
+.mod.big:hover{transform:translateY(-9px);border-color:var(--ac)!important;box-shadow:0 24px 44px #064b3830}
+.mod.big:hover::before{transform:scale(1.15)}
+.mod.big>*{position:relative;z-index:1}
+.big-top{display:flex;justify-content:space-between;align-items:flex-start}
+.mod.big .big-ico{width:78px;height:78px;border-radius:24px;background:#fff;box-shadow:0 10px 22px #0002,inset 0 0 0 3px var(--acs);font-size:40px;transition:transform .4s}
+.mod.big:hover .big-ico{transform:rotate(-8deg) scale(1.08)}
+.big-tag{background:#fff;color:var(--ac);font:800 11.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;padding:7px 13px;border-radius:99px;box-shadow:0 4px 12px #0002}
+.mod.big h3{font:800 26px/1.15 var(--f-head)!important;letter-spacing:-.02em;margin:4px 0 0!important}
+.mod.big p{font-size:15.5px!important}
+.big-pts{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.big-pts li{display:flex;align-items:center;gap:10px;font:600 14px var(--f-body);color:#2d4a3d}
+.big-pts li::before{content:"✓";width:22px;height:22px;border-radius:50%;background:var(--acs);color:var(--ac);display:grid;place-items:center;font-size:12px;font-weight:900;flex:none}
+.big-cta{display:flex!important;justify-content:center;align-items:center;gap:8px;margin-top:6px;background:var(--ac)!important;border-color:var(--ac)!important;color:#fff!important}
+.big-cta span{transition:transform .25s}.big-cta:hover span{transform:translateX(5px)}
+@media(max-width:1120px) and (min-width:861px){.nav button{padding:8px 9px!important;font-size:13px!important}.topbar .brand{margin-right:8px}.topbar{padding:0 14px!important}}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -1958,9 +1980,9 @@ function home(){
         </div>` }
   ];
   const bigCards = [
-    { c:"sky", ico:"🧮", t:"Simulador", d:"Crea una oferta de práctica en 4 pasos y mira cuánto recibirías. No se publica nada.", b:"Abrir simulador", m:"simulator" },
-    { c:"violet", ico:"🔐", t:"Tratamiento de datos", d:"Tus datos se usan solo para verificarte y conectarte con otras personas. Puedes consultarlos, corregirlos o borrarlos (Ley 1581 de 2012).", b:"Leer la política", m:"privacy" },
-    { c:"amber", ico:"📄", t:"Términos y condiciones", d:"Trade4Cash conecta personas y no guarda tu dinero. Aquí están las reglas de uso, el margen de ±15 % y tus responsabilidades.", b:"Leer los términos", m:"terms" }
+    { c:"sky", ico:"🧮", t:"Simulador", d:"Crea una oferta de práctica en 4 pasos y mira cuánto recibirías. No se publica nada.", b:"Abrir simulador", m:"simulator", tag:"Práctica", pts:["4 pasos guiados","No publica nada","Ves cuánto recibirías"] },
+    { c:"violet", ico:"🔐", t:"Tratamiento de datos", d:"Tus datos se usan solo para verificarte y conectarte con otras personas. Puedes consultarlos, corregirlos o borrarlos (Ley 1581 de 2012).", b:"Leer la política", m:"privacy", tag:"Privacidad", pts:["Solo para verificarte","Consulta, corrige o borra","Ley 1581 de 2012"] },
+    { c:"amber", ico:"📄", t:"Términos y condiciones", d:"Trade4Cash conecta personas y no guarda tu dinero. Aquí están las reglas de uso, el margen de ±15 % y tus responsabilidades.", b:"Leer los términos", m:"terms", tag:"Reglas", pts:["Margen de ±15 %","No guardamos tu dinero","Tus responsabilidades"] }
   ];
 
   return `
@@ -2013,10 +2035,11 @@ function home(){
   <section class="big-grid">
     ${bigCards.map(c => `
     <article class="mod big ${c.c}">
-      <div class="big-ico">${c.ico}</div>
+      <div class="big-top"><div class="big-ico">${c.ico}</div><span class="big-tag">${c.tag}</span></div>
       <h3>${c.t}</h3>
       <p>${c.d}</p>
-      <button class="btn green block" data-modal="${c.m}">${c.b}</button>
+      <ul class="big-pts">${c.pts.map(x => `<li>${x}</li>`).join("")}</ul>
+      <button class="btn green block big-cta" data-modal="${c.m}">${c.b} <span>→</span></button>
     </article>`).join("")}
   </section>`;
 }
