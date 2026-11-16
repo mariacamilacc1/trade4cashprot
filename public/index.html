@@ -1348,6 +1348,31 @@ h3{font-weight:700}
 .about-copy>.info-card:first-child{display:block!important}
 .hist-zeta{margin:-4px -6px 6px 14px}
 .hist-bubble{left:-100px;top:2px}
+
+/* ===== v7b · carruseles ===== */
+.car{position:relative}
+.car-track{display:flex!important;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:8px 4px 22px;scrollbar-width:none;align-items:flex-start}
+.car-track::-webkit-scrollbar{display:none}
+.car-track>*{scroll-snap-align:start;flex:none}
+.car-btn{position:absolute;top:calc(50% - 22px);z-index:3;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:#086b4f;font:700 30px/1 var(--f-head);box-shadow:0 8px 22px #064b3838;cursor:pointer;transition:transform .2s,opacity .2s}
+.car-btn:hover{transform:scale(1.1)}.car-btn.prev{left:-14px}.car-btn.next{right:-14px}
+.car.at-start .prev,.car.at-end .next{opacity:0;pointer-events:none}
+.mk-card{width:158px;border:2px solid var(--line);background:#fff;border-radius:22px;padding:18px 12px 16px;display:grid;justify-items:center;gap:3px;cursor:pointer;font:inherit;color:var(--deep);transition:transform .3s,box-shadow .3s,border-color .3s}
+.mk-card:hover{transform:translateY(-8px);box-shadow:0 18px 34px #064b3829;border-color:#75e6a5}
+.mk-card.on{border-color:#086b4f;background:linear-gradient(170deg,#e8f8ef,#fff);box-shadow:0 14px 30px #064b3833;transform:translateY(-4px)}
+.mk-flag{width:78px;height:78px;border-radius:50%;overflow:hidden;display:grid;place-items:center;box-shadow:0 6px 16px #0003,inset 0 0 0 3px #fff;background:#eef5f0;margin-bottom:8px;transition:transform .4s}
+.mk-card:hover .mk-flag{transform:rotate(-8deg) scale(1.08)}
+.flag-img{width:100%;height:100%;object-fit:cover;display:block}.flag-emo{font-size:44px;line-height:1}
+.mk-card b{font:800 20px var(--f-head)}.mk-card small{font-size:12.5px;color:#5c7a6b;font-weight:600}
+.mk-card em{font:800 19px var(--f-head);font-style:normal;margin-top:6px}.mk-card i{font-style:normal;font-size:11px;font-weight:700;color:#14a373;letter-spacing:.1em}
+.mk-hero{padding:44px 6%!important}.mk-hero .sub{margin:0}
+.acad-car .car-track{align-items:flex-start}
+.acad-car .mod{width:min(400px,82vw)}
+.acad-car .car-btn.prev{left:-18px}.acad-car .car-btn.next{right:-18px}
+.hist-zeta img{width:200px;height:auto;filter:drop-shadow(0 14px 18px #0005)}
+.hist-zeta{width:200px;margin:-14px -10px 0 8px}
+.hist-bubble{left:-92px;top:6px}
+@media(max-width:760px){.car-btn{display:none}.hist-zeta{width:130px}.hist-zeta img{width:130px}}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -5921,6 +5946,11 @@ setTRM = function(record, stale){ _setTRMReb(record, stale); rebaseRates(); };
       Z.arms[0].rotation.z = -.38 - idleSwing; Z.arms[1].rotation.z = .38 + idleSwing;
       if(st === "happy"){ Z.arms[1].rotation.z = 2.55 + Math.sin(t * 11) * .3; }
       if(st === "thinking"){ Z.arms[1].rotation.z = 1.35; Z.arms[1].rotation.x = -.5; } else Z.arms[1].rotation.x = 0;
+      if(I.cfg.pose === "present"){
+        // pose "presentando": medio giro hacia el texto, un brazo saluda y el otro señala
+        Z.body.rotation.y = -.42 + I.yaw * .2; Z.head.rotation.z = .1; Z.root.rotation.z = -.04;
+        Z.arms[1].rotation.z = 2.35 + Math.sin(t * 4) * .22; Z.arms[0].rotation.z = -1.25 - idleSwing; Z.arms[0].rotation.x = -.35;
+      }
       const w = Math.round(r.width) || I.cfg.w, h = Math.round(r.height) || I.cfg.h;
       I.renderer.render(I.scene, I.camera);
     }
@@ -5930,6 +5960,7 @@ setTRM = function(record, stale){ _setTRMReb(record, stale); rebaseRates(); };
   const TARGETS = [
     { sel: "#zetaFab img.zeta-image", cfg: { w: 60, h: 60, frame: "bust", style: "margin:auto" } },
     { sel: ".zeta-head-avatar img", cfg: { w: 40, h: 40, frame: "head" } },
+    { sel: ".hist-zeta img", cfg: { w: 200, h: 236, frame: "full", pose: "present", style: "margin:0 auto" } },
     { sel: "#welcome .zeta-welcome-img", cfg: { w: 220, h: 250, frame: "full", style: "margin:0 auto 4px" } }
   ];
   let scheduled = false;
@@ -5980,20 +6011,31 @@ const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg
   const _about = about;
   about = function(){
     return _about.apply(this, arguments).replace('<h2>Nuestra historia</h2>',
-      '<div class="hist-zeta">' + T4C_ZETA2D + '<span class="hist-bubble">¡Hola! Soy Zeta 👋</span></div><span class="kicker light">Cómo empezó</span><h2>Nuestra historia</h2>');
+      '<div class="hist-zeta"><img src="zeta-robot.png" alt="Zeta"><span class="hist-bubble">¡Hola! Soy Zeta 👋</span></div><span class="kicker light">Cómo empezó</span><h2>Nuestra historia</h2>');
   };
 
-  // --- Mercado: franja de tasas + hero con monedas flotantes ---
+  // --- Mercado: carrusel de divisas con banderas ---
+  const flagCode = e => { const cp = [...e].map(c => c.codePointAt(0)); return cp.length === 2 && cp.every(x => x >= 0x1F1E6 && x <= 0x1F1FF) ? cp.map(x => String.fromCharCode(x - 0x1F1E6 + 97)).join("") : ""; };
+  window.t4cFlag = (e, w) => { const c = flagCode(e); return c ? `<img class="flag-img" src="https://flagcdn.com/w${w || 80}/${c}.png" alt="${e}" loading="lazy" onerror="this.outerHTML='<span class=flag-emo>${e}</span>'">` : `<span class="flag-emo">${e}</span>`; };
+  const carousel = (cls, inner, label) => `<div class="car ${cls}"><button class="car-btn prev" type="button" data-car="-1" aria-label="Anterior">‹</button><div class="car-track" role="list" aria-label="${label}">${inner}</div><button class="car-btn next" type="button" data-car="1" aria-label="Siguiente">›</button></div>`;
   const _market = market;
   market = function(){
     let h = _market.apply(this, arguments);
-    const rows = Object.entries(referenceRates).filter(([k]) => k !== "Pesos Colombianos")
-      .map(([n, d]) => `<span class="tk"><b>${d.flag} ${d.code}</b> $${fmt(d.rate)}</span>`).join("");
+    const sel = state.selectedMarketCurrency || "Dólar USA";
+    const cards = Object.entries(referenceRates).filter(([k]) => k !== "Pesos Colombianos").map(([n, d]) => `
+      <button type="button" role="listitem" class="mk-card ${n === sel ? "on" : ""}" data-mkcur="${n}">
+        <span class="mk-flag">${t4cFlag(d.flag, 80)}</span><b>${d.code}</b><small>${n}</small><em>$${fmt(d.rate)}</em><i>COP</i>
+      </button>`).join("");
     const hero = `<section class="market-hero mk-hero"><span class="kicker light"><i class="live"></i> Tasas de referencia</span>
-      <h1>Mercado de Divisas</h1><p class="sub">Cotizaciones oficiales indicativas, ofertas entre usuarios y conversor al instante.</p>
-      <div class="mk-float" aria-hidden="true"><i>$</i><i>€</i><i>£</i><i>¥</i><i>$</i></div>
-      <div class="ticker"><div class="ticker-track">${rows}${rows}</div></div></section>`;
-    return h.replace(/<section class="market-hero">[\s\S]*?<\/section>/, hero);
+      <h1>Mercado de Divisas</h1><p class="sub">Elige una moneda, mira su tasa oficial y conviértela al instante.</p>
+      <div class="mk-float" aria-hidden="true"><i>$</i><i>€</i><i>£</i><i>¥</i><i>$</i></div></section>
+      <div class="section-title"><h2>Elige una divisa</h2><p>Desliza o usa las flechas. Toca una tarjeta para ver su tasa oficial.</p></div>
+      ${carousel("mk-car", cards, "Divisas")}`;
+    h = h.replace(/<section class="market-hero">[\s\S]*?<\/section>/, hero);
+    h = h.replace(/<div style="min-width:240px">[\s\S]*?<\/select>\s*<\/div>/, "");
+    h = h.replace("Selecciona una divisa para inspeccionar su cotización regulada oficial:", "Tasa regulada de la divisa que elegiste arriba:");
+    h = h.replace(/<!-- GRID DE TODAS[\s\S]*?(?=<!-- CONVERSOR)/, "");
+    return h;
   };
 
   // --- Trade Points: encabezado tipo banner + estrellas ---
@@ -6004,6 +6046,34 @@ const T4C_ZETA2D = `<svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg
       <p class="sub">Gana puntos por cambiar con confianza y cánjealos por beneficios.</p>
       <div class="pts-stars" aria-hidden="true"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div></section>`;
     return h.replace(/<div class="page-head[^"]*"[^>]*><h1>[\s\S]*?<\/div>/, head);
+  };
+})();
+
+// --- carruseles: flechas, selección de divisa, Academy ---
+(function(){
+  document.addEventListener("click", e => {
+    const b = e.target.closest && e.target.closest("[data-car]");
+    if(b){ const t = b.closest(".car").querySelector(".car-track"); t.scrollBy({ left: +b.dataset.car * Math.max(240, t.clientWidth * .8), behavior: "smooth" }); return; }
+    const c = e.target.closest && e.target.closest("[data-mkcur]");
+    if(c){ state.selectedMarketCurrency = c.dataset.mkcur; render(); }
+  });
+  function edges(car){ const t = car.querySelector(".car-track"); car.classList.toggle("at-start", t.scrollLeft < 8); car.classList.toggle("at-end", t.scrollLeft + t.clientWidth > t.scrollWidth - 8); }
+  const _render = render;
+  render = function(){
+    const r = _render.apply(this, arguments);
+    try{
+      document.querySelectorAll(".acad-grid:not(.car-track)").forEach(g => {
+        const w = document.createElement("div"); w.className = "car acad-car";
+        w.innerHTML = '<button class="car-btn prev" type="button" data-car="-1" aria-label="Anterior">‹</button><button class="car-btn next" type="button" data-car="1" aria-label="Siguiente">›</button>';
+        g.parentNode.insertBefore(w, g); w.insertBefore(g, w.lastChild); g.classList.add("car-track");
+      });
+      document.querySelectorAll(".car").forEach(car => {
+        const t = car.querySelector(".car-track"); if(t.dataset.cb) { edges(car); return; } t.dataset.cb = 1;
+        t.addEventListener("scroll", () => edges(car), { passive: true }); edges(car);
+      });
+      const on = document.querySelector(".mk-card.on"); if(on){ const t = on.parentNode; t.scrollLeft = on.offsetLeft - (t.clientWidth - on.offsetWidth) / 2; }
+    }catch(e){}
+    return r;
   };
 })();
 
