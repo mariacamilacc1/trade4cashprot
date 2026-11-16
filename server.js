@@ -117,7 +117,8 @@ function ratesOk(text, b){
 
 // ---------- HTTP ----------
 const MIME = { ".html":"text/html; charset=utf-8", ".js":"text/javascript", ".css":"text/css", ".png":"image/png", ".jpg":"image/jpeg", ".svg":"image/svg+xml", ".ico":"image/x-icon", ".json":"application/json", ".txt":"text/plain; charset=utf-8" };
-function send(res, code, obj){ res.writeHead(code, { "Content-Type":"application/json; charset=utf-8", "Cache-Control":"no-store" }); res.end(JSON.stringify(obj)); }
+const CORS = { "Access-Control-Allow-Origin":"*", "Access-Control-Allow-Methods":"GET,POST,OPTIONS", "Access-Control-Allow-Headers":"Content-Type" };
+function send(res, code, obj){ res.writeHead(code, Object.assign({ "Content-Type":"application/json; charset=utf-8", "Cache-Control":"no-store" }, CORS)); res.end(JSON.stringify(obj)); }
 function body(req){
   return new Promise((ok, bad) => {
     let s = ""; req.on("data", c => { s += c; if(s.length > 40000){ bad(new Error("grande")); req.destroy(); } });
@@ -128,6 +129,7 @@ function body(req){
 const server = http.createServer(async (req, res) => {
   try{
     const url = new URL(req.url, "http://x");
+    if(req.method === "OPTIONS"){ res.writeHead(204, CORS); return res.end(); }
     if(req.method === "GET" && url.pathname === "/api/health") return send(res, 200, { ok:true, ai: Boolean(KEY), model: MODEL, limitPct: LIMIT });
     if(req.method === "GET" && url.pathname === "/api/diag"){
       // Diagnóstico de Zeta: dice por qué Gemini responde o no (sin mostrar la clave)

@@ -4998,10 +4998,14 @@ function localReply(text, c){
   if(/seguro|confiable|verificad|estafa|reporte/.test(t)) { const tp = trustProfile(c); return `Estoy ${tp.verified ? "verificado" : "en proceso de verificación"}, llevo ${tp.exchanges} ${tp.exchanges === 1 ? "intercambio" : "intercambios"} confirmados y mi nivel es «${tp.level}». Puedes tocar mi insignia para ver cómo se calcula.`; }
   return null;
 }
+// Dirección del servidor: el mismo sitio si está en Render/local; si la web se abre desde otro lado (GitHub Pages, vista previa), usa el servidor de Render.
+const T4C_API = /onrender\.com$|^localhost$|^127\./.test(location.hostname) ? "" : "https://trade4cashprot.onrender.com";
+// Despierta el servidor gratis de Render apenas se abre la web (tarda unos segundos la primera vez)
+setTimeout(() => { try{ fetch(T4C_API + "/api/health", { cache:"no-store" }).catch(() => {}); }catch(e){} }, 800);
 async function serverReply(text, c){
   try{
-    const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 4000);
-    const r = await fetch("/api/chat", { method:"POST", headers:{ "Content-Type":"application/json" }, signal: ctl.signal,
+    const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 15000);
+    const r = await fetch(T4C_API + "/api/chat", { method:"POST", headers:{ "Content-Type":"application/json" }, signal: ctl.signal,
       body: JSON.stringify({ role:"counterpart", message:text, offer:{ name:c.name, currency:c.currency, amount:c.amount, rate:c.rate, place:c.place, condition:c.condition }, limitPct: state.rateThresholds.limit, history: (state.messages || []).slice(-8) }) });
     clearTimeout(to);
     if(!r.ok) return null;
@@ -5011,10 +5015,10 @@ async function serverReply(text, c){
 
 // ---------- Zeta con servidor (Gemini en Render): responde cualquier pregunta ----------
 async function zetaServerAnswer(text){
-  if(state.zetaServer === false && Date.now() - (state.zetaServerTs || 0) < 60000) return null; // no insistir si falló hace poco
+  if(state.zetaServer === false && Date.now() - (state.zetaServerTs || 0) < 6000) return null; // no insistir si falló hace un instante
   try{
-    const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 20000);
-    const r = await fetch("/api/chat", { method:"POST", headers:{ "Content-Type":"application/json" }, signal: ctl.signal,
+    const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 50000);
+    const r = await fetch(T4C_API + "/api/chat", { method:"POST", headers:{ "Content-Type":"application/json" }, signal: ctl.signal,
       body: JSON.stringify({ role:"zeta", message:text, limitPct: state.rateThresholds.limit,
         history: (state.zetaMessages || []).slice(-8).map(m => ({ role: m.role === "user" ? "user" : "model", text: m.text })) }) });
     clearTimeout(to);
