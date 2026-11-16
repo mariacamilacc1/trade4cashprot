@@ -77,6 +77,7 @@ function counterpartPrompt(o, b){
   return `Eres ${o.name}, una persona real en Bogotá que ofrece cambiar ${o.amount} ${o.currency} a ${o.rate}, en ${o.place}. Condición de los billetes: ${o.condition || "sin sellos ni anotaciones"}. Hablas por el chat de Trade4Cash con alguien interesado.
 Habla natural, corto (máximo 3 frases), amable, en español colombiano. Puedes responder cualquier cosa que te pregunten, como lo haría una persona.
 REGLAS: ${b ? `La tasa de referencia oficial hoy es $${Math.round(b.ref)} y el rango permitido es entre $${Math.ceil(b.lower)} y $${Math.floor(b.upper)} (±${LIMIT} %). Nunca aceptes ni propongas una tasa fuera de ese rango; si te piden una fuera, explica amablemente el rango.` : `Toda tasa debe estar dentro de ±${LIMIT} % de la referencia oficial.`}
+MODALIDAD: esta oferta acepta estos medios: ${(o.payments || []).join(", ") || "efectivo"}. ${o.mode === "presencial" ? "Ya acordaron un encuentro PRESENCIAL con efectivo: habla solo del encuentro (punto público, billetes, código de encuentro) y NO propongas ni aceptes pagos digitales; si te piden pago digital, di que primero tendrían que cancelar el encuentro." : o.mode === "digital" ? "Ya acordaron PAGO DIGITAL: habla solo del pago en la app y su confirmación y NO propongas encuentros ni puntos de encuentro; si te piden vernos, di que tendrían que cambiar de modalidad." : "Aún no definen modalidad: puedes ofrecer presencial (solo si aceptas efectivo) o pago digital (solo con los medios listados). Son procesos separados: no mezcles los dos."}
 No pidas dinero por adelantado, no cambies el lugar a sitios no públicos, no pidas datos personales ni bancarios. Si hablan de cerrar, propón presencial en un punto público o pago digital. No digas que eres una IA salvo que te lo pregunten directamente.`;
 }
 
@@ -157,7 +158,7 @@ const server = http.createServer(async (req, res) => {
       const b = await body(req), msg = String(b.message || "").trim().slice(0, 1500);
       if(!msg) return send(res, 400, { error:"Mensaje vacío" });
       if(b.role === "counterpart" && b.offer){
-        const o = { name: String(b.offer.name || "Contraparte").slice(0, 60), currency: String(b.offer.currency || ""), amount: String(b.offer.amount || ""), rate: String(b.offer.rate || ""), place: String(b.offer.place || ""), condition: String(b.offer.condition || "") };
+        const o = { mode: ["presencial","digital"].includes(b.mode) ? b.mode : "", payments: Array.isArray(b.offer.payments) ? b.offer.payments.slice(0, 6).map(x => String(x).slice(0, 40)) : [], name: String(b.offer.name || "Contraparte").slice(0, 60), currency: String(b.offer.currency || ""), amount: String(b.offer.amount || ""), rate: String(b.offer.rate || ""), place: String(b.offer.place || ""), condition: String(b.offer.condition || "") };
         const cur = o.currency === "Pesos Colombianos" ? String(b.offer.wantCur || "Dólar USA") : o.currency;
         const bd = await refFor(cur).then(r => r ? band(r) : null).catch(() => null);
         let reply = await gemini(counterpartPrompt(o, bd), b.history, msg);

@@ -1595,6 +1595,71 @@ background:linear-gradient(#0a5a42,#0a5a42) padding-box,linear-gradient(120deg,#
 @media(max-width:760px){.account-layout .data-list{grid-template-columns:1fr}.ig{padding:22px 18px!important}.account-menu{grid-template-columns:1fr 1fr}}
 .account-layout .data-list{grid-template-columns:1.2fr 1fr}
 .account-layout .data-item.has-ic>strong{font-size:14.5px!important;word-break:normal!important;overflow-wrap:anywhere}
+
+/* ===== v10 · iconos, Comprar, Chat y modalidades ===== */
+.ic{display:inline-grid;place-items:center;width:1.15em;height:1.15em;vertical-align:-.2em;margin-right:.4em;color:currentColor}
+.ic svg{width:100%;height:100%}
+.di .ic{width:24px;height:24px;margin:0;color:#0a7956}
+/* Comprar */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
+.filters .chip{border:2px solid var(--line)!important;background:#fff!important;color:#35574a!important;border-radius:99px!important;padding:9px 18px!important;font:700 14px var(--f-body)!important;transition:all .2s}
+.filters .chip:hover{border-color:#14a373!important;transform:translateY(-2px)}
+.filters .chip.selected{background:linear-gradient(120deg,#0a7956,#14a373)!important;border-color:transparent!important;color:#fff!important;box-shadow:0 8px 18px #0a795540}
+.offer-card{border:2px solid var(--line)!important;border-radius:28px!important;background:#fff!important;padding:22px!important;box-shadow:none!important;transition:transform .3s,box-shadow .3s,border-color .3s}
+.offer-card:hover{transform:translateY(-8px);box-shadow:0 22px 40px #064b3826!important;border-color:#9fe3c0!important}
+.offer-card.flagged{background:linear-gradient(170deg,#fffaf0,#fff)!important}
+.offer-card .person h3{font:800 19px var(--f-head);letter-spacing:-.02em;margin:0}
+.offer-card .warning{display:flex;align-items:flex-start;gap:6px;border-radius:14px!important;font-size:13px}
+.offer-card .warning .ic{color:#c47a00;margin-top:2px}
+.trust-pill .ic{width:1em;height:1em}
+.banknote-badge{display:inline-flex;align-items:center;border-radius:99px!important;padding:6px 12px!important}
+.offer-facts{gap:8px!important}
+.offer-card .fact{background:#f3faf6!important;border:1px solid #e1efe7;border-radius:16px!important;padding:11px 13px!important;font:700 11.5px var(--f-body)!important;letter-spacing:.06em;text-transform:uppercase;color:#6b8a7b!important}
+.offer-card .fact .ic{color:#14a373}
+.offer-card .fact b{display:block;margin-top:3px;font:800 15px var(--f-body)!important;letter-spacing:0;text-transform:none;color:var(--deep)!important}
+.payment-pills{gap:6px!important}
+.payment-pill{display:inline-flex;align-items:center;background:#fff!important;border:1.5px solid #cfe7da!important;border-radius:99px!important;padding:5px 12px!important;font:700 12.5px var(--f-body)!important;color:#2d5a47!important}
+.payment-pill .ic{color:#14a373}
+.offer-card .rate{font:800 26px var(--f-head)!important;letter-spacing:-.03em;color:var(--deep)!important}
+.ref-diff{border-radius:12px!important;font-weight:700}
+.offer-card .btn{border-radius:16px!important;font-weight:800}
+.offer-card .btn .ic{margin-right:6px}
+/* Chat */
+.chat-card{border:0!important;border-radius:32px!important;overflow:hidden;box-shadow:0 26px 60px #064b3830,0 0 0 1px #cfe7da!important;max-width:920px!important}
+.chat-top{background:linear-gradient(125deg,#053b2d,#0b6a4d 70%,#14a373)!important;color:#fff;padding:18px 22px!important;border:0!important;align-items:center}
+.chat-top h2{color:#fff!important;font:800 21px var(--f-head)!important;letter-spacing:-.02em}
+.chat-top .subtle{color:#cdeedd!important}
+.chat-top .btn.light{background:#ffffff22!important;color:#fff!important;border:1px solid #ffffff40!important}
+.mode-badge{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:99px;font:800 13px var(--f-body);background:#ffffff26;color:#fff;border:1px solid #ffffff40}
+.mode-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:#ffd166}
+.mode-badge.presencial::before,.mode-badge.digital::before{background:#75e6a5}
+.chat-body{background:radial-gradient(#d8efe2 1px,transparent 1.4px) 0 0/18px 18px,#f3faf6!important;padding:20px 22px!important;display:flex;flex-direction:column;gap:10px}
+.bubble{max-width:72%!important;border-radius:6px 20px 20px 20px!important;background:#fff!important;border:1px solid #e1efe7!important;box-shadow:0 4px 14px #064b3814;padding:12px 15px!important;line-height:1.5;animation:zIn .3s both}
+.bubble.mine{align-self:flex-end;margin-left:auto;background:linear-gradient(135deg,#0a7956,#14a373)!important;color:#fff!important;border:0!important;border-radius:20px 6px 20px 20px!important}
+.bubble.mine div:first-child{color:#d6f3e4!important}
+.chat-compose{padding:12px 16px!important;background:#fff;border-top:1px solid #e1efe7!important;gap:10px!important}
+.chat-compose .field{border-radius:99px!important;border:2px solid #d6eadf!important;background:#f6fbf8!important;padding:0 20px!important;min-height:48px}
+.chat-compose .field:focus{border-color:#14a373!important;background:#fff!important;outline:0}
+.chat-compose .btn{border-radius:99px!important;padding:0 26px!important}
+.chat-tools{padding:10px 16px 14px;gap:8px;display:flex;flex-wrap:wrap}
+.chat-tools .btn{border-radius:99px!important}
+.mode-pick{padding:16px 18px 6px;background:#fff;border-top:1px solid #e1efe7}
+.mp-title{display:block;font:800 15px var(--f-head);color:var(--deep);margin-bottom:10px}
+.mp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mode-card{display:grid;gap:4px;text-align:left;border:2px solid #d6eadf;background:linear-gradient(160deg,#f4fbf7,#fff);border-radius:20px;padding:16px 18px;cursor:pointer;font:inherit;transition:transform .25s,border-color .25s,box-shadow .25s}
+.mode-card b{font:800 17px var(--f-head);color:#064b38}.mode-card small{color:#5c7a6b;font-size:13px;line-height:1.4}
+.mode-card:hover:not(:disabled){transform:translateY(-4px);border-color:#14a373;box-shadow:0 14px 26px #064b3822}
+.mode-card:disabled{opacity:.5;cursor:not-allowed}
+.flow-card{border-radius:22px!important;border:2px solid #cfeedd!important;background:#fff!important;margin:12px 16px!important;box-shadow:0 8px 22px #064b3814}
+.flow-head b{font:800 17px var(--f-head)}
+.flow-note{margin:6px 0 12px;color:#5c7a6b;font-size:13.5px}
+.pay-opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0 14px}
+.pay-opt{display:flex;align-items:center;gap:10px;border:2px solid #d6eadf;background:#f6fbf8;border-radius:16px;padding:13px 14px;font:700 14px var(--f-body);color:#1c352c;cursor:pointer;transition:border-color .2s,background .2s}
+.pay-opt i{width:18px;height:18px;border-radius:50%;border:2px solid #9fc9b3;flex:none;position:relative}
+.pay-opt.on{border-color:#0a7956;background:#e8f8ef}.pay-opt.on i{border-color:#0a7956}.pay-opt.on i::after{content:"";position:absolute;inset:3px;border-radius:50%;background:#0a7956}
+@media(max-width:640px){.mp-grid{grid-template-columns:1fr}.bubble{max-width:88%!important}}
+.account-layout .data-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.account-layout .data-item.has-ic>strong{font-size:14px!important;letter-spacing:-.01em}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -5338,7 +5403,7 @@ async function serverReply(text, c){
   try{
     const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 15000);
     const r = await fetch(T4C_API + "/api/chat", { method:"POST", headers:{ "Content-Type":"application/json" }, signal: ctl.signal,
-      body: JSON.stringify({ role:"counterpart", message:text, offer:{ name:c.name, currency:c.currency, amount:c.amount, rate:c.rate, place:c.place, condition:c.condition }, limitPct: state.rateThresholds.limit, history: (state.messages || []).slice(-8) }) });
+      body: JSON.stringify({ role:"counterpart", message:text, mode:(state.flow && state.flow.mode) || "", offer:{ payments:c.payments, name:c.name, currency:c.currency, amount:c.amount, rate:c.rate, place:c.place, condition:c.condition }, limitPct: state.rateThresholds.limit, history: (state.messages || []).slice(-8) }) });
     clearTimeout(to);
     if(!r.ok) return null;
     const j = await r.json(); return j && typeof j.reply === "string" && j.reply ? j.reply : null;
@@ -5546,6 +5611,11 @@ function offerTotal(c){
   return { amt, total: dealPesos(c, amt) };
 }
 
+function offerModes(c){
+  const pays = c.payments && c.payments.length ? c.payments : ["Efectivo"];
+  const digitalList = pays.filter(p => !/efectivo/i.test(p));
+  return { cash: pays.some(p => /efectivo/i.test(p)), digital: digitalList.length > 0, digitalList };
+}
 function chatIntent(text){
   const t = text.toLowerCase();
   const pres = /presencial|en persona|efectivo|encuentr|vernos|vemos|nos vemos|punto|starbucks|centro comercial|cash|lugar/.test(t);
@@ -5560,21 +5630,36 @@ function chatSend(text){
   const c = state.chat || seedOffers[0];
   state.messages.push({ mine:true, text });
   const intent = chatIntent(text);
-  const lr = intent === "ninguno" ? localReply(text, c) : null;
+  const modes = offerModes(c), fm = state.flow && state.flow.mode;
+  let gate = null;
+  if(fm && intent !== "ninguno" && intent !== fm){
+    gate = fm === "presencial"
+      ? "Ya acordamos vernos en persona, así que seguimos con el encuentro. Si prefieres pago digital, cancela el encuentro con el botón de abajo y empezamos ese proceso aparte."
+      : "Ya acordamos pago digital, así que seguimos por ahí. Si prefieres vernos en persona, usa «Cambiar de modalidad» y empezamos ese proceso aparte.";
+  } else if(fm === "digital" && /d[oó]nde|lugar|punto|nos vemos|encuentro|hora|cu[aá]ndo/.test(text.toLowerCase())){
+    gate = "Con pago digital no hace falta que nos veamos: todo se hace desde la app. Elige el medio de pago y continúa con el pago.";
+  } else if(!fm && intent === "presencial" && !modes.cash){
+    gate = `Esta oferta no recibe efectivo. Acepta: ${modes.digitalList.join(", ")}. ¿Seguimos con pago digital?`;
+  } else if(!fm && intent === "digital" && !modes.digital){
+    gate = `Esta oferta es solo en efectivo, en persona en ${c.place}. ¿Coordinamos el encuentro?`;
+  }
+  const lr = (!gate && intent === "ninguno") ? localReply(text, c) : null;
   let reply = null, next = null, needServer = false;
-  if(lr){
+  if(gate){
+    reply = gate;
+  } else if(lr){
     reply = lr;
   } else if(state.flow && state.flow.mode === "presencial" && state.flow.step < 4){
     reply = "Perfecto. Te espero en el punto. Cuando llegues, toca «Ya estoy en el punto» y verificamos los códigos.";
   } else if(state.flow && state.flow.mode === "digital"){
-    reply = "Dale. Inicia el pago digital con el botón y te confirmo cuando lo reciba.";
+    reply = state.flow.step >= 3 ? "¡Listo! El pago ya quedó confirmado. Gracias por cambiar conmigo." : "Dale. Sigue los pasos de abajo y te confirmo cuando reciba el pago.";
   } else if(intent === "presencial"){
     reply = `¡Listo, entonces presencial! Nos vemos en ${c.place}. Llevo los billetes revisados. Agenda la cita abajo y ahí te aparece tu código de encuentro; muéstralo solo cuando estemos frente a frente.`;
     next = { mode:"presencial", step:1, myCode:newCode(), theirCode:newCode(), checks:[false,false,false], entered:"", error:"" };
   } else if(intent === "digital"){
-    const pay = (c.payments || []).find(p => !/efectivo/i.test(p)) || "pago digital";
-    reply = `Va, pago digital con ${pay}. Inicia el pago desde el botón de abajo y yo te confirmo cuando lo vea.`;
-    next = { mode:"digital", step:1, pay };
+    const dl = modes.digitalList, pay = dl.length === 1 ? dl[0] : "";
+    reply = dl.length === 1 ? `Va, pago digital con ${pay}. Inicia el pago desde la tarjeta de abajo y yo te confirmo cuando lo vea.` : "Va, pago digital. Elige abajo con cuál medio quieres pagar y seguimos desde ahí.";
+    next = { mode:"digital", step:1, pay, payChosen: !!pay };
   } else {
     needServer = true;
   }
@@ -5600,17 +5685,37 @@ function chatFlowHTML(c){
   html += dealCardHTML(c);
   if(state.typing) html += `<div class="flow-typing"><span class="dots"><i></i><i></i><i></i></span> ${esc(c.name)} está escribiendo…</div>`;
   if(!f){
-    html += `<div class="flow-quick"><span>Elige cómo cerrar:</span>
-      <button class="tap" type="button" data-chat-quick="Prefiero presencial, en el punto público acordado.">🤝 Presencial</button>
-      <button class="tap" type="button" data-chat-quick="Prefiero pago digital por transferencia.">💳 Pago digital</button></div>`;
+    const m = offerModes(c);
+    html += `<div class="mode-pick"><span class="mp-title">¿Cómo quieres cerrar? Cada opción tiene su propio proceso.</span><div class="mp-grid">
+      <button class="mode-card" type="button" data-chat-quick="Prefiero presencial, en el punto público acordado." ${m.cash ? "" : "disabled"}><b>Presencial</b><small>${m.cash ? `Efectivo en ${esc(c.place)}. Cita, código de encuentro y revisión de billetes.` : "Esta oferta no recibe efectivo."}</small></button>
+      <button class="mode-card" type="button" data-chat-quick="Prefiero pago digital por transferencia." ${m.digital ? "" : "disabled"}><b>Pago digital</b><small>${m.digital ? esc(m.digitalList.join(" · ")) + ". Medio de pago, pago en la app y comprobante." : "Esta oferta es solo en efectivo."}</small></button></div></div>`;
     return html;
   }
   if(f.mode === "digital"){
-    return html + `<div class="flow-card">
-      <div class="flow-head"><span class="flow-ico">💳</span><div><b>Pago digital acordado</b><span>${esc(f.pay)} · ${fmt(tot.amt)} ${esc(c.currency)} a ${esc(c.rate)}</span></div></div>
+    const m = offerModes(c), cur = f.step >= 3 ? 3 : f.payChosen ? 2 : 1;
+    const bar = `<div class="flow-steps">${["Medio de pago", "Pago en la app", "Confirmado"].map((x, i) => `<span class="${i + 1 < cur ? "done" : i + 1 === cur ? "on" : ""}"><i>${i + 1 < cur ? "✓" : i + 1}</i>${x}</span>`).join("")}</div>`;
+    const sum = `${fmt(tot.amt)} ${esc(c.currency)} a ${esc(c.rate)}`;
+    if(cur === 1) return html + `<div class="flow-card">${bar}
+      <div class="flow-head"><div><b>Elige el medio de pago</b><span>${sum}</span></div></div>
+      <div class="pay-opts">${m.digitalList.map(p => `<button type="button" class="pay-opt ${f.pay === p ? "on" : ""}" data-dig-pay="${esc(p)}"><i></i>${esc(p)}</button>`).join("")}</div>
+      <button class="btn green block" data-dig-go ${f.pay ? "" : "disabled"}>Continuar</button>
+      <button class="btn light block" style="margin-top:8px" data-flow-cancel>Cambiar de modalidad</button></div>`;
+    if(cur === 2) return html + `<div class="flow-card">${bar}
+      <div class="flow-head"><div><b>Pago digital con ${esc(f.pay)}</b><span>${sum}</span></div></div>
+      <p class="flow-note">Se abre una pasarela de práctica: no se mueve dinero real.</p>
       <button class="btn green block" data-start-gateway="${seedOffers.indexOf(c)}">Iniciar pago digital</button>
-      <button class="btn light block" style="margin-top:8px" data-flow-cancel>Cambiar a presencial</button>
-    </div>`;
+      <button class="btn light block" style="margin-top:8px" data-dig-back>Cambiar medio de pago</button>
+      <button class="btn light block" style="margin-top:8px" data-flow-cancel>Cambiar de modalidad</button></div>`;
+    const tx = state.activeSimTx || {};
+    return html + `<div class="flow-card done">${bar}
+      <b class="flow-title">Pago digital confirmado</b>
+      <div class="data-list" style="margin-top:12px">
+        <div class="data-item"><span>Medio</span><strong>${esc(tx.method || f.pay || "")}</strong></div>
+        <div class="data-item"><span>Importe</span><strong>${esc(tx.amount || fmt(tot.amt))} ${esc(c.currency)}</strong></div>
+        <div class="data-item"><span>Total</span><strong>${esc(tx.totalCop || "")}</strong></div>
+        <div class="data-item"><span>Operación</span><strong>${esc(tx.id || "")}</strong></div></div>
+      <button class="btn green block" style="margin-top:12px" data-pdf="sim">Descargar comprobante (PDF)</button>
+      <button class="btn light block" style="margin-top:8px" data-page="buy">Volver a Comprar</button></div>`;
   }
   // PRESENCIAL
   const steps = ["Código", "Llegada", "Revisión", "Listo"];
@@ -5669,6 +5774,9 @@ document.addEventListener("click", ev => {
   const t = ev.target; let el;
   const c = state.chat || seedOffers[0];
   if((el = t.closest("[data-chat-quick]"))){ chatSend(el.dataset.chatQuick); return; }
+  if((el = t.closest("[data-dig-pay]"))){ state.flow.pay = el.dataset.digPay; render(); return; }
+  if(t.closest("[data-dig-go]")){ if(!state.flow.pay) return; state.flow.payChosen = true; render(); return; }
+  if(t.closest("[data-dig-back]")){ state.flow.payChosen = false; render(); return; }
   if(t.closest("[data-flow-arrive]")){
     state.flow.step = 2; state.flow.error = "";
     state.messages.push({ mine:false, text:`¡Ya llegué! Estoy en ${c.place}. Mi código es ${codeFmt(state.flow.theirCode)}. Dime el tuyo y verificamos.` });
@@ -6563,6 +6671,100 @@ document.addEventListener("click", e => {
     if(!state.zetaLoading && M.length > 1) setTimeout(() => { try{ document.getElementById("zetaChatInput")?.focus({ preventScroll:true }); }catch(e){} }, 60);
   };
   if(state.zetaOpen) drawZeta();
+})();
+
+// ===== T4C v9 · Iconos en vez de emojis (Comprar, Chat, Mi cuenta) y modalidades de pago separadas en el chat =====
+(function(){
+  const P = {
+    banknote:'<rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v.01M18 14.5v.01"/>',
+    target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/>',
+    pin:'<path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/>',
+    store:'<path d="M4 10h16l-1.5-5h-13z"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/>',
+    card:'<rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/>',
+    alert:'<path d="M12 3.5 2.8 19.5h18.4z"/><path d="M12 10v4.5M12 17.2v.01"/>',
+    award:'<circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.6 5 2.6-1.5-7.5"/>',
+    leaf:'<path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19c3-5 6-8 10-10"/>',
+    check:'<circle cx="12" cy="12" r="9"/><path d="m8 12.3 2.8 2.8L16 9.5"/>',
+    lock:'<rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/>',
+    users:'<circle cx="9" cy="8.5" r="3.4"/><path d="M2.8 20c.4-3.6 3-5.6 6.2-5.6s5.8 2 6.2 5.6"/><path d="M16 5.4a3.2 3.2 0 0 1 0 6M18.4 14.8c1.8.7 3 2.4 3.3 5.2"/>',
+    user:'<circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c.6-4 3.6-6.2 7.5-6.2s6.9 2.2 7.5 6.2"/>',
+    phone:'<rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M11 18.5h2"/>',
+    mail:'<rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="m3.5 7 8.5 6.3L20.5 7"/>',
+    star:'<path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9 6.8 19.7l1-5.9L3.5 9.7l5.9-.8z"/>',
+    shield:'<path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6z"/><path d="m8.8 12 2.4 2.4 4-4.4"/>',
+    calendar:'<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+    id:'<rect x="2.5" y="5" width="19" height="14" rx="2.5"/><circle cx="8.5" cy="11.2" r="2"/><path d="M5.5 16c.5-1.7 1.7-2.4 3-2.4s2.5.7 3 2.4M14 10h5M14 13.5h4"/>',
+    receipt:'<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/>',
+    file:'<path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4M9 12h6M9 16h6"/>',
+    cap:'<path d="m2.5 9 9.5-4.5L21.5 9 12 13.5z"/><path d="M6.5 11.5V16c1.5 1.6 3.4 2.3 5.5 2.3s4-.7 5.5-2.3v-4.5"/>',
+    clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/>',
+    calc:'<rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M8.5 7h7M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/>',
+    chat:'<path d="M4 5.5h16v11H11l-5 4v-4H4z"/>'
+  };
+  const MAP = { "💵":"banknote","💶":"banknote","💴":"banknote","💲":"banknote","🎯":"target","📍":"pin","☕":"store","💳":"card","⚠":"alert","🏅":"award","🌱":"leaf","✅":"check","✔":"check","🔒":"lock","🤝":"users","👤":"user","📱":"phone","✉":"mail","⭐":"star","🛡":"shield","🎂":"calendar","🪪":"id","🧾":"receipt","📄":"file","🎓":"cap","🕘":"clock","💬":"chat","🔢":"id","🧮":"calc" };
+  const svg = n => `<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[n]}</svg></span>`;
+  window.T4C_ICON = svg;
+  const EM = /(?:\p{Extended_Pictographic}️?(?:‍\p{Extended_Pictographic}️?)*)/gu, KEEP = /[★☆✓✗✕→←↗▲▼]/, HAS = /\p{Extended_Pictographic}/u;
+  function deEmoji(root, stripAll){
+    if(!root) return;
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: n => (n.nodeValue && HAS.test(n.nodeValue) && !n.parentElement.closest("script,style,textarea,select,option,svg,.flag-emo")) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+    const nodes = []; let n; while((n = w.nextNode())) nodes.push(n);
+    nodes.forEach(node => {
+      const txt = node.nodeValue; EM.lastIndex = 0;
+      const strip = stripAll || !!node.parentElement.closest(".data-item strong,.data-item>span:not(.di),.flow-big,.flow-ok");
+      const frag = document.createDocumentFragment(); let last = 0, m;
+      while((m = EM.exec(txt))){
+        const ch = m[0]; if(KEEP.test(ch)) continue;
+        frag.appendChild(document.createTextNode(txt.slice(last, m.index)));
+        const key = MAP[ch] || MAP[ch.replace(/️/g, "")];
+        if(key && !strip){ const t = document.createElement("template"); t.innerHTML = svg(key); frag.appendChild(t.content.firstChild); }
+        last = m.index + ch.length; if(txt[last] === " " && (!key || strip)) last++;
+      }
+      frag.appendChild(document.createTextNode(txt.slice(last))); node.parentNode.replaceChild(frag, node);
+    });
+  }
+  window.T4C_deEmoji = deEmoji;
+
+  // ---------- el chat obedece la modalidad elegida ----------
+  const _chat = chat;
+  chat = function(){
+    let h = _chat.apply(this, arguments);
+    const f = state.flow, c = state.chat || seedOffers[0];
+    const label = f ? (f.mode === "presencial" ? "Presencial" : "Pago digital") : "Sin definir";
+    h = h.replace(/<button class="btn green small" data-start-gateway="\d+">[^<]*<\/button>/, `<span class="mode-badge ${f ? f.mode : "none"}">${label}</span>`);
+    h = h.replace(/<button class="btn light small" data-start-gateway="\d+">[^<]*<\/button>/, "");
+    return h;
+  };
+  // al empezar un pago nuevo desde el chat, la pasarela parte limpia y con el medio elegido
+  document.addEventListener("click", ev => {
+    if(ev.target.closest && ev.target.closest("[data-start-gateway]") && state.flow && state.flow.mode === "digital" && state.flow.step < 3) state.activeSimTx = null;
+  }, true);
+  const _ddf = drawDigitalPaymentFlow;
+  drawDigitalPaymentFlow = function(i, step){
+    if(state.flow && state.flow.mode === "digital" && state.flow.pay && !state.activeSimTx){ /* se crea dentro */ }
+    const r = _ddf.apply(this, arguments);
+    if(state.activeSimTx && state.flow && state.flow.mode === "digital" && state.flow.pay && step <= 2) state.activeSimTx.method = state.flow.pay;
+    if(step === 2 && state.flow && state.flow.pay){ const el = [...document.querySelectorAll('input[name="simPayMethod"]')].find(x => x.value === state.flow.pay); if(el) el.checked = true; }
+    return r;
+  };
+  const _dr = digitalReceived;
+  digitalReceived = function(o, tx){
+    if(state.flow && state.flow.mode === "digital"){ state.flow.step = 3; state.flow.tx = tx; }
+    return _dr.apply(this, arguments);
+  };
+
+  // ---------- iconos limpios en las vistas pedidas ----------
+  const _r = render;
+  render = function(){
+    const r = _r.apply(this, arguments);
+    try{
+      if(["buy", "chat", "account"].includes(state.page)){
+        document.querySelectorAll("#app .di").forEach(d => { const k = MAP[d.textContent.replace(/️/g, "")]; if(k) d.innerHTML = svg(k); });
+        deEmoji(document.getElementById("app"));
+      }
+    }catch(e){}
+    return r;
+  };
 })();
 
 
