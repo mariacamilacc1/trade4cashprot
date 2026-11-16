@@ -1836,9 +1836,23 @@ background:linear-gradient(#0a5a42,#0a5a42) padding-box,linear-gradient(120deg,#
 @media(max-width:380px){.nav button{font-size:15px!important}.hero h1,.hero-v5 h1{font-size:34px!important}.big-top{flex-wrap:wrap}}
 .modal.auth2,.modal.uso2{max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain}
 @media(max-width:520px){.overlay{padding:12px!important;align-items:center}.modal.auth2,.modal.uso2{border-radius:22px}}
+
+/* ===== v12 · pantalla de carga y Zeta sin parpadeo del 2D ===== */
+#t4cSplash{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;color:#fff;background:radial-gradient(700px 500px at 80% 20%,#16b87a66,transparent 60%),linear-gradient(130deg,#05503a,#087c56 60%,#13a96f);transition:opacity .55s ease,visibility .55s}
+#t4cSplash.out{opacity:0;visibility:hidden}
+#t4cSplash .sp-in{text-align:center;display:grid;gap:18px;justify-items:center}
+#t4cSplash .sp-brand{font:800 clamp(38px,8vw,58px) 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.03em;animation:spPulse 1.8s ease-in-out infinite}
+#t4cSplash .sp-brand span{color:#75e6a5}
+#t4cSplash .sp-bar{width:180px;height:5px;border-radius:5px;background:#ffffff2b;overflow:hidden}
+#t4cSplash .sp-bar i{display:block;height:100%;width:40%;border-radius:5px;background:#75e6a5;animation:spBar 1.2s ease-in-out infinite}
+#t4cSplash p{margin:0;font:600 14px 'DM Sans',system-ui,sans-serif;color:#cdeedd;letter-spacing:.04em}
+@keyframes spBar{0%{transform:translateX(-110%)}100%{transform:translateX(330%)}}
+@keyframes spPulse{50%{opacity:.78;transform:scale(.985)}}
+.zeta-welcome-img:not([data-z3d]),#zetaFab img.zeta-image:not([data-z3d]),.zeta-head-avatar img:not([data-z3d]),.hist-zeta img:not([data-z3d]){visibility:hidden}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<div id="t4cSplash" aria-live="polite"><div class="sp-in"><div class="sp-brand">Trade4<span>Cash</span></div><div class="sp-bar"><i></i></div><p>Preparando tu espacio…</p></div></div>
 
 <header class="topbar">
   <div class="brand" role="button" tabindex="0" data-page="home">Trade4<span>Cash</span></div>
@@ -6505,12 +6519,16 @@ setTRM = function(record, stale){ _setTRMReb(record, stale); rebaseRates(); };
     for(const t of TARGETS) document.querySelectorAll(t.sel).forEach(img => {
       if(img.dataset.z3d) return; img.dataset.z3d = "1"; makeInstance(img, t.cfg) || (img.style.display = "");
     });
+    document.dispatchEvent(new Event("t4c-3d"));
   }
+  // si el 3D no puede cargar (sin internet o sin WebGL), se muestra la imagen 2D tras un tiempo prudente
+  function giveUp(){ TARGETS.forEach(t => document.querySelectorAll(t.sel + ":not([data-z3d])").forEach(img => { img.dataset.z3d = "fail"; })); document.dispatchEvent(new Event("t4c-3d")); }
+  setTimeout(() => { if(!window.THREE) giveUp(); }, 4500);
   function schedule(){
     if(scheduled) return; scheduled = true;
     requestAnimationFrame(() => {
       if(!TARGETS.some(t => document.querySelector(t.sel + ":not([data-z3d])"))){ scheduled = false; return; }
-      loadThree().then(mountAll).catch(() => { scheduled = false; });
+      loadThree().then(mountAll).catch(() => { scheduled = false; giveUp(); });
     });
   }
   new MutationObserver(schedule).observe(document.body, { childList: true, subtree: true });
@@ -7111,6 +7129,16 @@ document.addEventListener("click", e => {
       closeUsageModal(); toast("Listo. Ajustamos la Academy para ti."); return;
     }
   }, true);
+})();
+
+// ===== Pantalla de carga: se quita cuando Zeta 3D está listo (o tras un máximo) =====
+(function(){
+  const sp = document.getElementById("t4cSplash"); if(!sp) return;
+  const t0 = performance.now(); let gone = false;
+  function hide(){ if(gone) return; gone = true; sp.classList.add("out"); setTimeout(() => sp.remove(), 600); }
+  function ready(){ const wait = Math.max(0, 700 - (performance.now() - t0)); setTimeout(hide, wait); }
+  document.addEventListener("t4c-3d", ready, { once: true });
+  setTimeout(hide, 5000);
 })();
 
 
