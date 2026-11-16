@@ -1712,6 +1712,49 @@ background:linear-gradient(#0a5a42,#0a5a42) padding-box,linear-gradient(120deg,#
 .pts-rules .rule-card i.rule-art{width:76px;height:76px;border-radius:22px;background:linear-gradient(145deg,#f4fff8,#c9f0dc);display:grid;place-items:center;margin-bottom:8px;box-shadow:0 6px 14px #0a3b2d33}
 .pts-rules .rule-card i.rule-art svg{width:58px;height:58px}
 .rules-head .shield svg{display:block}
+/* ===== v11 · portada ===== */
+#welcome.wl2{place-items:center;padding:clamp(24px,5vh,56px) 24px;background:radial-gradient(900px 600px at 82% 30%,#16b87a55,transparent 60%),radial-gradient(700px 500px at 5% 95%,#0a8f6055,transparent 60%),linear-gradient(118deg,#05503a 0%,#087c56 58%,#13a96f 100%);text-align:left}
+#welcome.wl2 .welcomeCard{width:min(1080px,100%);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:36px;align-items:center}
+.wl-brand{font:800 26px var(--f-head);letter-spacing:-.02em;margin-bottom:22px}.wl-brand span{color:var(--mint)}
+.wl-kicker{display:inline-block;font:700 12.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;background:#ffffff1f;border:1px solid #ffffff33;padding:7px 14px;border-radius:999px;color:#dff6e9}
+#welcome.wl2 h1{font:800 clamp(44px,6vw,72px)/1 var(--f-head);letter-spacing:-.035em;margin:18px 0 14px}
+.wl-lead{font:500 18px/1.5 var(--f-body);color:#dff6e9;max-width:520px;margin:0 0 26px}
+#welcome.wl2 p.wl-lead{font-size:18px;margin-bottom:26px}
+.wl-actions{display:grid;gap:12px;max-width:520px}
+.wl-btn{display:flex;align-items:center;gap:14px;width:100%;text-align:left;border:0;border-radius:20px;padding:14px 16px;cursor:pointer;background:#fff;color:#0a3b2d;font-family:var(--f-body);box-shadow:0 10px 24px #03281d40;transition:transform .25s,box-shadow .25s,background .25s}
+.wl-btn:hover{transform:translateY(-3px);box-shadow:0 16px 32px #03281d55}
+.wl-ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#e2f7ec;color:#0a7956;flex:none}
+.wl-txt{display:grid;gap:2px;flex:1;min-width:0}
+.wl-txt b{font:800 18px var(--f-head);color:inherit}.wl-txt small{font:500 13.5px var(--f-body);color:#5b786a}
+.wl-go{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#e2f7ec;color:#0a7956;flex:none;transition:transform .25s}
+.wl-btn:hover .wl-go{transform:translateX(4px)}
+.wl-btn.main{background:linear-gradient(135deg,#7ceaa9,#4fd88f);color:#053b2d}
+.wl-btn.main .wl-ico,.wl-btn.main .wl-go{background:#ffffff66;color:#053b2d}.wl-btn.main .wl-txt small{color:#1c5a43}
+.wl-btn.ghost{background:#ffffff14;border:1.5px solid #ffffff40;color:#fff;box-shadow:none;backdrop-filter:blur(6px)}
+.wl-btn.ghost:hover{background:#ffffff22}
+.wl-btn.ghost .wl-ico,.wl-btn.ghost .wl-go{background:#ffffff22;color:#fff}.wl-btn.ghost .wl-txt small{color:#cdeedd}
+.wl-policy{display:block;margin-top:18px;color:#d5f4e3!important;font:600 13px var(--f-body)!important;text-decoration:underline;text-underline-offset:3px}
+.wl-stage{position:relative;min-height:470px;display:grid;place-items:center}
+.wl-halo{position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffffff40,#ffffff0d 70%);border:1px solid #ffffff3a}
+.wl-ring{position:absolute;border-radius:50%;border:1.5px dashed #ffffff40;animation:wlSpin 40s linear infinite}
+.wl-ring.r1{width:410px;height:410px}.wl-ring.r2{width:470px;height:470px;animation-direction:reverse;animation-duration:60s;border-color:#ffffff22}
+@keyframes wlSpin{to{transform:rotate(360deg)}}
+#welcome.wl2 .zeta-welcome-img{position:relative;z-index:2;width:250px;height:300px;margin:0}
+.wl-chip{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;background:#ffffffee;color:#0a3b2d;border-radius:16px;padding:10px 14px 10px 10px;box-shadow:0 12px 28px #03281d50;animation:wlFloat 6s ease-in-out infinite}
+.wl-chip i{width:36px;height:36px;border-radius:11px;background:#d8f5e6;color:#0a7956;display:grid;place-items:center;flex:none}
+.wl-chip span{display:grid;gap:1px}.wl-chip b{font:800 14px var(--f-head)}.wl-chip small{font:500 12px var(--f-body);color:#5b786a}
+.wl-chip.c1{top:34px;left:0}.wl-chip.c2{top:190px;right:-6px;animation-delay:-2s}.wl-chip.c3{bottom:30px;left:14px;animation-delay:-4s}
+@keyframes wlFloat{50%{transform:translateY(-9px)}}
+@media(prefers-reduced-motion:reduce){.wl-ring,.wl-chip{animation:none}}
+@media(max-width:900px){
+  #welcome.wl2{place-items:start center}
+  #welcome.wl2 .welcomeCard{grid-template-columns:1fr;gap:6px}
+  .wl-stage{order:-1;min-height:300px;transform:scale(.8);margin:-30px 0 -30px}
+  .wl-chip.c2{right:0}
+}
+@media(max-width:480px){.wl-stage{min-height:250px;transform:scale(.62);margin:-50px 0 -50px}.wl-txt b{font-size:17px}}
+@media(max-width:900px){.wl-chip{display:none}.wl-stage{min-height:300px;transform:none;margin:0}.wl-halo{width:260px;height:260px}.wl-ring.r1{width:310px;height:310px}.wl-ring.r2{width:350px;height:350px}#welcome.wl2 .zeta-welcome-img{width:190px;height:230px}}
+@media(max-width:480px){.wl-stage{min-height:250px;transform:none;margin:0}}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -6846,6 +6889,49 @@ document.addEventListener("click", e => {
       }
     }catch(e){}
     return r;
+  };
+})();
+
+// ===== T4C v11 · PORTADA rediseñada (misma lógica, mejor presentación) =====
+(function(){
+  const IC = {
+    arrow:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+    user:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></svg>',
+    plus:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="4"/><path d="M3 21c1-5 13-5 14 0M19 8v6M16 11h6"/></svg>',
+    eye:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
+    rate:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>',
+    pin:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+    shield:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>'
+  };
+  const _dw = drawWelcome;
+  drawWelcome = function(){
+    _dw.apply(this, arguments);
+    const e = document.getElementById("welcome"); if(!e) return;
+    const card = e.querySelector(".welcomeCard"); if(!card) return;
+    const old = {}; ["welcomeLogin", "welcomeSignup", "welcomeGuest"].forEach(id => { const b = document.getElementById(id); old[id] = b && b.onclick; });
+    e.classList.add("wl2");
+    card.innerHTML = `
+      <div class="wl-copy">
+        <div class="wl-brand">Trade4<span>Cash</span></div>
+        <span class="wl-kicker">Cambio de divisas entre personas · Bogotá</span>
+        <h1>Tu dinero,<br><span>tu acuerdo.</span></h1>
+        <p class="wl-lead">Intercambia divisas directamente con otras personas en Bogotá de forma segura, informada y libre.</p>
+        <div class="wl-actions">
+          <button class="wl-btn main" id="welcomeLogin" type="button"><span class="wl-ico">${IC.user}</span><span class="wl-txt"><b>Iniciar sesión</b><small>Entra a tu cuenta</small></span><span class="wl-go">${IC.arrow}</span></button>
+          <button class="wl-btn" id="welcomeSignup" type="button"><span class="wl-ico">${IC.plus}</span><span class="wl-txt"><b>Crear cuenta</b><small>Mayor de 18 años</small></span><span class="wl-go">${IC.arrow}</span></button>
+          <button class="wl-btn ghost" id="welcomeGuest" type="button"><span class="wl-ico">${IC.eye}</span><span class="wl-txt"><b>Explorar plataforma</b><small>Modo Demo, sin registrarte</small></span><span class="wl-go">${IC.arrow}</span></button>
+        </div>
+        <button class="linkbtn wl-policy" data-modal="privacy" type="button">Política de Tratamiento de Datos Personales (Ley 1581)</button>
+      </div>
+      <div class="wl-stage" aria-hidden="true">
+        <div class="wl-halo"></div><div class="wl-ring r1"></div><div class="wl-ring r2"></div>
+        <img class="zeta-welcome-img" src="zeta-robot.png" alt="Zeta">
+        <div class="wl-chip c1"><i>${IC.rate}</i><span><b>Tasa justa</b><small>Hasta ±15 % de la referencia</small></span></div>
+        <div class="wl-chip c2"><i>${IC.pin}</i><span><b>Lugares públicos</b><small>Encuentros vigilados</small></span></div>
+        <div class="wl-chip c3"><i>${IC.shield}</i><span><b>Sin custodia</b><small>No guardamos tu dinero</small></span></div>
+      </div>`;
+    ["welcomeLogin", "welcomeSignup", "welcomeGuest"].forEach(id => { const b = document.getElementById(id); if(b && old[id]) b.onclick = old[id]; });
+    if(window.T4C_mount3D) try{ window.T4C_mount3D(); }catch(_){}
   };
 })();
 
