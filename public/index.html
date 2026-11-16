@@ -1755,6 +1755,33 @@ background:linear-gradient(#0a5a42,#0a5a42) padding-box,linear-gradient(120deg,#
 @media(max-width:480px){.wl-stage{min-height:250px;transform:scale(.62);margin:-50px 0 -50px}.wl-txt b{font-size:17px}}
 @media(max-width:900px){.wl-chip{display:none}.wl-stage{min-height:300px;transform:none;margin:0}.wl-halo{width:260px;height:260px}.wl-ring.r1{width:310px;height:310px}.wl-ring.r2{width:350px;height:350px}#welcome.wl2 .zeta-welcome-img{width:190px;height:230px}}
 @media(max-width:480px){.wl-stage{min-height:250px;transform:none;margin:0}}
+
+/* ===== v11 · ventanas de acceso ===== */
+.modal.auth2{max-width:470px;border-radius:26px;overflow:hidden;padding:0}
+.auth2 .modal-head{display:flex;align-items:flex-start;gap:14px;padding:22px 22px 18px;background:linear-gradient(120deg,#064b38,#0e8a62);color:#fff;border:0;position:relative}
+.auth2 .au-badge{width:52px;height:52px;border-radius:16px;background:#ffffff26;border:1px solid #ffffff40;display:grid;place-items:center;flex:none}
+.auth2 .au-badge svg{width:26px;height:26px}
+.auth2 .au-ttl{flex:1;min-width:0;padding-right:30px}
+.auth2 .au-kick{font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:#cdeedd}.auth2 .au-kick b{color:#75e6a5}
+.auth2 .au-ttl h2{margin:3px 0 4px;font:800 24px var(--f-head);color:#fff;letter-spacing:-.02em}
+.auth2 .au-ttl p{margin:0;font:500 13.5px/1.45 var(--f-body);color:#d6f3e4}
+.auth2 .xbtn{position:absolute;top:14px;right:14px;background:#ffffff22;color:#fff;border:0}
+.auth2 .modal-body{padding:20px 22px 22px}
+.auth2 .form-stack{gap:14px}
+.auth2 .au-field>span{font:700 13px var(--f-body);color:var(--deep);margin-bottom:6px;display:block}
+.au-in{position:relative;display:block}
+.au-in .field{padding-left:46px!important;min-height:50px;border-radius:14px;background:#f6fbf8;border:1.5px solid #d6e6dc;width:100%;box-sizing:border-box}
+.au-in .field:focus{background:#fff;border-color:var(--green);outline:0;box-shadow:0 0 0 4px #19b58a22}
+.au-ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#4f8a70;display:grid;pointer-events:none}
+.au-eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:10px;border:0;background:none;color:#7a9a8a;cursor:pointer;display:grid;place-items:center}
+.au-eye.on{color:var(--green);background:#e2f7ec}
+.au-in:has(.au-eye) .field{padding-right:46px!important}
+.au-note{display:flex;gap:10px;align-items:center;background:#eef9f3;border:1px solid #d3eede;border-radius:14px;padding:10px 12px;font:500 12.5px/1.4 var(--f-body);color:#3f6453}
+.au-note i{width:30px;height:30px;border-radius:10px;background:#d6f2e3;color:#0a7956;display:grid;place-items:center;flex:none}
+.auth2 .au-submit{min-height:52px;border-radius:16px;font:800 17px var(--f-head)}
+.auth2 .au-switch{margin-top:16px!important;padding-top:14px;border-top:1px dashed #d3e6da;font:500 14px var(--f-body);color:var(--muted)}
+.auth2 .au-switch .linkbtn{font:800 14px var(--f-body);color:var(--green);text-decoration:underline;text-underline-offset:3px}
+.auth2 .form-check{background:#f6fbf8;border:1px solid #dcefe3;border-radius:14px;padding:12px;font-size:12.5px;line-height:1.5}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -6932,6 +6959,47 @@ document.addEventListener("click", e => {
       </div>`;
     ["welcomeLogin", "welcomeSignup", "welcomeGuest"].forEach(id => { const b = document.getElementById(id); if(b && old[id]) b.onclick = old[id]; });
     if(window.T4C_mount3D) try{ window.T4C_mount3D(); }catch(_){}
+  };
+})();
+
+// ===== Ventanas de Iniciar sesión / Crear cuenta =====
+(function(){
+  const S = (p) => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+  const ICONS = {
+    text:S('<circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/>'),
+    date:S('<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>'),
+    email:S('<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 8l9 6 9-6"/>'),
+    password:S('<rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>')
+  };
+  const EYE = S('<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>');
+  const SHIELD = S('<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>');
+  const _da = drawAuth;
+  drawAuth = function(){
+    const r = _da.apply(this, arguments);
+    try{
+      const signup = state.modal === "signup";
+      const m = document.querySelector("#layers .modal"); if(!m) return r;
+      m.classList.add("auth2");
+      const head = m.querySelector(".modal-head"), lead = m.querySelector(".modal-body > p.muted");
+      const title = head.querySelector("h2").textContent;
+      head.innerHTML = `<div class="au-badge">${signup ? ICONS.text.replace('<circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/>', '<circle cx="10" cy="8" r="4"/><path d="M3 21c1-5 13-5 14 0M19 8v6M16 11h6"/>') : ICONS.password}</div>
+        <div class="au-ttl"><span class="au-kick">Trade4<b>Cash</b></span><h2>${title}</h2>${lead ? `<p>${lead.textContent}</p>` : ""}</div>
+        <button class="xbtn" data-close-modal aria-label="Cerrar">×</button>`;
+      if(lead) lead.remove();
+      m.querySelectorAll("#authForm .form-field").forEach(f => {
+        const inp = f.querySelector("input"); if(!inp) return;
+        const k = inp.type === "password" ? "password" : inp.type === "email" ? "email" : inp.type === "date" ? "date" : "text";
+        f.classList.add("au-field");
+        const wrap = document.createElement("div"); wrap.className = "au-in"; inp.parentNode.insertBefore(wrap, inp);
+        wrap.innerHTML = `<i class="au-ic">${ICONS[k]}</i>`; wrap.appendChild(inp);
+        if(k === "password"){ const b = document.createElement("button"); b.type = "button"; b.className = "au-eye"; b.setAttribute("aria-label", "Mostrar u ocultar contraseña"); b.innerHTML = EYE; b.onclick = () => { inp.type = inp.type === "password" ? "text" : "password"; b.classList.toggle("on", inp.type === "text"); }; wrap.appendChild(b); }
+      });
+      const note = m.querySelector("#authForm .smallprint");
+      if(note) note.outerHTML = `<div class="au-note"><i>${SHIELD}</i><span>Tus datos están protegidos y nunca se comparten con terceros no autorizados.</span></div>`;
+      const btn = m.querySelector("#authForm button[type=submit]"); if(btn) btn.classList.add("au-submit");
+      const sw = m.querySelector("#switchAuth"); if(sw && sw.parentElement) sw.parentElement.classList.add("au-switch");
+    }catch(e){}
+    return r;
   };
 })();
 
