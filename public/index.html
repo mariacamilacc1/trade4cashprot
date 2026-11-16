@@ -1495,6 +1495,46 @@ background:linear-gradient(#0a5a42,#0a5a42) padding-box,linear-gradient(120deg,#
 .az-arrow{width:30px;height:30px;border-radius:50%;background:#75e6a5;color:#053b2d;display:grid;place-items:center;font-weight:800;transition:transform .3s}
 .az-eye{animation:t4cBlink 4.5s infinite;transform-origin:24px 24.7px}
 @media(prefers-reduced-motion:reduce){.az-eye{animation:none}}
+
+/* ===== v8 · chat de Zeta ===== */
+.zeta-panel.zp2{width:min(420px,calc(100vw - 24px));height:min(660px,calc(100vh - 110px));border:0;border-radius:30px;background:#f3faf6;box-shadow:0 30px 70px #04241b55,0 0 0 1px #0a7956aa;font-family:var(--f-body)}
+.zp2 .zh{display:flex;align-items:center;gap:12px;padding:14px 14px 14px 16px;background:linear-gradient(125deg,#053b2d,#0b6a4d 70%,#14a373);color:#fff;position:relative;flex:none}
+.zp2 .zh::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:14px;background:#f3faf6;border-radius:18px 18px 0 0}
+.zp2 .zh-3d{width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e8fff3,#8fe3bb);display:grid;place-items:center;flex:none;box-shadow:inset 0 -4px 8px #0a7956aa,0 6px 16px #0004;overflow:hidden}
+.zp2 .zeta-head-avatar{width:54px;height:54px;border:0;background:none;display:grid;place-items:center}
+.zp2 .zeta-head-avatar img{width:30px;height:40px}
+.zp2 .zh-t{flex:1;min-width:0}.zp2 .zh-t strong{display:block;font:800 21px/1.1 var(--f-head);letter-spacing:-.02em}
+.zp2 .zh-t span{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#cdeedd;margin-top:3px}
+.zdot{width:8px;height:8px;border-radius:50%;background:#75e6a5;box-shadow:0 0 0 0 #75e6a5aa;animation:t4cLive 1.8s infinite}
+.zp2 .zh-a{display:flex;gap:2px}.zp2 .zeta-icon-btn{font-size:18px;width:36px;height:36px;border-radius:12px;color:#fff}
+.zbody{padding:6px 14px 10px!important;display:flex!important;flex-direction:column;gap:12px;background:radial-gradient(#d8efe2 1px,transparent 1.4px) 0 0/18px 18px,#f3faf6;place-items:initial!important;overflow-y:auto}
+.zm{display:flex;gap:8px;align-items:flex-end;max-width:100%;animation:zIn .35s cubic-bezier(.2,.8,.2,1) both}
+@keyframes zIn{from{opacity:0;transform:translateY(10px)}}
+.zm.user{justify-content:flex-end}.zm.bot{align-items:flex-start}
+.za{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid #bfe9d2;display:grid;place-items:center;flex:none;margin-top:2px}.za img{width:16px;height:21px;object-fit:contain}
+.zcol{display:grid;gap:8px;min-width:0;max-width:calc(100% - 38px)}
+.zb{position:relative;padding:12px 14px;font-size:14px;line-height:1.5;word-break:break-word}
+.zm.bot .zb{background:#fff;color:#1c352c;border-radius:6px 20px 20px 20px;box-shadow:0 4px 14px #064b3814;border:1px solid #e1efe7}
+.zm.user .zb{background:linear-gradient(135deg,#0a7956,#14a373);color:#fff;border-radius:20px 6px 20px 20px;max-width:85%;box-shadow:0 6px 16px #0a795655}
+.zb p{margin:0 0 6px}.zb p:last-child{margin:0}.zb ul,.zb ol{margin:6px 0;padding-left:20px}.zb li{margin:3px 0}.zm.bot .zb strong{color:#064b38}
+.zgo{margin-top:10px;border:0;background:#e3f6ec;color:#086b4f;font:700 13px var(--f-body);padding:8px 14px;border-radius:99px;cursor:pointer;transition:background .2s}.zgo:hover{background:#75e6a5}
+.zspk{position:absolute;right:8px;bottom:6px;border:0;background:none;cursor:pointer;opacity:.45;font-size:13px}.zspk:hover{opacity:1}
+.zsug{display:flex;flex-wrap:wrap;gap:7px}.zsug small{width:100%;font:700 11px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#4f8a6f}
+.zchip{display:inline-flex;align-items:center;gap:7px;border:1.5px solid #bfe9d2;background:#fff;color:#0a5a42;font:600 13px var(--f-body);padding:8px 13px;border-radius:99px;cursor:pointer;text-align:left;animation:zIn .4s calc(var(--n)*90ms + .15s) both;transition:background .2s,border-color .2s,color .2s}
+.zchip:hover{background:#0a7956;border-color:#0a7956;color:#fff}.zchip span{font-size:15px}
+.zwel{background:#fff;border:1px solid #e1efe7;border-radius:22px;padding:14px;box-shadow:0 4px 14px #064b3814;animation:zIn .4s .1s both}
+.zwel>b{display:block;font:800 15px var(--f-head);color:#064b38;margin-bottom:10px}
+.zcats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.zcats button{display:flex;align-items:center;gap:10px;border:1.5px solid #d6eadf;background:linear-gradient(160deg,#f4fbf7,#fff);color:#0a5a42;font:700 14px var(--f-body);padding:11px 12px;border-radius:16px;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s}
+.zcats button span{width:34px;height:34px;border-radius:11px;background:#e3f6ec;display:grid;place-items:center;font-size:18px}
+.zcats button:hover{transform:translateY(-3px);border-color:#14a373;box-shadow:0 8px 18px #064b3822}
+.ztyping{display:flex!important;gap:5px;align-items:center;padding:14px 16px!important}.ztyping i{width:8px;height:8px;border-radius:50%;background:#14a373;animation:typing 1.3s infinite ease-in-out both}.ztyping i:nth-child(1){animation-delay:-.3s}.ztyping i:nth-child(2){animation-delay:-.15s}
+.zf{padding:10px 14px 12px;background:#fff;border-top:1px solid #e1efe7;flex:none;display:grid;gap:6px}
+.zf .zeta-input-row{gap:8px}.zf .zeta-input-row input{min-height:46px;border-radius:99px;padding:0 18px;font-size:14px;border:2px solid #d6eadf;background:#f6fbf8}.zf .zeta-input-row input:focus{border-color:#14a373;background:#fff;outline:0;box-shadow:0 0 0 4px #75e6a533}
+.zsend{width:46px;height:46px;border-radius:50%;border:0;background:linear-gradient(135deg,#0a7956,#14a373);color:#fff;display:grid;place-items:center;cursor:pointer;flex:none;box-shadow:0 6px 14px #0a795655;transition:transform .2s}.zsend:hover{transform:scale(1.07)}.zsend:disabled{opacity:.5}
+.zf small{text-align:center;font-size:11.5px;color:#6b8a7b}
+@media(max-width:480px){.zeta-panel.zp2{right:8px;bottom:84px;height:calc(100vh - 100px)}}
+@media(prefers-reduced-motion:reduce){.zm,.zchip,.zwel,.zdot{animation:none}}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -6081,7 +6121,7 @@ setTRM = function(record, stale){ _setTRMReb(record, stale); rebaseRates(); };
   // ---------- Montaje: reemplaza las imágenes PNG de Zeta cuando existen ----------
   const TARGETS = [
     { sel: "#zetaFab img.zeta-image", cfg: { w: 60, h: 60, frame: "bust", style: "margin:auto" } },
-    { sel: ".zeta-head-avatar img", cfg: { w: 40, h: 40, frame: "head" } },
+    { sel: ".zeta-head-avatar img", cfg: { w: 54, h: 54, frame: "head" } },
     { sel: ".hist-zeta img", cfg: { w: 200, h: 236, frame: "full", pose: "present", style: "margin:0 auto" } },
     { sel: "#welcome .zeta-welcome-img", cfg: { w: 220, h: 250, frame: "full", style: "margin:0 auto 4px" } }
   ];
@@ -6301,6 +6341,155 @@ document.addEventListener("click", e => {
   try{ navigator.clipboard.writeText(b.dataset.cpcode); }catch(_){}
   const em = b.querySelector("em"); if(em){ em.textContent = "¡Copiado!"; setTimeout(() => em.textContent = "Copiar", 1400); }
 });
+
+// ===== T4C v8 · Chat de Zeta: nuevo diseño, base de conocimiento propia, preguntas sugeridas y alcance limitado =====
+(function(){
+  const norm = x => String(x || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+
+  // Markdown simple y correcto (listas con su propio cierre)
+  formatMarkdown = function(text){
+    const inl = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>").replace(/`([^`]+)`/g, "<code>$1</code>");
+    let html = "", list = "";
+    const close = () => { if(list){ html += "</" + list + ">"; list = ""; } };
+    String(text).split("\n").forEach(raw => {
+      const t = raw.trim();
+      if(/^([•\-]|\*(?!\*))\s/.test(t)){ if(list !== "ul"){ close(); html += "<ul>"; list = "ul"; } html += "<li>" + inl(t.slice(2)) + "</li>"; }
+      else if(/^\d+\.\s/.test(t)){ if(list !== "ol"){ close(); html += "<ol>"; list = "ol"; } html += "<li>" + inl(t.replace(/^\d+\.\s/, "")) + "</li>"; }
+      else { close(); if(t) html += "<p>" + inl(t) + "</p>"; }
+    });
+    close(); return html;
+  };
+
+  // ---------- Temas ----------
+  // id: { ico, q (pregunta del botón), re (palabras clave), a (respuesta), next (sugerencias), go (botón de ir a la sección) }
+  const T = {
+    inicio:{ ico:"👋", q:"¿Qué es Trade4Cash?", re:/que es trade ?4 ?cash|de que (trata|va)|para que sirve|como funciona (la pagina|trade|esto|la plataforma)|quienes son/,
+      a:"**Trade4Cash** es un mercado digital entre personas en Bogotá para cambiar divisas con **tasas justas y a la vista de todos**.\n• Tú publicas o buscas una oferta.\n• Acuerdan por chat y se encuentran en un **punto público**.\n• Trade4Cash **no recibe, guarda ni transfiere tu dinero**.\n• Es solo para mayores de 18 años.", next:["comprar","vender","seguridad"], go:["about","Conocer más"] },
+    comprar:{ ico:"🛒", q:"¿Cómo compro divisas?", re:/comprar|compro|buscar (una )?(oferta|divisa)|filtr(o|ar)|encontrar (una )?(oferta|divisa)/,
+      a:"Para comprar divisas:\n1. Entra a **Comprar** y filtra por divisa, zona o distancia.\n2. Mira en cada oferta la **tasa**, su diferencia frente a la referencia oficial y el **índice de confianza**.\n3. Toca **Contactar**: la oferta se reserva unos 15 minutos mientras negocian por chat.\n4. Acuerden el punto público de encuentro y confirmen el intercambio.", next:["reserva","tasa","encuentro"], go:["buy","Ir a Comprar"] },
+    vender:{ ico:"🏷️", q:"¿Cómo publico mi oferta?", re:/vender|vendo|publicar|publico|crear (una )?oferta|mis publicaciones|nueva oferta/,
+      a:"Para publicar una oferta ve a **Mis publicaciones → Nueva oferta** y completa:\n• La **divisa** y la **cantidad**.\n• Tu **tasa en pesos** (debe estar dentro del límite permitido).\n• Un **punto público de encuentro** y el radio de visibilidad.\n• Los **medios de pago** y la **condición de los billetes**.\nPuedes pausar, editar o cancelar tu publicación cuando quieras.", next:["tasa","billetes","parcial"], go:["sell","Ir a Mis publicaciones"] },
+    tasa:{ ico:"📈", q:"¿Qué límite de tasa tiene una oferta?", re:/limite|banda|tasa (maxima|permitida|justa)|cuanto (puedo|se puede) (cobrar|subir)|15 ?%|desviacion|fuera de (rango|la tasa)|precio (justo|maximo)/,
+      a:"Toda oferta debe estar dentro de **±15 %** de la tasa oficial de referencia (la TRM para el dólar).\n• Dentro del rango: puedes publicar, aceptar y confirmar.\n• Fuera del rango: **no se puede** publicar, aceptar ni confirmar. No hay zona intermedia.\nAsí evitamos precios abusivos y errores al escribir la tasa. Cada oferta muestra su diferencia frente a la referencia.", next:["mercado","comprar","vender"], go:["market","Ver Mercado"] },
+    mercado:{ ico:"📊", q:"¿Qué hay en la sección Mercado?", re:/mercado|trm|cotiza|tasas? de referencia|divisas disponibles|que monedas|morningstar|moneda(s)? (mas )?(activa|buscada)|dolar hoy|euro hoy/,
+      a:"En **Mercado** encuentras:\n• Un **carrusel de divisas** con bandera y tasa (con buscador).\n• La **TRM** de la divisa que elijas, con su fuente (Morningstar).\n• Una **calculadora** para convertir entre monedas.\n• Las **monedas con más actividad** en Trade4Cash.\nSon tasas de referencia indicativas; la tasa final la acuerdan las dos personas dentro del límite permitido.", next:["calc","tasa","comprar"], go:["market","Ver Mercado"] },
+    calc:{ ico:"🧮", q:"¿Cómo uso la calculadora?", re:/calculadora|conversor|convertir|cuanto (son|equivale|valen)|cambiar de moneda/,
+      a:"En **Mercado → Calculadora de divisas**:\n1. Escribe cuánto **tienes** (o usa los atajos 50, 100, 500, 1000).\n2. Elige la moneda de origen y la de destino.\n3. Mira cuánto **recibes aproximadamente**.\nCon el botón ⇄ intercambias las monedas. No incluye comisiones ni es una oferta: es un estimado.", next:["mercado","vender","tasa"], go:["market","Abrir calculadora"] },
+    encuentro:{ ico:"🤝", q:"¿Cómo es un encuentro presencial seguro?", re:/encuentro|presencial|punto (de encuentro|publico)|donde (nos )?(encontr|reun)|lugar (seguro|publico)|codigo de encuentro|en persona/,
+      a:"Un encuentro seguro en Trade4Cash:\n1. Elijan un **punto público** y concurrido.\n2. Verifiquen el **código de encuentro** entre las dos personas.\n3. **Revisen los billetes** antes de cambiar.\n4. Confirmen el intercambio en la app y **califiquen** de 1 a 5 estrellas.\n5. Descarga tu **comprobante en PDF**.\nSi algo no cuadra o piden cambiar a un sitio no público, no sigas y repórtalo.", next:["seguridad","confianza","puntos"], go:["buy","Ver ofertas"] },
+    pagos:{ ico:"💳", q:"¿Cómo funcionan los pagos digitales?", re:/pago|digital|nequi|daviplata|paypal|wise|mercado pago|transferencia|comprobante digital/,
+      a:"Los **pagos digitales** de esta versión son **simulados** para mostrar el flujo:\n• Cada oferta indica los medios que acepta (efectivo, Nequi, DaviPlata, Bancolombia, PayPal, Wise…).\n• El intercambio avanza por pasos de confirmación y genera un ID de operación y un comprobante de demostración.\n• Trade4Cash **no custodia dinero** ni pide claves, PIN o códigos OTP.", next:["comprobante","seguridad","encuentro"] },
+    comprobante:{ ico:"🧾", q:"¿Qué comprobante recibo?", re:/comprobante|recibo|pdf|constancia/,
+      a:"Al confirmar un intercambio puedes descargar un **comprobante en PDF** con los datos de la operación (divisa, monto, tasa, fecha y punto de encuentro). En pagos digitales simulados el comprobante es **de demostración**.", next:["encuentro","puntos","seguridad"] },
+    billetes:{ ico:"💵", q:"¿Qué pasa si los billetes tienen sellos?", re:/sello|marca|anotacion|deterior|billete|estado de (los )?billetes|rotos?|falso/,
+      a:"Al publicar se declara la **condición de los billetes**: sin sellos ni anotaciones, con sellos de casas de cambio, con otras marcas, con deterioro o sin verificar.\n• Los billetes con sellos son normales y en muchos lugares se aceptan, pero conviene **confirmarlo en el destino**.\n• Las dos personas deben **aceptar la condición** antes de encontrarse.\n• En la **Academy** hay un módulo para detectar billetes falsos.", next:["academy","encuentro","vender"] },
+    confianza:{ ico:"🛡️", q:"¿Qué es el índice de confianza?", re:/confianza|reputacion|confiable|verificad|calificacion|estrellas|insignia/,
+      a:"El **índice de confianza** puede ser **Nuevo**, **Confiable** o **Muy confiable**. Depende de:\n• La **verificación de identidad**.\n• Los intercambios confirmados.\n• La rapidez de respuesta.\n• Los reportes recibidos.\n**No depende del monto** que cambies. Lo ves en cada oferta para que compares con calma.", next:["seguridad","puntos","comprar"] },
+    reserva:{ ico:"⏱️", q:"¿Qué pasa cuando contacto una oferta?", re:/reserv|contactar|cuanto tiempo|15 minutos|bloquea/,
+      a:"Al **contactar** una oferta queda **reservada unos 15 minutos** mientras negocian por el chat, para que nadie más la tome. Si no acuerdan, la oferta vuelve a quedar disponible.", next:["parcial","encuentro","comprar"] },
+    parcial:{ ico:"✂️", q:"¿Puedo cambiar solo una parte de la oferta?", re:/parcial|solo una parte|menos cantidad|otra cantidad|parte de la oferta|fraccion/,
+      a:"Sí. En el chat pueden acordar cambiar **solo una parte** de la oferta. Vale únicamente si **las dos personas confirman**, y lo que sobra **sigue publicado** para otras personas.", next:["reserva","tasa","encuentro"] },
+    puntos:{ ico:"⭐", q:"¿Qué son los Trade Points?", re:/punto(s)?\b|trade ?points|nivel|plata|oro|ganar mas|vencen|vencimiento|lote/,
+      a:"Los **Trade Points** se ganan por **confiar y cuidar la comunidad**, no por el monto que cambies. La pestaña se desbloquea con tu **primer intercambio confirmado**.\n• Verificar tu identidad: +100\n• Intercambio presencial: +50\n• Intercambio digital: +20\n• Calificar: +5\n• Módulo de Academy: +10\n• Invitar a un amigo: +60\nLos de intercambios quedan **en espera 48–72 h**, vencen al año y **no se compran ni se transfieren**.", next:["canje","academy","confianza"], go:["points","Ver mis puntos"] },
+    canje:{ ico:"🎁", q:"¿Qué puedo canjear con mis puntos?", re:/canje|canjear|beneficio|redimir|recompensa|descuento/,
+      a:"Con tus puntos puedes canjear:\n• **Premium**: descuento del 20 %, 1 o 3 meses.\n• **Alianzas**: agencia de viaje, SIM o eSIM, transferencias internacionales y hostales.\n• **Visibilidad**: destacar tu oferta por 24 horas.\nCada beneficio muestra su costo y cuánto te falta. Los de alianzas son **de demostración** en este prototipo.", next:["puntos","alianzas","premium"], go:["points","Ir a Canjear"] },
+    academy:{ ico:"🎓", q:"¿Qué es la Academy?", re:/academy|academia|modulo|aprender|curso|educacion financiera|tutorial/,
+      a:"La **Trade4Cash Academy** son módulos interactivos en **Inicio** para cambiar divisas con confianza: qué es una divisa, la tasa de referencia, cómo funciona un intercambio, billetes falsos y señales de alerta.\nHay además un módulo exclusivo según tu **uso principal** (estudio, viaje, negocio o familia), enfocado en ahorrar. Cada módulo completado suma puntos.", next:["puntos","billetes","seguridad"], go:["home","Ir a la Academy"] },
+    premium:{ ico:"💎", q:"¿Qué incluye Premium?", re:/premium|plan(es)?\b|suscripcion|membresia|mensualidad/,
+      a:"Hay dos planes en **Premium**:\n• **Premium** ($11.56 / mes): más publicaciones al mes, filtros por reputación y distancia, mayor visibilidad e insignia de Usuario Verificado Plus.\n• **Premium Plus** ($19.99 / mes): publicaciones ilimitadas, prioridad en la búsqueda, alertas de emparejamiento, mayor radio e insignia Gold.\nNo cambian las reglas de seguridad ni la tasa permitida. Es una simulación académica: no se cobra nada.", next:["canje","puntos","vender"], go:["premium","Ver planes"] },
+    alianzas:{ ico:"🤝", q:"¿Qué son las alianzas?", re:/alianz|aliad|aviatur|avianca|icetex|externado|claro|tigo|movistar|bancolombia|davivienda|hostal|hi hostels|agencia de viaje|esim|sim\b/,
+      a:"Las **Alianzas** son empresas con las que queremos que viajar, estudiar y cambiar divisas sea más fácil: agencias de viaje, aerolíneas, ICETEX, la Universidad Externado, operadores móviles, bancos y hostales.\nPor ahora son **propuestas, no acuerdos firmados**. Se activan así: conversamos, firmamos por escrito y publicamos el beneficio con su nombre.", next:["canje","puntos","premium"], go:["aliados","Ver Alianzas"] },
+    datos:{ ico:"📜", q:"¿Cómo protegen mis datos?", re:/dato(s)? personales|privacidad|habeas|ley 1581|tratamiento|politica de datos|derechos del titular|suprimir|reclamo/,
+      a:"Trade4Cash S.A.S. trata tus datos según la **Ley 1581 de 2012** (Hábeas Data).\n• Puedes **conocer, actualizar, rectificar y suprimir** tus datos o revocar la autorización.\n• Pedimos datos de verificación solo para **prevenir fraude**, con tu consentimiento.\n• El servicio es solo para **mayores de 18 años**.\nLa política completa está en **Privacidad**, en el pie de página.", next:["contacto","seguridad","inicio"] },
+    contacto:{ ico:"✉️", q:"¿Cómo contacto a Trade4Cash?", re:/contacto|contactar a trade|correo|telefono|llamar|escribir|soporte|atencion al cliente|pqr/,
+      a:"Puedes escribir a **trade4cash.atencioncliente@gmail.com** o llamar al **318 464 1985**. Para consultas sobre datos personales respondemos en **10 días hábiles**, y los reclamos en **15 días hábiles**.", next:["datos","seguridad","inicio"] },
+    seguridad:{ ico:"🔒", q:"¿Cómo evito estafas?", re:/estaf|segur|fraude|riesgo|confiar|peligro|robo|engan|cuidado|alerta/,
+      a:"Para cambiar con seguridad:\n• Quédate en **puntos públicos** y concurridos.\n• **No pagues por adelantado** ni cambies a sitios no públicos.\n• **Revisa los billetes** antes de entregar los tuyos.\n• Nunca compartas **claves, PIN, códigos OTP ni documentos**.\n• Compara la tasa con la referencia y mira el **índice de confianza**.\n• Si algo te incomoda, **no sigas y repórtalo**.", next:["encuentro","confianza","billetes"] },
+    persona:{ ico:"🙋", q:"¿Con quién debería cambiar?", re:/^$/,
+      a:"No recomiendo personas ni ofertas específicas: **la decisión es tuya**. Lo que sí puedo es explicarte cómo comparar con criterio:\n• La **diferencia de la tasa** frente a la referencia.\n• El **índice de confianza** de la persona.\n• El **punto de encuentro** y la condición de los billetes.", next:["confianza","tasa","seguridad"] },
+    fuera:{ ico:"💬", q:"", re:/^$/,
+      a:"Esa pregunta se sale de lo que sé: **solo puedo ayudarte con Trade4Cash**. Puedo contarte cómo comprar o vender, la tasa permitida, el Mercado, los Trade Points, la Academy o cómo cuidar tus datos. ¿Por dónde empezamos?", next:["comprar","vender","puntos"] },
+    gracias:{ ico:"😊", q:"", re:/^$/, a:"¡Con gusto! Si quieres, seguimos explorando Trade4Cash.", next:["comprar","puntos","seguridad"] }
+  };
+  const ORDER = ["persona_","encuentro","comprobante","pagos","parcial","reserva","calc","canje","puntos","premium","alianzas","academy","billetes","tasa","mercado","contacto","datos","confianza","seguridad","vender","comprar","inicio"];
+  const PERSONA = /(con quien (cambio|compro|vendo|debo|deberia|me conviene)|a quien (le )?(compro|vendo|cambio)|quien (me )?(recomiendas?|conviene)|recomiend(ame|a|as) (a )?(alguien|un (vendedor|comprador|usuario)|una persona)|mejor (vendedor|comprador|usuario|persona|oferta)|quien es (el mas )?(confiable|de fiar|mejor)|elige(me)? (una|un) (oferta|vendedor|comprador)|cual (oferta|vendedor|comprador) (elijo|escojo|me conviene|es mejor))/;
+  function match(q){
+    for(const id of ORDER){ const t = T[id]; if(t && t.re.test(q)) return id; }
+    return null;
+  }
+  const out = id => ({ text: T[id].a, topic: id, go: T[id].go });
+  const CATS = [["comprar","🛒","Comprar"],["vender","🏷️","Vender"],["mercado","📊","Mercado"],["seguridad","🔒","Seguridad"],["puntos","⭐","Puntos"],["academy","🎓","Academy"],["alianzas","🤝","Alianzas"],["datos","📜","Mis datos"]];
+
+  async function decide(prompt){
+    const q = norm(prompt).replace(/[¿?¡!.,]/g, " ").replace(/\s+/g, " ").trim();
+    if(PERSONA.test(q)) return out("persona");
+    const id = match(q);
+    if(id) return out(id);
+    if(q.length < 30 && /^(hola|holi|buenas|buenos dias|buenas tardes|buenas noches|hey|que mas|saludos)/.test(q)) return { text:"¡Hola! Soy **Zeta** 👋 Te cuento todo sobre **Trade4Cash**. ¿Qué quieres saber?", topic:"inicio" };
+    if(q.length < 40 && /(gracias|listo|perfecto|vale|ok|entendido|genial)/.test(q)) return out("gracias");
+    const srv = await zetaServerAnswer(prompt);
+    if(srv) return { text: srv, topic: null };
+    return out("fuera");
+  }
+
+  sendZetaMessage = async function(text){
+    const prompt = String(text || "").trim();
+    if(!prompt || state.zetaLoading) return;
+    state.zetaMessages.push({ role:"user", text:prompt });
+    state.zetaLoading = true; drawZeta();
+    const t0 = Date.now(); let res;
+    try{ res = await decide(prompt); }catch(e){ res = out("fuera"); }
+    const wait = 750 - (Date.now() - t0); if(wait > 0) await new Promise(r => setTimeout(r, wait));
+    state.zetaMessages.push({ role:"model", text:res.text, topic:res.topic, go:res.go });
+    state.zetaLoading = false; drawZeta();
+  };
+  localZetaAnswer = q => { const id = match(norm(q)) || "fuera"; return T[id].a; };
+
+  const HELLO = "¡Hola! Soy **Zeta**, la asistente de **Trade4Cash**. Te ayudo con todo lo que hay en la página: comprar y vender, tasas, Mercado, puntos, Academy y tus datos. ¿Qué quieres saber?";
+  state.zetaMessages = [{ role:"model", text:HELLO, topic:"inicio" }];
+  window.addEventListener("click", ev => {
+    if(!ev.target.closest || !ev.target.closest("#zetaClearBtn")) return;
+    ev.stopImmediatePropagation();
+    state.zetaMessages = [{ role:"model", text:"Listo, empezamos de nuevo. ¿Qué quieres saber de **Trade4Cash**?", topic:"inicio" }]; drawZeta();
+  }, true);
+
+  // ---------- Diseño del panel ----------
+  const HEAD = `<span class="zh-3d"><span class="zeta-head-avatar"><img src="zeta-robot.png" alt="Zeta"></span></span>`;
+  drawZeta = function(){
+    document.getElementById("zetaPanel")?.remove();
+    if(!state.zetaOpen) return;
+    const M = state.zetaMessages, last = M.length - 1;
+    const p = document.createElement("section");
+    p.id = "zetaPanel"; p.className = "zeta-panel zp2"; p.setAttribute("role", "dialog"); p.setAttribute("aria-label", "Zeta, asistente de Trade4Cash");
+    const bubble = (m, i) => {
+      if(m.role === "user") return `<div class="zm user"><div class="zb">${formatMarkdown(m.text)}</div></div>`;
+      const isLast = i === last && !state.zetaLoading;
+      const nx = isLast && m.topic && T[m.topic] ? T[m.topic].next : (isLast ? ["comprar", "puntos", "seguridad"] : []);
+      return `<div class="zm bot"><span class="za"><img src="zeta-robot.png" alt=""></span><div class="zcol"><div class="zb">${formatMarkdown(m.text)}
+        ${m.go ? `<button type="button" class="zgo" data-page="${m.go[0]}">${m.go[1]} →</button>` : ""}
+        <button type="button" class="zspk" data-speak-idx="${i}" title="Escuchar" aria-label="Escuchar respuesta">🔊</button></div>
+        ${nx.length ? `<div class="zsug"><small>Sigue explorando</small>${nx.filter(k => T[k] && T[k].q).map((k, n) => `<button type="button" class="zchip" style="--n:${n}" data-zeta-query="${T[k].q}"><span>${T[k].ico}</span>${T[k].q}</button>`).join("")}</div>` : ""}</div></div>`;
+    };
+    const welcome = M.length <= 1 && !state.zetaLoading ? `<div class="zwel"><b>Elige un tema</b><div class="zcats">${CATS.map(c => `<button type="button" data-zeta-query="${T[c[0]].q}"><span>${c[1]}</span>${c[2]}</button>`).join("")}</div></div>` : "";
+    p.innerHTML = `
+      <header class="zh">
+        ${HEAD}
+        <div class="zh-t"><strong>Zeta</strong><span><i class="zdot"></i>En línea · Te ayudo con Trade4Cash</span></div>
+        <div class="zh-a"><button class="zeta-icon-btn" id="zetaClearBtn" title="Nueva conversación" aria-label="Nueva conversación">↺</button><button class="zeta-icon-btn" id="zetaCloseBtn" title="Cerrar" aria-label="Cerrar">✕</button></div>
+      </header>
+      <div class="zeta-chat-body zbody" id="zetaChatBody">
+        ${M.map((m, i) => i === 0 && M.length <= 1 ? `<div class="zm bot"><span class="za"><img src="zeta-robot.png" alt=""></span><div class="zcol"><div class="zb">${formatMarkdown(m.text)}</div></div></div>${welcome}` : bubble(m, i)).join("")}
+        ${state.zetaLoading ? `<div class="zm bot"><span class="za"><img src="zeta-robot.png" alt=""></span><div class="zb ztyping"><i></i><i></i><i></i></div></div>` : ""}
+      </div>
+      <footer class="zf">
+        <form class="zeta-input-row" id="zetaChatForm"><input class="field" id="zetaChatInput" placeholder="Escribe tu pregunta sobre Trade4Cash…" autocomplete="off" maxlength="300"><button class="zsend" id="zetaSendBtn" type="submit" title="Enviar" aria-label="Enviar" ${state.zetaLoading ? "disabled" : ""}><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></form>
+        <small>Zeta solo responde sobre Trade4Cash y no recomienda personas.</small>
+      </footer>`;
+    layers.appendChild(p); scrollZetaChat();
+    if(!state.zetaLoading && M.length > 1) setTimeout(() => { try{ document.getElementById("zetaChatInput")?.focus({ preventScroll:true }); }catch(e){} }, 60);
+  };
+  if(state.zetaOpen) drawZeta();
+})();
 
 
 // ===== T4C v4.3 · COMPROBANTE EN PDF (sin librerías: funciona sin internet) =====
