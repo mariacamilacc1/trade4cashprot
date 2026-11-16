@@ -1783,6 +1783,59 @@ background:linear-gradient(#0a5a42,#0a5a42) padding-box,linear-gradient(120deg,#
 .auth2 .au-switch .linkbtn{font:800 14px var(--f-body);color:var(--green);text-decoration:underline;text-underline-offset:3px}
 .auth2 .form-check{background:#f6fbf8;border:1px solid #dcefe3;border-radius:14px;padding:12px;font-size:12.5px;line-height:1.5}
 .ally-logo.davivienda img{max-height:38px;mix-blend-mode:normal}
+
+/* ===== v12 · pop-up de uso principal ===== */
+.modal.uso2{max-width:560px;padding:0;overflow:hidden;border-radius:26px}
+.uso2 .modal-head{display:none}
+.uso2 .modal-body{padding:0}
+.uso-head{display:flex;gap:14px;align-items:flex-start;padding:24px 24px 20px;background:radial-gradient(400px 200px at 90% 0,#27c98a55,transparent 60%),linear-gradient(120deg,#064b38,#0e8a62);color:#fff;position:relative}
+.uso-badge{width:54px;height:54px;border-radius:17px;background:#ffffff26;border:1px solid #ffffff40;display:grid;place-items:center;flex:none}
+.uso-badge svg{width:28px;height:28px}
+.uso-kick{font:700 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:#cdeedd}.uso-kick b{color:#75e6a5}
+.uso-head h2{margin:3px 0 5px;font:800 24px/1.15 var(--f-head);color:#fff;letter-spacing:-.02em;padding-right:34px}
+.uso-head p{margin:0;font:500 15px var(--f-body);color:#d6f3e4}
+.uso-head .xbtn{position:absolute;top:14px;right:14px;background:#ffffff22;color:#fff;border:0}
+.uso-body{padding:20px 22px 22px}
+.uso-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.uso-opt{position:relative;display:flex;align-items:center;gap:12px;text-align:left;padding:13px 40px 13px 13px;border:2px solid #d7eadf;border-radius:16px;background:#fff;cursor:pointer;font-family:inherit;transition:border-color .2s,background .2s,transform .2s,box-shadow .2s}
+.uso-opt.wide{grid-column:1/-1}
+.uso-opt:hover{border-color:#8fd6b2;transform:translateY(-2px)}
+.uso-ic{width:46px;height:46px;border-radius:14px;background:#e2f7ec;color:#0a7956;display:grid;place-items:center;flex:none;transition:background .2s,color .2s}
+.uso-tx{display:grid;gap:2px;min-width:0}.uso-tx b{font:800 15.5px var(--f-head);color:var(--deep)}.uso-tx small{font:500 12.5px/1.3 var(--f-body);color:var(--muted)}
+.uso-ck{position:absolute;right:12px;top:50%;transform:translateY(-50%) scale(.6);width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;opacity:0;transition:.2s;font-style:normal}
+.uso-opt.on{border-color:var(--green);background:#effaf3;box-shadow:0 8px 20px #19b58a26}
+.uso-opt.on .uso-ic{background:var(--green);color:#fff}
+.uso-opt.on .uso-ck{opacity:1;transform:translateY(-50%) scale(1)}
+.uso-note{display:flex;gap:10px;align-items:center;background:#eef9f3;border:1px solid #d3eede;border-radius:14px;padding:10px 12px;font:500 12.5px/1.4 var(--f-body);color:#3f6453;margin-bottom:14px}
+.uso-note i{width:30px;height:30px;border-radius:10px;background:#d6f2e3;color:#0a7956;display:grid;place-items:center;flex:none}
+.uso-go{min-height:52px;border-radius:16px;font:800 17px var(--f-head)}
+.uso-skip{display:block;margin:10px auto 0;background:none;border:0;color:var(--muted);font:600 13.5px var(--f-body);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:520px){.uso-grid{grid-template-columns:1fr}.uso-head h2{font-size:21px}}
+/* ===== v12 · adaptación a celular y tablet ===== */
+@media(max-width:1000px){
+  .topbar{height:64px;padding:0 16px!important}
+  .menu-btn{display:block}
+  .nav{display:none;position:absolute;top:64px;left:0;right:0;background:#064b38;padding:10px 14px 16px;box-shadow:0 12px 20px #04241b30;flex-direction:column;align-items:stretch;gap:3px;max-height:calc(100vh - 64px);overflow:auto}
+  .nav.open{display:flex}
+  .nav button{text-align:left;padding:13px 14px!important;font-size:16px!important}
+}
+@media(max-width:760px){
+  .pts-stars{inset:auto 0 auto auto;width:45%;height:100%;opacity:.55}
+  .pts-stars i:nth-child(n+3){display:none}.pts-stars i{font-size:34px!important}
+  .pts-banner{padding:28px 20px!important}
+  .zeta-fab{width:60px!important;height:60px!important;right:14px!important;bottom:14px!important}
+  .hero-v5 .actions{display:grid!important;grid-template-columns:1fr 1fr;gap:10px}.hero-v5 .actions .ask-zeta{grid-column:1/-1}
+  .hero-v5 .actions .btn{width:100%;padding-left:8px;padding-right:8px}
+  .chat-top{flex-wrap:wrap;padding:16px 16px!important;gap:10px 12px!important}
+  .chat-top>div:nth-child(2){flex:1;min-width:0}
+  .chat-top>div:last-child{margin-left:0!important;width:100%;display:flex;flex-wrap:wrap;gap:8px!important;align-items:center}
+  .chat-top h2{font-size:19px!important}
+  .container{overflow-x:clip}
+  .info-card.t4c-rv{max-width:100%}
+}
+@media(max-width:380px){.nav button{font-size:15px!important}.hero h1,.hero-v5 h1{font-size:34px!important}.big-top{flex-wrap:wrap}}
+.modal.auth2,.modal.uso2{max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:520px){.overlay{padding:12px!important;align-items:center}.modal.auth2,.modal.uso2{border-radius:22px}}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -7002,6 +7055,62 @@ document.addEventListener("click", e => {
     }catch(e){}
     return r;
   };
+})();
+
+// ===== T4C v12 · Pop-up de "uso principal": solo al registrarse, más bonito; por defecto Estudio =====
+(function(){
+  const S = p => `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+  const ART = {
+    estudio: S('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/>'),
+    viaje:   S('<path d="M10.5 13.5L3 11l1.5-1.5 8 .5 5-5a2 2 0 0 1 3 3l-5 5 .5 8L14.5 21l-2.5-7.5z"/>'),
+    negocio: S('<rect x="3" y="8" width="18" height="12" rx="2.5"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>'),
+    familia: S('<circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20c.5-4.5 10.5-4.5 11 0M14 20c.4-3.2 7-3.2 7.5 0"/>'),
+    explorar:S('<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>')
+  };
+  const CAP = S('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/>');
+  const LOCK = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>`;
+
+  // Por defecto: Estudio (para mostrar la página)
+  const _get = getUsage;
+  getUsage = function(){ return _get() || "estudio"; };
+  usageLabel = function(){ const x = USAGES.find(y => y.id === getUsage()); return x ? x.t : "Estudio"; };
+
+  // Solo se pregunta cuando la persona se registra
+  document.addEventListener("submit", ev => {
+    if(ev.target && ev.target.id === "authForm") window.T4C_SIGNUP = (state.modal === "signup");
+  }, true);
+  maybeAskUsage = function(){
+    if(!window.T4C_SIGNUP) return;
+    window.T4C_SIGNUP = false;
+    setTimeout(() => { layers.querySelector(".coach")?.remove(); showUsageModal(); }, 700);
+  };
+
+  showUsageModal = function(){
+    const cur = getUsage();
+    modal("", `
+      <div class="uso-head">
+        <div class="uso-badge">${CAP}</div>
+        <div><span class="uso-kick">Trade4<b>Cash</b></span><h2>¡Gracias por unirte a Trade4Cash!</h2><p>¿Cuál será el uso principal que le vas a dar?</p></div>
+        <button class="xbtn" data-usage-skip aria-label="Cerrar">×</button>
+      </div>
+      <div class="uso-body">
+        <div class="uso-grid">${USAGES.map(u => `<button type="button" class="uso-opt ${u.id === "explorar" ? "wide" : ""} ${cur === u.id ? "on" : ""}" data-uso="${u.id}">
+          <i class="uso-ic">${ART[u.id]}</i><span class="uso-tx"><b>${u.t}</b><small>${u.d}</small></span><em class="uso-ck"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></em></button>`).join("")}</div>
+        <div class="uso-note"><i>${LOCK}</i><span>Solo lo ves tú. Nos ayuda a mostrarte contenido útil en la Academy.</span></div>
+        <button class="btn green block uso-go" type="button" data-uso-go>Continuar</button>
+        <button class="uso-skip" type="button" data-usage-skip>Omitir por ahora</button>
+      </div>`, false);
+    const m = layers.querySelector(".modal"); if(m) m.classList.add("uso2");
+  };
+
+  document.addEventListener("click", ev => {
+    const o = ev.target.closest && ev.target.closest("[data-uso]");
+    if(o){ o.closest(".uso-grid").querySelectorAll(".uso-opt").forEach(b => b.classList.toggle("on", b === o)); return; }
+    if(ev.target.closest && ev.target.closest("[data-uso-go]")){
+      const sel = layers.querySelector(".uso-opt.on"); setUsage(sel ? sel.dataset.uso : "estudio");
+      closeUsageModal(); toast("Listo. Ajustamos la Academy para ti."); return;
+    }
+  }, true);
 })();
 
 
